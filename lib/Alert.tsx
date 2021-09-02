@@ -10,7 +10,7 @@
 
 // Props && States
 
-	interface iPropsAlert extends iPropsNode {
+	export interface iPropsAlert extends iPropsNode {
 		"variant"?: tVariant;
 		"onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 	};

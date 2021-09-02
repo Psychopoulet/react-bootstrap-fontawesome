@@ -10,7 +10,7 @@
 
 // Props && States
 
-	interface iMaxHeightContentProps extends iPropsNode {
+	export interface iPropsMaxHeightContent extends iPropsNode {
 		"heightPX"?: number;
 		"maxHeightPX"?: number;
 	};
@@ -23,7 +23,7 @@
 
 // component
 
-export default class MaxHeightContent extends React.PureComponent<iMaxHeightContentProps> {
+export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeightContent> {
 
 	// name
 
