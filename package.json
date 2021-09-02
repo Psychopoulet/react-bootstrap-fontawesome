@@ -1,0 +1,32 @@
+{
+  "name": "react-bootstrap-fontawesome",
+  "version": "1.4.2",
+  "description": "A TS framework for React, Bootstrap & FontAwesome",
+  "main": "lib/main.ts",
+  "typings": "lib/main.ts",
+  "scripts": {},
+  "files": [
+    "/lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Psychopoulet/react-bootstrap-fontawesome.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "bootstrap",
+    "typescript"
+  ],
+  "author": "Sébastien VIDAL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Psychopoulet/react-bootstrap-fontawesome/issues"
+  },
+  "dependencies": {},
+  "devDependencies": { },
+  "homepage": "https://github.com/Psychopoulet/react-bootstrap-fontawesome#readme",
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
