@@ -53,7 +53,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 				(this.props.className ? " " + this.props.className : "") +
 				(disabled ? " disabled" : "") +
 				(!valid ? " is-invalid" : "")
-			}
+			} style={ this.props.style }
 			disabled={ disabled } aria-disabled={ disabled }
 
 			title={ this.props.label } aria-label={ this.props.label }
@@ -101,7 +101,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 		return <div className={
 			"mb-3" +
 			(this.props.className ? " " + this.props.className : "")
-		}>
+		} style={ this.props.style }>
 
 			<label htmlFor={ this.props.id } className={
 				disabled

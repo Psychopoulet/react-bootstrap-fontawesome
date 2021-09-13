@@ -24,7 +24,11 @@
     "url": "https://github.com/Psychopoulet/react-bootstrap-fontawesome/issues"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "16.9.1",
+    "@types/react": "17.0.20",
+    "@types/react-dom": "17.0.9"
+  },
   "homepage": "https://github.com/Psychopoulet/react-bootstrap-fontawesome#readme",
   "engines": {
     "node": ">=10.0.0"

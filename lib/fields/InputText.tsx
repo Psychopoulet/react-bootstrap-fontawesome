@@ -186,7 +186,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 		return <div className={
 			"mb-3" +
 			(this.props.className ? " " + this.props.className : "")
-		}>
+		} style={ this.props.style }>
 
 			<label htmlFor={ this.props.id } className={
 				disabled

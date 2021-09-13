@@ -181,7 +181,7 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 		return <div className={
 			"mb-3" +
 			(this.props.className ? " " + this.props.className : "")
-		}>
+		} style={ this.props.style }>
 
 			<label htmlFor={ this.props.id } className={
 				disabled

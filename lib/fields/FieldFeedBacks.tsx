@@ -5,18 +5,21 @@
 	// externals
 	import * as React from "react";
 
+	// externals
+	import { iPropsNode } from "../types";
+
 // Props && States
 
-	interface iPropsInvalidFeedBack {
+	interface iPropsInvalidFeedBack extends iPropsNode {
 		"alert": string;
 	};
 
-	interface iPropsInvalidFeedBackMin {
+	interface iPropsInvalidFeedBackMin extends iPropsNode {
 		"min": number;
 		"current": number;
 	};
 
-	interface iPropsInvalidFeedBackMax {
+	interface iPropsInvalidFeedBackMax extends iPropsNode {
 		"max": number;
 		"current": number;
 	};
@@ -33,7 +36,7 @@ export class InvalidFeedBack extends React.PureComponent<iPropsInvalidFeedBack> 
 
 	public render (): JSX.Element {
 
-		return <small className="form-text text-danger">
+		return <small id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
 			{ this.props.alert }
 		</small>;
 
@@ -41,7 +44,7 @@ export class InvalidFeedBack extends React.PureComponent<iPropsInvalidFeedBack> 
 
 };
 
-export class InvalidFeedBackRequired extends React.PureComponent {
+export class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
 
 	// name
 
@@ -51,7 +54,7 @@ export class InvalidFeedBackRequired extends React.PureComponent {
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content required"
 		} />;
 
@@ -59,7 +62,7 @@ export class InvalidFeedBackRequired extends React.PureComponent {
 
 };
 
-export class InvalidFeedBackInteger extends React.PureComponent {
+export class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
 
 	// name
 
@@ -69,7 +72,7 @@ export class InvalidFeedBackInteger extends React.PureComponent {
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content must be an integer"
 		} />;
 
@@ -87,7 +90,7 @@ export class InvalidFeedBackMin extends React.PureComponent<iPropsInvalidFeedBac
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")"
 		} />;
 
@@ -105,7 +108,7 @@ export class InvalidFeedBackMax extends React.PureComponent<iPropsInvalidFeedBac
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")"
 		} />;
 
@@ -123,7 +126,7 @@ export class InvalidFeedBackMinLength extends React.PureComponent<iPropsInvalidF
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content length must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")"
 		} />;
 
@@ -141,7 +144,7 @@ export class InvalidFeedBackMaxLength extends React.PureComponent<iPropsInvalidF
 
 	public render (): JSX.Element {
 
-		return <InvalidFeedBack alert={
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
 			"Content length must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")"
 		} />;
 

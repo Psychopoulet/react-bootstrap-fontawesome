@@ -90,7 +90,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 				(this.props.className ? " " + this.props.className : "") +
 				(disabled ? " disabled" : "") +
 				(!valid ? " is-invalid" : "")
-			} rows={ this.props.rows }
+			} rows={ this.props.rows } style={ this.props.style }
 			disabled={ disabled } aria-disabled={ disabled }
 
 			placeholder={ this.props.placeholder }
@@ -131,7 +131,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 		return <div className={
 			"mb-3" +
 			(this.props.className ? " " + this.props.className : "")
-		}>
+		} style={ this.props.style }>
 
 			<label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
 				{ this.props.label }

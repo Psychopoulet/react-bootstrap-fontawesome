@@ -103,7 +103,7 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
 			"mb-3" +
 			(this.props.className ? " " + this.props.className : "") +
 			(disabled ? " text-muted" : "")
-		}>
+		} style={ this.props.style }>
 
 			<div className="form-check">
 

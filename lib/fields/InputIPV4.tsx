@@ -85,7 +85,7 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
 			_ref={ this.props._ref }
 
-			className={ this.props.className }
+			className={ this.props.className } style={ this.props.style }
 			disabled={ this.props.disabled } required={ required }
 
 			placeholder={ this.props.placeholder }
