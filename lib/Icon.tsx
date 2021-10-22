@@ -23,16 +23,22 @@
 // types & interfaces
 
 	export type tICon =
+	| "android" | "apple" | "linux" | "windows"
 	| "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
 	| "play" | "pause" | "stop"
 	| "amazon" | "angular" | "asterisk" | "ban"
-	| "check" | "circle" | "cog" | "credit-card" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "linux" | "lock" | "microchip"
+	| "check" | "circle" | "cog" | "credit-card" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
 	| "plug" | "plus" | "power" | "print"
-	| "question" | "react" | "save" | "sync" | "times" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi" | "windows";
+	| "question" | "react" | "save" | "sync" | "times" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
 
 // consts
 
 	const ICONS = {
+
+		"android": "fab fa-android",
+		"apple": "fab fa-apple",
+		"linux": "fab fa-linux",
+		"windows": "fab fa-windows",
 
 		"battery-empty": "fas fa-battery-empty",
 		"battery-quarter": "fas fa-battery-quarter",
@@ -58,7 +64,6 @@
 		"headset": "fas fa-headset",
 		"hdd": "fas fa-hdd",
 		"lightbulb": "far fa-lightbulb",
-		"linux": "fab fa-linux",
 		"lock": "fas fa-lock",
 		"gamepad": "fas fa-gamepad",
 		"google": "fab fa-google",
@@ -78,8 +83,7 @@
 		"usb": "fab fa-usb",
 		"user": "fas fa-user",
 		"volume-up": "fas fa-volume-up",
-		"wifi": "fas fa-wifi",
-		"windows": "fab fa-windows"
+		"wifi": "fas fa-wifi"
 	};
 
 // component
