@@ -3,7 +3,7 @@
 export interface iPropsNode {
 	"id"?: string;
 	"className"?: string;
-	"style"?: object;
+	"style"?: { [key: string]: string };
 };
 
 	export interface iPropsField extends iPropsNode {

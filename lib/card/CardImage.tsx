@@ -13,6 +13,7 @@
 	interface iPropsImage extends iPropsNode {
 		"position"?: "top" | "bottom";
 		"src": string;
+		"onClick"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
 	};
 
 // component
@@ -30,7 +31,22 @@ export default class CardImage extends React.PureComponent<iPropsImage> {
 		let className: string = this.props.position ? "card-img-" + this.props.position : "card-img-top";
 		className += this.props.className ? " " + this.props.className : "";
 
-		return <img id={ this.props.id } className={ className } src={ this.props.src } style={ this.props.style } />;
+		let style: { [key: string]: string } = this.props.style ? this.props.style : null;
+
+		if ("function" === typeof this.props.onClick) {
+
+			if (!style) {
+				style = {};
+			}
+
+			style.cursor = "pointer";
+
+		}
+
+		return <img id={ this.props.id } src={ this.props.src }
+			className={ className } style={ style }
+			onClick={ this.props.onClick }
+		/>;
 
 	}
 
