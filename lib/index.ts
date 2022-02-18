@@ -18,6 +18,7 @@
 	import Card from "./card/Card";
 	import CardHeader from "./card/CardHeader";
 	import CardHeaderNav from "./card/CardHeaderNav";
+	import CardImage from "./card/CardImage";
 	import CardBody from "./card/CardBody";
 	import CardList from "./card/CardList";
 	import CardTable from "./card/CardTable";
@@ -72,7 +73,7 @@ export {
 
 	Alert, Badge, Button, ButtonGroup, Icon, MaxHeightContent,
 
-	Card, CardHeader, CardHeaderNav, CardBody, CardList, CardTable, CardFooter,
+	Card, CardHeader, CardHeaderNav, CardImage, CardBody, CardList, CardTable, CardFooter,
 
 	List, ListItem, ListItemHeader,
 

@@ -11,6 +11,7 @@
 	import MaxHeightContent from "../MaxHeightContent";
 	import CardHeader from "./CardHeader";
 	import CardHeaderNav from "./CardHeaderNav";
+	import CardImage from "./CardImage";
 	import CardBody from "./CardBody";
 	import CardList from "./CardList";
 	import CardTable from "./CardTable";
@@ -62,7 +63,8 @@ export default class Card extends React.PureComponent<iPropsCard> {
 								|| CardBody === child.type
 								|| CardFooter === child.type
 								|| CardList === child.type
-								|| CardTable === child.type;
+								|| CardTable === child.type
+								|| CardImage === child.type;
 
 						})
 					}
