@@ -12,6 +12,7 @@
 
 	interface iPropsImage extends iPropsNode {
 		"position"?: "top" | "bottom";
+		"src": string;
 	};
 
 // component
@@ -29,7 +30,7 @@ export default class CardImage extends React.PureComponent<iPropsImage> {
 		let className: string = this.props.position ? "card-img-" + this.props.position : "card-img-top";
 		className += this.props.className ? " " + this.props.className : "";
 
-		return <img id={ this.props.id } className={ className } style={ this.props.style } />;
+		return <img id={ this.props.id } className={ className } src={ this.props.src } style={ this.props.style } />;
 
 	}
 
