@@ -14,7 +14,7 @@ export default class CardTable extends React.PureComponent<iPropsTable> {
 
 	// name
 
-	public static displayName: string = "CardList";
+	public static displayName: string = "CardTable";
 
 	// render
 
