@@ -14,6 +14,8 @@
 		"position"?: "top" | "bottom";
 		"src": string;
 		"onClick"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
+		"height"?: number;
+		"width"?: number;
 	};
 
 // component
@@ -43,7 +45,7 @@ export default class CardImage extends React.PureComponent<iPropsImage> {
 
 		}
 
-		return <img id={ this.props.id } src={ this.props.src }
+		return <img id={ this.props.id } src={ this.props.src } height={ this.props.height } width={ this.props.width }
 			className={ className } style={ style }
 			onClick={ this.props.onClick }
 		/>;
