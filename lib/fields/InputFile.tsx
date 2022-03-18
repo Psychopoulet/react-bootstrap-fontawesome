@@ -12,7 +12,7 @@
 
 	export interface iPropsInputFile extends iPropsField {
 		"maxSize"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file?: File) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file?: File | null) => void;
 		"onChangeError"?: (e: React.ChangeEvent<HTMLInputElement>, error: Error) => void;
 	};
 
@@ -44,29 +44,28 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
 	public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
-		const value: File = e.target.files[0];
-
 		if (!e.target.files || !e.target.files.length) {
 
-			if ("function" === typeof this.props.onChangeError) {
-				this.props.onChangeError(e, new Error("Incorrect file selected"));
+			if ("function" === typeof this.props.onChange) {
+				this.props.onChange(e, null);
 			}
 
-			return;
-
 		}
-		else if (this.props.maxSize && value.size > this.props.maxSize) {
+		else {
 
-			if ("function" === typeof this.props.onChangeError) {
-				this.props.onChangeError(e, new Error("Incorrect file size"));
+			const value: File = e.target.files[0];
+
+			if (this.props.maxSize && value.size > this.props.maxSize) {
+
+				if ("function" === typeof this.props.onChangeError) {
+					this.props.onChangeError(e, new Error("Incorrect file size"));
+				}
+
+			}
+			else if ("function" === typeof this.props.onChange) {
+				this.props.onChange(e, value);
 			}
 
-			return;
-
-		}
-
-		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, value);
 		}
 
 	}
@@ -140,6 +139,7 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 				label={ this.props.label }
 
 				onChange={ this.props.onChange }
+				onChangeError={ this.props.onChangeError }
 
 			/>
 
