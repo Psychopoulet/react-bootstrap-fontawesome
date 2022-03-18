@@ -41,6 +41,7 @@
 	import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
 	import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
 	import { InputText, InputTextLabel } from "./fields/InputText";
+	import { InputFile, InputFileLabel } from "./fields/InputFile";
 	import { Range, RangeLabel } from "./fields/Range";
 	import { Select, SelectLabel } from "./fields/Select";
 	import { SelectInteger, SelectIntegerLabel } from "./fields/SelectInteger";
@@ -66,7 +67,7 @@ export {
 	tVariant, tSize,
 
 	iPropsNode,
-	iPropsAlert, iPropsBadge, iPropsButton, iPropsButtonGroup, iPropsIcon,
+	iPropsAlert, iPropsBadge, iPropsButton, iPropsButtonGroup, iPropsIcon, iPropsMaxHeightContent,
 	iPropsField,
 
 	generateFocus, tGenerateFocusCallback,
@@ -88,6 +89,7 @@ export {
 	InputIPV4, InputIPV4Label,
 	InputReadOnly, InputReadOnlyLabel,
 	InputText, InputTextLabel,
+	InputFile, InputFileLabel,
 	Range, RangeLabel,
 	Select, SelectLabel,
 	SelectInteger, SelectIntegerLabel,
