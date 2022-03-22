@@ -6,21 +6,17 @@
 	import * as React from "react";
 
 	// locals
-	import { iPropsNode } from "../types";
+	import Image, { iPropsImage } from "../Image";
 
 // Props && States
 
-	interface iPropsImage extends iPropsNode {
+	interface iPropsCardImage extends iPropsImage {
 		"position"?: "top" | "bottom";
-		"src": string;
-		"onClick"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
-		"height"?: number;
-		"width"?: number;
 	};
 
 // component
 
-export default class CardImage extends React.PureComponent<iPropsImage> {
+export default class CardImage extends React.PureComponent<iPropsCardImage> {
 
 	// name
 
@@ -33,21 +29,9 @@ export default class CardImage extends React.PureComponent<iPropsImage> {
 		let className: string = this.props.position ? "card-img-" + this.props.position : "card-img-top";
 		className += this.props.className ? " " + this.props.className : "";
 
-		let style: { [key: string]: string } = this.props.style ? this.props.style : null;
-
-		if ("function" === typeof this.props.onClick) {
-
-			if (!style) {
-				style = {};
-			}
-
-			style.cursor = "pointer";
-
-		}
-
-		return <img id={ this.props.id } src={ this.props.src } height={ this.props.height } width={ this.props.width }
-			className={ className } style={ style }
-			onClick={ this.props.onClick }
+		return <Image id={ this.props.id } src={ this.props.src } alt={ this.props.alt }
+			className={ className } style={ this.props.style } height={ this.props.height } width={ this.props.width }
+			onClick={ this.props.onClick } onMouseOver={ this.props.onMouseOver }
 		/>;
 
 	}

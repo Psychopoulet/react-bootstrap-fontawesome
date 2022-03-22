@@ -4,15 +4,16 @@
 
 	// locals
 
-	import { iPropsNode, iPropsField, tVariant, tSize } from "./types";
-
 	import generateFocus, { tGenerateFocusCallback } from "./generateFocus";
+
+	import { iPropsNode, iPropsField, tVariant, tSize } from "./types";
 
 	import Alert, { iPropsAlert } from "./Alert";
 	import Badge, { iPropsBadge } from "./Badge";
 	import Button, { iPropsButton } from "./Button";
 	import ButtonGroup, { iPropsButtonGroup } from "./ButtonGroup";
 	import Icon, { iPropsIcon } from "./Icon";
+	import Image, { iPropsImage } from "./Image";
 	import MaxHeightContent, { iPropsMaxHeightContent } from "./MaxHeightContent";
 
 	import Card from "./card/Card";
@@ -64,15 +65,15 @@
 
 export {
 
+	generateFocus, tGenerateFocusCallback,
+
 	tVariant, tSize,
 
 	iPropsNode,
-	iPropsAlert, iPropsBadge, iPropsButton, iPropsButtonGroup, iPropsIcon, iPropsMaxHeightContent,
+	iPropsAlert, iPropsBadge, iPropsButton, iPropsButtonGroup, iPropsIcon, iPropsImage, iPropsMaxHeightContent,
 	iPropsField,
 
-	generateFocus, tGenerateFocusCallback,
-
-	Alert, Badge, Button, ButtonGroup, Icon, MaxHeightContent,
+	Alert, Badge, Button, ButtonGroup, Icon, Image, MaxHeightContent,
 
 	Card, CardHeader, CardHeaderNav, CardImage, CardBody, CardList, CardTable, CardFooter,
 
