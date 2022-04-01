@@ -25,9 +25,10 @@
 	export type tICon =
 	| "android" | "apple" | "linux" | "windows"
 	| "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
+	| "money-bill" | "credit-card"
 	| "play" | "pause" | "stop"
 	| "amazon" | "angular" | "asterisk" | "ban"
-	| "check" | "circle" | "cog" | "credit-card" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
+	| "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
 	| "plug" | "plus" | "power" | "print"
 	| "question" | "react" | "save" | "sync" | "times" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
 
@@ -46,6 +47,9 @@
 		"battery-three-quarters": "fas fa-battery-three-quarters",
 		"battery-full": "fas fa-battery-full",
 
+		"credit-card": "far fa-credit-card",
+		"money-bill": "fas fa-money-bill",
+
 		"play": "fas fa-play",
 		"pause": "fas fa-pause",
 		"stop": "fas fa-stop",
@@ -57,7 +61,6 @@
 		"check": "fas fa-check",
 		"circle": "fas fa-circle",
 		"cog": "fas fa-cog",
-		"credit-card": "far fa-credit-card",
 		"edit": "far fa-edit",
 		"eye": "fas fa-eye",
 		"file-invoice": "fas fa-file-invoice",
