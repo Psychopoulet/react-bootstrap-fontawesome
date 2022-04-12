@@ -4,6 +4,7 @@ export interface iPropsNode {
 	"id"?: string;
 	"className"?: string;
 	"style"?: { [key: string]: string };
+	"children"?: any;
 };
 
 	export interface iPropsField extends iPropsNode {

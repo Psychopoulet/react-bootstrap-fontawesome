@@ -51,7 +51,7 @@ export default class Card extends React.PureComponent<iPropsCard> {
 			{
 
 				"function" === typeof this.props.onSubmit ? <form id={ this.props.id } className={ className } style={ this.props.style } onSubmit={ this.props.onSubmit }>
-				{ this.props.children }
+					{ this.props.children }
 				</form> : <div id={ this.props.id } className={ className }>
 
 					{
