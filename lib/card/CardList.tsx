@@ -6,6 +6,8 @@
 	import * as React from "react";
 
 	// locals
+	import { tVariant } from "../types";
+	import { CardContext } from "./CardContext";
 	import List, { iPropsList } from "../list/List";
 
 // component
@@ -20,11 +22,24 @@ export default class CardList extends React.PureComponent<iPropsList> {
 
 	public render (): JSX.Element {
 
-		return <List id={ this.props.id } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
-			flush={ true }
-		>
-			{ this.props.children }
-		</List>;
+		return <CardContext.Consumer>
+
+			{
+
+				(variant: tVariant): JSX.Element => {
+
+					return <List id={ this.props.id } variant={ this.props.variant || variant } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
+						flush={ true }
+					>
+						{ this.props.children }
+					</List>;
+
+				}
+
+			}
+
+
+		</CardContext.Consumer>;
 
 	}
 

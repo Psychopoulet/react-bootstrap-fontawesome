@@ -6,12 +6,13 @@
 	import * as React from "react";
 
 	// locals
-	import { iPropsNode, tSize } from "../types";
-	import ListItem from "./ListItem";
+	import { iPropsNode, tSize, tVariant } from "../types";
+	import { ListContext } from "./ListContext";
 
 // Props && States
 
 	export interface iPropsList extends iPropsNode {
+		"variant"?: tVariant;
 		"flush"?: boolean;
 		"horizontal"?: tSize;
 	};
@@ -67,15 +68,13 @@ export default class List extends React.PureComponent<iPropsList> {
 			className += " " + this.props.className;
 		}
 
-		return <div id={ this.props.id } role="tablist" className={ className } style={ this.props.style }>
+		return <ListContext.Provider value={ this.props.variant }>
 
-			{
-				React.Children.toArray(this.props.children).filter((child: any): boolean => {
-					return ListItem === child.type;
-				})
-			}
+			<div id={ this.props.id } role="tablist" className={ className } style={ this.props.style }>
+				{ this.props.children }
+			</div>
 
-		</div>;
+		</ListContext.Provider>;
 
 	}
 
