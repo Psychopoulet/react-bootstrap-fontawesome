@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-fontawesome",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
   "main": "lib/index.ts",
   "typings": "lib/index.ts",
