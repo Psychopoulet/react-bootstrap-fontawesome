@@ -49,7 +49,7 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
 						className += " list-group-item-" + this.props.variant;
 					}
 					else if (variant) {
-						className += " list-group-item-" + variant;
+						className += " text-" + variant;
 					}
 
 					if (disabled) {
