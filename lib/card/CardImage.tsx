@@ -31,7 +31,7 @@ export default class CardImage extends React.PureComponent<iPropsCardImage> {
 
 		return <Image id={ this.props.id } src={ this.props.src } alt={ this.props.alt }
 			className={ className } style={ this.props.style } height={ this.props.height } width={ this.props.width }
-			onClick={ this.props.onClick } onMouseOver={ this.props.onMouseOver }
+			onClick={ this.props.onClick } onMouseEnter={ this.props.onMouseEnter } onMouseLeave={ this.props.onMouseLeave }
 		/>;
 
 	}
