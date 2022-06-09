@@ -8,7 +8,7 @@
 	// externals
 	import { iPropsInput } from "../types";
 	import {
-		InvalidFeedBackInteger,
+		InvalidFeedBackFloat,
 		InvalidFeedBackMin, InvalidFeedBackMax
 	} from "./FieldFeedBacks";
 
@@ -22,17 +22,17 @@
 		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: number, oldValue?: number) => void;
 	};
 
-	interface iPropsInputIntegerLabel extends iPropsInputNumber {
+	interface iPropsInputFloatLabel extends iPropsInputNumber {
 		"label": string;
 	};
 
 // component
 
-export class InputInteger extends React.PureComponent<iPropsInputNumber> {
+export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
 	// name
 
-	public static displayName: string = "InputInteger";
+	public static displayName: string = "InputFloat";
 
 	// constructor
 
@@ -55,7 +55,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 		}
 		else {
 
-			const value: number = parseInt(e.target.value, 10);
+			const value: number = parseFloat(e.target.value);
 
 			if (value === this.props.value) {
 				return;
@@ -80,12 +80,11 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 		// controls
 
 		const isNumber: boolean = "number" === typeof this.props.value;
-		const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
 		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
 		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
-		const valid: boolean = integerValid && minValid && maxValid;
+		const valid: boolean = isNumber && minValid && maxValid;
 
 		// render
 		return <input id={ this.props.id } name={ this.props.name } type="number"
@@ -106,7 +105,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 			title={ this.props.label } aria-label={ this.props.label }
 
 			value={ this.props.value }
-			min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 1 }
+			min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 0.1 }
 			onChange={ this.handleChange }
 
 			onKeyDown={ this.props.onKeyDown }
@@ -117,11 +116,11 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 
 };
 
-export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLabel> {
+export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> {
 
 	// name
 
-	public static displayName: string = "InputIntegerLabel";
+	public static displayName: string = "InputFloatLabel";
 
 	// render
 
@@ -134,12 +133,11 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
 		// controls
 
 		const isNumber: boolean = "number" === typeof this.props.value;
-		const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
 		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
 		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
-		const valid: boolean = integerValid && minValid && maxValid;
+		const valid: boolean = isNumber && minValid && maxValid;
 
 		// render
 		return <div className={
@@ -161,7 +159,7 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
 
 			</label>
 
-			<InputInteger id={ this.props.id } name={ this.props.name }
+			<InputFloat id={ this.props.id } name={ this.props.name }
 
 				_ref={ this.props._ref }
 
@@ -175,9 +173,9 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
 
 			/>
 
-			{ !integerValid ? <InvalidFeedBackInteger /> : null }
-			{ integerValid && !minValid ? <InvalidFeedBackMin min={ this.props.min } current={ this.props.value } /> : null }
-			{ integerValid && !maxValid ? <InvalidFeedBackMax max={ this.props.max } current={ this.props.value } /> : null }
+			{ !isNumber ? <InvalidFeedBackFloat /> : null }
+			{ isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min } current={ this.props.value } /> : null }
+			{ isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max } current={ this.props.value } /> : null }
 
 		</div>;
 

@@ -62,6 +62,24 @@ export class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
 
 };
 
+export class InvalidFeedBackFloat extends React.PureComponent<iPropsNode> {
+
+	// name
+
+	public static displayName: string = "InvalidFeedBackFloat";
+
+	// render
+
+	public render (): JSX.Element {
+
+		return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
+			"Content must be an float"
+		} />;
+
+	}
+
+};
+
 export class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
 
 	// name

@@ -31,13 +31,14 @@
 
 	import {
 		InvalidFeedBack,
-		InvalidFeedBackRequired, InvalidFeedBackInteger,
+		InvalidFeedBackRequired, InvalidFeedBackFloat, InvalidFeedBackInteger,
 		InvalidFeedBackMin, InvalidFeedBackMax,
 		InvalidFeedBackMinLength, InvalidFeedBackMaxLength
 	} from "./fields/FieldFeedBacks";
 
 	import { CheckBox, CheckBoxLabel } from "./fields/CheckBox";
 	import { InputColor, InputColorLabel } from "./fields/InputColor";
+	import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
 	import { InputInteger, InputIntegerLabel } from "./fields/InputInteger";
 	import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
 	import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
@@ -80,12 +81,13 @@ export {
 	List, ListItem, ListItemHeader,
 
 	InvalidFeedBack,
-	InvalidFeedBackRequired, InvalidFeedBackInteger,
+	InvalidFeedBackRequired, InvalidFeedBackFloat, InvalidFeedBackInteger,
 	InvalidFeedBackMin, InvalidFeedBackMax,
 	InvalidFeedBackMinLength, InvalidFeedBackMaxLength,
 
 	CheckBox, CheckBoxLabel,
 	InputColor, InputColorLabel,
+	InputFloat, InputFloatLabel,
 	InputInteger, InputIntegerLabel,
 	InputIPV4, InputIPV4Label,
 	InputReadOnly, InputReadOnlyLabel,
