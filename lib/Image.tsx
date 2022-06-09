@@ -16,7 +16,8 @@
 		"height"?: number;
 		"width"?: number;
 		"onClick"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
-		"onMouseOver"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
+		"onMouseEnter"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
+		"onMouseLeave"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
 	};
 
 // component
@@ -31,21 +32,15 @@ export default class Image extends React.PureComponent<iPropsImage> {
 
 	public render (): JSX.Element {
 
-		let style: { [key: string]: string } = this.props.style ? this.props.style : null;
+		let style: { [key: string]: string } = this.props.style ? { ...this.props.style } : {};
 
 		if ("function" === typeof this.props.onClick) {
-
-			if (!style) {
-				style = {};
-			}
-
 			style.cursor = "pointer";
-
 		}
 
 		return <img id={ this.props.id } src={ this.props.src } alt={ this.props.alt }
 			className={ this.props.className } style={ style } height={ this.props.height } width={ this.props.width }
-			onClick={ this.props.onClick } onMouseOver={ this.props.onMouseOver }
+			onClick={ this.props.onClick } onMouseEnter={ this.props.onMouseEnter } onMouseLeave={ this.props.onMouseLeave }
 		/>;
 
 	}

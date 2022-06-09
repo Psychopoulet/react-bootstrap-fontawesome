@@ -14,6 +14,8 @@
 	interface iPropsCardBody extends iPropsNode {
 		"lead"?: boolean;
 		"onSubmit"?: (e: React.FormEvent<HTMLFormElement>) => void;
+		"onMouseEnter"?: (e?: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
+		"onMouseLeave"?: (e?: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
 	};
 
 // component
@@ -48,9 +50,13 @@ export default class CardBody extends React.PureComponent<iPropsCardBody> {
 						className += " " + this.props.className;
 					}
 
-					return "function" === typeof this.props.onSubmit ? <form action="#" id={ this.props.id } className={ className } style={ this.props.style } onSubmit={ this.props.onSubmit }>
+					return "function" === typeof this.props.onSubmit ? <form action="#" id={ this.props.id } className={ className } style={ this.props.style }
+						onSubmit={ this.props.onSubmit } onMouseEnter={ this.props.onMouseEnter } onMouseLeave={ this.props.onMouseLeave }
+					>
 						{ this.props.children }
-					</form> : <div id={ this.props.id } className={ className } style={ this.props.style }>
+					</form> : <div id={ this.props.id } className={ className } style={ this.props.style }
+						onMouseEnter={ this.props.onMouseEnter } onMouseLeave={ this.props.onMouseLeave }
+					>
 						{ this.props.children }
 					</div>;
 
