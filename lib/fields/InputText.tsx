@@ -67,6 +67,8 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
 	public render (): JSX.Element {
 
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+
 		// props values
 		const disabled: boolean = !!this.props.disabled;
 		const required: boolean = !!this.props.required;
@@ -78,17 +80,17 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 		let maxLengthValid: boolean = true;
 		let patternValid: boolean = true;
 
-		if ("" !== this.props.value || !!this.props.emptyValidation) {
+		if ("" !== value || !!this.props.emptyValidation) {
 
 			requiredValid = required ? "" !== this.props.value : true;
 
 			minLengthValid = "number" === typeof this.props.minLength
-				? (!required && 0 === this.props.value.length) || this.props.value.length >= this.props.minLength
+				? (!required && 0 === value.length) || value.length >= this.props.minLength
 				: true;
 
-			maxLengthValid = "number" === typeof this.props.maxLength ? this.props.value.length <= this.props.maxLength : true;
+			maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(this.props.value) : true;
+			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
 		}
 
@@ -133,16 +135,18 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
 	// render
 
-	private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element {
+	private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
 		if (!requiredValid) {
 			return <InvalidFeedBackRequired />;
 		}
 		else if (!minLengthValid) {
-			return <InvalidFeedBackMinLength min={ this.props.minLength } current={ this.props.value.length } />;
+			return <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } />;
 		}
 		else if (!maxLengthValid) {
-			return <InvalidFeedBackMaxLength max={ this.props.maxLength } current={ this.props.value.length } />;
+			return <InvalidFeedBackMaxLength max={ this.props.maxLength as number  } current={ value.length } />;
 		}
 		else if (!patternValid) {
 			return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
@@ -155,6 +159,8 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
 	public render (): JSX.Element {
 
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+
 		// props values
 		const disabled: boolean = !!this.props.disabled;
 		const required: boolean = !!this.props.required;
@@ -166,17 +172,17 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 		let maxLengthValid: boolean = true;
 		let patternValid: boolean = true;
 
-		if ("" !== this.props.value || !!this.props.emptyValidation) {
+		if ("" !== value || !!this.props.emptyValidation) {
 
-			requiredValid = required ? "" !== this.props.value : true;
+			requiredValid = required ? "" !== value : true;
 
 			minLengthValid = "number" === typeof this.props.minLength
-				? (!required && 0 === this.props.value.length) || this.props.value.length >= this.props.minLength
+				? (!required && 0 === value.length) || value.length >= this.props.minLength
 				: true;
 
-			maxLengthValid = "number" === typeof this.props.maxLength ? this.props.value.length <= this.props.maxLength : true;
+			maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(this.props.value) : true;
+			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
 		}
 
@@ -191,7 +197,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 			<label htmlFor={ this.props.id } className={
 				disabled
 					? "text-muted"
-					: !valid ? "text-danger" : null
+					: !valid ? "text-danger" : undefined
 			} aria-label={ this.props.label }>
 
 				{ this.props.label } {

@@ -121,7 +121,7 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 			<label htmlFor={ this.props.id } className={
 				disabled
 					? "text-muted"
-					: null
+					: undefined
 			} aria-label={ this.props.label }>
 
 				{ this.props.label } {

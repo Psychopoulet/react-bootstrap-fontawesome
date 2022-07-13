@@ -122,7 +122,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 			<label htmlFor={ this.props.id } className={
 				disabled
 					? "text-muted"
-					: !requiredValid ? "text-danger" : null
+					: !requiredValid ? "text-danger" : undefined
 			} aria-label={ this.props.label }>
 
 				{ this.props.label } {

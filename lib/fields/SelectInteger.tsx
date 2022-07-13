@@ -47,7 +47,11 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 	public handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
 
 		if ("" === e.target.value.trim()) {
-			this.props.onChange(e, 0, this.props.value);
+
+			if ("function" === typeof this.props.onChange) {
+				this.props.onChange(e, 0, this.props.value);
+			}
+
 		}
 		else {
 

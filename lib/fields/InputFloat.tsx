@@ -51,7 +51,11 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 	public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
 		if ("" === e.target.value.trim()) {
-			this.props.onChange(e, 0, this.props.value);
+
+			if ("function" === typeof this.props.onChange) {
+				this.props.onChange(e, 0, this.props.value);
+			}
+
 		}
 		else {
 
@@ -81,8 +85,8 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
 		const isNumber: boolean = "number" === typeof this.props.value;
 
-		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
-		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
+		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
+		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
 
 		const valid: boolean = isNumber && minValid && maxValid;
 
@@ -134,8 +138,8 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
 		const isNumber: boolean = "number" === typeof this.props.value;
 
-		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
-		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
+		const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
+		const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
 
 		const valid: boolean = isNumber && minValid && maxValid;
 
@@ -148,7 +152,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 			<label htmlFor={ this.props.id } className={
 				disabled
 					? "text-muted"
-					: !valid ? "text-danger" : null
+					: !valid ? "text-danger" : undefined
 			} aria-label={ this.props.label }>
 
 				{ this.props.label } {
@@ -174,8 +178,8 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 			/>
 
 			{ !isNumber ? <InvalidFeedBackFloat /> : null }
-			{ isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min } current={ this.props.value } /> : null }
-			{ isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max } current={ this.props.value } /> : null }
+			{ isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> : null }
+			{ isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> : null }
 
 		</div>;
 

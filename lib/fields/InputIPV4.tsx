@@ -40,7 +40,7 @@ export class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
 
 		// props values
 		const required: boolean = !!this.props.required;
-		const minLength: number | null = required ? InputIPV4.MIN : null;
+		const minLength: number | undefined = required ? InputIPV4.MIN : undefined;
 
 		// render
 		return <InputText id={ this.props.id } name={ this.props.name }
@@ -78,7 +78,7 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
 		// props values
 		const required: boolean = !!this.props.required;
-		const minLength: number | null = required ? InputIPV4.MIN : null;
+		const minLength: number | undefined = required ? InputIPV4.MIN : undefined;
 
 		// render
 		return <InputTextLabel id={ this.props.id } name={ this.props.name }

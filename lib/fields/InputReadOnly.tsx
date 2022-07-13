@@ -74,7 +74,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
 	// render
 
-	private _renderError (requiredValid: boolean): JSX.Element {
+	private _renderError (requiredValid: boolean): JSX.Element | null {
 
 		if (!requiredValid) {
 			return <InvalidFeedBackRequired />;
@@ -106,7 +106,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 			<label htmlFor={ this.props.id } className={
 				disabled
 					? "text-muted"
-					: !valid ? "text-danger" : null
+					: !valid ? "text-danger" : undefined
 			} aria-label={ this.props.label }>
 
 				{ this.props.label } {

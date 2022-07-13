@@ -67,16 +67,18 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
 	public render (): JSX.Element {
 
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+
 		// props values
 		const disabled: boolean = !!this.props.disabled;
 		const required: boolean = !!this.props.required;
 
 		// controls
 
-		const requiredValid: boolean = required ? "" !== this.props.value : true;
+		const requiredValid: boolean = required ? "" !== value : true;
 
-		const minLengthValid: boolean = "number" === typeof this.props.minLength ? this.props.value.length >= this.props.minLength : true;
-		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? this.props.value.length <= this.props.maxLength : true;
+		const minLengthValid: boolean = "number" === typeof this.props.minLength ? value.length >= this.props.minLength : true;
+		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
 		const valid: boolean = requiredValid && minLengthValid && maxLengthValid;
 
@@ -116,16 +118,18 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
 	public render (): JSX.Element {
 
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+
 		// props values
 		const disabled: boolean = !!this.props.disabled;
 		const required: boolean = !!this.props.required;
 
 		// controls
 
-		const requiredValid: boolean = required ? "" !== this.props.value : true;
+		const requiredValid: boolean = required ? "" !== value : true;
 
-		const minLengthValid: boolean = "number" === typeof this.props.minLength ? this.props.value.length >= this.props.minLength : true;
-		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? this.props.value.length <= this.props.maxLength : true;
+		const minLengthValid: boolean = "number" === typeof this.props.minLength ? value.length >= this.props.minLength : true;
+		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
 		// render
 		return <div className={
@@ -154,8 +158,8 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 			/>
 
 			{ !requiredValid ? <InvalidFeedBackRequired /> : null }
-			{ requiredValid && !minLengthValid ? <InvalidFeedBackMinLength min={ this.props.minLength } current={ this.props.value.length } /> : null }
-			{ requiredValid && !maxLengthValid ? <InvalidFeedBackMaxLength max={ this.props.maxLength } current={ this.props.value.length } /> : null }
+			{ requiredValid && !minLengthValid ? <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } /> : null }
+			{ requiredValid && !maxLengthValid ? <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } /> : null }
 
 		</div>;
 
