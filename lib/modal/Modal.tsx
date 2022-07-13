@@ -85,7 +85,7 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 		// parent
 
-		this._appParent = document.getElementById(this.props.appId ? this.props.appId : "app");
+		this._appParent = document.getElementById(this.props.appId ? this.props.appId : "app") as HTMLElement;
 		this._appParent.classList.add("modal-open");
 
 		// backDrop
@@ -118,7 +118,7 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 		// parent
 
 		if (!this._displayId) {
-			this._appParent.classList.remove("modal-open");
+			(this._appParent as HTMLElement).classList.remove("modal-open");
 		}
 
 	}
@@ -236,7 +236,7 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 				>
 					{ this._renderContent() }
 				</form>,
-				document.getElementById(this.props.appId)
+				document.getElementById(this.props.appId) as HTMLElement
 			);
 
 		}
@@ -248,7 +248,7 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 				>
 					{ this._renderContent() }
 				</div>,
-				document.getElementById(this.props.appId)
+				document.getElementById(this.props.appId) as HTMLElement
 			);
 
 		}

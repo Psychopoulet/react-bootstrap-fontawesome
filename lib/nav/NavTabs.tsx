@@ -16,7 +16,7 @@
 		"selectedIndex"?: number;
 		"justified"?: boolean;
 		"pills"?: boolean;
-		"onSelect"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex?: number) => void;
+		"onSelect"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
 	};
 
 	interface iStatesNavTabs {
@@ -45,13 +45,13 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
 		// events handlers
 
-		this.handleSelect = this.handleSelect.bind(this);
+		this._handleSelect = this._handleSelect.bind(this);
 
 	}
 
 	// events
 
-	public handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
+	protected _handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
 
 		let newSecuredIndex: number;
 
@@ -79,7 +79,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 		if ("function" === typeof this.props.onSelect) {
 			this.props.onSelect(e, newSecuredIndex);
 		}
-		else {
+		else if (e) {
 
 			e.preventDefault();
 			e.stopPropagation();
@@ -117,7 +117,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
 					return <NavItem key={ key } index={ key }
 						active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
-						onClick={ this.handleSelect }
+						onClick={ this._handleSelect }
 					>
 						{ title }
 					</NavItem>;

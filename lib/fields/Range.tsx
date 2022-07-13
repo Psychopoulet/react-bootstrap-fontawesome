@@ -20,7 +20,7 @@
 		"min"?: number;
 		"max"?: number;
 		"step"?: number;
-		"onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue?: number, oldValue?: number) => void;
+		"onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
 	};
 
 	interface iPropsRangeLabel extends iPropsRange {
@@ -85,7 +85,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 	public handleMouseUp (e: React.MouseEvent<HTMLInputElement>): void {
 
 		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, this.state.value, this.props.value);
+			this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
 		}
 
 	}

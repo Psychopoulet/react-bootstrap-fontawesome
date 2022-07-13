@@ -20,7 +20,7 @@
 		"pattern"?: string;
 		"minLength"?: number;
 		"maxLength"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: string, oldValue?: string) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
 	};
 
 	export interface iPropsInputTextLabel extends iPropsInputText {
@@ -58,7 +58,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 		}
 
 		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, value, this.props.value);
+			this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
 		}
 
 	}

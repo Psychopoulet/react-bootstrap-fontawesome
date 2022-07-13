@@ -19,7 +19,7 @@
 		"min"?: number;
 		"max"?: number;
 		"step"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: number, oldValue?: number) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
 	};
 
 	interface iPropsInputIntegerLabel extends iPropsInputNumber {
@@ -53,7 +53,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 		if ("" === e.target.value.trim()) {
 
 			if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, 0, this.props.value);
+				this.props.onChange(e, 0, "undefined" !== typeof this.props.value ? this.props.value : 0);
 			}
 
 		}
@@ -66,7 +66,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 			}
 
 			if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, value, this.props.value);
+				this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : 0);
 			}
 
 		}

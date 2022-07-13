@@ -18,7 +18,7 @@
 
 	export interface iPropsInputColor extends iPropsInput {
 		"value"?: string;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: string, oldValue?: string) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
 	};
 
 	export interface iPropsInputColorLabel extends iPropsInputColor {
@@ -35,13 +35,13 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
 	// constructor
 
-	constructor (props: iPropsInputColor) {
+	public constructor (props: iPropsInputColor) {
 
 		super(props);
 
 		// events handlers
 
-		this.handleChange = this.handleChange.bind(this);
+		this._handleChange = this._handleChange.bind(this);
 
 	}
 
@@ -53,7 +53,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
 	// events
 
-	public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+	protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
 		const value: string = e.target.value;
 
@@ -62,7 +62,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 		}
 
 		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, value, this.props.value);
+			this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
 		}
 
 	}
@@ -109,7 +109,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 			pattern={ InputColor.PATTERN }
 			value={ this.props.value }
 			minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
-			onChange={ this.handleChange }
+			onChange={ this._handleChange }
 
 			onKeyDown={ this.props.onKeyDown }
 

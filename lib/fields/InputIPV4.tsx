@@ -13,7 +13,7 @@
 
 	export interface iPropsInputIPV4 extends iPropsInput {
 		"value"?: string;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: string, oldValue?: string) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
 	};
 
 	export interface iPropsInputIPV4Label extends iPropsInputIPV4 {

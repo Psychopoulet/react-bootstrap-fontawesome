@@ -15,9 +15,9 @@
 		"alt"?: string;
 		"height"?: number;
 		"width"?: number;
-		"onClick"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
-		"onMouseEnter"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
-		"onMouseLeave"?: (e?: React.MouseEvent<HTMLImageElement>) => void;
+		"onClick"?: (e: React.MouseEvent<HTMLImageElement>) => void;
+		"onMouseEnter"?: (e: React.MouseEvent<HTMLImageElement>) => void;
+		"onMouseLeave"?: (e: React.MouseEvent<HTMLImageElement>) => void;
 	};
 
 // component

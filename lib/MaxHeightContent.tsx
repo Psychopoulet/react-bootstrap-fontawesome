@@ -6,7 +6,7 @@
 	import * as React from "react";
 
 	// locals
-	import { iPropsNode, tVariant } from "./types";
+	import { iPropsNode } from "./types";
 
 // Props && States
 

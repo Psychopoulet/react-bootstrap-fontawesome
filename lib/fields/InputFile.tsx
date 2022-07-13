@@ -12,7 +12,7 @@
 
 	export interface iPropsInputFile extends iPropsField {
 		"maxSize"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file?: File | null) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file: File | null) => void;
 		"onChangeError"?: (e: React.ChangeEvent<HTMLInputElement>, error: Error) => void;
 	};
 

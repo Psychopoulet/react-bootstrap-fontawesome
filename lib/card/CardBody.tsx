@@ -13,9 +13,9 @@
 
 	interface iPropsCardBody extends iPropsNode {
 		"lead"?: boolean;
-		"onSubmit"?: (e: React.FormEvent<HTMLFormElement>) => void;
-		"onMouseEnter"?: (e?: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
-		"onMouseLeave"?: (e?: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
+		"onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
+		"onMouseEnter"?: (e: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
+		"onMouseLeave"?: (e: React.MouseEvent<HTMLDivElement | HTMLFormElement>) => void;
 	};
 
 // component

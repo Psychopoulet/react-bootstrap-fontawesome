@@ -12,7 +12,7 @@
 
 	interface iPropsCheckBox extends iPropsField {
 		"checked"?: boolean;
-		"onToogle"?: (e: React.ChangeEvent<HTMLInputElement>, newValue?: boolean, oldValue?: boolean) => void;
+		"onToogle"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: boolean, oldValue: boolean) => void;
 	};
 
 	interface iPropsCheckBoxLabel extends iPropsCheckBox {
@@ -29,19 +29,19 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 
 	// constructor
 
-	constructor (props: iPropsCheckBox) {
+	public constructor (props: iPropsCheckBox) {
 
 		super(props);
 
 		// events handlers
 
-		this.handleToogle = this.handleToogle.bind(this);
+		this._handleToogle = this._handleToogle.bind(this);
 
 	}
 
 	// events
 
-	public handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
+	protected _handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
 
 		const value: boolean = e.target.checked;
 
@@ -50,7 +50,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 		}
 
 		if ("function" === typeof this.props.onToogle) {
-			this.props.onToogle(e, value, this.props.checked);
+			this.props.onToogle(e, value, !!this.props.checked);
 		}
 
 	}
@@ -76,7 +76,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 			title={ this.props.label } aria-label={ this.props.label }
 
 			checked={ checked } aria-checked={ checked  }
-			onChange={ this.handleToogle }
+			onChange={ this._handleToogle }
 
 		/>;
 

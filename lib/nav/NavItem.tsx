@@ -15,7 +15,7 @@
 		"active"?: boolean;
 		"disabled"?: boolean;
 		"justify"?: boolean;
-		"onClick"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex?: number) => void;
+		"onClick"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
 	};
 
 // component
@@ -84,9 +84,9 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
 			{
 
-				disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : null } tabIndex={ disabled ? -1 : null }>
+				disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
 					{ this.props.children }
-				</span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : null } tabIndex={ disabled ? -1 : null } onClick={ this.handleClick }>
+				</span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this.handleClick }>
 					{ this.props.children }
 				</a>
 

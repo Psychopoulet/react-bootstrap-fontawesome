@@ -13,7 +13,7 @@
 
 	interface iPropsSelect extends iPropsField {
 		"value": string;
-		"onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue?: string, oldValue?: string) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: string, oldValue: string) => void;
 	};
 
 	interface iPropsSelectLabel extends iPropsSelect {

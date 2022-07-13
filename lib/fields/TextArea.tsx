@@ -20,7 +20,7 @@
 		"pattern"?: string;
 		"minLength"?: number;
 		"maxLength"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLTextAreaElement>, newValue?: string, oldValue?: string) => void;
+		"onChange"?: (e: React.ChangeEvent<HTMLTextAreaElement>, newValue: string, oldValue: string) => void;
 	};
 
 	interface iPropsTextAreaLabel extends iPropsTextArea {
@@ -58,7 +58,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 		}
 
 		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, value, this.props.value);
+			this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
 		}
 
 	}
