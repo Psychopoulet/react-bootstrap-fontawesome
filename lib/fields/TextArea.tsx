@@ -8,6 +8,7 @@
 	// externals
 	import { iPropsInput } from "../types";
 	import {
+		InvalidFeedBack,
 		InvalidFeedBackRequired,
 		InvalidFeedBackMinLength, InvalidFeedBackMaxLength
 	} from "./FieldFeedBacks";
@@ -23,7 +24,7 @@
 		"onChange"?: (e: React.ChangeEvent<HTMLTextAreaElement>, newValue: string, oldValue: string) => void;
 	};
 
-	interface iPropsTextAreaLabel extends iPropsTextArea {
+	export interface iPropsTextAreaLabel extends iPropsTextArea {
 		"label": string;
 	};
 
@@ -75,17 +76,29 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
 		// controls
 
-		const requiredValid: boolean = required ? "" !== value : true;
+		let requiredValid: boolean = true;
+		let minLengthValid: boolean = true;
+		let maxLengthValid: boolean = true;
+		let patternValid: boolean = true;
 
-		const minLengthValid: boolean = "number" === typeof this.props.minLength ? value.length >= this.props.minLength : true;
-		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
+		if ("" !== value || !!this.props.emptyValidation) {
 
-		const valid: boolean = requiredValid && minLengthValid && maxLengthValid;
+			requiredValid = required ? "" !== this.props.value : true;
+
+			minLengthValid = "number" === typeof this.props.minLength
+				? (!required && 0 === value.length) || value.length >= this.props.minLength
+				: true;
+
+			maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
+
+			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+
+		}
+
+		const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
 
 		// render
-		return <textarea id={ this.props.id }
-
-			required={ required } aria-required={ required }
+		return <textarea id={ this.props.id } name={ this.props.name }
 
 			className={
 				"form-control" +
@@ -94,6 +107,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 				(!valid ? " is-invalid" : "")
 			} rows={ this.props.rows } style={ this.props.style }
 			disabled={ disabled } aria-disabled={ disabled }
+			required={ required } aria-required={ required }
 
 			placeholder={ this.props.placeholder }
 			title={ this.props.label } aria-label={ this.props.label }
@@ -101,6 +115,8 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 			value={ this.props.value }
 			minLength={ this.props.minLength } maxLength={ this.props.maxLength }
 			onChange={ this.handleChange }
+
+			onKeyDown={ this.props.onKeyDown }
 
 		></textarea>;
 
@@ -112,9 +128,31 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
 	// name
 
-	public static displayName: string = "TextAreaLabel";
+	public static displayName: string = "iPropsTextAreaLabel";
 
 	// render
+
+	private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+
+		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+
+		if (!requiredValid) {
+			return <InvalidFeedBackRequired />;
+		}
+		else if (!minLengthValid) {
+			return <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } />;
+		}
+		else if (!maxLengthValid) {
+			return <InvalidFeedBackMaxLength max={ this.props.maxLength as number  } current={ value.length } />;
+		}
+		else if (!patternValid) {
+			return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
+		}
+		else {
+			return null;
+		}
+
+	}
 
 	public render (): JSX.Element {
 
@@ -126,10 +164,26 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
 		// controls
 
-		const requiredValid: boolean = required ? "" !== value : true;
+		let requiredValid: boolean = true;
+		let minLengthValid: boolean = true;
+		let maxLengthValid: boolean = true;
+		let patternValid: boolean = true;
 
-		const minLengthValid: boolean = "number" === typeof this.props.minLength ? value.length >= this.props.minLength : true;
-		const maxLengthValid: boolean = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
+		if ("" !== value || !!this.props.emptyValidation) {
+
+			requiredValid = required ? "" !== value : true;
+
+			minLengthValid = "number" === typeof this.props.minLength
+				? (!required && 0 === value.length) || value.length >= this.props.minLength
+				: true;
+
+			maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
+
+			patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+
+		}
+
+		const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
 
 		// render
 		return <div className={
@@ -137,18 +191,27 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 			(this.props.className ? " " + this.props.className : "")
 		} style={ this.props.style }>
 
-			<label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
-				{ this.props.label }
+			<label htmlFor={ this.props.id } className={
+				disabled
+					? "text-muted"
+					: !valid ? "text-danger" : undefined
+			} aria-label={ this.props.label }>
+
+				{ this.props.label } {
+					required
+						? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
+						: null
+				}
+
 			</label>
 
-			<TextArea id={ this.props.id } name={ this.props.name } rows={ this.props.rows }
-
-				_ref={ this.props._ref }
+			<TextArea id={ this.props.id } name={ this.props.name }
 
 				required={ required } disabled={ disabled }
 
 				placeholder={ this.props.placeholder } label={ this.props.label }
 
+				pattern={ this.props.pattern }
 				value={ this.props.value }
 				minLength={ this.props.minLength } maxLength={ this.props.maxLength }
 				onChange={ this.props.onChange }
@@ -157,9 +220,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
 			/>
 
-			{ !requiredValid ? <InvalidFeedBackRequired /> : null }
-			{ requiredValid && !minLengthValid ? <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } /> : null }
-			{ requiredValid && !maxLengthValid ? <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } /> : null }
+			{ this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) }
 
 		</div>;
 
