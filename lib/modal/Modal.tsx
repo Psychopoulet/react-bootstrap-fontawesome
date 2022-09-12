@@ -26,6 +26,12 @@
 		"onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
 	};
 
+	interface iStatesModal {
+		"appParent": HTMLElement;
+		"backDrop": HTMLDivElement;
+		"displayId": number;
+	};
+
 // types & interfaces
 
 	interface iStyle {
@@ -39,7 +45,7 @@
 
 // component
 
-export default class Modal extends React.PureComponent<iPropsModal> {
+export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
 	// name
 
@@ -49,23 +55,19 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 		public static OPENED_MODALS_COUNT: number = 0;
 
-	// private
-
-		private _appParent: HTMLElement | null;
-		private _backDrop: HTMLDivElement | null;
-		private _displayId: number;
-
 	// constructor
 
 	constructor (props: iPropsModal) {
 
 		super(props);
 
-		// props
+		// states
 
-		this._appParent = null;
-		this._backDrop = null;
-		this._displayId = 0;
+		this.state = {
+			"appParent": document.getElementById(props.appId) as HTMLElement,
+			"backDrop": document.createElement("div"),
+			"displayId": 0
+		};
 
 		// events handlers
 
@@ -75,9 +77,11 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 	public componentWillMount () {
 
-		this._displayId = Modal.OPENED_MODALS_COUNT;
-
 		Modal.OPENED_MODALS_COUNT += 2;
+
+		this.setState({
+			"displayId": Modal.OPENED_MODALS_COUNT 
+		});
 
 	}
 
@@ -85,22 +89,17 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 		// parent
 
-		this._appParent = document.getElementById(this.props.appId ? this.props.appId : "app") as HTMLElement;
-		this._appParent.classList.add("modal-open");
+		this.state.appParent.classList.add("modal-open");
 
 		// backDrop
 
-		this._backDrop = document.createElement("div");
+		this.state.backDrop.classList.add("modal-backdrop");
+		this.state.backDrop.classList.add("fade");
+		this.state.backDrop.classList.add("show");
 
-			this._backDrop.classList.add("modal-backdrop");
-			this._backDrop.classList.add("fade");
-			this._backDrop.classList.add("show");
+			this.state.backDrop.style.zIndex = String(ZINDEX_MODAL + this.state.displayId + 1);
 
-			if (this._displayId) {
-				this._backDrop.style.zIndex = String(ZINDEX_MODAL + this._displayId + 1);
-			}
-
-		this._appParent.appendChild(this._backDrop);
+		this.state.appParent.appendChild(this.state.backDrop);
 
 	}
 
@@ -108,18 +107,13 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 		// backDrop
 
-		if (this._backDrop) {
-			this._backDrop.remove();
-			this._backDrop = null;
-		}
+		this.state.backDrop.remove();
 
 		Modal.OPENED_MODALS_COUNT -= 2;
 
 		// parent
 
-		if (!this._displayId) {
-			(this._appParent as HTMLElement).classList.remove("modal-open");
-		}
+		this.state.appParent.classList.remove("modal-open");
 
 	}
 
@@ -223,9 +217,7 @@ export default class Modal extends React.PureComponent<iPropsModal> {
 
 		const style: iStyle = { "display": "block" };
 
-		if (this._displayId) {
-			style.zIndex = ZINDEX_MODAL + this._displayId + 2;
-		}
+		style.zIndex = ZINDEX_MODAL + this.state.displayId + 2;
 
 		if ("function" === typeof this.props.onSubmit) {
 
