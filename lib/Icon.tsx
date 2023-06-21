@@ -24,6 +24,7 @@
 
 	export type tICon =
 	| "android" | "apple" | "linux" | "windows"
+	| "barcode" | "fingerprint" | "nfc"
 	| "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
 	| "money-bill" | "credit-card"
 	| "play" | "pause" | "stop"
@@ -40,6 +41,10 @@
 		"apple": "fab fa-apple",
 		"linux": "fab fa-linux",
 		"windows": "fab fa-windows",
+
+		"barcode": "fa fa-barcode",
+		"fingerprint": "fa fa-fingerprint",
+		"nfc": "fa-brands fa-nfc-symbol",
 
 		"battery-empty": "fas fa-battery-empty",
 		"battery-quarter": "fas fa-battery-quarter",
