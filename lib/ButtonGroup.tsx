@@ -30,7 +30,7 @@ export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> 
 
     // constructor
 
-    constructor (props: iPropsButtonGroup) {
+    public constructor (props: iPropsButtonGroup) {
 
         super(props);
 

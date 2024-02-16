@@ -37,7 +37,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     // constructor
 
-    constructor (props: iPropsButton) {
+    public constructor (props: iPropsButton) {
 
         super(props);
 

@@ -5,8 +5,10 @@
     // externals
     import * as React from "react";
 
+// types & interfaces
+
     // locals
-    import { iPropsNode } from "../types";
+    import type { iPropsNode } from "../types";
 
 // Props && States
 
@@ -16,7 +18,7 @@
         "disabled"?: boolean;
         "justify"?: boolean;
         "onClick"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
-    };
+    }
 
 // component
 
@@ -28,7 +30,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     // constructor
 
-    constructor (props: iPropsNavItem) {
+    public constructor (props: iPropsNavItem) {
 
         super(props);
 
@@ -96,4 +98,4 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     }
 
-};
+}

@@ -15,7 +15,7 @@
         "variant"?: tVariant;
         "flush"?: boolean;
         "horizontal"?: tSize;
-    };
+    }
 
 // component
 
@@ -78,4 +78,4 @@ export default class List extends React.PureComponent<iPropsList> {
 
     }
 
-};
+}

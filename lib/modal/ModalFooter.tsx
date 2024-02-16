@@ -34,4 +34,4 @@ export default class ModalFooter extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}

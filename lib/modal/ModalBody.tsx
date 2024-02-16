@@ -34,4 +34,4 @@ export default class ModalBody extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}

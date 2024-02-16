@@ -57,7 +57,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
     // constructor
 
-    constructor (props: iPropsModal) {
+    public constructor (props: iPropsModal) {
 
         super(props);
 
@@ -247,4 +247,4 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
     }
 
-};
+}

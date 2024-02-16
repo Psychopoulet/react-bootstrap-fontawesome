@@ -89,4 +89,4 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
 
     }
 
-};
+}

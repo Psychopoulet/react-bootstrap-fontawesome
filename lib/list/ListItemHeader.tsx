@@ -32,4 +32,4 @@ export default class ListItemHeader extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}

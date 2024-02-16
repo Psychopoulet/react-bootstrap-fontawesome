@@ -6,22 +6,26 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode } from "../types";
     import NavItem from "./NavItem";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode } from "../types";
 
 // Props && States
 
     export interface iPropsNavTabs extends iPropsNode {
-        "items"?: Array<string>;
+        "items"?: string[];
         "selectedIndex"?: number;
         "justified"?: boolean;
         "pills"?: boolean;
         "onSelect"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
-    };
+    }
 
     interface iStatesNavTabs {
         "selectedIndex": number;
-    };
+    }
 
 // component
 
@@ -33,7 +37,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     // constructor
 
-    constructor (props: iPropsNavTabs) {
+    public constructor (props: iPropsNavTabs) {
 
         super(props);
 
@@ -60,7 +64,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
             }
-            else if (newIndex < 0) {
+            else if (0 > newIndex) {
                 newSecuredIndex = 0;
             }
             else {
@@ -136,4 +140,4 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     }
 
-};
+}
