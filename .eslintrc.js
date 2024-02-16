@@ -1,3 +1,3 @@
 module.exports = {
-    "extends": [ "plugin:eslint-plugin-personnallinter/ts-front" ]
+    "extends": [ "plugin:eslint-plugin-personnallinter/react" ]
 };
