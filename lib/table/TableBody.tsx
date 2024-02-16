@@ -2,28 +2,28 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode } from "../types";
+    // locals
+    import { iPropsNode } from "../types";
 
 // component
 
 export default class TableBody extends React.PureComponent<iPropsNode> {
 
-	// name
+    // name
 
-	public static displayName: string = "TableBody";
+    public static displayName: string = "TableBody";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		return <tbody id={ this.props.id } className={ this.props.className } style={ this.props.style }>
-			{ this.props.children }
-		</tbody>;
+        return <tbody id={ this.props.id } className={ this.props.className } style={ this.props.style }>
+            { this.props.children }
+        </tbody>;
 
-	}
+    }
 
 };

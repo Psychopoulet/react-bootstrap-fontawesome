@@ -2,59 +2,59 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode, tVariant } from "./types";
+    // locals
+    import { iPropsNode, tVariant } from "./types";
 
 // Props && States
 
-	export interface iPropsAlert extends iPropsNode {
-		"variant"?: tVariant;
-		"onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-	};
+    export interface iPropsAlert extends iPropsNode {
+        "variant"?: tVariant;
+        "onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    };
 
 // component
 
 export default class Alert extends React.PureComponent<iPropsAlert> {
 
-	// name
+    // name
 
-	public static displayName: string = "Alert";
+    public static displayName: string = "Alert";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		let className: string = "alert";
+        let className: string = "alert";
 
-		if (this.props.variant) {
-			className += " alert-" + this.props.variant;
-		}
+        if (this.props.variant) {
+            className += " alert-" + this.props.variant;
+        }
 
-		if ("function" === typeof this.props.onClose) {
-			className += " alert-dismissible fade show";
-		}
+        if ("function" === typeof this.props.onClose) {
+            className += " alert-dismissible fade show";
+        }
 
-		if (this.props.className) {
-			className += " " + this.props.className;
-		}
+        if (this.props.className) {
+            className += " " + this.props.className;
+        }
 
-		return <div id={ this.props.id } className={ className } role="alert" style={ this.props.style }>
+        return <div id={ this.props.id } className={ className } role="alert" style={ this.props.style }>
 
-			{ this.props.children }
+            { this.props.children }
 
-			{
+            {
 
-				"function" === typeof this.props.onClose ? <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={ this.props.onClose }>
-					<span aria-hidden="true">&times;</span>
-				</button> : null
+                "function" === typeof this.props.onClose ? <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={ this.props.onClose }>
+                    <span aria-hidden="true">&times;</span>
+                </button> : null
 
-			}
+            }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

@@ -2,149 +2,149 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// externals
-	import { iPropsField } from "../types";
+    // externals
+    import { iPropsField } from "../types";
 
 // Props && States
 
-	export interface iPropsInputFile extends iPropsField {
-		"maxSize"?: number;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file: File | null) => void;
-		"onChangeError"?: (e: React.ChangeEvent<HTMLInputElement>, error: Error) => void;
-	};
+    export interface iPropsInputFile extends iPropsField {
+        "maxSize"?: number;
+        "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file: File | null) => void;
+        "onChangeError"?: (e: React.ChangeEvent<HTMLInputElement>, error: Error) => void;
+    };
 
-	export interface iPropsInputFileLabel extends iPropsInputFile {
-		"label": string;
-	};
+    export interface iPropsInputFileLabel extends iPropsInputFile {
+        "label": string;
+    };
 
 // component
 
 export class InputFile extends React.PureComponent<iPropsInputFile> {
 
-	// name
+    // name
 
-	public static displayName: string = "InputFile";
+    public static displayName: string = "InputFile";
 
-	// constructor
+    // constructor
 
-	constructor (props: iPropsInputFile) {
+    constructor (props: iPropsInputFile) {
 
-		super(props);
+        super(props);
 
-		// events handlers
+        // events handlers
 
-		this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
-	}
+    }
 
-	// events
+    // events
 
-	public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
-		if (!e.target.files || !e.target.files.length) {
+        if (!e.target.files || !e.target.files.length) {
 
-			if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, null);
-			}
+            if ("function" === typeof this.props.onChange) {
+                this.props.onChange(e, null);
+            }
 
-		}
-		else {
+        }
+        else {
 
-			const value: File = e.target.files[0];
+            const value: File = e.target.files[0];
 
-			if (this.props.maxSize && value.size > this.props.maxSize) {
+            if (this.props.maxSize && value.size > this.props.maxSize) {
 
-				if ("function" === typeof this.props.onChangeError) {
-					this.props.onChangeError(e, new Error("Incorrect file size"));
-				}
+                if ("function" === typeof this.props.onChangeError) {
+                    this.props.onChangeError(e, new Error("Incorrect file size"));
+                }
 
-			}
-			else if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, value);
-			}
+            }
+            else if ("function" === typeof this.props.onChange) {
+                this.props.onChange(e, value);
+            }
 
-		}
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
 
-		// render
-		return <input id={ this.props.id } name={ this.props.name } type="file"
+        // render
+        return <input id={ this.props.id } name={ this.props.name } type="file"
 
-			className={
-				"form-control" +
-				(this.props.className ? " " + this.props.className : "") +
-				(disabled ? " disabled" : "")
-			}
-			style={ this.props.style }
-			disabled={ disabled } aria-disabled={ disabled }
+            className={
+                "form-control" +
+                (this.props.className ? " " + this.props.className : "") +
+                (disabled ? " disabled" : "")
+            }
+            style={ this.props.style }
+            disabled={ disabled } aria-disabled={ disabled }
 
-			title={ this.props.label } aria-label={ this.props.label }
+            title={ this.props.label } aria-label={ this.props.label }
 
-			onChange={ this.handleChange }
+            onChange={ this.handleChange }
 
-		/>;
+        />;
 
-	}
+    }
 
 };
 
 export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 
-	// name
+    // name
 
-	public static displayName: string = "InputFileLabel";
+    public static displayName: string = "InputFileLabel";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const required: boolean = !!this.props.required;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const required: boolean = !!this.props.required;
 
-		// render
-		return <div className={
-			"mb-3" +
-			(this.props.className ? " " + this.props.className : "")
-		} style={ this.props.style }>
+        // render
+        return <div className={
+            "mb-3" +
+            (this.props.className ? " " + this.props.className : "")
+        } style={ this.props.style }>
 
-			<label htmlFor={ this.props.id } className={
-				disabled
-					? "text-muted"
-					: undefined
-			} aria-label={ this.props.label }>
+            <label htmlFor={ this.props.id } className={
+                disabled
+                    ? "text-muted"
+                    : undefined
+            } aria-label={ this.props.label }>
 
-				{ this.props.label } {
-					required
-						? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-						: null
-				}
+                { this.props.label } {
+                    required
+                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
+                        : null
+                }
 
-			</label>
+            </label>
 
-			<InputFile id={ this.props.id } name={ this.props.name }
+            <InputFile id={ this.props.id } name={ this.props.name }
 
-				required={ required } disabled={ disabled }
+                required={ required } disabled={ disabled }
 
-				label={ this.props.label }
+                label={ this.props.label }
 
-				onChange={ this.props.onChange }
-				onChangeError={ this.props.onChangeError }
+                onChange={ this.props.onChange }
+                onChangeError={ this.props.onChangeError }
 
-			/>
+            />
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

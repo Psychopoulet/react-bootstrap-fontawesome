@@ -2,11 +2,11 @@
 
 // deps
 
-	// externals
-	import { Context, createContext } from "react";
+    // externals
+    import { Context, createContext } from "react";
 
-	// locals
-	import { tVariant } from "../types";
+    // locals
+    import { tVariant } from "../types";
 
 // component
 

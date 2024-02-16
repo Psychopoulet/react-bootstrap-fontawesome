@@ -2,63 +2,63 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode } from "./types";
-	import Button from "./Button";
+    // locals
+    import { iPropsNode } from "./types";
+    import Button from "./Button";
 
 // Props && States
 
-	export interface iPropsButtonGroup extends iPropsNode {
-		"label"?: string;
-		"block"?: boolean;
-	};
+    export interface iPropsButtonGroup extends iPropsNode {
+        "label"?: string;
+        "block"?: boolean;
+    };
 
 // component
 
 export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> {
 
-	// name
+    // name
 
-	public static displayName: string = "ButtonGroup";
+    public static displayName: string = "ButtonGroup";
 
-	// constructor
+    // constructor
 
-	constructor (props: iPropsButtonGroup) {
+    constructor (props: iPropsButtonGroup) {
 
-		super(props);
+        super(props);
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		let className: string = "btn-group";
+        let className: string = "btn-group";
 
-		if (this.props.className) {
-			className += " " + this.props.className;
-		}
+        if (this.props.className) {
+            className += " " + this.props.className;
+        }
 
-		if (!!this.props.block) {
-			className += " col-12";
-		}
+        if (!!this.props.block) {
+            className += " col-12";
+        }
 
-		return <div id={ this.props.id }
-			role="button group" aria-label={ this.props.label }
-			className={ className } style={ this.props.style }
-		>
+        return <div id={ this.props.id }
+            role="button group" aria-label={ this.props.label }
+            className={ className } style={ this.props.style }
+        >
 
-			{
-				React.Children.toArray(this.props.children).filter((child: any): boolean => {
-					return Button === child.type;
-				})
-			}
+            {
+                React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                    return Button === child.type;
+                })
+            }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

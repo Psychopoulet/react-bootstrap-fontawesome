@@ -2,128 +2,128 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// externals
-	import { iPropsField } from "../types";
+    // externals
+    import { iPropsField } from "../types";
 
 // Props && States
 
-	interface iPropsCheckBox extends iPropsField {
-		"checked"?: boolean;
-		"onToogle"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: boolean, oldValue: boolean) => void;
-	};
+    interface iPropsCheckBox extends iPropsField {
+        "checked"?: boolean;
+        "onToogle"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: boolean, oldValue: boolean) => void;
+    };
 
-	interface iPropsCheckBoxLabel extends iPropsCheckBox {
-		"label": string;
-	};
+    interface iPropsCheckBoxLabel extends iPropsCheckBox {
+        "label": string;
+    };
 
 // component
 
 export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 
-	// name
+    // name
 
-	public static displayName: string = "CheckBox";
+    public static displayName: string = "CheckBox";
 
-	// constructor
+    // constructor
 
-	public constructor (props: iPropsCheckBox) {
+    public constructor (props: iPropsCheckBox) {
 
-		super(props);
+        super(props);
 
-		// events handlers
+        // events handlers
 
-		this._handleToogle = this._handleToogle.bind(this);
+        this._handleToogle = this._handleToogle.bind(this);
 
-	}
+    }
 
-	// events
+    // events
 
-	protected _handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
 
-		const value: boolean = e.target.checked;
+        const value: boolean = e.target.checked;
 
-		if (value === this.props.checked) {
-			return;
-		}
+        if (value === this.props.checked) {
+            return;
+        }
 
-		if ("function" === typeof this.props.onToogle) {
-			this.props.onToogle(e, value, !!this.props.checked);
-		}
+        if ("function" === typeof this.props.onToogle) {
+            this.props.onToogle(e, value, !!this.props.checked);
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const checked: boolean = !!this.props.checked;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const checked: boolean = !!this.props.checked;
 
-		// render
-		return <input id={ this.props.id } role="checkbox" type="checkbox"
+        // render
+        return <input id={ this.props.id } role="checkbox" type="checkbox"
 
-			className={
-				(this.props.className ? this.props.className : "") +
-				(disabled ? " disabled" : "")
-			}
-			style={ this.props.style }
-			disabled={ disabled } aria-disabled={ disabled }
+            className={
+                (this.props.className ? this.props.className : "") +
+                (disabled ? " disabled" : "")
+            }
+            style={ this.props.style }
+            disabled={ disabled } aria-disabled={ disabled }
 
-			title={ this.props.label } aria-label={ this.props.label }
+            title={ this.props.label } aria-label={ this.props.label }
 
-			checked={ checked } aria-checked={ checked  }
-			onChange={ this._handleToogle }
+            checked={ checked } aria-checked={ checked  }
+            onChange={ this._handleToogle }
 
-		/>;
+        />;
 
-	}
+    }
 
 };
 
 export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
 
-	// name
+    // name
 
-	public static displayName: string = "CheckBoxLabel";
+    public static displayName: string = "CheckBoxLabel";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const checked: boolean = !!this.props.checked;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const checked: boolean = !!this.props.checked;
 
-		// render
-		return <div className={
-			"mb-3" +
-			(this.props.className ? " " + this.props.className : "") +
-			(disabled ? " text-muted" : "")
-		} style={ this.props.style }>
+        // render
+        return <div className={
+            "mb-3" +
+            (this.props.className ? " " + this.props.className : "") +
+            (disabled ? " text-muted" : "")
+        } style={ this.props.style }>
 
-			<div className="form-check">
+            <div className="form-check">
 
-				<label className="form-check-label" aria-label={ this.props.label }>
+                <label className="form-check-label" aria-label={ this.props.label }>
 
-					<CheckBox id={ this.props.id }
-						className="form-check-input" disabled={ disabled }
-						label={ this.props.label }
-						checked={ checked }
-						onToogle={ this.props.onToogle }
-					/>
+                    <CheckBox id={ this.props.id }
+                        className="form-check-input" disabled={ disabled }
+                        label={ this.props.label }
+                        checked={ checked }
+                        onToogle={ this.props.onToogle }
+                    />
 
-					{ this.props.label }
+                    { this.props.label }
 
-				</label>
+                </label>
 
-			</div>
+            </div>
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

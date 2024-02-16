@@ -2,138 +2,138 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode } from "../types";
-	import NavItem from "./NavItem";
+    // locals
+    import { iPropsNode } from "../types";
+    import NavItem from "./NavItem";
 
 // Props && States
 
-	export interface iPropsNavTabs extends iPropsNode {
-		"items"?: Array<string>;
-		"selectedIndex"?: number;
-		"justified"?: boolean;
-		"pills"?: boolean;
-		"onSelect"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
-	};
+    export interface iPropsNavTabs extends iPropsNode {
+        "items"?: Array<string>;
+        "selectedIndex"?: number;
+        "justified"?: boolean;
+        "pills"?: boolean;
+        "onSelect"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
+    };
 
-	interface iStatesNavTabs {
-		"selectedIndex": number;
-	};
+    interface iStatesNavTabs {
+        "selectedIndex": number;
+    };
 
 // component
 
 export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTabs> {
 
-	// name
+    // name
 
-	public static displayName: string = "NavTabs";
+    public static displayName: string = "NavTabs";
 
-	// constructor
+    // constructor
 
-	constructor (props: iPropsNavTabs) {
+    constructor (props: iPropsNavTabs) {
 
-		super(props);
+        super(props);
 
-		// states
+        // states
 
-		this.state = {
-			"selectedIndex": "number" === typeof this.props.selectedIndex ? this.props.selectedIndex : 0
-		};
+        this.state = {
+            "selectedIndex": "number" === typeof this.props.selectedIndex ? this.props.selectedIndex : 0
+        };
 
-		// events handlers
+        // events handlers
 
-		this._handleSelect = this._handleSelect.bind(this);
+        this._handleSelect = this._handleSelect.bind(this);
 
-	}
+    }
 
-	// events
+    // events
 
-	protected _handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
+    protected _handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
 
-		let newSecuredIndex: number;
+        let newSecuredIndex: number;
 
-		if (this.props.items) {
+        if (this.props.items) {
 
-			if (newIndex >= this.props.items.length) {
-				newSecuredIndex = this.props.items.length - 1;
-			}
-			else if (newIndex < 0) {
-				newSecuredIndex = 0;
-			}
-			else {
-				newSecuredIndex = newIndex;
-			}
+            if (newIndex >= this.props.items.length) {
+                newSecuredIndex = this.props.items.length - 1;
+            }
+            else if (newIndex < 0) {
+                newSecuredIndex = 0;
+            }
+            else {
+                newSecuredIndex = newIndex;
+            }
 
-		}
-		else {
-			newSecuredIndex = newIndex;
-		}
+        }
+        else {
+            newSecuredIndex = newIndex;
+        }
 
-		this.setState({
-			"selectedIndex": newSecuredIndex
-		});
+        this.setState({
+            "selectedIndex": newSecuredIndex
+        });
 
-		if ("function" === typeof this.props.onSelect) {
-			this.props.onSelect(e, newSecuredIndex);
-		}
-		else if (e) {
+        if ("function" === typeof this.props.onSelect) {
+            this.props.onSelect(e, newSecuredIndex);
+        }
+        else if (e) {
 
-			e.preventDefault();
-			e.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
 
-		}
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		let className: string = "nav";
+        let className: string = "nav";
 
-		if (!!this.props.pills) {
-			className += " nav-pills";
-		}
-		else {
-			className += " nav-tabs";
-		}
+        if (!!this.props.pills) {
+            className += " nav-pills";
+        }
+        else {
+            className += " nav-tabs";
+        }
 
-		if (!!this.props.justified) {
-			className += " nav-justified";
-		}
+        if (!!this.props.justified) {
+            className += " nav-justified";
+        }
 
-		if (this.props.className) {
-			className += " " + this.props.className;
-		}
+        if (this.props.className) {
+            className += " " + this.props.className;
+        }
 
-		return <div id={ this.props.id } role="tablist" className={ className } style={ this.props.style }>
+        return <div id={ this.props.id } role="tablist" className={ className } style={ this.props.style }>
 
-			{
+            {
 
-				this.props.items ? this.props.items.map((title: string, key: number): JSX.Element => {
+                this.props.items ? this.props.items.map((title: string, key: number): JSX.Element => {
 
-					return <NavItem key={ key } index={ key }
-						active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
-						onClick={ this._handleSelect }
-					>
-						{ title }
-					</NavItem>;
+                    return <NavItem key={ key } index={ key }
+                        active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
+                        onClick={ this._handleSelect }
+                    >
+                        { title }
+                    </NavItem>;
 
-				}) : null
+                }) : null
 
-			}
+            }
 
-			{
-				React.Children.toArray(this.props.children).filter((child: any): boolean => {
-					return NavItem === child.type;
-				})
-			}
+            {
+                React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                    return NavItem === child.type;
+                })
+            }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

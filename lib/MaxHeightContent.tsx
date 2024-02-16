@@ -2,53 +2,53 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode } from "./types";
+    // locals
+    import { iPropsNode } from "./types";
 
 // Props && States
 
-	export interface iPropsMaxHeightContent extends iPropsNode {
-		"heightPX"?: number;
-		"maxHeightPX"?: number;
-	};
+    export interface iPropsMaxHeightContent extends iPropsNode {
+        "heightPX"?: number;
+        "maxHeightPX"?: number;
+    };
 
-	interface iStyle {
-		"overflow": "auto";
-		"height"?: string;
-		"maxHeight"?: string;
-	};
+    interface iStyle {
+        "overflow": "auto";
+        "height"?: string;
+        "maxHeight"?: string;
+    };
 
 // component
 
 export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeightContent> {
 
-	// name
+    // name
 
-	public static displayName: string = "MaxHeightContent";
+    public static displayName: string = "MaxHeightContent";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		const style: iStyle = {
-			"overflow": "auto"
-		};
+        const style: iStyle = {
+            "overflow": "auto"
+        };
 
-		if (this.props.heightPX) {
-			style.height = this.props.heightPX + "px";
-		}
+        if (this.props.heightPX) {
+            style.height = this.props.heightPX + "px";
+        }
 
-		if (this.props.maxHeightPX) {
-			style.maxHeight = this.props.maxHeightPX + "px";
-		}
+        if (this.props.maxHeightPX) {
+            style.maxHeight = this.props.maxHeightPX + "px";
+        }
 
-		return <div className={ this.props.className } style={ style }>
-			{ this.props.children }
-		</div>;
+        return <div className={ this.props.className } style={ style }>
+            { this.props.children }
+        </div>;
 
-	}
+    }
 
 };

@@ -2,67 +2,67 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode, tVariant } from "../types";
-	import { CardContext } from "./CardContext";
+    // locals
+    import { iPropsNode, tVariant } from "../types";
+    import { CardContext } from "./CardContext";
 
 // Props && States
 
-	interface iPropsCardHeader extends iPropsNode {
-		"justify"?: boolean;
-	};
+    interface iPropsCardHeader extends iPropsNode {
+        "justify"?: boolean;
+    };
 
 // component
 
 export default class CardHeader extends React.PureComponent<iPropsCardHeader> {
 
-	// name
+    // name
 
-	public static displayName: string = "CardHeader";
+    public static displayName: string = "CardHeader";
 
-	// statics
+    // statics
 
-		// public
+        // public
 
-		public static contextType: React.Context<tVariant> = CardContext;
+        public static contextType: React.Context<tVariant> = CardContext;
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		return <CardContext.Consumer>
+        return <CardContext.Consumer>
 
-			{
+            {
 
-				(variant: tVariant): JSX.Element => {
+                (variant: tVariant): JSX.Element => {
 
-					let className: string = "card-header";
+                    let className: string = "card-header";
 
-					if (!!this.props.justify) {
-						className += " d-flex justify-content-between align-items-center";
-					}
+                    if (!!this.props.justify) {
+                        className += " d-flex justify-content-between align-items-center";
+                    }
 
-					if (variant) {
-						className += " border-" + variant + " text-" + variant;
-					}
+                    if (variant) {
+                        className += " border-" + variant + " text-" + variant;
+                    }
 
-					if (this.props.className) {
-						className += " " + this.props.className;
-					}
+                    if (this.props.className) {
+                        className += " " + this.props.className;
+                    }
 
-					return <div id={ this.props.id } className={ className } style={ this.props.style }>
-						{ this.props.children }
-					</div>;
+                    return <div id={ this.props.id } className={ className } style={ this.props.style }>
+                        { this.props.children }
+                    </div>;
 
-				}
+                }
 
-			}
+            }
 
-		</CardContext.Consumer>;
+        </CardContext.Consumer>;
 
-	}
+    }
 
 };

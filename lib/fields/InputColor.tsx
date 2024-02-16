@@ -2,232 +2,232 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// externals
-	import { iPropsInput } from "../types";
-	import Icon from "../Icon";
-	import {
-		InvalidFeedBack,
-		InvalidFeedBackRequired,
-		InvalidFeedBackMinLength, InvalidFeedBackMaxLength
-	} from "./FieldFeedBacks";
+    // externals
+    import { iPropsInput } from "../types";
+    import Icon from "../Icon";
+    import {
+        InvalidFeedBack,
+        InvalidFeedBackRequired,
+        InvalidFeedBackMinLength, InvalidFeedBackMaxLength
+    } from "./FieldFeedBacks";
 
 // Props && States
 
-	export interface iPropsInputColor extends iPropsInput {
-		"value"?: string;
-		"onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
-	};
+    export interface iPropsInputColor extends iPropsInput {
+        "value"?: string;
+        "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
+    };
 
-	export interface iPropsInputColorLabel extends iPropsInputColor {
-		"label": string;
-	};
+    export interface iPropsInputColorLabel extends iPropsInputColor {
+        "label": string;
+    };
 
 // component
 
 export class InputColor extends React.PureComponent<iPropsInputColor> {
 
-	// name
+    // name
 
-	public static displayName: string = "InputColor";
+    public static displayName: string = "InputColor";
 
-	// constructor
+    // constructor
 
-	public constructor (props: iPropsInputColor) {
+    public constructor (props: iPropsInputColor) {
 
-		super(props);
+        super(props);
 
-		// events handlers
+        // events handlers
 
-		this._handleChange = this._handleChange.bind(this);
+        this._handleChange = this._handleChange.bind(this);
 
-	}
+    }
 
-	// statics
+    // statics
 
-	public static PATTERN: string = "^#[0-9a-f]{6}$";
-	public static MIN: number = 7;
-	public static MAX: number = 7;
+    public static PATTERN: string = "^#[0-9a-f]{6}$";
+    public static MIN: number = 7;
+    public static MAX: number = 7;
 
-	// events
+    // events
 
-	protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
-		const value: string = e.target.value;
+        const value: string = e.target.value;
 
-		if (value === this.props.value) {
-			return;
-		}
+        if (value === this.props.value) {
+            return;
+        }
 
-		if ("function" === typeof this.props.onChange) {
-			this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
-		}
+        if ("function" === typeof this.props.onChange) {
+            this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	private _render (): JSX.Element {
+    private _render (): JSX.Element {
 
-		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+        const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const required: boolean = !!this.props.required;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const required: boolean = !!this.props.required;
 
-		// controls
+        // controls
 
-		const requiredValid: boolean = required ? "" !== value : true;
+        const requiredValid: boolean = required ? "" !== value : true;
 
-		const minLengthValid: boolean = InputColor.MIN === value.length;
-		const maxLengthValid: boolean = InputColor.MAX === value.length;
+        const minLengthValid: boolean = InputColor.MIN === value.length;
+        const maxLengthValid: boolean = InputColor.MAX === value.length;
 
-		const patternValid: boolean = new RegExp(InputColor.PATTERN).test(value);
+        const patternValid: boolean = new RegExp(InputColor.PATTERN).test(value);
 
-		const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
+        const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
 
-		const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
+        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
 
-		return <input id={ this.props.id } name={ this.props.name } type="color"
+        return <input id={ this.props.id } name={ this.props.name } type="color"
 
-			ref={ this.props._ref }
+            ref={ this.props._ref }
 
-			className={
-				"form-control" +
-				(disabled ? " disabled" : "") +
-				(!valid ? " is-invalid" : "")
-			}
-			style={ style }
-			disabled={ disabled } aria-disabled={ disabled }
-			required={ required } aria-required={ required }
+            className={
+                "form-control" +
+                (disabled ? " disabled" : "") +
+                (!valid ? " is-invalid" : "")
+            }
+            style={ style }
+            disabled={ disabled } aria-disabled={ disabled }
+            required={ required } aria-required={ required }
 
-			placeholder={ this.props.placeholder }
-			title={ this.props.label } aria-label={ this.props.label }
+            placeholder={ this.props.placeholder }
+            title={ this.props.label } aria-label={ this.props.label }
 
-			pattern={ InputColor.PATTERN }
-			value={ this.props.value }
-			minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
-			onChange={ this._handleChange }
+            pattern={ InputColor.PATTERN }
+            value={ this.props.value }
+            minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
+            onChange={ this._handleChange }
 
-			onKeyDown={ this.props.onKeyDown }
+            onKeyDown={ this.props.onKeyDown }
 
-		/>;
+        />;
 
-	}
+    }
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+        const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
-		// render
-		return <div className={ "input-group" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
+        // render
+        return <div className={ "input-group" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
 
-			{ this._render() }
+            { this._render() }
 
-			<span className="input-group-text">
+            <span className="input-group-text">
 
-				<Icon type="circle" child style={{
-					"color": value
-				}} />
+                <Icon type="circle" child style={{
+                    "color": value
+                }} />
 
-			</span>
+            </span>
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };
 
 export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> {
 
-	// name
+    // name
 
-	public static displayName: string = "InputColorLabel";
+    public static displayName: string = "InputColorLabel";
 
-	// render
+    // render
 
-	private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
 
-		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+        const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
-		if (!requiredValid) {
-			return <InvalidFeedBackRequired />;
-		}
-		else if (!minLengthValid) {
-			return <InvalidFeedBackMinLength min={ InputColor.MIN } current={ value.length } />;
-		}
-		else if (!maxLengthValid) {
-			return <InvalidFeedBackMaxLength max={ InputColor.MAX } current={ value.length } />;
-		}
-		else if (!patternValid) {
-			return <InvalidFeedBack alert={ "The value does not respect the pattern (" + InputColor.PATTERN + ")" } />;
-		}
-		else {
-			return null;
-		}
+        if (!requiredValid) {
+            return <InvalidFeedBackRequired />;
+        }
+        else if (!minLengthValid) {
+            return <InvalidFeedBackMinLength min={ InputColor.MIN } current={ value.length } />;
+        }
+        else if (!maxLengthValid) {
+            return <InvalidFeedBackMaxLength max={ InputColor.MAX } current={ value.length } />;
+        }
+        else if (!patternValid) {
+            return <InvalidFeedBack alert={ "The value does not respect the pattern (" + InputColor.PATTERN + ")" } />;
+        }
+        else {
+            return null;
+        }
 
-	}
+    }
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		const value: string = "string" === typeof this.props.value ? this.props.value : "";
+        const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const required: boolean = !!this.props.required;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const required: boolean = !!this.props.required;
 
-		// controls
+        // controls
 
-		const requiredValid: boolean = required ? "" !== value : true;
+        const requiredValid: boolean = required ? "" !== value : true;
 
-		const minLengthValid: boolean = InputColor.MIN === value.length;
-		const maxLengthValid: boolean = InputColor.MAX === value.length;
+        const minLengthValid: boolean = InputColor.MIN === value.length;
+        const maxLengthValid: boolean = InputColor.MAX === value.length;
 
-		const patternValid: boolean = new RegExp(InputColor.PATTERN).test(value);
+        const patternValid: boolean = new RegExp(InputColor.PATTERN).test(value);
 
-		const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
+        const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
 
-		// render
-		return <div className={
-			"mb-3" +
-			(this.props.className ? " " + this.props.className : "")
-		} style={ this.props.style }>
+        // render
+        return <div className={
+            "mb-3" +
+            (this.props.className ? " " + this.props.className : "")
+        } style={ this.props.style }>
 
-			<label htmlFor={ this.props.id } className={
-				disabled
-					? "text-muted"
-					: !valid ? "text-danger" : undefined
-			} aria-label={ this.props.label }>
+            <label htmlFor={ this.props.id } className={
+                disabled
+                    ? "text-muted"
+                    : !valid ? "text-danger" : undefined
+            } aria-label={ this.props.label }>
 
-				{ this.props.label } {
-					required
-						? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-						: null
-				}
+                { this.props.label } {
+                    required
+                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
+                        : null
+                }
 
-			</label>
+            </label>
 
-			<InputColor id={ this.props.id } name={ this.props.name }
+            <InputColor id={ this.props.id } name={ this.props.name }
 
-				_ref={ this.props._ref }
+                _ref={ this.props._ref }
 
-				required={ required } disabled={ disabled }
+                required={ required } disabled={ disabled }
 
-				placeholder={ this.props.placeholder } label={ this.props.label }
+                placeholder={ this.props.placeholder } label={ this.props.label }
 
-				value={ value }
-				onChange={ this.props.onChange }
+                value={ value }
+                onChange={ this.props.onChange }
 
-				onKeyDown={ this.props.onKeyDown }
+                onKeyDown={ this.props.onKeyDown }
 
-			/>
+            />
 
-			{ this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) }
+            { this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

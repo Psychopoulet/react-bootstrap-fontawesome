@@ -2,98 +2,98 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// locals
-	import { iPropsNode } from "../types";
+    // locals
+    import { iPropsNode } from "../types";
 
 // Props && States
 
-	interface iPropsNavItem extends iPropsNode {
-		"index": number;
-		"active"?: boolean;
-		"disabled"?: boolean;
-		"justify"?: boolean;
-		"onClick"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
-	};
+    interface iPropsNavItem extends iPropsNode {
+        "index": number;
+        "active"?: boolean;
+        "disabled"?: boolean;
+        "justify"?: boolean;
+        "onClick"?: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void;
+    };
 
 // component
 
 export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
-	// name
+    // name
 
-	public static displayName: string = "NavItem";
+    public static displayName: string = "NavItem";
 
-	// constructor
+    // constructor
 
-	constructor (props: iPropsNavItem) {
+    constructor (props: iPropsNavItem) {
 
-		super(props);
+        super(props);
 
-		// events handlers
+        // events handlers
 
-		this.handleClick = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
 
-	}
+    }
 
-	// events
+    // events
 
-	public handleClick (e: React.MouseEvent<HTMLAnchorElement>): void {
+    public handleClick (e: React.MouseEvent<HTMLAnchorElement>): void {
 
-		if ("function" === typeof this.props.onClick) {
-			this.props.onClick(e, this.props.index);
-		}
-		else {
+        if ("function" === typeof this.props.onClick) {
+            this.props.onClick(e, this.props.index);
+        }
+        else {
 
-			e.preventDefault();
-			e.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
 
-		}
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		const disabled: boolean = !!this.props.disabled;
+        const disabled: boolean = !!this.props.disabled;
 
-		let className: string = "nav-item";
+        let className: string = "nav-item";
 
-		if (this.props.className) {
-			className += " " + this.props.className;
-		}
+        if (this.props.className) {
+            className += " " + this.props.className;
+        }
 
-		let linkClassName: string = "nav-link";
+        let linkClassName: string = "nav-link";
 
-		if (disabled) {
-			linkClassName += " disabled";
-		}
+        if (disabled) {
+            linkClassName += " disabled";
+        }
 
-		if (!!this.props.active) {
-			linkClassName += " active";
-		}
+        if (!!this.props.active) {
+            linkClassName += " active";
+        }
 
-		if (!!this.props.justify) {
-			linkClassName += " d-flex justify-content-between";
-		}
+        if (!!this.props.justify) {
+            linkClassName += " d-flex justify-content-between";
+        }
 
-		return <div id={ this.props.id } className={ className } style={ this.props.style }>
+        return <div id={ this.props.id } className={ className } style={ this.props.style }>
 
-			{
+            {
 
-				disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
-					{ this.props.children }
-				</span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this.handleClick }>
-					{ this.props.children }
-				</a>
+                disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
+                    { this.props.children }
+                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this.handleClick }>
+                    { this.props.children }
+                </a>
 
-			}
+            }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };

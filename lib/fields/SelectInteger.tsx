@@ -2,165 +2,165 @@
 
 // deps
 
-	// externals
-	import * as React from "react";
+    // externals
+    import * as React from "react";
 
-	// externals
-	import { iPropsField } from "../types";
-	import {
-		InvalidFeedBackRequired, InvalidFeedBackInteger
-	} from "./FieldFeedBacks";
+    // externals
+    import { iPropsField } from "../types";
+    import {
+        InvalidFeedBackRequired, InvalidFeedBackInteger
+    } from "./FieldFeedBacks";
 
 // Props && States
 
-	interface iPropsSelect extends iPropsField {
-		"value": number;
-		"onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: number, oldValue: number) => void;
-	};
+    interface iPropsSelect extends iPropsField {
+        "value": number;
+        "onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: number, oldValue: number) => void;
+    };
 
-	interface iPropsSelectLabel extends iPropsSelect {
-		"label": string;
-	};
+    interface iPropsSelectLabel extends iPropsSelect {
+        "label": string;
+    };
 
 // component
 
 export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
-	// name
+    // name
 
-	public static displayName: string = "SelectInteger";
+    public static displayName: string = "SelectInteger";
 
-	// constructor
+    // constructor
 
-	constructor (props: iPropsSelect) {
+    constructor (props: iPropsSelect) {
 
-		super(props);
+        super(props);
 
-		// events handlers
+        // events handlers
 
-		this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
-	}
+    }
 
-	// events
+    // events
 
-	public handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
+    public handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
 
-		if ("" === e.target.value.trim()) {
+        if ("" === e.target.value.trim()) {
 
-			if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, 0, this.props.value);
-			}
+            if ("function" === typeof this.props.onChange) {
+                this.props.onChange(e, 0, this.props.value);
+            }
 
-		}
-		else {
+        }
+        else {
 
-			const value: number = parseInt(e.target.value, 10);
+            const value: number = parseInt(e.target.value, 10);
 
-			if (value === this.props.value) {
-				return;
-			}
+            if (value === this.props.value) {
+                return;
+            }
 
-			if ("function" === typeof this.props.onChange) {
-				this.props.onChange(e, value, this.props.value);
-			}
+            if ("function" === typeof this.props.onChange) {
+                this.props.onChange(e, value, this.props.value);
+            }
 
-		}
+        }
 
-	}
+    }
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const required: boolean = !!this.props.required;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const required: boolean = !!this.props.required;
 
-		// controls
+        // controls
 
-		const isNumber: boolean = "number" === typeof this.props.value;
+        const isNumber: boolean = "number" === typeof this.props.value;
 
-		const requiredValid: boolean = required ? isNumber && 0 < this.props.value : true;
+        const requiredValid: boolean = required ? isNumber && 0 < this.props.value : true;
 
-		const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
+        const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
-		const valid: boolean = requiredValid && integerValid;
+        const valid: boolean = requiredValid && integerValid;
 
-		// render
-		return <select id={ this.props.id } name={ this.props.name }
+        // render
+        return <select id={ this.props.id } name={ this.props.name }
 
-			required={ required } aria-required={ required }
+            required={ required } aria-required={ required }
 
-			className={
-				"form-control" +
-				(this.props.className ? " " + this.props.className : "") +
-				(disabled ? " disabled" : "") +
-				(!valid ? " is-invalid" : "")
-			}
-			style={ this.props.style }
-			disabled={ disabled } aria-disabled={ disabled }
+            className={
+                "form-control" +
+                (this.props.className ? " " + this.props.className : "") +
+                (disabled ? " disabled" : "") +
+                (!valid ? " is-invalid" : "")
+            }
+            style={ this.props.style }
+            disabled={ disabled } aria-disabled={ disabled }
 
-			title={ this.props.label } aria-label={ this.props.label }
+            title={ this.props.label } aria-label={ this.props.label }
 
-			value={ this.props.value }
-			onChange={ this.handleChange }
+            value={ this.props.value }
+            onChange={ this.handleChange }
 
-		>
-			{ this.props.children }
-		</select>;
+        >
+            { this.props.children }
+        </select>;
 
-	}
+    }
 
 };
 
 export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
 
-	// name
+    // name
 
-	public static displayName: string = "SelectIntegerLabel";
+    public static displayName: string = "SelectIntegerLabel";
 
-	// render
+    // render
 
-	public render (): JSX.Element {
+    public render (): JSX.Element {
 
-		// props values
-		const disabled: boolean = !!this.props.disabled;
-		const required: boolean = !!this.props.required;
+        // props values
+        const disabled: boolean = !!this.props.disabled;
+        const required: boolean = !!this.props.required;
 
-		// controls
+        // controls
 
-		const isNumber: boolean = "number" === typeof this.props.value;
+        const isNumber: boolean = "number" === typeof this.props.value;
 
-		const requiredValid: boolean = required ? isNumber : true;
+        const requiredValid: boolean = required ? isNumber : true;
 
-		const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
+        const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
-		// render
-		return <div className={
-			"mb-3" +
-			(this.props.className ? " " + this.props.className : "")
-		} style={ this.props.style }>
+        // render
+        return <div className={
+            "mb-3" +
+            (this.props.className ? " " + this.props.className : "")
+        } style={ this.props.style }>
 
-			<label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
-				{ this.props.label }
-			</label>
+            <label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
+                { this.props.label }
+            </label>
 
-			<SelectInteger id={ this.props.id }
-				required={ required }
-				disabled={ disabled }
-				label={ this.props.label } value={ this.props.value }
-				onChange={ this.props.onChange }
+            <SelectInteger id={ this.props.id }
+                required={ required }
+                disabled={ disabled }
+                label={ this.props.label } value={ this.props.value }
+                onChange={ this.props.onChange }
 
-			>
-				{ this.props.children }
-			</SelectInteger>
+            >
+                { this.props.children }
+            </SelectInteger>
 
-			{ !requiredValid ? <InvalidFeedBackRequired /> : null }
-			{ requiredValid && !integerValid ? <InvalidFeedBackInteger /> : null }
+            { !requiredValid ? <InvalidFeedBackRequired /> : null }
+            { requiredValid && !integerValid ? <InvalidFeedBackInteger /> : null }
 
-		</div>;
+        </div>;
 
-	}
+    }
 
 };
