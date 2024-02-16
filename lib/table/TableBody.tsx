@@ -5,8 +5,10 @@
     // externals
     import * as React from "react";
 
+// types & interfaces
+
     // locals
-    import { iPropsNode } from "../types";
+    import type { iPropsNode } from "../types";
 
 // component
 
@@ -26,4 +28,4 @@ export default class TableBody extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}

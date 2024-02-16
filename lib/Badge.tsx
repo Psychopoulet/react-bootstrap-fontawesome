@@ -6,8 +6,12 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "./types";
-    import Icon, { tICon } from "./Icon";
+    import Icon, { type tICon } from "./Icon";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "./types";
 
 // Props && States
 
@@ -16,7 +20,7 @@
         "pill"?: boolean;
         "icon"?: tICon;
         "title"?: string;
-    };
+    }
 
 // component
 
@@ -54,4 +58,4 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
 
     }
 
-};
+}

@@ -21,4 +21,4 @@ export default function generateFocus (): tGenerateFocusCallback {
 
     return { setFocus, ref };
 
-};
+}

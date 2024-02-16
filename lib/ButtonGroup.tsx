@@ -6,15 +6,19 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode } from "./types";
     import Button from "./Button";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode } from "./types";
 
 // Props && States
 
     export interface iPropsButtonGroup extends iPropsNode {
         "label"?: string;
         "block"?: boolean;
-    };
+    }
 
 // component
 
@@ -61,4 +65,4 @@ export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> 
 
     }
 
-};
+}

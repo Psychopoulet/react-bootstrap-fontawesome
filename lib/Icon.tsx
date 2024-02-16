@@ -1,26 +1,14 @@
 "use strict";
 
-"use strict";
-
 // deps
 
     // externals
     import * as React from "react";
 
-    // locals
-    import { iPropsNode, tVariant, tSize } from "./types";
-
-// Props && States
-
-    export interface iPropsIcon extends iPropsNode {
-        "type": tICon;
-        "variant"?: tVariant;
-        "child"?: boolean;
-        "title"?: string;
-        "size"?: tSize;
-    };
-
 // types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant, tSize } from "./types";
 
     export type tICon =
     | "android" | "apple" | "linux" | "windows"
@@ -32,6 +20,16 @@
     | "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
     | "plug" | "plus" | "power" | "print"
     | "question" | "react" | "save" | "sync" | "times" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
+
+// Props && States
+
+    export interface iPropsIcon extends iPropsNode {
+        "type": tICon;
+        "variant"?: tVariant;
+        "child"?: boolean;
+        "title"?: string;
+        "size"?: tSize;
+    }
 
 // consts
 

@@ -6,8 +6,12 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "./types";
-    import Icon, { tICon } from "./Icon";
+    import Icon, { type tICon } from "./Icon";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "./types";
 
 // Props && States
 
@@ -21,7 +25,7 @@
         "icon"?: tICon;
         "title"?: string;
         "onClick"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    };
+    }
 
 // component
 
@@ -105,4 +109,4 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     }
 
-};
+}

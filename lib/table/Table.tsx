@@ -6,10 +6,15 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "../types";
     import TableHeader from "./TableHeader";
     import TableBody from "./TableBody";
     import TableFooter from "./TableFooter";
+
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "../types";
 
 // Props && States
 
@@ -21,7 +26,7 @@
         "striped"?: boolean;
         "hover"?: boolean;
         "small"?: boolean;
-    };
+    }
 
 // component
 
@@ -84,4 +89,4 @@ export default class Table extends React.PureComponent<iPropsTable> {
 
     }
 
-};
+}

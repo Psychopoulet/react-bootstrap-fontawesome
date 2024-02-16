@@ -5,21 +5,23 @@
     // externals
     import * as React from "react";
 
+// types & interfaces
+
     // locals
-    import { iPropsNode } from "./types";
-
-// Props && States
-
-    export interface iPropsMaxHeightContent extends iPropsNode {
-        "heightPX"?: number;
-        "maxHeightPX"?: number;
-    };
+    import type { iPropsNode } from "./types";
 
     interface iStyle {
         "overflow": "auto";
         "height"?: string;
         "maxHeight"?: string;
     };
+
+// Props && States
+
+    export interface iPropsMaxHeightContent extends iPropsNode {
+        "heightPX"?: number;
+        "maxHeightPX"?: number;
+    }
 
 // component
 
@@ -51,4 +53,4 @@ export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeigh
 
     }
 
-};
+}

@@ -5,15 +5,17 @@
     // externals
     import * as React from "react";
 
+// types & interfaces
+
     // locals
-    import { iPropsNode, tVariant } from "./types";
+    import type { iPropsNode, tVariant } from "./types";
 
 // Props && States
 
     export interface iPropsAlert extends iPropsNode {
         "variant"?: tVariant;
         "onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    };
+    }
 
 // component
 
@@ -57,4 +59,4 @@ export default class Alert extends React.PureComponent<iPropsAlert> {
 
     }
 
-};
+}
