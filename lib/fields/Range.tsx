@@ -6,11 +6,15 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import {
         InvalidFeedBackInteger,
         InvalidFeedBackMin, InvalidFeedBackMax
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
 
 // Props && States
 
@@ -21,11 +25,11 @@
         "max"?: number;
         "step"?: number;
         "onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
-    };
+    }
 
     interface iPropsRangeLabel extends iPropsRange {
         "value": number;
-    };
+    }
 
 // component
 
@@ -37,7 +41,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     // constructor
 
-    constructor (props: iPropsRange) {
+    public constructor (props: iPropsRange) {
 
         super(props);
 
@@ -151,7 +155,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     }
 
-};
+}
 
 export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
@@ -221,4 +225,4 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
     }
 
-};
+}

@@ -6,12 +6,16 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import {
         InvalidFeedBack,
         InvalidFeedBackRequired,
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
 
 // Props && States
 
@@ -21,11 +25,11 @@
         "minLength"?: number;
         "maxLength"?: number;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
-    };
+    }
 
     export interface iPropsInputTextLabel extends iPropsInputText {
         "label": string;
-    };
+    }
 
 // component
 
@@ -37,7 +41,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     // constructor
 
-    constructor (props: iPropsInputText) {
+    public constructor (props: iPropsInputText) {
 
         super(props);
 
@@ -125,7 +129,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     }
 
-};
+}
 
 export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
@@ -231,4 +235,4 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
     }
 
-};
+}

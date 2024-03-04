@@ -6,7 +6,6 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import Icon from "../Icon";
     import {
         InvalidFeedBack,
@@ -14,16 +13,21 @@
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./FieldFeedBacks";
 
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
+
 // Props && States
 
     export interface iPropsInputColor extends iPropsInput {
         "value"?: string;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
-    };
+    }
 
     export interface iPropsInputColorLabel extends iPropsInputColor {
         "label": string;
-    };
+    }
 
 // component
 
@@ -138,7 +142,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
     }
 
-};
+}
 
 export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> {
 
@@ -230,4 +234,4 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
 
     }
 
-};
+}

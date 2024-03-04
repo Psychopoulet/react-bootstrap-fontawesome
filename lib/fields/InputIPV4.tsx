@@ -6,19 +6,23 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import { InputText, InputTextLabel } from "./InputText";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
 
 // Props && States
 
     export interface iPropsInputIPV4 extends iPropsInput {
         "value"?: string;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: string, oldValue: string) => void;
-    };
+    }
 
     export interface iPropsInputIPV4Label extends iPropsInputIPV4 {
         "label": string;
-    };
+    }
 
 // component
 
@@ -64,7 +68,7 @@ export class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
 
     }
 
-};
+}
 
 export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
@@ -102,4 +106,4 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
     }
 
-};
+}

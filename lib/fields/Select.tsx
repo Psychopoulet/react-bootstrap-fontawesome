@@ -6,19 +6,23 @@
     import * as React from "react";
 
     // externals
-    import { iPropsField } from "../types";
     import { InvalidFeedBackRequired } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsField } from "../types";
 
 // Props && States
 
     interface iPropsSelect extends iPropsField {
         "value": string;
         "onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: string, oldValue: string) => void;
-    };
+    }
 
     interface iPropsSelectLabel extends iPropsSelect {
         "label": string;
-    };
+    }
 
 // component
 
@@ -30,7 +34,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
     // constructor
 
-    constructor (props: iPropsSelect) {
+    public constructor (props: iPropsSelect) {
 
         super(props);
 
@@ -93,7 +97,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
     }
 
-};
+}
 
 export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
@@ -149,4 +153,4 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
     }
 
-};
+}

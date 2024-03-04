@@ -6,11 +6,15 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import {
         InvalidFeedBackFloat,
         InvalidFeedBackMin, InvalidFeedBackMax
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
 
 // Props && States
 
@@ -20,11 +24,11 @@
         "max"?: number;
         "step"?: number;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
-    };
+    }
 
     interface iPropsInputFloatLabel extends iPropsInputNumber {
         "label": string;
-    };
+    }
 
 // component
 
@@ -36,7 +40,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     // constructor
 
-    constructor (props: iPropsInputNumber) {
+    public constructor (props: iPropsInputNumber) {
 
         super(props);
 
@@ -118,7 +122,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     }
 
-};
+}
 
 export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> {
 
@@ -185,4 +189,4 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
     }
 
-};
+}

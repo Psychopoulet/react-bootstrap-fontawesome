@@ -6,20 +6,24 @@
     import * as React from "react";
 
     // externals
-    import { iPropsField } from "../types";
     import {
         InvalidFeedBackRequired
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsField } from "../types";
 
 // Props && States
 
     export interface iPropsReadOnly extends iPropsField {
         "value"?: string | number;
-    };
+    }
 
     interface iPropsInputReadOnlyLabel extends iPropsReadOnly {
         "label": string;
-    };
+    }
 
 // component
 
@@ -64,7 +68,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
     }
 
-};
+}
 
 export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyLabel> {
 
@@ -129,4 +133,4 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
     }
 
-};
+}

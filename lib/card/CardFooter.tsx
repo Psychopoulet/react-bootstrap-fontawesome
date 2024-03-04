@@ -6,8 +6,12 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "../types";
     import { CardContext } from "./CardContext";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "../types";
 
 // component
 
@@ -49,4 +53,4 @@ export default class CardFooter extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}

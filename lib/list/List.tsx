@@ -6,8 +6,12 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tSize, tVariant } from "../types";
     import { ListContext } from "./ListContext";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tSize, tVariant } from "../types";
 
 // Props && States
 

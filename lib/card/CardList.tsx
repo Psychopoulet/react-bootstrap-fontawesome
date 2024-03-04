@@ -6,9 +6,13 @@
     import * as React from "react";
 
     // locals
-    import { tVariant } from "../types";
     import { CardContext } from "./CardContext";
-    import List, { iPropsList } from "../list/List";
+    import List, { type iPropsList } from "../list/List";
+
+// types & interfaces
+
+    // locals
+    import type { tVariant } from "../types";
 
 // component
 
@@ -43,4 +47,4 @@ export default class CardList extends React.PureComponent<iPropsList> {
 
     }
 
-};
+}

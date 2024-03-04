@@ -6,21 +6,25 @@
     import * as React from "react";
 
     // externals
-    import { iPropsField } from "../types";
     import {
         InvalidFeedBackRequired, InvalidFeedBackInteger
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsField } from "../types";
 
 // Props && States
 
     interface iPropsSelect extends iPropsField {
         "value": number;
         "onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: number, oldValue: number) => void;
-    };
+    }
 
     interface iPropsSelectLabel extends iPropsSelect {
         "label": string;
-    };
+    }
 
 // component
 
@@ -32,7 +36,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
     // constructor
 
-    constructor (props: iPropsSelect) {
+    public constructor (props: iPropsSelect) {
 
         super(props);
 
@@ -112,7 +116,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
     }
 
-};
+}
 
 export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
 
@@ -163,4 +167,4 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
 
     }
 
-};
+}

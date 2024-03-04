@@ -6,13 +6,13 @@
     import * as React from "react";
 
     // locals
-    import Image, { iPropsImage } from "../Image";
+    import Image, { type iPropsImage } from "../Image";
 
 // Props && States
 
     interface iPropsCardImage extends iPropsImage {
         "position"?: "top" | "bottom";
-    };
+    }
 
 // component
 
@@ -36,4 +36,4 @@ export default class CardImage extends React.PureComponent<iPropsCardImage> {
 
     }
 
-};
+}

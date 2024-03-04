@@ -6,7 +6,12 @@
     import * as React from "react";
 
     // locals
-    import List, { iPropsList } from "../list/List";
+    import List, { type iPropsList } from "../list/List";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tSize, tVariant } from "../types";
 
 // component
 

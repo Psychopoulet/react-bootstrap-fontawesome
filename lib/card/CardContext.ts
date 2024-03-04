@@ -5,8 +5,10 @@
     // externals
     import { Context, createContext } from "react";
 
+// types & interfaces
+
     // locals
-    import { tVariant } from "../types";
+    import type { tVariant } from "../types";
 
 // component
 

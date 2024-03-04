@@ -14,7 +14,7 @@
         "overflow": "auto";
         "height"?: string;
         "maxHeight"?: string;
-    };
+    }
 
 // Props && States
 

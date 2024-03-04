@@ -6,7 +6,7 @@
     import * as React from "react";
 
     // locals
-    import NavTabs, { iPropsNavTabs } from "../nav/NavTabs";
+    import NavTabs, { type iPropsNavTabs } from "../nav/NavTabs";
 
 // component
 
@@ -41,4 +41,4 @@ export default class CardHeaderNav extends React.PureComponent<iPropsNavTabs> {
 
     }
 
-};
+}

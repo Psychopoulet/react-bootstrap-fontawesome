@@ -6,7 +6,7 @@
     import * as React from "react";
 
     // locals
-    import Table, { iPropsTable } from "../table/Table";
+    import Table, { type iPropsTable } from "../table/Table";
 
 // component
 
@@ -33,4 +33,4 @@ export default class CardTable extends React.PureComponent<iPropsTable> {
 
     }
 
-};
+}

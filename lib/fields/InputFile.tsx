@@ -5,8 +5,10 @@
     // externals
     import * as React from "react";
 
-    // externals
-    import { iPropsField } from "../types";
+// types & interfaces
+
+    // locals
+    import type { iPropsField } from "../types";
 
 // Props && States
 
@@ -14,11 +16,11 @@
         "maxSize"?: number;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, file: File | null) => void;
         "onChangeError"?: (e: React.ChangeEvent<HTMLInputElement>, error: Error) => void;
-    };
+    }
 
     export interface iPropsInputFileLabel extends iPropsInputFile {
         "label": string;
-    };
+    }
 
 // component
 
@@ -30,7 +32,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     // constructor
 
-    constructor (props: iPropsInputFile) {
+    public constructor (props: iPropsInputFile) {
 
         super(props);
 
@@ -96,7 +98,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     }
 
-};
+}
 
 export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 
@@ -147,4 +149,4 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 
     }
 
-};
+}

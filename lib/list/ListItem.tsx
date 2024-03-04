@@ -6,8 +6,12 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "../types";
     import { ListContext } from "./ListContext";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "../types";
 
 // Props && States
 
@@ -17,7 +21,7 @@
         "disabled"?: boolean;
         "justify"?: boolean;
         "onClick"?: (e: React.MouseEvent<HTMLAnchorElement>) => void
-    };
+    }
 
 // component
 

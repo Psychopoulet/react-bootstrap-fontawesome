@@ -6,7 +6,6 @@
     import * as React from "react";
 
     // locals
-    import { iPropsNode, tVariant } from "../types";
     import { CardContext } from "./CardContext";
     import MaxHeightContent from "../MaxHeightContent";
     import CardHeader from "./CardHeader";
@@ -17,12 +16,17 @@
     import CardTable from "./CardTable";
     import CardFooter from "./CardFooter";
 
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tVariant } from "../types";
+
 // Props && States
 
     interface iPropsCard extends iPropsNode {
         "variant"?: tVariant;
         "onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
-    };
+    }
 
 // component
 
@@ -77,4 +81,4 @@ export default class Card extends React.PureComponent<iPropsCard> {
 
     }
 
-};
+}

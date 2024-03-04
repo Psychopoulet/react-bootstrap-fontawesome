@@ -7,10 +7,14 @@
     import * as ReactDOM from "react-dom";
 
     // locals
-    import { iPropsNode, tVariant, tSize } from "../types";
     import ModalBody from "./ModalBody";
     import ModalList from "./ModalList";
     import ModalFooter from "./ModalFooter";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tSize, tVariant } from "../types";
 
 // Props && States
 
@@ -24,13 +28,13 @@
         "variant"?: tVariant;
         "onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
         "onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
-    };
+    }
 
     interface iStatesModal {
         "appParent": HTMLElement;
         "backDrop": HTMLDivElement;
         "displayId": number;
-    };
+    }
 
 // types & interfaces
 

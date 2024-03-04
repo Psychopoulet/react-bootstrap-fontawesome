@@ -20,7 +20,7 @@
         "onClick"?: (e: React.MouseEvent<HTMLImageElement>) => void;
         "onMouseEnter"?: (e: React.MouseEvent<HTMLImageElement>) => void;
         "onMouseLeave"?: (e: React.MouseEvent<HTMLImageElement>) => void;
-    };
+    }
 
 // component
 
@@ -34,7 +34,7 @@ export default class Image extends React.PureComponent<iPropsImage> {
 
     public render (): JSX.Element {
 
-        let style: { [key: string]: string } = this.props.style ? { ...this.props.style } : {};
+        const style: Record<string, string> = this.props.style ? { ...this.props.style } : {};
 
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";
@@ -47,4 +47,4 @@ export default class Image extends React.PureComponent<iPropsImage> {
 
     }
 
-};
+}

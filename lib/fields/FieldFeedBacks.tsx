@@ -5,24 +5,26 @@
     // externals
     import * as React from "react";
 
-    // externals
-    import { iPropsNode } from "../types";
+// types & interfaces
+
+    // locals
+    import type { iPropsNode } from "../types";
 
 // Props && States
 
     interface iPropsInvalidFeedBack extends iPropsNode {
         "alert": string;
-    };
+    }
 
     interface iPropsInvalidFeedBackMin extends iPropsNode {
         "min": number;
         "current": number;
-    };
+    }
 
     interface iPropsInvalidFeedBackMax extends iPropsNode {
         "max": number;
         "current": number;
-    };
+    }
 
 // component
 
@@ -42,7 +44,7 @@ export class InvalidFeedBack extends React.PureComponent<iPropsInvalidFeedBack> 
 
     }
 
-};
+}
 
 export class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
 
@@ -60,7 +62,7 @@ export class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}
 
 export class InvalidFeedBackFloat extends React.PureComponent<iPropsNode> {
 
@@ -78,7 +80,7 @@ export class InvalidFeedBackFloat extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}
 
 export class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
 
@@ -96,7 +98,7 @@ export class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
 
     }
 
-};
+}
 
 export class InvalidFeedBackMin extends React.PureComponent<iPropsInvalidFeedBackMin> {
 
@@ -114,7 +116,7 @@ export class InvalidFeedBackMin extends React.PureComponent<iPropsInvalidFeedBac
 
     }
 
-};
+}
 
 export class InvalidFeedBackMax extends React.PureComponent<iPropsInvalidFeedBackMax> {
 
@@ -132,7 +134,7 @@ export class InvalidFeedBackMax extends React.PureComponent<iPropsInvalidFeedBac
 
     }
 
-};
+}
 
 export class InvalidFeedBackMinLength extends React.PureComponent<iPropsInvalidFeedBackMin> {
 
@@ -150,7 +152,7 @@ export class InvalidFeedBackMinLength extends React.PureComponent<iPropsInvalidF
 
     }
 
-};
+}
 
 export class InvalidFeedBackMaxLength extends React.PureComponent<iPropsInvalidFeedBackMax> {
 
@@ -168,4 +170,4 @@ export class InvalidFeedBackMaxLength extends React.PureComponent<iPropsInvalidF
 
     }
 
-};
+}

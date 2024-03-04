@@ -6,11 +6,15 @@
     import * as React from "react";
 
     // externals
-    import { iPropsInput } from "../types";
     import {
         InvalidFeedBackInteger,
         InvalidFeedBackMin, InvalidFeedBackMax
     } from "./FieldFeedBacks";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsInput } from "../types";
 
 // Props && States
 
@@ -20,11 +24,11 @@
         "max"?: number;
         "step"?: number;
         "onChange"?: (e: React.ChangeEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
-    };
+    }
 
     interface iPropsInputIntegerLabel extends iPropsInputNumber {
         "label": string;
-    };
+    }
 
 // component
 
@@ -36,7 +40,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 
     // constructor
 
-    constructor (props: iPropsInputNumber) {
+    public constructor (props: iPropsInputNumber) {
 
         super(props);
 
@@ -119,7 +123,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 
     }
 
-};
+}
 
 export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLabel> {
 
@@ -187,4 +191,4 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
 
     }
 
-};
+}
