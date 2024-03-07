@@ -1,36 +1,36 @@
 {
-	"compilerOptions": {
+  "compilerOptions": {
 
-		"target": "es6",
-		"module": "ESNext",
+    "target": "es6",
+    "module": "esnext",
 
-		"outDir": "./lib",
+    "outDir": "./lib",
 
-		"declaration": true,
-		"declarationDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib",
 
-        "moduleResolution": "node",
-        "allowJs": true,
+    "moduleResolution": "node",
+    "allowJs": true,
 
-		"alwaysStrict": true,
-		"strict": true,
-		"strictFunctionTypes": true,
-		"strictNullChecks": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"noUnusedLocals": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
+    "alwaysStrict": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
 
-		"jsx": "react"
+    "jsx": "react"
 
-	},
-	"include": [
-		"./src/main.ts"
-	],
-	"exclude": [
-		"node_modules"
-	],
-	"compileOnSave": false
+  },
+  "include": [
+    "./src/main.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compileOnSave": false
 }

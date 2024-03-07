@@ -1,22 +1,12 @@
 {
 
   "name": "react-bootstrap-fontawesome",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
 
-  "type": "module",
-
   "typings": "./lib/main.d.ts",
+  "module": "./lib/main.js",
   "main": "./lib/main.js",
-
-  "exports": {
-      ".": {
-          "require": {
-              "types": "./lib/main.d.ts",
-              "default": "./lib/main.js"
-          }
-      }
-  },
 
   "scripts": {
 
@@ -25,7 +15,7 @@
     "clean": "npx rimraf lib",
     "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
 
-    "lint": "npx eslint --config .eslintrc-src.cjs --ext .cts,.ts ./src/**/*",
+    "lint": "npx eslint --config .eslintrc-src.cjs --ext .ts,.cts,.mts,.tsx,.ctsx,.mtsx ./src/**/*",
     "check-requires": "npx used-deps-analyzer \"./package.json\" \"./lib\" --no-dev --overkill \"fs-extra\" \"node-promfs\"",
     "check-updates": "npx check-version-modules",
     "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates && npm run build"
