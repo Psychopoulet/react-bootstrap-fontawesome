@@ -4,14 +4,16 @@
   "version": "0.5.4",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
 
-  "typings": ".lib/index.ts",
-  "main": "./lib/index.ts",
+  "type": "module",
+
+  "typings": "./lib/main.d.ts",
+  "main": "./lib/main.js",
 
   "exports": {
       ".": {
           "require": {
-              "types": "./lib/index.ts",
-              "default": "./lib/index.ts"
+              "types": "./lib/main.d.ts",
+              "default": "./lib/main.js"
           }
       }
   },
@@ -20,10 +22,13 @@
 
     "prepare": "husky",
 
-    "lint": "npx eslint --config .eslintrc.js --ext .cts,.ts ./lib/**/*",
+    "clean": "npx rimraf lib",
+    "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
+
+    "lint": "npx eslint --config .eslintrc-src.cjs --ext .cts,.ts ./src/**/*",
     "check-requires": "npx used-deps-analyzer \"./package.json\" \"./lib\" --no-dev --overkill \"fs-extra\" \"node-promfs\"",
     "check-updates": "npx check-version-modules",
-    "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates"
+    "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates && npm run build"
 
   },
 
@@ -38,7 +43,6 @@
 
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "20.11.24",
     "@types/react": "18.2.61",
     "@types/react-dom": "18.2.19",
     "check-version-modules": "2.1.1",
