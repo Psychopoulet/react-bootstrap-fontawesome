@@ -8,11 +8,6 @@
     // locals
     import List, { type iPropsList } from "../list/List";
 
-// types & interfaces
-
-    // locals
-    import type { iPropsNode, tSize, tVariant } from "../types";
-
 // component
 
 export default class ModalList extends React.PureComponent<iPropsList> {
