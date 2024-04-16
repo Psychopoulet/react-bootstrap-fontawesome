@@ -53,6 +53,22 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     }
 
+    public static getDerivedStateFromProps(nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | null {
+
+        if (nextProps.selectedIndex === nextState.selectedIndex) {
+            return null;
+        }
+        else {
+
+            return {
+                ...nextState,
+                "selectedIndex": nextProps.selectedIndex as number
+            };
+
+        }
+
+    }
+
     // events
 
     protected _handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
