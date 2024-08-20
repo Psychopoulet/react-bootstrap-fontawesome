@@ -11,15 +11,16 @@
     import type { iPropsNode, tVariant, tSize } from "./types";
 
     export type tICon =
-    | "android" | "apple" | "linux" | "windows"
+    | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "windows"
     | "barcode" | "fingerprint" | "nfc"
     | "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
     | "money-bill" | "credit-card"
+    | "mask-face"
     | "play" | "pause" | "stop"
-    | "amazon" | "angular" | "asterisk" | "ban"
-    | "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "google" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
+    | "asterisk" | "ban"
+    | "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
     | "plug" | "plus" | "power" | "print"
-    | "question" | "react" | "save" | "sync" | "times" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
+    | "question" | "react" | "save" | "sync" | "times" | "toggle-on" | "toggle-off" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
 
 // Props && States
 
@@ -35,8 +36,11 @@
 
     const ICONS = {
 
+        "amazon": "fab fa-amazon",
         "android": "fab fa-android",
+        "angular": "fab fa-angular",
         "apple": "fab fa-apple",
+        "google": "fab fa-google",
         "linux": "fab fa-linux",
         "windows": "fab fa-windows",
 
@@ -53,12 +57,12 @@
         "credit-card": "far fa-credit-card",
         "money-bill": "fas fa-money-bill",
 
+        "mask-face": "fas fa-mask-face",
+
         "play": "fas fa-play",
         "pause": "fas fa-pause",
         "stop": "fas fa-stop",
 
-        "amazon": "fab fa-amazon",
-        "angular": "fab fa-angular",
         "asterisk": "fas fa-asterisk",
         "ban": "fas fa-ban",
         "check": "fas fa-check",
@@ -72,7 +76,6 @@
         "lightbulb": "far fa-lightbulb",
         "lock": "fas fa-lock",
         "gamepad": "fas fa-gamepad",
-        "google": "fab fa-google",
         "microchip": "fas fa-microchip",
         "plug": "fas fa-plug",
         "plus": "fas fa-plus",
@@ -83,6 +86,8 @@
         "save": "fas fa-save",
         "sync": "fas fa-sync",
         "times": "fas fa-times",
+        "toggle-on": "fas fa-toggle-on",
+        "toggle-off": "fas fa-toggle-off",
         "trash": "fas fa-trash",
         "tv": "fas fa-tv",
         "unlock": "fas fa-unlock",
