@@ -6,8 +6,8 @@
     import * as React from "react";
 
     // locals
-    import { CardContext } from "./CardContext";
     import MaxHeightContent from "../MaxHeightContent";
+    import { CardContext } from "./CardContext";
     import CardHeader from "./CardHeader";
     import CardHeaderNav from "./CardHeaderNav";
     import CardImage from "./CardImage";
@@ -65,10 +65,10 @@ export default class Card extends React.PureComponent<iPropsCard> {
                                 || CardHeader === child.type
                                 || CardHeaderNav === child.type
                                 || CardBody === child.type
-                                || CardFooter === child.type
                                 || CardList === child.type
                                 || CardTable === child.type
-                                || CardImage === child.type;
+                                || CardImage === child.type
+                                || CardFooter === child.type;
 
                         })
                     }

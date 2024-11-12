@@ -7,8 +7,11 @@
     import * as ReactDOM from "react-dom";
 
     // locals
+    import MaxHeightContent from "../MaxHeightContent";
     import ModalBody from "./ModalBody";
+    import ModalImage from "./ModalImage";
     import ModalList from "./ModalList";
+    import ModalTable from "./ModalTable";
     import ModalFooter from "./ModalFooter";
 
 // types & interfaces
@@ -190,8 +193,11 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
                     {
                         React.Children.toArray(this.props.children).filter((child: any): boolean => {
 
-                            return ModalBody === child.type
+                            return MaxHeightContent === child.type
+                                || ModalBody === child.type
+                                || ModalImage === child.type
                                 || ModalList === child.type
+                                || ModalTable === child.type
                                 || ModalFooter === child.type;
 
                         })

@@ -17,8 +17,8 @@
     import Card from "./card/Card";
     import CardHeader from "./card/CardHeader";
     import CardHeaderNav from "./card/CardHeaderNav";
-    import CardImage from "./card/CardImage";
     import CardBody from "./card/CardBody";
+    import CardImage from "./card/CardImage";
     import CardList from "./card/CardList";
     import CardTable from "./card/CardTable";
     import CardFooter from "./card/CardFooter";
@@ -49,7 +49,9 @@
 
     import Modal from "./modal/Modal";
     import ModalBody from "./modal/ModalBody";
+    import ModalImage from "./modal/ModalImage";
     import ModalList from "./modal/ModalList";
+    import ModalTable from "./modal/ModalTable";
     import ModalFooter from "./modal/ModalFooter";
 
     import NavTabs from "./nav/NavTabs";
@@ -84,7 +86,7 @@ export {
 
     Alert, Badge, Button, ButtonGroup, Icon, Image, MaxHeightContent,
 
-    Card, CardHeader, CardHeaderNav, CardImage, CardBody, CardList, CardTable, CardFooter,
+    Card, CardHeader, CardHeaderNav, CardBody, CardImage, CardList, CardTable, CardFooter,
 
     List, ListItem, ListItemHeader,
 
@@ -106,7 +108,7 @@ export {
     SelectInteger, SelectIntegerLabel,
     TextArea, TextAreaLabel,
 
-    Modal, ModalList, ModalBody, ModalFooter,
+    Modal, ModalBody, ModalImage, ModalList, ModalTable, ModalFooter,
 
     NavTabs, NavItem,
 
