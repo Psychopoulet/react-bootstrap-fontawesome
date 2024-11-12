@@ -1,7 +1,7 @@
 {
 
   "name": "react-bootstrap-fontawesome",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
 
   "typings": "./lib/main.d.ts",
@@ -33,13 +33,13 @@
 
   "dependencies": {},
   "devDependencies": {
-    "react": "18.3.1",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
     "check-version-modules": "2.1.2",
     "colors": "1.4.0",
     "eslint-plugin-personnallinter": "git+ssh://git@github.com/Psychopoulet/eslint-plugin-personnallinter",
-    "husky": "9.0.11",
+    "husky": "9.1.6",
+    "react": "18.3.1",
     "used-deps-analyzer": "0.1.8"
   },
   "optionalDependencies": {},

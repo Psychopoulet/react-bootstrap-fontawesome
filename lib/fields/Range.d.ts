@@ -15,8 +15,8 @@ export declare class Range extends React.PureComponent<iPropsRange, iPropsRangeL
     static displayName: string;
     constructor(props: iPropsRange);
     UNSAFE_componentWillReceiveProps(nextProps: iPropsRange): void;
-    handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
-    handleMouseUp(e: React.MouseEvent<HTMLInputElement>): void;
+    protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
+    protected _handleMouseUp(e: React.MouseEvent<HTMLInputElement>): void;
     private _render;
     render(): JSX.Element;
 }

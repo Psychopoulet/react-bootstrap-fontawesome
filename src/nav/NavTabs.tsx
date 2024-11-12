@@ -47,16 +47,12 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
             "selectedIndex": "number" === typeof this.props.selectedIndex ? this.props.selectedIndex : 0
         };
 
-        // events handlers
-
-        this._handleSelect = this._handleSelect.bind(this);
-
     }
 
-    public static getDerivedStateFromProps(nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | null {
+    public static getDerivedStateFromProps (nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | undefined {
 
         if (nextProps.selectedIndex === nextState.selectedIndex) {
-            return null;
+            return undefined;
         }
         else {
 
@@ -114,14 +110,14 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
         let className: string = "nav";
 
-        if (!!this.props.pills) {
+        if (Boolean(this.props.pills)) {
             className += " nav-pills";
         }
         else {
             className += " nav-tabs";
         }
 
-        if (!!this.props.justified) {
+        if (Boolean(this.props.justified)) {
             className += " nav-justified";
         }
 
@@ -137,12 +133,12 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
                     return <NavItem key={ key } index={ key }
                         active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
-                        onClick={ this._handleSelect }
+                        onClick={ this._handleSelect.bind(this) }
                     >
                         { title }
                     </NavItem>;
 
-                }) : null
+                }) : undefined
 
             }
 

@@ -40,21 +40,9 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
     public static displayName: string = "TextArea";
 
-    // constructor
-
-    public constructor (props: iPropsTextArea) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLTextAreaElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLTextAreaElement>): void {
 
         const value: string = e.target.value;
 
@@ -75,8 +63,8 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -85,7 +73,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
         let maxLengthValid: boolean = true;
         let patternValid: boolean = true;
 
-        if ("" !== value || !!this.props.emptyValidation) {
+        if ("" !== value || Boolean(this.props.emptyValidation)) {
 
             requiredValid = required ? "" !== this.props.value : true;
 
@@ -105,10 +93,10 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
         return <textarea id={ this.props.id } name={ this.props.name }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             } rows={ this.props.rows } style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
             required={ required } aria-required={ required }
@@ -118,7 +106,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
             value={ this.props.value }
             minLength={ this.props.minLength } maxLength={ this.props.maxLength }
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
 
@@ -136,7 +124,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -147,13 +135,13 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
             return <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } />;
         }
         else if (!maxLengthValid) {
-            return <InvalidFeedBackMaxLength max={ this.props.maxLength as number  } current={ value.length } />;
+            return <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } />;
         }
         else if (!patternValid) {
             return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
         }
         else {
-            return null;
+            return undefined;
         }
 
     }
@@ -163,8 +151,8 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -173,7 +161,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
         let maxLengthValid: boolean = true;
         let patternValid: boolean = true;
 
-        if ("" !== value || !!this.props.emptyValidation) {
+        if ("" !== value || Boolean(this.props.emptyValidation)) {
 
             requiredValid = required ? "" !== value : true;
 
@@ -191,8 +179,8 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -204,7 +192,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>

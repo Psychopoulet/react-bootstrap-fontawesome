@@ -23,7 +23,6 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
     componentWillMount(): void;
     componentDidMount(): void;
     componentWillUnmount(): void;
-    handleClose(e: React.MouseEvent<HTMLButtonElement>): void;
     private _renderContent;
     render(): JSX.Element;
 }

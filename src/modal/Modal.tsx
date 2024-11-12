@@ -73,13 +73,9 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
             "displayId": 0
         };
 
-        // events handlers
-
-        this.handleClose = this.handleClose.bind(this);
-
     }
 
-    public componentWillMount () {
+    public componentWillMount (): void {
 
         Modal.OPENED_MODALS_COUNT += 2;
 
@@ -121,33 +117,17 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
     }
 
-    // events
-
-    public handleClose (e: React.MouseEvent<HTMLButtonElement>): void {
-
-        if ("function" === typeof this.props.onClose) {
-            this.props.onClose(e);
-        }
-        else {
-
-            e.preventDefault();
-            e.stopPropagation();
-
-        }
-
-    }
-
     // render
 
     private _renderContent (): JSX.Element {
 
         let className: string = "modal-dialog";
 
-        if (!!this.props.centered) {
+        if (Boolean(this.props.centered)) {
             className += " modal-dialog-centered";
         }
 
-        if (!!this.props.scrollable) {
+        if (Boolean(this.props.scrollable)) {
             className += " modal-dialog-scrollable";
         }
 
@@ -157,6 +137,10 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
                 case "sm":
                     className += " modal-sm";
+                break;
+
+                case "md":
+                    className += " modal-md";
                 break;
 
                 case "lg":
@@ -178,26 +162,28 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
         return <div className={ className } style={ this.props.style }>
 
             <div className={
-                "modal-content" +
-                (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "")
+                "modal-content"
+                + (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "")
             }>
 
                 {
 
-                    this.props.title || "function" === typeof this.props.onClose ? <div className={
-                        "modal-header" +
-                        (this.props.variant ? " border-" + this.props.variant : "")
-                    }>
+                    this.props.title || "function" === typeof this.props.onClose
+                        ? <div className={
+                            "modal-header"
+                            + (this.props.variant ? " border-" + this.props.variant : "")
+                        }>
 
-                        { this.props.title ? <h5 className="modal-title">{ this.props.title }</h5> : null }
+                            { this.props.title ? <h5 className="modal-title">{ this.props.title }</h5> : undefined }
 
-                        {
-                            "function" === typeof this.props.onClose ?
-                                <button type="button" className="btn-close" title="close" data-bs-dismiss="modal" aria-label="Close" onClick={ this.props.onClose }></button> :
-                                null
-                        }
+                            {
+                                "function" === typeof this.props.onClose
+                                    ? <button type="button" className="btn-close" title="close" data-bs-dismiss="modal" aria-label="Close" onClick={ this.props.onClose }></button>
+                                    : undefined
+                            }
 
-                    </div> : null
+                        </div>
+                        : undefined
 
                 }
 

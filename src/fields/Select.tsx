@@ -32,21 +32,9 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
     public static displayName: string = "Select";
 
-    // constructor
-
-    public constructor (props: iPropsSelect) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
 
         const value: string = e.target.value;
 
@@ -78,10 +66,10 @@ export class Select extends React.PureComponent<iPropsSelect> {
             required={ required } aria-required={ required }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!requiredValid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!requiredValid ? " is-invalid" : "")
             }
             style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -89,7 +77,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.props.value }
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
         >
             { this.props.children }
@@ -110,8 +98,8 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -119,8 +107,8 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -132,7 +120,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>
@@ -147,7 +135,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
                 { this.props.children }
             </Select>
 
-            { !requiredValid ? <InvalidFeedBackRequired /> : null }
+            { !requiredValid ? <InvalidFeedBackRequired /> : undefined }
 
         </div>;
 

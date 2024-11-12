@@ -4,17 +4,15 @@
 
     // locals
 
-    import generateFocus, { type tGenerateFocusCallback } from "./generateFocus";
+    import generateFocus from "./generateFocus";
 
-    import type { iPropsNode, iPropsField, tVariant, tSize } from "./types";
-
-    import Alert, { type iPropsAlert } from "./Alert";
-    import Badge, { type iPropsBadge } from "./Badge";
-    import Button, { type iPropsButton } from "./Button";
-    import ButtonGroup, { type iPropsButtonGroup } from "./ButtonGroup";
-    import Icon, { type iPropsIcon } from "./Icon";
-    import Image, { type iPropsImage } from "./Image";
-    import MaxHeightContent, { type iPropsMaxHeightContent } from "./MaxHeightContent";
+    import Alert from "./Alert";
+    import Badge from "./Badge";
+    import Button from "./Button";
+    import ButtonGroup from "./ButtonGroup";
+    import Icon from "./Icon";
+    import Image from "./Image";
+    import MaxHeightContent from "./MaxHeightContent";
 
     import Card from "./card/Card";
     import CardHeader from "./card/CardHeader";
@@ -62,17 +60,27 @@
     import TableBody from "./table/TableBody";
     import TableFooter from "./table/TableFooter";
 
+// types & interfaces
+
+    // locals
+
+    export type { iPropsNode, iPropsField, tVariant, tSize } from "./types";
+
+    export type { iGenerateFocusCallback } from "./generateFocus";
+
+    export type { iPropsAlert } from "./Alert";
+    export type { iPropsBadge } from "./Badge";
+    export type { iPropsButton } from "./Button";
+    export type { iPropsButtonGroup } from "./ButtonGroup";
+    export type { iPropsIcon, tIcon } from "./Icon";
+    export type { iPropsImage } from "./Image";
+    export type { iPropsMaxHeightContent } from "./MaxHeightContent";
+
 // export
 
 export {
 
-    generateFocus, tGenerateFocusCallback,
-
-    tVariant, tSize,
-
-    iPropsNode,
-    iPropsAlert, iPropsBadge, iPropsButton, iPropsButtonGroup, iPropsIcon, iPropsImage, iPropsMaxHeightContent,
-    iPropsField,
+    generateFocus,
 
     Alert, Badge, Button, ButtonGroup, Icon, Image, MaxHeightContent,
 

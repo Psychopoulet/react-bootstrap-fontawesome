@@ -38,21 +38,9 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     public static displayName: string = "InputFloat";
 
-    // constructor
-
-    public constructor (props: iPropsInputNumber) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
         if ("" === e.target.value.trim()) {
 
@@ -82,8 +70,8 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -100,10 +88,10 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
             ref={ this.props._ref }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             }
             style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -114,7 +102,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
             value={ this.props.value }
             min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 0.1 }
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
 
@@ -135,8 +123,8 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -149,8 +137,8 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -162,7 +150,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>
@@ -181,9 +169,9 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
             />
 
-            { !isNumber ? <InvalidFeedBackFloat /> : null }
-            { isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> : null }
-            { isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> : null }
+            { !isNumber ? <InvalidFeedBackFloat /> : undefined }
+            { isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> : undefined }
+            { isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> : undefined }
 
         </div>;
 

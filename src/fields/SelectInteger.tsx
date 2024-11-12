@@ -34,21 +34,9 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
     public static displayName: string = "SelectInteger";
 
-    // constructor
-
-    public constructor (props: iPropsSelect) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
 
         if ("" === e.target.value.trim()) {
 
@@ -97,10 +85,10 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
             required={ required } aria-required={ required }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             }
             style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -108,7 +96,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.props.value }
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
         >
             { this.props.children }
@@ -129,8 +117,8 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -142,8 +130,8 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
@@ -160,8 +148,8 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
                 { this.props.children }
             </SelectInteger>
 
-            { !requiredValid ? <InvalidFeedBackRequired /> : null }
-            { requiredValid && !integerValid ? <InvalidFeedBackInteger /> : null }
+            { !requiredValid ? <InvalidFeedBackRequired /> : undefined }
+            { requiredValid && !integerValid ? <InvalidFeedBackInteger /> : undefined }
 
         </div>;
 

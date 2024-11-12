@@ -9,7 +9,6 @@ interface iPropsCheckBoxLabel extends iPropsCheckBox {
 }
 export declare class CheckBox extends React.PureComponent<iPropsCheckBox> {
     static displayName: string;
-    constructor(props: iPropsCheckBox);
     protected _handleToogle(e: React.ChangeEvent<HTMLInputElement>): void;
     render(): JSX.Element;
 }

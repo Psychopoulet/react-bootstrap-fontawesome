@@ -51,14 +51,9 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
 
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleMouseUp = this.handleMouseUp.bind(this);
-
     }
 
-    public UNSAFE_componentWillReceiveProps(nextProps: iPropsRange): void {
+    public UNSAFE_componentWillReceiveProps (nextProps: iPropsRange): void {
 
         if (nextProps.value !== this.state.value) {
 
@@ -72,7 +67,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
         const value: number = "" === e.target.value.trim() ? 0 : parseInt(e.target.value, 10);
 
@@ -86,7 +81,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     }
 
-    public handleMouseUp (e: React.MouseEvent<HTMLInputElement>): void {
+    protected _handleMouseUp (e: React.MouseEvent<HTMLInputElement>): void {
 
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
@@ -99,8 +94,8 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
     private _render (className?: string): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -119,10 +114,10 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
             ref={ this.props._ref }
 
             className={
-                "form-control form-range" +
-                (className ? " " + className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control form-range"
+                + (className ? " " + className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             }
             style={ style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -133,8 +128,8 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
             value={ this.state.value }
             min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 1 }
-            onChange={ this.handleChange }
-            onMouseUp={ this.handleMouseUp }
+            onChange={ this._handleChange.bind(this) }
+            onMouseUp={ this._handleMouseUp.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
 
@@ -168,8 +163,8 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -183,8 +178,8 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -196,7 +191,7 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>
@@ -217,9 +212,9 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
             />
 
-            { !integerValid ? <InvalidFeedBackInteger /> : null }
-            { integerValid && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value } /> : null }
-            { integerValid && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value } /> : null }
+            { !integerValid ? <InvalidFeedBackInteger /> : undefined }
+            { integerValid && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value } /> : undefined }
+            { integerValid && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value } /> : undefined }
 
         </div>;
 

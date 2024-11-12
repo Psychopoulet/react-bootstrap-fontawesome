@@ -38,8 +38,8 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -53,10 +53,10 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
             required={ required } aria-required={ required }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             } style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
 
@@ -78,13 +78,13 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
     // render
 
-    private _renderError (requiredValid: boolean): JSX.Element | null {
+    private _renderError (requiredValid: boolean): JSX.Element | undefined {
 
         if (!requiredValid) {
             return <InvalidFeedBackRequired />;
         }
         else {
-            return null;
+            return undefined;
         }
 
     }
@@ -92,8 +92,8 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -103,8 +103,8 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -116,7 +116,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>

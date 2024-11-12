@@ -10,8 +10,7 @@ export interface iPropsInputFileLabel extends iPropsInputFile {
 }
 export declare class InputFile extends React.PureComponent<iPropsInputFile> {
     static displayName: string;
-    constructor(props: iPropsInputFile);
-    handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
+    protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
     render(): JSX.Element;
 }
 export declare class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {

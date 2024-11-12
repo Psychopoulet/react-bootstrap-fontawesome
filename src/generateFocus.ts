@@ -7,11 +7,14 @@
 
 // interfaces
 
-    export type tGenerateFocusCallback = { setFocus: () => void, ref: React.RefObject<HTMLInputElement> };
+    export interface iGenerateFocusCallback {
+        "setFocus": () => void;
+        "ref": React.RefObject<HTMLInputElement>;
+    }
 
 // component
 
-export default function generateFocus (): tGenerateFocusCallback {
+export default function generateFocus (): iGenerateFocusCallback {
 
     const ref: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>();
 

@@ -35,7 +35,7 @@ export default class List extends React.PureComponent<iPropsList> {
 
         let className: string = "list-group";
 
-        if (!!this.props.flush) {
+        if (Boolean(this.props.flush)) {
             className += " list-group-flush";
         }
 

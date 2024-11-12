@@ -39,21 +39,9 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     public static displayName: string = "InputText";
 
-    // constructor
-
-    public constructor (props: iPropsInputText) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
         const value: string = e.target.value;
 
@@ -74,8 +62,8 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -84,7 +72,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         let maxLengthValid: boolean = true;
         let patternValid: boolean = true;
 
-        if ("" !== value || !!this.props.emptyValidation) {
+        if ("" !== value || Boolean(this.props.emptyValidation)) {
 
             requiredValid = required ? "" !== this.props.value : true;
 
@@ -106,10 +94,10 @@ export class InputText extends React.PureComponent<iPropsInputText> {
             ref={ this.props._ref }
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             }
             style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -121,7 +109,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
             pattern={ this.props.pattern }
             value={ this.props.value }
             minLength={ this.props.minLength } maxLength={ this.props.maxLength }
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
 
@@ -139,7 +127,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -150,13 +138,13 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
             return <InvalidFeedBackMinLength min={ this.props.minLength as number } current={ value.length } />;
         }
         else if (!maxLengthValid) {
-            return <InvalidFeedBackMaxLength max={ this.props.maxLength as number  } current={ value.length } />;
+            return <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } />;
         }
         else if (!patternValid) {
             return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
         }
         else {
-            return null;
+            return undefined;
         }
 
     }
@@ -166,8 +154,8 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -194,8 +182,8 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -207,7 +195,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>

@@ -42,7 +42,7 @@ export default class CardBody extends React.PureComponent<iPropsCardBody> {
 
                     let className: string = "card-body";
 
-                    if (!!this.props.lead) {
+                    if (Boolean(this.props.lead)) {
                         className += " lead text-center";
                     }
 

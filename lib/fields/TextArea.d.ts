@@ -13,8 +13,7 @@ export interface iPropsTextAreaLabel extends iPropsTextArea {
 }
 export declare class TextArea extends React.PureComponent<iPropsTextArea> {
     static displayName: string;
-    constructor(props: iPropsTextArea);
-    handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void;
+    protected _handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void;
     render(): JSX.Element;
 }
 export declare class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {

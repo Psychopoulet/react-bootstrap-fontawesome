@@ -46,7 +46,7 @@ export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> 
             className += " " + this.props.className;
         }
 
-        if (!!this.props.block) {
+        if (Boolean(this.props.block)) {
             className += " col-12";
         }
 

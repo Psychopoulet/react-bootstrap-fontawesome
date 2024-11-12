@@ -6,7 +6,7 @@
     import * as React from "react";
 
     // locals
-    import Icon, { type tICon } from "./Icon";
+    import Icon, { type tIcon } from "./Icon";
 
 // types & interfaces
 
@@ -22,7 +22,7 @@
         "disabled"?: boolean;
         "block"?: boolean;
         "size"?: "sm" | "md" | "lg";
-        "icon"?: tICon;
+        "icon"?: tIcon;
         "title"?: string;
         "onClick"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     }
@@ -35,19 +35,9 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     public static displayName: string = "Button";
 
-    // constructor
-
-    public constructor (props: iPropsButton) {
-
-        super(props);
-
-        this.handleClick = this.handleClick.bind(this);
-
-    }
-
     // events
 
-    public handleClick (e: React.MouseEvent<HTMLButtonElement>): void {
+    protected _handleClick (e: React.MouseEvent<HTMLButtonElement>): void {
 
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e);
@@ -87,7 +77,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
             className += " disabled";
         }
 
-        if (!!this.props.block) {
+        if (Boolean(this.props.block)) {
             className += " col-12";
         }
 
@@ -100,10 +90,10 @@ export default class Button extends React.PureComponent<iPropsButton> {
             className={ className } style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
             title={ this.props.title } aria-label={ this.props.title }
-            onClick={ this.handleClick }
+            onClick={ this._handleClick.bind(this) }
         >
-            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : null }
-            { this.props.icon && this.props.children ? <>&nbsp;</> : null }
+            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : undefined }
+            { this.props.icon && this.props.children ? <>&nbsp;</> : undefined }
             { this.props.children }
         </button>;
 

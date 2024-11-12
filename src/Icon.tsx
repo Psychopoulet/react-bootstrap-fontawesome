@@ -10,7 +10,7 @@
     // locals
     import type { iPropsNode, tVariant, tSize } from "./types";
 
-    export type tICon =
+    export type tIcon =
     | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "windows"
     | "barcode" | "fingerprint" | "nfc"
     | "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
@@ -25,7 +25,7 @@
 // Props && States
 
     export interface iPropsIcon extends iPropsNode {
-        "type": tICon;
+        "type": tIcon;
         "variant"?: tVariant;
         "child"?: boolean;
         "title"?: string;

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { type tICon } from "./Icon";
+import { type tIcon } from "./Icon";
 import type { iPropsNode, tVariant } from "./types";
 export interface iPropsBadge extends iPropsNode {
     "variant"?: tVariant;
     "pill"?: boolean;
-    "icon"?: tICon;
+    "icon"?: tIcon;
     "title"?: string;
 }
 export default class Badge extends React.PureComponent<iPropsBadge> {

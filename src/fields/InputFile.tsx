@@ -30,21 +30,9 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     public static displayName: string = "InputFile";
 
-    // constructor
-
-    public constructor (props: iPropsInputFile) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleChange = this.handleChange.bind(this);
-
-    }
-
     // events
 
-    public handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
 
         if (!e.target.files || !e.target.files.length) {
 
@@ -77,22 +65,22 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
+        const disabled: boolean = Boolean(this.props.disabled);
 
         // render
         return <input id={ this.props.id } name={ this.props.name } type="file"
 
             className={
-                "form-control" +
-                (this.props.className ? " " + this.props.className : "") +
-                (disabled ? " disabled" : "")
+                "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
             }
             style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
 
             title={ this.props.label } aria-label={ this.props.label }
 
-            onChange={ this.handleChange }
+            onChange={ this._handleChange.bind(this) }
 
         />;
 
@@ -111,13 +99,13 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -129,7 +117,7 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>

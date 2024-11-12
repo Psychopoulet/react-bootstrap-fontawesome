@@ -29,18 +29,6 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 
     public static displayName: string = "CheckBox";
 
-    // constructor
-
-    public constructor (props: iPropsCheckBox) {
-
-        super(props);
-
-        // events handlers
-
-        this._handleToogle = this._handleToogle.bind(this);
-
-    }
-
     // events
 
     protected _handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
@@ -52,7 +40,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
         }
 
         if ("function" === typeof this.props.onToogle) {
-            this.props.onToogle(e, value, !!this.props.checked);
+            this.props.onToogle(e, value, Boolean(this.props.checked));
         }
 
     }
@@ -62,8 +50,8 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const checked: boolean = !!this.props.checked;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const checked: boolean = Boolean(this.props.checked);
 
         // render
         return <input id={ this.props.id } role="checkbox" type="checkbox"
@@ -78,7 +66,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
             title={ this.props.label } aria-label={ this.props.label }
 
             checked={ checked } aria-checked={ checked }
-            onChange={ this._handleToogle }
+            onChange={ this._handleToogle.bind(this) }
 
         />;
 
@@ -97,8 +85,8 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
     public render (): JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const checked: boolean = !!this.props.checked;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const checked: boolean = Boolean(this.props.checked);
 
         // render
         return <div className={

@@ -3,9 +3,12 @@
 // deps
 
     // externals
-    import { Context, createContext } from "react";
+    import { createContext } from "react";
 
 // types & interfaces
+
+    // externals
+    import type { Context } from "react";
 
     // locals
     import type { tVariant } from "../types";

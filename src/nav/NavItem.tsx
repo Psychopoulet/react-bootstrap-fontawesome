@@ -28,21 +28,9 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     public static displayName: string = "NavItem";
 
-    // constructor
-
-    public constructor (props: iPropsNavItem) {
-
-        super(props);
-
-        // events handlers
-
-        this.handleClick = this.handleClick.bind(this);
-
-    }
-
     // events
 
-    public handleClick (e: React.MouseEvent<HTMLAnchorElement>): void {
+    protected _handleClick (e: React.MouseEvent<HTMLAnchorElement>): void {
 
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e, this.props.index);
@@ -60,7 +48,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     public render (): JSX.Element {
 
-        const disabled: boolean = !!this.props.disabled;
+        const disabled: boolean = Boolean(this.props.disabled);
 
         let className: string = "nav-item";
 
@@ -74,11 +62,11 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
             linkClassName += " disabled";
         }
 
-        if (!!this.props.active) {
+        if (Boolean(this.props.active)) {
             linkClassName += " active";
         }
 
-        if (!!this.props.justify) {
+        if (Boolean(this.props.justify)) {
             linkClassName += " d-flex justify-content-between";
         }
 
@@ -88,7 +76,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
                 disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
                     { this.props.children }
-                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this.handleClick }>
+                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this._handleClick.bind(this) }>
                     { this.props.children }
                 </a>
 

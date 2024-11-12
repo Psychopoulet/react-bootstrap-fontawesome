@@ -9,7 +9,6 @@ export interface iPropsInputColorLabel extends iPropsInputColor {
 }
 export declare class InputColor extends React.PureComponent<iPropsInputColor> {
     static displayName: string;
-    constructor(props: iPropsInputColor);
     static PATTERN: string;
     static MIN: number;
     static MAX: number;

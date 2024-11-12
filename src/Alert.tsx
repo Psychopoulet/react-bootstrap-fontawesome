@@ -47,13 +47,9 @@ export default class Alert extends React.PureComponent<iPropsAlert> {
 
             { this.props.children }
 
-            {
-
-                "function" === typeof this.props.onClose ? <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={ this.props.onClose }>
-                    <span aria-hidden="true">&times;</span>
-                </button> : null
-
-            }
+            { "function" === typeof this.props.onClose ? <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={ this.props.onClose }>
+                <span aria-hidden="true">&times;</span>
+            </button> : undefined }
 
         </div>;
 

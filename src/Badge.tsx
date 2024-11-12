@@ -6,7 +6,7 @@
     import * as React from "react";
 
     // locals
-    import Icon, { type tICon } from "./Icon";
+    import Icon, { type tIcon } from "./Icon";
 
 // types & interfaces
 
@@ -18,7 +18,7 @@
     export interface iPropsBadge extends iPropsNode {
         "variant"?: tVariant;
         "pill"?: boolean;
-        "icon"?: tICon;
+        "icon"?: tIcon;
         "title"?: string;
     }
 
@@ -43,7 +43,7 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
             className += " text-body";
         }
 
-        if (!!this.props.pill) {
+        if (Boolean(this.props.pill)) {
             className += " rounded-pill";
         }
 
@@ -52,7 +52,7 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
         }
 
         return <span id={ this.props.id } title={ this.props.title } className={ className } style={ this.props.style }>
-            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : null }
+            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : undefined }
             { this.props.children }
         </span>;
 

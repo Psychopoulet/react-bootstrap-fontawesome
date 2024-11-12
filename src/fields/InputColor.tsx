@@ -37,18 +37,6 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
     public static displayName: string = "InputColor";
 
-    // constructor
-
-    public constructor (props: iPropsInputColor) {
-
-        super(props);
-
-        // events handlers
-
-        this._handleChange = this._handleChange.bind(this);
-
-    }
-
     // statics
 
     public static PATTERN: string = "^#[0-9a-f]{6}$";
@@ -78,8 +66,8 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -99,9 +87,9 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
             ref={ this.props._ref }
 
             className={
-                "form-control" +
-                (disabled ? " disabled" : "") +
-                (!valid ? " is-invalid" : "")
+                "form-control"
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : "")
             }
             style={ style }
             disabled={ disabled } aria-disabled={ disabled }
@@ -113,7 +101,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
             pattern={ InputColor.PATTERN }
             value={ this.props.value }
             minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
-            onChange={ this._handleChange }
+            onChange={ this._handleChange.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
 
@@ -152,7 +140,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | null {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -169,7 +157,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
             return <InvalidFeedBack alert={ "The value does not respect the pattern (" + InputColor.PATTERN + ")" } />;
         }
         else {
-            return null;
+            return undefined;
         }
 
     }
@@ -179,8 +167,8 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -195,8 +183,8 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
 
         // render
         return <div className={
-            "mb-3" +
-            (this.props.className ? " " + this.props.className : "")
+            "mb-3"
+            + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <label htmlFor={ this.props.id } className={
@@ -208,7 +196,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
                 { this.props.label } {
                     required
                         ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : null
+                        : undefined
                 }
 
             </label>

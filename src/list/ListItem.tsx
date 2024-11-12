@@ -41,11 +41,11 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
 
                 (variant: tVariant): JSX.Element => {
 
-                    const disabled: boolean = !!this.props.disabled;
+                    const disabled: boolean = Boolean(this.props.disabled);
 
                     let className: string = "list-group-item";
 
-                    if (!!this.props.justify) {
+                    if (Boolean(this.props.justify)) {
                         className += " d-flex justify-content-between align-items-center";
                     }
 
@@ -60,7 +60,7 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
                         className += " disabled";
                     }
 
-                    if (!!this.props.active) {
+                    if (Boolean(this.props.active)) {
                         className += " active";
                     }
 
