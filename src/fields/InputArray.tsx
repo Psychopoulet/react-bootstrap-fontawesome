@@ -201,7 +201,7 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <CardHeader justify>
+            <CardHeader>
 
                 { this.props.label }
 
