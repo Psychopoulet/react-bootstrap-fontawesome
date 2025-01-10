@@ -6,6 +6,7 @@
     import * as React from "react";
 
     // locals
+    import ModalBody from "./ModalBody";
     import List, { type iPropsList } from "../list/List";
 
 // component
@@ -20,11 +21,15 @@ export default class ModalList extends React.PureComponent<iPropsList> {
 
     public render (): JSX.Element {
 
-        return <List id={ this.props.id } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
-            flush={ true }
-        >
-            { this.props.children }
-        </List>;
+        return <ModalBody id={ this.props.id } className={ "p-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
+
+            <List
+                flush={ true }
+            >
+                { this.props.children }
+            </List>
+
+        </ModalBody>;
 
     }
 
