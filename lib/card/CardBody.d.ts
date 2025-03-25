@@ -8,6 +8,6 @@ interface iPropsCardBody extends iPropsNode {
 }
 export default class CardBody extends React.PureComponent<iPropsCardBody> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

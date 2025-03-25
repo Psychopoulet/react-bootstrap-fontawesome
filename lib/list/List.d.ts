@@ -7,5 +7,5 @@ export interface iPropsList extends iPropsNode {
 }
 export default class List extends React.PureComponent<iPropsList> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

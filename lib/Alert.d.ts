@@ -6,5 +6,5 @@ export interface iPropsAlert extends iPropsNode {
 }
 export default class Alert extends React.PureComponent<iPropsAlert> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

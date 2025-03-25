@@ -32,13 +32,13 @@ export default class CardBody extends React.PureComponent<iPropsCardBody> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <CardContext.Consumer>
 
             {
 
-                (variant: tVariant): JSX.Element => {
+                (variant: tVariant): React.JSX.Element => {
 
                     let className: string = "card-body";
 

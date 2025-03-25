@@ -32,7 +32,7 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "badge";
 

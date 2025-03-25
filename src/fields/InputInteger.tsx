@@ -67,7 +67,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -121,7 +121,7 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

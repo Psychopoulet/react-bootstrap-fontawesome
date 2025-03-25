@@ -24,7 +24,7 @@ export default class CardImage extends React.PureComponent<iPropsCardImage> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = this.props.position ? "card-img-" + this.props.position : "card-img-top";
         className += this.props.className ? " " + this.props.className : "";

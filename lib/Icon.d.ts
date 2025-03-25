@@ -10,5 +10,5 @@ export interface iPropsIcon extends iPropsNode {
 }
 export default class Icon extends React.PureComponent<iPropsIcon> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

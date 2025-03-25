@@ -13,10 +13,10 @@ interface iPropsInputIntegerLabel extends iPropsInputNumber {
 export declare class InputInteger extends React.PureComponent<iPropsInputNumber> {
     static displayName: string;
     protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLabel> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

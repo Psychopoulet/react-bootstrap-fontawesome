@@ -20,7 +20,7 @@ export default class ListItemHeader extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "list-group-item-heading";
 

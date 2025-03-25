@@ -12,9 +12,9 @@ export declare class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
     static PATTERN: string;
     static MIN: number;
     static MAX: number;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

@@ -106,7 +106,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "nav";
 
@@ -129,7 +129,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
             {
 
-                this.props.items ? this.props.items.map((title: string, key: number): JSX.Element => {
+                this.props.items ? this.props.items.map((title: string, key: number): React.JSX.Element => {
 
                     return <NavItem key={ key } index={ key }
                         active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }

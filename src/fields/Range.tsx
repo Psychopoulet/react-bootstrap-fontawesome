@@ -91,7 +91,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     // render
 
-    private _render (className?: string): JSX.Element {
+    private _render (className?: string): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -137,7 +137,7 @@ export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // render
         return !this.props.unit ? this._render(this.props.className) : <div className={ "input-group" + (this.props.className ? " " + this.props.className : "") }>
@@ -160,7 +160,7 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

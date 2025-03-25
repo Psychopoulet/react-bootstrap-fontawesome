@@ -122,7 +122,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
     // render
 
-    private _renderContent (): JSX.Element {
+    private _renderContent (): React.JSX.Element {
 
         let className: string = "modal-dialog";
 
@@ -209,7 +209,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const style: iStyle = { "display": "block" };
 

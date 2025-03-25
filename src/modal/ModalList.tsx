@@ -19,7 +19,7 @@ export default class ModalList extends React.PureComponent<iPropsList> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <ModalBody id={ this.props.id } className={ "p-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
 

@@ -24,13 +24,13 @@ export default class CardList extends React.PureComponent<iPropsList> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <CardContext.Consumer>
 
             {
 
-                (variant: tVariant): JSX.Element => {
+                (variant: tVariant): React.JSX.Element => {
 
                     return <List id={ this.props.id } variant={ this.props.variant || variant } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
                         flush={ true }

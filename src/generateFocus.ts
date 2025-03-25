@@ -16,7 +16,7 @@
 
 export default function generateFocus (): iGenerateFocusCallback {
 
-    const ref: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>();
+    const ref: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>() as React.RefObject<HTMLInputElement>;
 
     const setFocus = (): void => {
         ref.current && ref.current.focus();

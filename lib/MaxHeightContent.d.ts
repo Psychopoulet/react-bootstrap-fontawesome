@@ -6,5 +6,5 @@ export interface iPropsMaxHeightContent extends iPropsNode {
 }
 export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeightContent> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

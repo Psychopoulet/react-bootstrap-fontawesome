@@ -18,7 +18,7 @@ export default class CardHeaderNav extends React.PureComponent<iPropsNavTabs> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "card-header";
 

@@ -35,7 +35,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -78,7 +78,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
     // render
 
-    private _renderError (requiredValid: boolean): JSX.Element | undefined {
+    private _renderError (requiredValid: boolean): React.JSX.Element | undefined {
 
         if (!requiredValid) {
             return <InvalidFeedBackRequired />;
@@ -89,7 +89,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

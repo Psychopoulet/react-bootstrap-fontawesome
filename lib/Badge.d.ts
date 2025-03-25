@@ -9,5 +9,5 @@ export interface iPropsBadge extends iPropsNode {
 }
 export default class Badge extends React.PureComponent<iPropsBadge> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

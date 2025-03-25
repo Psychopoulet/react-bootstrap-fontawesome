@@ -20,7 +20,7 @@ export default class ModalBody extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "modal-body";
 

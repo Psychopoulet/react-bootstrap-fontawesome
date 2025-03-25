@@ -67,7 +67,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -120,7 +120,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

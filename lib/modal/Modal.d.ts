@@ -24,6 +24,6 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     private _renderContent;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

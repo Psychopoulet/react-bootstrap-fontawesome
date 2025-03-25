@@ -14,10 +14,10 @@ export declare class InputColor extends React.PureComponent<iPropsInputColor> {
     static MAX: number;
     protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
     private _render;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> {
     static displayName: string;
     private _renderError;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

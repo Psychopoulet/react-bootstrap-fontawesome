@@ -11,5 +11,5 @@ export interface iPropsImage extends iPropsNode {
 }
 export default class Image extends React.PureComponent<iPropsImage> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

@@ -18,7 +18,7 @@ export default class ModalTable extends React.PureComponent<iPropsTable> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <Table id={ this.props.id } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
             variant={ this.props.variant }

@@ -8,11 +8,11 @@ interface iPropsInputReadOnlyLabel extends iPropsReadOnly {
 }
 export declare class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyLabel> {
     static displayName: string;
     private _renderError;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

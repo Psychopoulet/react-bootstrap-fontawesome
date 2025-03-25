@@ -15,5 +15,5 @@ export interface iPropsButton extends iPropsNode {
 export default class Button extends React.PureComponent<iPropsButton> {
     static displayName: string;
     protected _handleClick(e: React.MouseEvent<HTMLButtonElement>): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

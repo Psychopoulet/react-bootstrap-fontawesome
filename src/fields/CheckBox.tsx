@@ -47,7 +47,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -82,7 +82,7 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

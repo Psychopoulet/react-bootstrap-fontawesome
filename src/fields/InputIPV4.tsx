@@ -40,7 +40,7 @@ export class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const required: boolean = Boolean(this.props.required);
@@ -78,7 +78,7 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const required: boolean = Boolean(this.props.required);

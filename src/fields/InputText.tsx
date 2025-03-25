@@ -57,7 +57,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -127,7 +127,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): React.JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -149,7 +149,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 

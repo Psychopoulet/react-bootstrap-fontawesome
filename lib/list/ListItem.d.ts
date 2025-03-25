@@ -9,6 +9,6 @@ interface iPropsListItem extends iPropsNode {
 }
 export default class ListItem extends React.PureComponent<iPropsListItem> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

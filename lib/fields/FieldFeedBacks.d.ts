@@ -13,34 +13,34 @@ interface iPropsInvalidFeedBackMax extends iPropsNode {
 }
 export declare class InvalidFeedBack extends React.PureComponent<iPropsInvalidFeedBack> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackFloat extends React.PureComponent<iPropsNode> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackMin extends React.PureComponent<iPropsInvalidFeedBackMin> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackMax extends React.PureComponent<iPropsInvalidFeedBackMax> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackMinLength extends React.PureComponent<iPropsInvalidFeedBackMin> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class InvalidFeedBackMaxLength extends React.PureComponent<iPropsInvalidFeedBackMax> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

@@ -7,5 +7,5 @@ export interface iPropsButtonGroup extends iPropsNode {
 export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> {
     static displayName: string;
     constructor(props: iPropsButtonGroup);
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

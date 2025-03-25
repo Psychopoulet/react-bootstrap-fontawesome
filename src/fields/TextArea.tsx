@@ -58,7 +58,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -124,7 +124,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): React.JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -146,7 +146,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 

@@ -20,7 +20,7 @@ export default class TableBody extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <tbody id={ this.props.id } className={ this.props.className } style={ this.props.style }>
             { this.props.children }

@@ -86,7 +86,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const values: string[] = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
 
@@ -107,7 +107,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
             </ListItemHeader>
 
-            { values.map((line: string, key: number): JSX.Element => {
+            { values.map((line: string, key: number): React.JSX.Element => {
 
                 const _handleChangeLine = (e: React.ChangeEvent<HTMLInputElement>, newValue: string): void => {
 
@@ -179,7 +179,7 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const values: string[] = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
 

@@ -38,7 +38,7 @@ export default class Card extends React.PureComponent<iPropsCard> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "card";
 

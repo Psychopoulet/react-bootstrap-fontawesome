@@ -33,13 +33,13 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <ListContext.Consumer>
 
             {
 
-                (variant: tVariant): JSX.Element => {
+                (variant: tVariant): React.JSX.Element => {
 
                     const disabled: boolean = Boolean(this.props.disabled);
 

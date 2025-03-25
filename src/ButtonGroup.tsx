@@ -38,7 +38,7 @@ export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> 
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "btn-group";
 

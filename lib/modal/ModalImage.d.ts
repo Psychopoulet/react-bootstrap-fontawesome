@@ -5,6 +5,6 @@ interface iPropsTableImage extends iPropsImage {
 }
 export default class ModalImage extends React.PureComponent<iPropsTableImage> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

@@ -38,7 +38,7 @@ export default class Table extends React.PureComponent<iPropsTable> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "table";
 

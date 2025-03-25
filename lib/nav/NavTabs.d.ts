@@ -15,6 +15,6 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
     constructor(props: iPropsNavTabs);
     static getDerivedStateFromProps(nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | undefined;
     protected _handleSelect(e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

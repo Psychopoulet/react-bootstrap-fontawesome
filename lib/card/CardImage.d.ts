@@ -5,6 +5,6 @@ interface iPropsCardImage extends iPropsImage {
 }
 export default class CardImage extends React.PureComponent<iPropsCardImage> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

@@ -50,7 +50,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = !!this.props.disabled;
@@ -95,7 +95,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

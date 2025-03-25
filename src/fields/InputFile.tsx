@@ -62,7 +62,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
@@ -96,7 +96,7 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         // props values
         const disabled: boolean = Boolean(this.props.disabled);

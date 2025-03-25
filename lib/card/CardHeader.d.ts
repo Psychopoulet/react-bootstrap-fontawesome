@@ -6,6 +6,6 @@ interface iPropsCardHeader extends iPropsNode {
 export default class CardHeader extends React.PureComponent<iPropsCardHeader> {
     static displayName: string;
     static contextType: React.Context<tVariant>;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

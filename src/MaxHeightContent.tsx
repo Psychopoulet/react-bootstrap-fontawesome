@@ -33,7 +33,7 @@ export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeigh
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const style: iStyle = {
             "overflow": "auto"

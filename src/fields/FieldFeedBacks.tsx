@@ -36,7 +36,7 @@ export class InvalidFeedBack extends React.PureComponent<iPropsInvalidFeedBack> 
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <small id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
             { this.props.alert }
@@ -54,7 +54,7 @@ export class InvalidFeedBackRequired extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content required"
@@ -72,7 +72,7 @@ export class InvalidFeedBackFloat extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content must be an float"
@@ -90,7 +90,7 @@ export class InvalidFeedBackInteger extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content must be an integer"
@@ -108,7 +108,7 @@ export class InvalidFeedBackMin extends React.PureComponent<iPropsInvalidFeedBac
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")"
@@ -126,7 +126,7 @@ export class InvalidFeedBackMax extends React.PureComponent<iPropsInvalidFeedBac
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")"
@@ -144,7 +144,7 @@ export class InvalidFeedBackMinLength extends React.PureComponent<iPropsInvalidF
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content length must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")"
@@ -162,7 +162,7 @@ export class InvalidFeedBackMaxLength extends React.PureComponent<iPropsInvalidF
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <InvalidFeedBack id={ this.props.id } className={ "form-text text-danger" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style } alert={
             "Content length must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")"

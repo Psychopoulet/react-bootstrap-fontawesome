@@ -10,10 +10,10 @@ interface iPropsSelectLabel extends iPropsSelect {
 export declare class Select extends React.PureComponent<iPropsSelect> {
     static displayName: string;
     protected _handleChange(e: React.ChangeEvent<HTMLSelectElement>): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export declare class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

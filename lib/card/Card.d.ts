@@ -6,6 +6,6 @@ interface iPropsCard extends iPropsNode {
 }
 export default class Card extends React.PureComponent<iPropsCard> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

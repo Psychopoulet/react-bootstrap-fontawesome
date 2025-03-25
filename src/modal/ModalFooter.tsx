@@ -20,7 +20,7 @@ export default class ModalFooter extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "modal-footer";
 

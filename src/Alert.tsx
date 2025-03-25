@@ -27,7 +27,7 @@ export default class Alert extends React.PureComponent<iPropsAlert> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "alert";
 

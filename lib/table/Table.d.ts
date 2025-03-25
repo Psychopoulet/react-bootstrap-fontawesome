@@ -11,5 +11,5 @@ export interface iPropsTable extends iPropsNode {
 }
 export default class Table extends React.PureComponent<iPropsTable> {
     static displayName: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

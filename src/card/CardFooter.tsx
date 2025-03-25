@@ -29,13 +29,13 @@ export default class CardFooter extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <CardContext.Consumer>
 
             {
 
-                (variant: tVariant): JSX.Element => {
+                (variant: tVariant): React.JSX.Element => {
 
                     return <div id={ this.props.id } className={
                         "card-footer"

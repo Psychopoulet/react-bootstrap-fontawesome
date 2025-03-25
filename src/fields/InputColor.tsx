@@ -61,7 +61,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
     // render
 
-    private _render (): JSX.Element {
+    private _render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -109,7 +109,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -140,7 +140,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
 
     // render
 
-    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): JSX.Element | undefined {
+    private _renderError (requiredValid: boolean, minLengthValid: boolean, maxLengthValid: boolean, patternValid: boolean): React.JSX.Element | undefined {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
@@ -162,7 +162,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
 
     }
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 

@@ -53,7 +53,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const disabled: boolean = !!this.props.disabled;
 

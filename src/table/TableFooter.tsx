@@ -20,7 +20,7 @@ export default class TableFooter extends React.PureComponent<iPropsNode> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         return <tfoot id={ this.props.id } className={ this.props.className } style={ this.props.style }>
             { this.props.children }

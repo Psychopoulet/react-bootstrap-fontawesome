@@ -10,6 +10,6 @@ interface iPropsNavItem extends iPropsNode {
 export default class NavItem extends React.PureComponent<iPropsNavItem> {
     static displayName: string;
     protected _handleClick(e: React.MouseEvent<HTMLAnchorElement>): void;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }
 export {};

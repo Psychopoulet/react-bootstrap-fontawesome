@@ -31,7 +31,7 @@ export default class List extends React.PureComponent<iPropsList> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         let className: string = "list-group";
 

@@ -46,7 +46,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     // render
 
-    public render (): JSX.Element {
+    public render (): React.JSX.Element {
 
         const disabled: boolean = Boolean(this.props.disabled);
 
