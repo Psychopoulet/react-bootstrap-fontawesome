@@ -10,6 +10,7 @@ export interface iPropsRange extends iPropsInput {
 }
 interface iPropsRangeLabel extends iPropsRange {
     "value": number;
+    "margin-bottom"?: number;
 }
 export declare class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
     static displayName: string;

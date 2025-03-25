@@ -22,6 +22,7 @@
 
     interface iPropsSelectLabel extends iPropsSelect {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -107,7 +108,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
         // render
         return <div className={
-            "mb-3"
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 

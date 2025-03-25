@@ -6,6 +6,7 @@ export interface iPropsInputIPV4 extends iPropsInput {
 }
 export interface iPropsInputIPV4Label extends iPropsInputIPV4 {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
     static displayName: string;

@@ -7,6 +7,7 @@ export interface iPropsInputFile extends iPropsField {
 }
 export interface iPropsInputFileLabel extends iPropsInputFile {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputFile extends React.PureComponent<iPropsInputFile> {
     static displayName: string;

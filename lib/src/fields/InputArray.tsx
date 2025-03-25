@@ -39,6 +39,7 @@
 
     export interface iPropsInputArrayLabel extends iPropsInputArray {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -197,7 +198,7 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
 
         // render
         return <Card id={ this.props.id } className={
-            "mb-3"
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 

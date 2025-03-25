@@ -9,6 +9,7 @@ export interface iPropsInputNumber extends iPropsInput {
 }
 interface iPropsInputFloatLabel extends iPropsInputNumber {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputFloat extends React.PureComponent<iPropsInputNumber> {
     static displayName: string;

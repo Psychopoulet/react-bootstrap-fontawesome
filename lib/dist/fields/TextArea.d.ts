@@ -10,6 +10,7 @@ export interface iPropsTextArea extends iPropsInput {
 }
 export interface iPropsTextAreaLabel extends iPropsTextArea {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class TextArea extends React.PureComponent<iPropsTextArea> {
     static displayName: string;

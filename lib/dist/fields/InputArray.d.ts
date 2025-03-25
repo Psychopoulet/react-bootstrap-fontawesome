@@ -6,6 +6,7 @@ export interface iPropsInputArray extends iPropsInput {
 }
 export interface iPropsInputArrayLabel extends iPropsInputArray {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputArray extends React.PureComponent<iPropsInputArray> {
     static displayName: string;

@@ -19,6 +19,7 @@
 
     interface iPropsCheckBoxLabel extends iPropsCheckBox {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -90,7 +91,7 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
 
         // render
         return <div className={
-            "mb-3"
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
             + (disabled ? " text-muted" : "")
         } style={ this.props.style }>
@@ -134,8 +135,8 @@ export class CheckBoxPrettierLabel extends React.PureComponent<iPropsCheckBoxLab
 
         // render
         return <label className={
-            "mb-3"
-            + (this.props.className ? "input-group " + this.props.className : "input-group")
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] + " input-group" : "mb-3 input-group")
+            + (this.props.className ? " input-group " + this.props.className : "")
             + (disabled ? " text-muted" : "")
         } style={ this.props.style }>
 

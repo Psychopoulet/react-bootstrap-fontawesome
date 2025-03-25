@@ -30,6 +30,7 @@
 
     export interface iPropsTextAreaLabel extends iPropsTextArea {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -179,7 +180,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
         // render
         return <div className={
-            "mb-3"
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 

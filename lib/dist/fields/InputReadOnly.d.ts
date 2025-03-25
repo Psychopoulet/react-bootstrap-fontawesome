@@ -5,6 +5,7 @@ export interface iPropsReadOnly extends iPropsField {
 }
 interface iPropsInputReadOnlyLabel extends iPropsReadOnly {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
     static displayName: string;

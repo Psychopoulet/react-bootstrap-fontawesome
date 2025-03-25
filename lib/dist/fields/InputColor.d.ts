@@ -6,6 +6,7 @@ export interface iPropsInputColor extends iPropsInput {
 }
 export interface iPropsInputColorLabel extends iPropsInputColor {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputColor extends React.PureComponent<iPropsInputColor> {
     static displayName: string;

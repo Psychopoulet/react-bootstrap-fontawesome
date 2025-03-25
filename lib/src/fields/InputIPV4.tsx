@@ -22,6 +22,7 @@
 
     export interface iPropsInputIPV4Label extends iPropsInputIPV4 {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -89,7 +90,7 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
 
             _ref={ this.props._ref }
 
-            className={ this.props.className } style={ this.props.style }
+            className={ this.props.className } style={ this.props.style } margin-bottom={ this.props["margin-bottom"] }
             disabled={ this.props.disabled } required={ required }
 
             placeholder={ this.props.placeholder }

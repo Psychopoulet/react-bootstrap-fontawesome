@@ -6,6 +6,7 @@ interface iPropsSelect extends iPropsField {
 }
 interface iPropsSelectLabel extends iPropsSelect {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class Select extends React.PureComponent<iPropsSelect> {
     static displayName: string;

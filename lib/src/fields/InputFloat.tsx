@@ -28,6 +28,7 @@
 
     interface iPropsInputFloatLabel extends iPropsInputNumber {
         "label": string;
+        "margin-bottom"?: number; // to be able to remove the default one
     }
 
 // component
@@ -137,7 +138,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
         // render
         return <div className={
-            "mb-3"
+            ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 

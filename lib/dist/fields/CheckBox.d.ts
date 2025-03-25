@@ -6,6 +6,7 @@ interface iPropsCheckBox extends iPropsField {
 }
 interface iPropsCheckBoxLabel extends iPropsCheckBox {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class CheckBox extends React.PureComponent<iPropsCheckBox> {
     static displayName: string;

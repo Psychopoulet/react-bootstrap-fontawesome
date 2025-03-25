@@ -9,6 +9,7 @@ export interface iPropsInputNumber extends iPropsInput {
 }
 interface iPropsInputIntegerLabel extends iPropsInputNumber {
     "label": string;
+    "margin-bottom"?: number;
 }
 export declare class InputInteger extends React.PureComponent<iPropsInputNumber> {
     static displayName: string;
