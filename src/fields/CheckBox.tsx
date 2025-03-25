@@ -117,3 +117,43 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
     }
 
 }
+
+export class CheckBoxPrettierLabel extends React.PureComponent<iPropsCheckBoxLabel> {
+
+    // name
+
+    public static displayName: string = "CheckBoxPrettierLabel";
+
+    // render
+
+    public render (): React.JSX.Element {
+
+        // props values
+        const disabled: boolean = Boolean(this.props.disabled);
+        const checked: boolean = Boolean(this.props.checked);
+
+        // render
+        return <label className={
+            "mb-3"
+            + (this.props.className ? "input-group " + this.props.className : "input-group")
+            + (disabled ? " text-muted" : "")
+        } style={ this.props.style }>
+
+            <span className="input-group-text" aria-label={ this.props.label }>
+
+                <CheckBox id={ this.props.id }
+                    className="form-check-input" disabled={ disabled }
+                    label={ this.props.label }
+                    checked={ checked }
+                    onToogle={ this.props.onToogle }
+                />
+
+            </span>
+
+            <span className="input-group-text">{ this.props.label }</span>
+
+        </label>;
+
+    }
+
+}

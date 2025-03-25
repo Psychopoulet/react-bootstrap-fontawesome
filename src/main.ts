@@ -34,7 +34,7 @@
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./fields/FieldFeedBacks";
 
-    import { CheckBox, CheckBoxLabel } from "./fields/CheckBox";
+    import { CheckBox, CheckBoxLabel, CheckBoxPrettierLabel } from "./fields/CheckBox";
     import { InputArray, InputArrayLabel } from "./fields/InputArray";
     import { InputColor, InputColorLabel } from "./fields/InputColor";
     import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
@@ -96,7 +96,7 @@ export {
     InvalidFeedBackMin, InvalidFeedBackMax,
     InvalidFeedBackMinLength, InvalidFeedBackMaxLength,
 
-    CheckBox, CheckBoxLabel,
+    CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
     InputArray, InputArrayLabel,
     InputColor, InputColorLabel,
     InputFloat, InputFloatLabel,
