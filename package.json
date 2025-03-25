@@ -4,15 +4,15 @@
   "version": "0.5.13",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
 
-  "typings": "./lib/main.d.ts",
-  "module": "./lib/main.js",
-  "main": "./lib/main.js",
+  "typings": "./lib/dist/main.d.ts",
+  "module": "./lib/dist/main.js",
+  "main": "./lib/dist/main.js",
 
   "scripts": {
 
     "prepare": "husky",
 
-    "clean": "npx rimraf lib",
+    "clean": "npx rimraf ./dist/lib",
     "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
 
     "lint": "npx eslint --config .eslintrc-src.cjs --ext .ts,.cts,.mts,.tsx,.ctsx,.mtsx ./src/**/*",

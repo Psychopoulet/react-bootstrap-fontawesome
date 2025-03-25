@@ -4,10 +4,10 @@
     "target": "es6",
     "module": "esnext",
 
-    "outDir": "./lib",
+    "outDir": "./lib/dist",
 
     "declaration": true,
-    "declarationDir": "./lib",
+    "declarationDir": "./lib/dist",
 
     "moduleResolution": "node",
     "allowJs": true,
@@ -27,7 +27,7 @@
 
   },
   "include": [
-    "./src/main.ts"
+    "./lib/src/main.ts"
   ],
   "exclude": [
     "node_modules"
