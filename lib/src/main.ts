@@ -13,6 +13,7 @@
     import Icon from "./Icon";
     import Image from "./Image";
     import MaxHeightContent from "./MaxHeightContent";
+    import SoundReader from "./SoundReader";
 
     import Card from "./card/Card";
     import CardHeader from "./card/CardHeader";
@@ -85,7 +86,7 @@ export {
 
     generateFocus,
 
-    Alert, Badge, Button, ButtonGroup, Icon, Image, MaxHeightContent,
+    Alert, Badge, Button, ButtonGroup, Icon, Image, MaxHeightContent, SoundReader,
 
     Card, CardHeader, CardHeaderNav, CardBody, CardImage, CardList, CardTable, CardFooter,
 
