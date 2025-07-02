@@ -41,6 +41,7 @@
     import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
     import { InputInteger, InputIntegerLabel } from "./fields/InputInteger";
     import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
+    import InputLabel from "./fields/InputLabel";
     import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
     import { InputText, InputTextLabel } from "./fields/InputText";
     import { InputFile, InputFileLabel } from "./fields/InputFile";
@@ -103,6 +104,7 @@ export {
     InputFloat, InputFloatLabel,
     InputInteger, InputIntegerLabel,
     InputIPV4, InputIPV4Label,
+    InputLabel,
     InputReadOnly, InputReadOnlyLabel,
     InputText, InputTextLabel,
     InputFile, InputFileLabel,

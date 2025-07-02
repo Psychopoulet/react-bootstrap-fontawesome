@@ -5,13 +5,14 @@
     // externals
     import * as React from "react";
 
-    // externals
+    // internals
     import Icon from "../Icon";
     import {
         InvalidFeedBack,
         InvalidFeedBackRequired,
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./FieldFeedBacks";
+    import InputLabel from "./InputLabel";
 
 // types & interfaces
 
@@ -188,19 +189,9 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <label htmlFor={ this.props.id } className={
-                disabled
-                    ? "text-muted"
-                    : !valid ? "text-danger" : undefined
-            } aria-label={ this.props.label }>
-
-                { this.props.label } {
-                    required
-                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : undefined
-                }
-
-            </label>
+            <InputLabel for={ String(this.props.id) } label={ this.props.label }
+                disabled={ disabled } required={ required } valid={ valid }
+            />
 
             <InputColor id={ this.props.id } name={ this.props.name }
 

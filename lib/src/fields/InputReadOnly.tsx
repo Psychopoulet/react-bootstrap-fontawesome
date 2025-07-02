@@ -5,10 +5,11 @@
     // externals
     import * as React from "react";
 
-    // externals
+    // internals
     import {
         InvalidFeedBackRequired
     } from "./FieldFeedBacks";
+    import InputLabel from "./InputLabel";
 
 // types & interfaces
 
@@ -108,19 +109,9 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <label htmlFor={ this.props.id } className={
-                disabled
-                    ? "text-muted"
-                    : !valid ? "text-danger" : undefined
-            } aria-label={ this.props.label }>
-
-                { this.props.label } {
-                    required
-                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : undefined
-                }
-
-            </label>
+            <InputLabel for={ String(this.props.id) } label={ this.props.label }
+                disabled={ disabled } required={ required } valid={ valid }
+            />
 
             <InputReadOnly id={ this.props.id }
                 required={ required } disabled={ disabled }

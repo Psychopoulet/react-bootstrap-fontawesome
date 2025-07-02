@@ -9,10 +9,14 @@ export interface iPropsRange extends iPropsInput {
     "onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
 }
 interface iPropsRangeLabel extends iPropsRange {
+    "label": string;
     "value": number;
     "margin-bottom"?: number;
 }
-export declare class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
+interface iStateRange {
+    "value": number;
+}
+export declare class Range extends React.PureComponent<iPropsRange, iStateRange> {
     static displayName: string;
     constructor(props: iPropsRange);
     UNSAFE_componentWillReceiveProps(nextProps: iPropsRange): void;

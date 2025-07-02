@@ -5,10 +5,11 @@
     // externals
     import * as React from "react";
 
-    // externals
+    // internals
     import {
         InvalidFeedBackRequired, InvalidFeedBackInteger
     } from "./FieldFeedBacks";
+    import InputLabel from "./InputLabel";
 
 // types & interfaces
 
@@ -129,15 +130,17 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
 
         const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
+        const valid: boolean = requiredValid && integerValid;
+
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <label htmlFor={ this.props.id } className={ disabled ? " text-muted" : "" } aria-label={ this.props.label }>
-                { this.props.label }
-            </label>
+            <InputLabel for={ String(this.props.id) } label={ this.props.label }
+                disabled={ disabled } required={ required } valid={ valid }
+            />
 
             <SelectInteger id={ this.props.id }
                 required={ required }

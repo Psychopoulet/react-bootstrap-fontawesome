@@ -5,6 +5,9 @@
     // externals
     import * as React from "react";
 
+    // internals
+    import InputLabel from "./InputLabel";
+
 // types & interfaces
 
     // locals
@@ -109,19 +112,9 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <label htmlFor={ this.props.id } className={
-                disabled
-                    ? "text-muted"
-                    : undefined
-            } aria-label={ this.props.label }>
-
-                { this.props.label } {
-                    required
-                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : undefined
-                }
-
-            </label>
+            <InputLabel for={ String(this.props.id) } label={ this.props.label }
+                disabled={ disabled } required={ required }
+            />
 
             <InputFile id={ this.props.id } name={ this.props.name }
 

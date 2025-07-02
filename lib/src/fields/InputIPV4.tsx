@@ -5,7 +5,7 @@
     // externals
     import * as React from "react";
 
-    // externals
+    // internals
     import { InputText, InputTextLabel } from "./InputText";
 
 // types & interfaces

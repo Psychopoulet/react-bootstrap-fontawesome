@@ -5,11 +5,12 @@
     // externals
     import * as React from "react";
 
-    // externals
+    // internals
     import {
         InvalidFeedBackInteger,
         InvalidFeedBackMin, InvalidFeedBackMax
     } from "./FieldFeedBacks";
+    import InputLabel from "./InputLabel";
 
 // types & interfaces
 
@@ -28,13 +29,18 @@
     }
 
     interface iPropsRangeLabel extends iPropsRange {
+        "label": string;
         "value": number;
         "margin-bottom"?: number; // to be able to remove the default one
     }
 
+    interface iStateRange{
+        "value": number;
+    }
+
 // component
 
-export class Range extends React.PureComponent<iPropsRange, iPropsRangeLabel> {
+export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     // name
 
@@ -183,19 +189,9 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
             + (this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
-            <label htmlFor={ this.props.id } className={
-                disabled
-                    ? "text-muted"
-                    : !valid ? "text-danger" : undefined
-            } aria-label={ this.props.label }>
-
-                { this.props.label } {
-                    required
-                        ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                        : undefined
-                }
-
-            </label>
+            <InputLabel for={ String(this.props.id) } label={ this.props.label }
+                disabled={ disabled } required={ required } valid={ valid }
+            />
 
             <Range id={ this.props.id } name={ this.props.name }
 
