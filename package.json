@@ -14,11 +14,12 @@
 
     "clean": "npx rimraf ./dist/lib",
     "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
+    "build-test": "npx webpack --config \"./webpack.config-test.js\"",
 
     "lint": "npx eslint --config .eslintrc-src.cjs --ext .ts,.cts,.mts,.tsx,.ctsx,.mtsx ./lib/src/**/*",
     "check-requires": "npx used-deps-analyzer \"./package.json\" \"./lib/src\" --no-dev --overkill \"fs-extra\" \"node-promfs\"",
     "check-updates": "npx check-version-modules",
-    "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates && npm run build"
+    "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates && npm run build && npm run build-test"
 
   },
 
@@ -40,7 +41,11 @@
     "eslint-plugin-personnallinter": "git+ssh://git@github.com/Psychopoulet/eslint-plugin-personnallinter",
     "husky": "9.1.7",
     "react": "19.1.0",
-    "used-deps-analyzer": "0.1.8"
+    "react-dom": "19.1.0",
+    "ts-loader": "9.5.2",
+    "used-deps-analyzer": "0.1.8",
+    "webpack": "5.99.9",
+    "webpack-cli": "6.0.1"
   },
   "optionalDependencies": {},
 
