@@ -13,7 +13,7 @@ interface iStatesNavTabs {
 export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTabs> {
     static displayName: string;
     constructor(props: iPropsNavTabs);
-    static getDerivedStateFromProps(nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | undefined;
+    static getDerivedStateFromProps(nextProps: Readonly<iPropsNavTabs>, nextState: Readonly<iStatesNavTabs>): iStatesNavTabs | null;
     protected _handleSelect(e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void;
     render(): React.JSX.Element;
 }
