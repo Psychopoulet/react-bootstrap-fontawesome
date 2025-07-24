@@ -11,16 +11,36 @@
     import type { iPropsNode, tVariant, tSize } from "./types";
 
     export type tIcon =
-    | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "windows"
-    | "barcode" | "fingerprint" | "nfc"
-    | "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
-    | "money-bill" | "credit-card"
-    | "mask-face"
-    | "play" | "pause" | "stop"
-    | "asterisk" | "ban"
-    | "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "headset" | "hdd" | "lightbulb" | "lock" | "microchip"
-    | "plug" | "plus" | "power" | "print"
-    | "question" | "react" | "save" | "sync" | "times" | "toggle-on" | "toggle-off" | "trash" | "tv" | "unlock" | "usb" | "user" | "volume-up" | "wifi";
+
+        // brands
+        | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "react" | "windows"
+
+        // com
+        | "barcode" | "fingerprint" | "nfc"
+
+        // battery
+        | "battery-empty" | "battery-quarter" | "battery-half" | "battery-three-quarters" | "battery-full"
+
+        // money
+        | "money-bill" | "credit-card"
+
+        // reader
+        | "play" | "pause" | "stop"
+
+        // toggle
+        | "toggle-on" | "toggle-off"
+
+        // volume
+        | "volume-down" | "volume-up"
+
+        // lock
+        | "lock" | "unlock"
+
+        // others
+        | "asterisk" | "ban"
+        | "check" | "circle" | "cog" | "edit" | "eye" | "file-invoice" | "gamepad" | "headset" | "hdd" | "lightbulb" | "mask-face" | "microchip"
+        | "plug" | "plus" | "power" | "print"
+        | "question" | "save" | "sync" | "times" | "trash" | "tv" | "usb" | "user" | "wifi";
 
 // Props && States
 
@@ -36,33 +56,50 @@
 
     const ICONS = {
 
+        // brands
         "amazon": "fab fa-amazon",
         "android": "fab fa-android",
         "angular": "fab fa-angular",
         "apple": "fab fa-apple",
         "google": "fab fa-google",
         "linux": "fab fa-linux",
+        "react": "fab fa-react",
         "windows": "fab fa-windows",
 
+        // com
         "barcode": "fa fa-barcode",
         "fingerprint": "fa fa-fingerprint",
         "nfc": "fa-brands fa-nfc-symbol",
 
+        // battery
         "battery-empty": "fas fa-battery-empty",
         "battery-quarter": "fas fa-battery-quarter",
         "battery-half": "fas fa-battery-half",
         "battery-three-quarters": "fas fa-battery-three-quarters",
         "battery-full": "fas fa-battery-full",
 
+        // money
         "credit-card": "far fa-credit-card",
         "money-bill": "fas fa-money-bill",
 
-        "mask-face": "fas fa-mask-face",
-
+        // reader
         "play": "fas fa-play",
         "pause": "fas fa-pause",
         "stop": "fas fa-stop",
 
+        // toggle
+        "toggle-on": "fas fa-toggle-on",
+        "toggle-off": "fas fa-toggle-off",
+
+        // volume
+        "volume-down": "fas fa-volume-down",
+        "volume-up": "fas fa-volume-up",
+
+        // lock
+        "lock": "fas fa-lock",
+        "unlock": "fas fa-unlock",
+
+        // others
         "asterisk": "fas fa-asterisk",
         "ban": "fas fa-ban",
         "check": "fas fa-check",
@@ -74,26 +111,21 @@
         "headset": "fas fa-headset",
         "hdd": "fas fa-hdd",
         "lightbulb": "far fa-lightbulb",
-        "lock": "fas fa-lock",
         "gamepad": "fas fa-gamepad",
+        "mask-face": "fas fa-mask-face",
         "microchip": "fas fa-microchip",
         "plug": "fas fa-plug",
         "plus": "fas fa-plus",
         "power": "fas fa-power-off",
         "print": "fas fa-print",
         "question": "fas fa-question",
-        "react": "fab fa-react",
         "save": "fas fa-save",
         "sync": "fas fa-sync",
         "times": "fas fa-times",
-        "toggle-on": "fas fa-toggle-on",
-        "toggle-off": "fas fa-toggle-off",
         "trash": "fas fa-trash",
         "tv": "fas fa-tv",
-        "unlock": "fas fa-unlock",
         "usb": "fab fa-usb",
         "user": "fas fa-user",
-        "volume-up": "fas fa-volume-up",
         "wifi": "fas fa-wifi"
     };
 
@@ -109,12 +141,14 @@ export default class Icon extends React.PureComponent<iPropsIcon> {
 
     public render (): React.JSX.Element {
 
+        const isChild: boolean = "boolean" === typeof this.props.child && this.props.child;
+
         let className: string = ICONS[this.props.type];
 
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " text-" + this.props.variant;
         }
-        else if (!this.props.child) {
+        else if (!isChild) {
             className += " text-body";
         }
 
@@ -146,7 +180,7 @@ export default class Icon extends React.PureComponent<iPropsIcon> {
 
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 
