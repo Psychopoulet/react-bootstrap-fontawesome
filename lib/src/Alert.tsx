@@ -31,7 +31,7 @@ export default class Alert extends React.PureComponent<iPropsAlert> {
 
         let className: string = "alert";
 
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " alert-" + this.props.variant;
         }
 
@@ -39,7 +39,7 @@ export default class Alert extends React.PureComponent<iPropsAlert> {
             className += " alert-dismissible fade show";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

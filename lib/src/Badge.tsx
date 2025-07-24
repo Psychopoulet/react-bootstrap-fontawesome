@@ -36,18 +36,18 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
 
         let className: string = "badge";
 
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " bg-" + this.props.variant;
         }
         else {
             className += " text-body";
         }
 
-        if (Boolean(this.props.pill)) {
+        if ("boolean" === typeof this.props.pill && this.props.pill) {
             className += " rounded-pill";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

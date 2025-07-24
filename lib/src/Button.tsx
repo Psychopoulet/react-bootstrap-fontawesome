@@ -55,15 +55,15 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     public render (): React.JSX.Element {
 
-        const disabled: boolean = !!this.props.disabled;
+        const disabled: boolean = Boolean(this.props.disabled);
 
         let className: string = "btn";
 
-        if (this.props.variant) {
-            className += " " + (this.props.outline ? "btn-outline-" + this.props.variant : "btn-" + this.props.variant);
+        if ("string" === typeof this.props.variant) {
+            className += " " + ("boolean" === typeof this.props.outline && this.props.outline ? "btn-outline-" + this.props.variant : "btn-" + this.props.variant);
         }
         else {
-            className += " " + (this.props.outline ? "btn-outline-primary" : "btn-primary");
+            className += " " + ("boolean" === typeof this.props.outline && this.props.outline ? "btn-outline-primary" : "btn-primary");
         }
 
         if ("lg" === this.props.size) {
@@ -77,11 +77,11 @@ export default class Button extends React.PureComponent<iPropsButton> {
             className += " disabled";
         }
 
-        if (Boolean(this.props.block)) {
+        if ("boolean" === typeof this.props.block && this.props.block) {
             className += " col-12";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 
@@ -93,7 +93,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
             onClick={ this._handleClick.bind(this) }
         >
             { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : undefined }
-            { this.props.icon && this.props.children ? <>&nbsp;</> : undefined }
+            { this.props.icon && "undefined" !== typeof this.props.children ? <>&nbsp;</> : undefined }
             { this.props.children }
         </button>;
 
