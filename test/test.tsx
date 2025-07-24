@@ -10,6 +10,7 @@
     import {
         Alert,
         Badge,
+        Button, ButtonGroup,
         Card, CardHeaderNav, CardBody,
         CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
         InputArray, InputArrayLabel,
@@ -64,8 +65,6 @@ class App extends React.Component<{}, iState> {
                     <Alert variant="dark">Alert dark</Alert>
                     <Alert variant="link">Alert link</Alert>
 
-                    <br />
-
                     <Alert variant="success" onClose={ () => { alert("close Alert"); } }>Alert success with close button</Alert>
 
                 </CardBody>;
@@ -74,17 +73,17 @@ class App extends React.Component<{}, iState> {
 
                 return <CardBody>
 
-                    <Badge variant="primary">primary</Badge>
-                    <Badge variant="secondary">secondary</Badge>
-                    <Badge variant="success">success</Badge>
-                    <Badge variant="warning">warning</Badge>
-                    <Badge variant="danger">danger</Badge>
-                    <Badge variant="info">info</Badge>
-                    <Badge variant="light">light</Badge>
-                    <Badge variant="dark">dark</Badge>
-                    <Badge variant="link">link</Badge>
+                    <Badge variant="primary">variant primary</Badge>
+                    <Badge variant="secondary">variant secondary</Badge>
+                    <Badge variant="success">variant success</Badge>
+                    <Badge variant="warning">variant warning</Badge>
+                    <Badge variant="danger">variant danger</Badge>
+                    <Badge variant="info">variant info</Badge>
+                    <Badge variant="light">variant light</Badge>
+                    <Badge variant="dark">variant dark</Badge>
+                    <Badge variant="link">variant link</Badge>
 
-                    <br />
+                    <br /><br />
 
                     <Badge variant="success" pill>success pill</Badge>
                     <Badge variant="warning" icon="barcode" />
@@ -96,13 +95,65 @@ class App extends React.Component<{}, iState> {
 
                 return <CardBody>
 
+                    <Button disabled>disabled</Button>
+                    <Button icon="android" />
+                    <Button outline>outline</Button>
+                    <Button onClick={ (e: React.MouseEvent<HTMLButtonElement>) => { alert("click Button"); } }>onClick</Button>
+                    <Button title="Test">title</Button>
+
+                    <br /><br />
+
+                    <Button type="button">type button</Button>
+                    <Button type="reset">type reset</Button>
+                    <Button type="submit">type submit</Button>
+
+                    <br /><br />
+
+                    <Button size="sm">size sm</Button>
+                    <Button size="md">size md</Button>
+                    <Button size="lg">size lg</Button>
+
+                    <br /><br />
+
+                    <Button variant="primary">variant primary</Button>
+                    <Button variant="secondary">variant secondary</Button>
+                    <Button variant="success">variant success</Button>
+                    <Button variant="warning">variant warning</Button>
+                    <Button variant="danger">variant danger</Button>
+                    <Button variant="info">variant info</Button>
+                    <Button variant="light">variant light</Button>
+                    <Button variant="dark">variant dark</Button>
+                    <Button variant="link">variant link</Button>
+
+                    <br /><br />
+
+                    <Button block>block</Button>
+
+                    <br /><br />
+
+                    <ButtonGroup>
+                        <Button variant="success" icon="play" />
+                        <Button variant="danger" icon="stop" />
+                    </ButtonGroup>
+
+                    <ButtonGroup block>
+                        <Button variant="success" icon="play" />
+                        <Button variant="danger" icon="stop" />
+                    </ButtonGroup>
+
+                </CardBody>;
+
+            case 3:
+
+                return <CardBody>
+
                     <CheckBox checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBox to " + String(value)); } } />
                     <CheckBoxLabel label="CheckBoxLabel" checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBoxLabel to " + String(value)); } } margin-bottom={ 0 } />
                     <CheckBoxPrettierLabel label="CheckBoxPrettierLabel" checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } } />
 
                 </CardBody>;
 
-            case 3:
+            case 4:
 
                 return <CardBody>
 
@@ -111,7 +162,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 4:
+            case 5:
 
                 return <CardBody>
 
@@ -131,7 +182,7 @@ class App extends React.Component<{}, iState> {
 		return <Card>
 
             <CardHeaderNav items={[
-                "Alert", "Badge", "CheckBox", "InputArray", "InputColor"
+                "Alert", "Badge", "Button", "CheckBox", "InputArray", "InputColor"
             ]}
 
             selectedIndex={ this.state.index }
@@ -157,9 +208,6 @@ class App extends React.Component<{}, iState> {
 createRoot(document.getElementById("TestApp") as HTMLElement).render(<App />);
 
     /*
-    import Badge from "./Badge";
-    import Button from "./Button";
-    import ButtonGroup from "./ButtonGroup";
     import Icon from "./Icon";
     import Image from "./Image";
     import MaxHeightContent from "./MaxHeightContent";

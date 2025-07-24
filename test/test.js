@@ -23,13 +23,13 @@ class Alert extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "alert";
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " alert-" + this.props.variant;
         }
         if ("function" === typeof this.props.onClose) {
             className += " alert-dismissible fade show";
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, role: "alert", style: this.props.style },
@@ -68,16 +68,16 @@ class Badge extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "badge";
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " bg-" + this.props.variant;
         }
         else {
             className += " text-body";
         }
-        if (Boolean(this.props.pill)) {
+        if ("boolean" === typeof this.props.pill && this.props.pill) {
             className += " rounded-pill";
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style },
@@ -125,13 +125,13 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     }
     // render
     render() {
-        const disabled = !!this.props.disabled;
+        const disabled = Boolean(this.props.disabled);
         let className = "btn";
-        if (this.props.variant) {
-            className += " " + (this.props.outline ? "btn-outline-" + this.props.variant : "btn-" + this.props.variant);
+        if ("string" === typeof this.props.variant) {
+            className += " " + ("boolean" === typeof this.props.outline && this.props.outline ? "btn-outline-" + this.props.variant : "btn-" + this.props.variant);
         }
         else {
-            className += " " + (this.props.outline ? "btn-outline-primary" : "btn-primary");
+            className += " " + ("boolean" === typeof this.props.outline && this.props.outline ? "btn-outline-primary" : "btn-primary");
         }
         if ("lg" === this.props.size) {
             className += " btn-lg";
@@ -142,15 +142,15 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if (disabled) {
             className += " disabled";
         }
-        if (Boolean(this.props.block)) {
+        if ("boolean" === typeof this.props.block && this.props.block) {
             className += " col-12";
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { id: this.props.id, role: "button", type: this.props.type ? this.props.type : "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick.bind(this) },
             this.props.icon ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }) : undefined,
-            this.props.icon && this.props.children ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, "\u00A0") : undefined,
+            this.props.icon && "undefined" !== typeof this.props.children ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, "\u00A0") : undefined,
             this.props.children);
     }
 }
@@ -30478,33 +30478,72 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: "light" }, "Alert light"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: "dark" }, "Alert dark"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: "link" }, "Alert link"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: "success", onClose: () => { alert("close Alert"); } }, "Alert success with close button"));
             case 1:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "primary" }, "primary"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "secondary" }, "secondary"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "success" }, "success"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "warning" }, "warning"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "danger" }, "danger"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "info" }, "info"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "light" }, "light"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "dark" }, "dark"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "link" }, "link"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "primary" }, "variant primary"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "secondary" }, "variant secondary"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "success" }, "variant success"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "warning" }, "variant warning"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "danger" }, "variant danger"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "info" }, "variant info"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "light" }, "variant light"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "dark" }, "variant dark"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "link" }, "variant link"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "success", pill: true }, "success pill"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "warning", icon: "barcode" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "info", title: "test" }, "info title"));
             case 2:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { disabled: true }, "disabled"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "android" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { outline: true }, "outline"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { onClick: (e) => { alert("click Button"); } }, "onClick"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { title: "Test" }, "title"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { type: "button" }, "type button"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { type: "reset" }, "type reset"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { type: "submit" }, "type submit"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { size: "sm" }, "size sm"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { size: "md" }, "size md"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { size: "lg" }, "size lg"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "primary" }, "variant primary"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "secondary" }, "variant secondary"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "success" }, "variant success"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "warning" }, "variant warning"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "danger" }, "variant danger"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "info" }, "variant info"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "light" }, "variant light"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "dark" }, "variant dark"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "link" }, "variant link"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { block: true }, "block"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ButtonGroup, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "success", icon: "play" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "danger", icon: "stop" })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ButtonGroup, { block: true },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "success", icon: "play" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "danger", icon: "stop" })));
+            case 3:
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxLabel, { label: "CheckBoxLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxLabel to " + String(value)); }, "margin-bottom": 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxPrettierLabel, { label: "CheckBoxPrettierLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } }));
-            case 3:
+            case 4:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArray to " + JSON.stringify(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } }));
-            case 4:
+            case 5:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColorLabel, { label: "InputColorLabel", value: "test", onChange: (e, value) => { alert("change InputColorLabel to " + value); } }));
@@ -30514,7 +30553,7 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeaderNav, { items: [
-                    "Alert", "Badge", "CheckBox", "InputArray", "InputColor"
+                    "Alert", "Badge", "Button", "CheckBox", "InputArray", "InputColor"
                 ], selectedIndex: this.state.index, onSelect: (e, newIndex) => {
                     this.setState({
                         "index": newIndex
