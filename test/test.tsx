@@ -11,6 +11,7 @@
         Alert,
         Badge,
         Button, ButtonGroup,
+        Icon,
         Card, CardHeaderNav, CardBody,
         CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
         InputArray, InputArrayLabel,
@@ -96,7 +97,8 @@ class App extends React.Component<{}, iState> {
                 return <CardBody>
 
                     <Button disabled>disabled</Button>
-                    <Button icon="android" />
+                    <Button icon="circle" />
+                    <Button icon="circle">icon with content</Button>
                     <Button outline>outline</Button>
                     <Button onClick={ (e: React.MouseEvent<HTMLButtonElement>) => { alert("click Button"); } }>onClick</Button>
                     <Button title="Test">title</Button>
@@ -147,13 +149,121 @@ class App extends React.Component<{}, iState> {
 
                 return <CardBody>
 
+                    <Icon title="amazon" type="amazon" />
+                    <Icon title="android" type="android" />
+                    <Icon title="angular" type="angular" />
+                    <Icon title="apple" type="apple" />
+                    <Icon title="google" type="google" />
+                    <Icon title="linux" type="linux" />
+                    <Icon title="react" type="react" />
+                    <Icon title="windows" type="windows" />
+
+                    <br /><br />
+
+                    <Icon title="barcode" type="barcode" />
+                    <Icon title="fingerprint" type="fingerprint" />
+                    <Icon title="nfc" type="nfc" />
+
+                    <br /><br />
+
+                    <Icon title="battery-empty" type="battery-empty" />
+                    <Icon title="battery-quarter" type="battery-quarter" />
+                    <Icon title="battery-half" type="battery-half" />
+                    <Icon title="battery-three-quarters" type="battery-three-quarters" />
+                    <Icon title="battery-full" type="battery-full" />
+
+                    <br /><br />
+
+                    <Icon title="money-bill" type="money-bill" />
+                    <Icon title="credit-card" type="credit-card" />
+
+                    <br /><br />
+
+                    <Icon title="play" type="play" />
+                    <Icon title="pause" type="pause" />
+                    <Icon title="stop" type="stop" />
+
+                    <br /><br />
+
+                    <Icon title="toggle-on" type="toggle-on" />
+                    <Icon title="toggle-off" type="toggle-off" />
+
+                    <br /><br />
+
+                    <Icon title="volume-down" type="volume-down" />
+                    <Icon title="volume-up" type="volume-up" />
+
+                    <br /><br />
+
+                    <Icon title="lock" type="lock" />
+                    <Icon title="unlock" type="unlock" />
+
+                    <br /><br />
+
+                    <Icon title="asterisk" type="asterisk" />
+                    <Icon title="ban" type="ban" />
+                    <Icon title="check" type="check" />
+                    <Icon title="circle" type="circle" />
+                    <Icon title="cog" type="cog" />
+                    <Icon title="edit" type="edit" />
+                    <Icon title="eye" type="eye" />
+                    <Icon title="file-invoice" type="file-invoice" />
+                    <Icon title="gamepad" type="gamepad" />
+                    <Icon title="headset" type="headset" />
+                    <Icon title="hdd" type="hdd" />
+                    <Icon title="lightbulb" type="lightbulb" />
+                    <Icon title="mask-face" type="mask-face" />
+                    <Icon title="microchip" type="microchip" />
+                    <Icon title="plug" type="plug" />
+                    <Icon title="plus" type="plus" />
+                    <Icon title="power" type="power" />
+                    <Icon title="print" type="print" />
+                    <Icon title="question" type="question" />
+                    <Icon title="save" type="save" />
+                    <Icon title="sync" type="sync" />
+                    <Icon title="times" type="times" />
+                    <Icon title="trash" type="trash" />
+                    <Icon title="tv" type="tv" />
+                    <Icon title="usb" type="usb" />
+                    <Icon title="user" type="user" />
+                    <Icon title="wifi" type="wifi" />
+
+                    <br /><br />
+
+                    <Icon size="sm" type="circle" />
+                    <Icon size="md" type="circle" />
+                    <Icon size="lg" type="circle" />
+                    <Icon size="xl" type="circle" />
+
+                    <br /><br />
+
+                    <Icon variant="primary" type="circle" />
+                    <Icon variant="secondary" type="circle" />
+                    <Icon variant="success" type="circle" />
+                    <Icon variant="warning" type="circle" />
+                    <Icon variant="danger" type="circle" />
+                    <Icon variant="info" type="circle" />
+                    <Icon variant="light" type="circle" />
+                    <Icon variant="dark" type="circle" />
+                    <Icon variant="link" type="circle" />
+
+                </CardBody>;
+
+            // case 4: Image
+            // case 5: MaxHeightContent
+            // case 6: SoundReader
+
+            case 7:
+
+                return <CardBody>
+
                     <CheckBox checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBox to " + String(value)); } } />
                     <CheckBoxLabel label="CheckBoxLabel" checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBoxLabel to " + String(value)); } } margin-bottom={ 0 } />
                     <CheckBoxPrettierLabel label="CheckBoxPrettierLabel" checked={ true } onToogle={ (e: React.ChangeEvent<HTMLInputElement>, value: boolean) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } } />
 
                 </CardBody>;
 
-            case 4:
+            case 8:
 
                 return <CardBody>
 
@@ -162,7 +272,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 5:
+            case 9:
 
                 return <CardBody>
 
@@ -182,7 +292,8 @@ class App extends React.Component<{}, iState> {
 		return <Card>
 
             <CardHeaderNav items={[
-                "Alert", "Badge", "Button", "CheckBox", "InputArray", "InputColor"
+                "Alert", "Badge", "Button", "Icon", "Image", "MaxHeightContent", "SoundReader",
+                "CheckBox", "InputArray", "InputColor"
             ]}
 
             selectedIndex={ this.state.index }
@@ -208,7 +319,6 @@ class App extends React.Component<{}, iState> {
 createRoot(document.getElementById("TestApp") as HTMLElement).render(<App />);
 
     /*
-    import Icon from "./Icon";
     import Image from "./Image";
     import MaxHeightContent from "./MaxHeightContent";
     import SoundReader from "./SoundReader";

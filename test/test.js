@@ -189,10 +189,10 @@ class ButtonGroup extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "btn-group";
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
-        if (Boolean(this.props.block)) {
+        if ("boolean" === typeof this.props.block && this.props.block) {
             className += " col-12";
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, role: "button group", "aria-label": this.props.label, className: className, style: this.props.style }, react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(this.props.children).filter((child) => {
@@ -225,27 +225,42 @@ __webpack_require__.r(__webpack_exports__);
 
 // consts
 const ICONS = {
+    // brands
     "amazon": "fab fa-amazon",
     "android": "fab fa-android",
     "angular": "fab fa-angular",
     "apple": "fab fa-apple",
     "google": "fab fa-google",
     "linux": "fab fa-linux",
+    "react": "fab fa-react",
     "windows": "fab fa-windows",
+    // com
     "barcode": "fa fa-barcode",
     "fingerprint": "fa fa-fingerprint",
     "nfc": "fa-brands fa-nfc-symbol",
+    // battery
     "battery-empty": "fas fa-battery-empty",
     "battery-quarter": "fas fa-battery-quarter",
     "battery-half": "fas fa-battery-half",
     "battery-three-quarters": "fas fa-battery-three-quarters",
     "battery-full": "fas fa-battery-full",
+    // money
     "credit-card": "far fa-credit-card",
     "money-bill": "fas fa-money-bill",
-    "mask-face": "fas fa-mask-face",
+    // reader
     "play": "fas fa-play",
     "pause": "fas fa-pause",
     "stop": "fas fa-stop",
+    // toggle
+    "toggle-on": "fas fa-toggle-on",
+    "toggle-off": "fas fa-toggle-off",
+    // volume
+    "volume-down": "fas fa-volume-down",
+    "volume-up": "fas fa-volume-up",
+    // lock
+    "lock": "fas fa-lock",
+    "unlock": "fas fa-unlock",
+    // others
     "asterisk": "fas fa-asterisk",
     "ban": "fas fa-ban",
     "check": "fas fa-check",
@@ -257,37 +272,33 @@ const ICONS = {
     "headset": "fas fa-headset",
     "hdd": "fas fa-hdd",
     "lightbulb": "far fa-lightbulb",
-    "lock": "fas fa-lock",
     "gamepad": "fas fa-gamepad",
+    "mask-face": "fas fa-mask-face",
     "microchip": "fas fa-microchip",
     "plug": "fas fa-plug",
     "plus": "fas fa-plus",
     "power": "fas fa-power-off",
     "print": "fas fa-print",
     "question": "fas fa-question",
-    "react": "fab fa-react",
     "save": "fas fa-save",
     "sync": "fas fa-sync",
     "times": "fas fa-times",
-    "toggle-on": "fas fa-toggle-on",
-    "toggle-off": "fas fa-toggle-off",
     "trash": "fas fa-trash",
     "tv": "fas fa-tv",
-    "unlock": "fas fa-unlock",
     "usb": "fab fa-usb",
     "user": "fas fa-user",
-    "volume-up": "fas fa-volume-up",
     "wifi": "fas fa-wifi"
 };
 // component
 class Icon extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
+        const isChild = "boolean" === typeof this.props.child && this.props.child;
         let className = ICONS[this.props.type];
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " text-" + this.props.variant;
         }
-        else if (!this.props.child) {
+        else if (!isChild) {
             className += " text-body";
         }
         if (this.props.size) {
@@ -309,7 +320,7 @@ class Icon extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                     break;
             }
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style });
@@ -30498,7 +30509,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
             case 2:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { disabled: true }, "disabled"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "android" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "circle" }, "icon with content"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { outline: true }, "outline"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { onClick: (e) => { alert("click Button"); } }, "onClick"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { title: "Test" }, "title"),
@@ -30536,14 +30548,106 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "danger", icon: "stop" })));
             case 3:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "amazon", type: "amazon" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "android", type: "android" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "angular", type: "angular" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "apple", type: "apple" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "google", type: "google" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "linux", type: "linux" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "react", type: "react" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "windows", type: "windows" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "barcode", type: "barcode" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "fingerprint", type: "fingerprint" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "nfc", type: "nfc" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "battery-empty", type: "battery-empty" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "battery-quarter", type: "battery-quarter" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "battery-half", type: "battery-half" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "battery-three-quarters", type: "battery-three-quarters" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "battery-full", type: "battery-full" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "money-bill", type: "money-bill" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "credit-card", type: "credit-card" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "play", type: "play" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "pause", type: "pause" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "stop", type: "stop" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "toggle-on", type: "toggle-on" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "toggle-off", type: "toggle-off" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "volume-down", type: "volume-down" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "volume-up", type: "volume-up" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "lock", type: "lock" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "unlock", type: "unlock" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "asterisk", type: "asterisk" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "ban", type: "ban" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "check", type: "check" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "circle", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "cog", type: "cog" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "edit", type: "edit" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "eye", type: "eye" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "file-invoice", type: "file-invoice" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "gamepad", type: "gamepad" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "headset", type: "headset" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "hdd", type: "hdd" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "lightbulb", type: "lightbulb" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "mask-face", type: "mask-face" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "microchip", type: "microchip" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "plug", type: "plug" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "plus", type: "plus" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "power", type: "power" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "print", type: "print" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "question", type: "question" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "save", type: "save" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "sync", type: "sync" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "times", type: "times" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "trash", type: "trash" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "tv", type: "tv" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "usb", type: "usb" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "user", type: "user" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "wifi", type: "wifi" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { size: "sm", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { size: "md", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { size: "lg", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { size: "xl", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "primary", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "secondary", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "success", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "warning", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "danger", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "info", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "light", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "dark", type: "circle" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "link", type: "circle" }));
+            // case 4: Image
+            // case 5: MaxHeightContent
+            // case 6: SoundReader
+            case 7:
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxLabel, { label: "CheckBoxLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxLabel to " + String(value)); }, "margin-bottom": 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxPrettierLabel, { label: "CheckBoxPrettierLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } }));
-            case 4:
+            case 8:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArray to " + JSON.stringify(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } }));
-            case 5:
+            case 9:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColorLabel, { label: "InputColorLabel", value: "test", onChange: (e, value) => { alert("change InputColorLabel to " + value); } }));
@@ -30553,7 +30657,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeaderNav, { items: [
-                    "Alert", "Badge", "Button", "CheckBox", "InputArray", "InputColor"
+                    "Alert", "Badge", "Button", "Icon", "Image", "MaxHeightContent", "SoundReader",
+                    "CheckBox", "InputArray", "InputColor"
                 ], selectedIndex: this.state.index, onSelect: (e, newIndex) => {
                     this.setState({
                         "index": newIndex
