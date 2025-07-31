@@ -12,14 +12,15 @@
         Badge,
         Button, ButtonGroup,
         Icon,
-        Card, CardBody, CardHeaderNav,
-        // Card, CardBody, CardFooter, CardHeader, CardHeaderNav, CardImage, CardList, CardTable,
+        Card, CardBody, CardFooter, CardHeader, CardHeaderNav, CardImage, CardList, CardTable,
         CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
         InputArray, InputArrayLabel,
         InputColor, InputColorLabel,
         Image,
+        ListItem,
         MaxHeightContent,
         SoundReader,
+        TableBody, TableHeader, TableFooter
 
     } from "../lib/src/main";
 
@@ -69,6 +70,7 @@
 
     interface iState {
         "index": number;
+        "indexCard": number;
         "color": string;
     }
 
@@ -104,6 +106,7 @@ class App extends React.Component<{}, iState> {
 
         this.state = {
             "index": 0,
+            "indexCard": 0,
             "color": "#ffffff"
         };
 
@@ -194,17 +197,238 @@ class App extends React.Component<{}, iState> {
 
                 return <CardBody>
 
-                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+                    <Card>
 
-                        return <Card variant={ variant }>
-                            <CardBody>variant { variant }</CardBody>
-                        </Card>;
+                        <CardHeaderNav items={[
+                            "variant", "CardHeader/CardFooter", "CardImage", "CardList", "CardTable"
+                        ]}
 
-                    }) }
+                            selectedIndex={ this.state.indexCard }
+
+                            onSelect={ (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => {
+
+                                this.setState({
+                                    "indexCard": newIndex
+                                });
+
+                            } }
+
+                        />
+
+                        <CardBody>
+
+                            { 0 === this.state.indexCard ? VARIANTS.map((variant: tVariant): JSX.Element => {
+
+                                return <Card variant={ variant }>
+                                    <CardBody>variant { variant }</CardBody>
+                                </Card>;
+
+                            }) : undefined }
+
+                            { 1 === this.state.indexCard ? VARIANTS.map((variant: tVariant): JSX.Element => {
+
+                                return <Card variant={ variant }>
+                                    <CardHeader>CardHeader</CardHeader>
+                                    <CardBody>variant { variant }</CardBody>
+                                    <CardFooter>CardFooter</CardFooter>
+                                </Card>;
+
+                            }) : undefined }
+
+                            { 2 === this.state.indexCard ? <Card>
+
+                                <CardImage src="./test.png" height={ 200 } />
+
+                            </Card> : undefined }
+
+                            { 3 === this.state.indexCard ? <>
+
+                                <Card>
+
+                                    <CardList>
+
+                                        { VARIANTS.map((variant: tVariant): JSX.Element => {
+                                            return <ListItem variant={ variant }>variant { variant }</ListItem>;
+                                        }) }
+
+                                    </CardList>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardList>
+
+                                        <ListItem active>active</ListItem>
+                                        <ListItem disabled>disabled</ListItem>
+                                        <ListItem justify>justify <span>test</span></ListItem>
+
+                                        <ListItem onClick={
+                                            (e: React.MouseEvent<HTMLAnchorElement>) => {
+                                                alert("click ListItem");
+                                            }
+                                        }>
+                                            onClick
+                                        </ListItem>
+
+                                    </CardList>
+
+                                </Card>
+
+                            </> : undefined }
+
+                            { 4 === this.state.indexCard ? <>
+
+                                <Card>
+
+                                    <CardTable>
+
+                                        <TableHeader>
+                                            <tr>
+                                                <td>TableHeader</td>
+                                            </tr>
+                                        </TableHeader>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>test</td>
+                                            </tr>
+                                        </TableBody>
+
+                                        <TableFooter>
+                                            <tr>
+                                                <td>TableFooter</td>
+                                            </tr>
+                                        </TableFooter>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable bordered>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>bordered</td>
+                                                <td>bordered</td>
+                                            </tr>
+                                            <tr>
+                                                <td>bordered</td>
+                                                <td>bordered</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable borderless>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>borderless</td>
+                                                <td>borderless</td>
+                                            </tr>
+                                            <tr>
+                                                <td>borderless</td>
+                                                <td>borderless</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable hover>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>hover</td>
+                                                <td>hover</td>
+                                            </tr>
+                                            <tr>
+                                                <td>hover</td>
+                                                <td>hover</td>
+                                            </tr>
+                                            <tr>
+                                                <td>hover</td>
+                                                <td>hover</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable responsive>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>responsive</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable small>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>small</td>
+                                                <td>small</td>
+                                            </tr>
+                                            <tr>
+                                                <td>small</td>
+                                                <td>small</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                                <Card className="mt-3">
+
+                                    <CardTable striped>
+
+                                        <TableBody>
+                                            <tr>
+                                                <td>striped</td>
+                                                <td>striped</td>
+                                            </tr>
+                                            <tr>
+                                                <td>striped</td>
+                                                <td>striped</td>
+                                            </tr>
+                                            <tr>
+                                                <td>striped</td>
+                                                <td>striped</td>
+                                            </tr>
+                                        </TableBody>
+
+                                    </CardTable>
+
+                                </Card>
+
+                            </> : undefined }
+
+                        </CardBody>
+
+                    </Card>
 
                 </CardBody>;
-
-                // Card, CardBody, CardFooter, CardHeader, CardHeaderNav, CardImage, CardList, CardTable,
 
             case 4: // Icon
 
@@ -439,17 +663,17 @@ class App extends React.Component<{}, iState> {
                 "CheckBox", "InputArray", "InputColor"
             ]}
 
-            selectedIndex={ this.state.index }
+                selectedIndex={ this.state.index }
 
-            onSelect={ (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => {
+                onSelect={ (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => {
 
-                this.setState({
-                    "index": newIndex
-                });
+                    this.setState({
+                        "index": newIndex
+                    });
 
-            } }
+                } }
 
-        />
+            />
 
             { this._renderNav() }
 
