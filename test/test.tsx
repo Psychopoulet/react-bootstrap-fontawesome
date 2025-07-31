@@ -3,7 +3,7 @@
 // deps
 
 	// externals
-    import React from "react";
+    import React, { JSX } from "react";
 	import { createRoot } from "react-dom/client";
 
     // locals
@@ -12,23 +12,18 @@
         Badge,
         Button, ButtonGroup,
         Icon,
-        Card, CardHeaderNav, CardBody,
+        Card, CardBody, CardHeaderNav,
+        // Card, CardBody, CardFooter, CardHeader, CardHeaderNav, CardImage, CardList, CardTable,
         CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
         InputArray, InputArrayLabel,
         InputColor, InputColorLabel,
         Image,
         MaxHeightContent,
-        SoundReader
+        SoundReader,
+
     } from "../lib/src/main";
 
     /*
-    import CardHeader from "./card/CardHeader";
-    import CardBody from "./card/CardBody";
-    import CardImage from "./card/CardImage";
-    import CardList from "./card/CardList";
-    import CardTable from "./card/CardTable";
-    import CardFooter from "./card/CardFooter";
-
     import List from "./list/List";
     import ListItem from "./list/ListItem";
     import ListItemHeader from "./list/ListItemHeader";
@@ -70,10 +65,26 @@
 
 // types & interfaces
 
+    import type { tVariant } from "../lib/src/types";
+
     interface iState {
         "index": number;
         "color": string;
     }
+
+// consts
+
+    const VARIANTS: tVariant[] = [
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger",
+        "info",
+        "light",
+        "dark",
+        "link"
+    ];
 
 // component
 
@@ -104,37 +115,25 @@ class App extends React.Component<{}, iState> {
 
         switch (this.state.index) {
 
-            case 0:
+            case 0: // Alert
 
                 return <CardBody>
 
-                    <Alert variant="primary">Alert primary</Alert>
-                    <Alert variant="secondary">Alert secondary</Alert>
-                    <Alert variant="success">Alert success</Alert>
-                    <Alert variant="warning">Alert warning</Alert>
-                    <Alert variant="danger">Alert danger</Alert>
-                    <Alert variant="info">Alert info</Alert>
-                    <Alert variant="light">Alert light</Alert>
-                    <Alert variant="dark">Alert dark</Alert>
-                    <Alert variant="link">Alert link</Alert>
+                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+                        return <Alert variant={ variant }>variant { variant }</Alert>;
+                    }) }
 
                     <Alert variant="success" onClose={ () => { alert("close Alert"); } }>Alert success with close button</Alert>
 
                 </CardBody>;
 
-            case 1:
+            case 1: // Badge
 
                 return <CardBody>
 
-                    <Badge variant="primary">variant primary</Badge>
-                    <Badge variant="secondary">variant secondary</Badge>
-                    <Badge variant="success">variant success</Badge>
-                    <Badge variant="warning">variant warning</Badge>
-                    <Badge variant="danger">variant danger</Badge>
-                    <Badge variant="info">variant info</Badge>
-                    <Badge variant="light">variant light</Badge>
-                    <Badge variant="dark">variant dark</Badge>
-                    <Badge variant="link">variant link</Badge>
+                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+                        return <Badge variant={ variant }>variant { variant }</Badge>;
+                    }) }
 
                     <br /><br />
 
@@ -144,7 +143,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 2:
+            case 2: // Button
 
                 return <CardBody>
 
@@ -169,15 +168,9 @@ class App extends React.Component<{}, iState> {
 
                     <br /><br />
 
-                    <Button variant="primary">variant primary</Button>
-                    <Button variant="secondary">variant secondary</Button>
-                    <Button variant="success">variant success</Button>
-                    <Button variant="warning">variant warning</Button>
-                    <Button variant="danger">variant danger</Button>
-                    <Button variant="info">variant info</Button>
-                    <Button variant="light">variant light</Button>
-                    <Button variant="dark">variant dark</Button>
-                    <Button variant="link">variant link</Button>
+                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+                        return <Button variant={ variant }>variant { variant }</Button>;
+                    }) }
 
                     <br /><br />
 
@@ -197,7 +190,23 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 3:
+            case 3: // Card
+
+                return <CardBody>
+
+                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+
+                        return <Card variant={ variant }>
+                            <CardBody>variant { variant }</CardBody>
+                        </Card>;
+
+                    }) }
+
+                </CardBody>;
+
+                // Card, CardBody, CardFooter, CardHeader, CardHeaderNav, CardImage, CardList, CardTable,
+
+            case 4: // Icon
 
                 return <CardBody>
 
@@ -289,19 +298,13 @@ class App extends React.Component<{}, iState> {
 
                     <br /><br />
 
-                    <Icon variant="primary" type="circle" />
-                    <Icon variant="secondary" type="circle" />
-                    <Icon variant="success" type="circle" />
-                    <Icon variant="warning" type="circle" />
-                    <Icon variant="danger" type="circle" />
-                    <Icon variant="info" type="circle" />
-                    <Icon variant="light" type="circle" />
-                    <Icon variant="dark" type="circle" />
-                    <Icon variant="link" type="circle" />
+                    { VARIANTS.map((variant: tVariant): JSX.Element => {
+                        return <Icon variant={ variant } type="circle" title={ "variant" + variant } />
+                    }) }
 
                 </CardBody>;
 
-            case 4:
+            case 5: // Image
 
                 return <CardBody>
 
@@ -346,7 +349,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 5:
+            case 6: // MaxHeightContent
 
                 return <CardBody>
 
@@ -384,7 +387,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 6:
+            case 7: // SoundReader
 
                 return <CardBody>
 
@@ -393,7 +396,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 7:
+            case 8: // CheckBox
 
                 return <CardBody>
 
@@ -403,7 +406,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 8:
+            case 9: // InputArray
 
                 return <CardBody>
 
@@ -412,7 +415,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 9:
+            case 10: // InputColor
 
                 return <CardBody>
 
@@ -432,7 +435,7 @@ class App extends React.Component<{}, iState> {
 		return <Card>
 
             <CardHeaderNav items={[
-                "Alert", "Badge", "Button", "Icon", "Image", "MaxHeightContent", "SoundReader",
+                "Alert", "Badge", "Button", "Card", "Icon", "Image", "MaxHeightContent", "SoundReader",
                 "CheckBox", "InputArray", "InputColor"
             ]}
 
