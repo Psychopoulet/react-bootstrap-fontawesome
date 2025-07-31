@@ -2256,6 +2256,9 @@ class List extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
         if (this.props.horizontal) {
             switch (this.props.horizontal) {
+                case true:
+                    className += " list-group-horizontal";
+                    break;
                 case "sm":
                     className += " list-group-horizontal-sm";
                     break;
@@ -2267,9 +2270,6 @@ class List extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                     break;
                 case "xl":
                     className += " list-group-horizontal-xl";
-                    break;
-                default:
-                    className += " list-group-horizontal";
                     break;
             }
             className += " list-group-horizontal";
@@ -30477,6 +30477,20 @@ const VARIANTS = [
     "dark",
     "link"
 ];
+const TABS = [
+    "Alert",
+    "Badge",
+    "Button",
+    "Card",
+    "Icon",
+    "Image",
+    "List",
+    "MaxHeightContent",
+    "SoundReader",
+    "CheckBox",
+    "InputArray",
+    "InputColor"
+];
 // component
 class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     // constructor
@@ -30492,18 +30506,18 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     // render
     _renderNav() {
         switch (this.state.index) {
-            case 0: // Alert
+            case TABS.findIndex((value) => { return "Alert" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    VARIANTS.map((variant) => {
-                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: variant },
+                    VARIANTS.map((variant, index) => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { key: index, variant: variant },
                             "variant ",
                             variant);
                     }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Alert, { variant: "success", onClose: () => { alert("close Alert"); } }, "Alert success with close button"));
-            case 1: // Badge
+            case TABS.findIndex((value) => { return "Badge" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    VARIANTS.map((variant) => {
-                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: variant },
+                    VARIANTS.map((variant, index) => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { key: index, variant: variant },
                             "variant ",
                             variant);
                     }),
@@ -30512,7 +30526,7 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "success", pill: true }, "success pill"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "warning", icon: "barcode" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Badge, { variant: "info", title: "test" }, "info title"));
-            case 2: // Button
+            case TABS.findIndex((value) => { return "Button" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { disabled: true }, "disabled"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "circle" }),
@@ -30532,8 +30546,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { size: "lg" }, "size lg"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
-                    VARIANTS.map((variant) => {
-                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: variant },
+                    VARIANTS.map((variant, index) => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { key: index, variant: variant },
                             "variant ",
                             variant);
                     }),
@@ -30548,7 +30562,7 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ButtonGroup, { block: true },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "success", icon: "play" }),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "danger", icon: "stop" })));
-            case 3: // Card
+            case TABS.findIndex((value) => { return "Card" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeaderNav, { items: [
@@ -30559,14 +30573,14 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                 });
                             } }),
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                            0 === this.state.indexCard ? VARIANTS.map((variant) => {
-                                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { variant: variant },
+                            0 === this.state.indexCard ? VARIANTS.map((variant, index) => {
+                                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { key: index, variant: variant },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                                         "variant ",
                                         variant));
                             }) : undefined,
-                            1 === this.state.indexCard ? VARIANTS.map((variant) => {
-                                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { variant: variant },
+                            1 === this.state.indexCard ? VARIANTS.map((variant, index) => {
+                                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { key: index, variant: variant },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeader, null, "CardHeader"),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                                         "variant ",
@@ -30577,12 +30591,13 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardImage, { src: "./test.png", height: 200 })) : undefined,
                             3 === this.state.indexCard ? react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null,
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardList, null, VARIANTS.map((variant) => {
-                                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, { variant: variant },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardList, null, VARIANTS.map((variant, index) => {
+                                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, { key: index, variant: variant },
                                             "variant ",
                                             variant);
                                     }))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardList, null,
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, { active: true }, "active"),
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, { disabled: true }, "disabled"),
@@ -30604,7 +30619,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableFooter, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "TableFooter"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { bordered: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
@@ -30613,7 +30629,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "bordered"),
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "bordered"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { borderless: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
@@ -30622,7 +30639,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "borderless"),
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "borderless"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { hover: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
@@ -30634,12 +30652,14 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "hover"),
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "hover"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { responsive: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "responsive"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { small: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
@@ -30648,7 +30668,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "small"),
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "small"))))),
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, { className: "mt-3" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardTable, { striped: true },
                                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TableBody, null,
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
@@ -30660,7 +30681,7 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null,
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "striped"),
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "striped")))))) : undefined)));
-            case 4: // Icon
+            case TABS.findIndex((value) => { return "Icon" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "amazon", type: "amazon" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "android", type: "android" }),
@@ -30740,10 +30761,10 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { size: "xl", type: "circle" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
-                    VARIANTS.map((variant) => {
-                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: variant, type: "circle", title: "variant" + variant });
+                    VARIANTS.map((variant, index) => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { key: index, variant: variant, type: "circle", title: "variant" + variant });
                     }));
-            case 5: // Image
+            case TABS.findIndex((value) => { return "Image" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Image, { src: "./test.png", alt: "Alternative text", height: 100, width: 100 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
@@ -30768,7 +30789,40 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                 "color": "#ffffff"
                             });
                         } }));
-            case 6: // MaxHeightContent
+            case TABS.findIndex((value) => { return "List" === value; }):
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "classic"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "classic"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "classic")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, { horizontal: true },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "horizontal"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "horizontal"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "horizontal")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, { flush: true },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "flush"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "flush"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "flush")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItemHeader, null, "ListItemHeader"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "ListItem"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, { active: true }, "active"),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null, "ListItem")),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    VARIANTS.map((variant, index) => {
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, { key: index, variant: variant },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null,
+                                variant,
+                                " 1"),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.ListItem, null,
+                                variant,
+                                " 2"));
+                    }));
+            case TABS.findIndex((value) => { return "MaxHeightContent" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     "strict height ",
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
@@ -30780,20 +30834,21 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.MaxHeightContent, { maxHeightPX: 100 },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null, "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aspernatur dolores ipsa eaque quaerat pariatur impedit voluptatem, necessitatibus consequatur? Totam perspiciatis unde voluptatem, laborum vero dolores aut aliquid numquam excepturi?"))));
-            case 7: // SoundReader
+            case TABS.findIndex((value) => { return "SoundReader" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SoundReader, { src: "./test.mp3", autoplay: true, title: "autoplay" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SoundReader, { src: "./test.mp3", loop: true, title: "loop", className: "mt-3" }));
-            case 8: // CheckBox
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SoundReader, { src: "./test.mp3", loop: true, title: "loop" }));
+            case TABS.findIndex((value) => { return "CheckBox" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxLabel, { label: "CheckBoxLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxLabel to " + String(value)); }, "margin-bottom": 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxPrettierLabel, { label: "CheckBoxPrettierLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } }));
-            case 9: // InputArray
+            case TABS.findIndex((value) => { return "InputArray" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArray to " + JSON.stringify(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } }));
-            case 10: // InputColor
+            case TABS.findIndex((value) => { return "InputColor" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColorLabel, { label: "InputColorLabel", value: "test", onChange: (e, value) => { alert("change InputColorLabel to " + value); } }));
@@ -30802,10 +30857,7 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     }
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeaderNav, { items: [
-                    "Alert", "Badge", "Button", "Card", "Icon", "Image", "MaxHeightContent", "SoundReader",
-                    "CheckBox", "InputArray", "InputColor"
-                ], selectedIndex: this.state.index, onSelect: (e, newIndex) => {
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardHeaderNav, { items: TABS, selectedIndex: this.state.index, onSelect: (e, newIndex) => {
                     this.setState({
                         "index": newIndex
                     });

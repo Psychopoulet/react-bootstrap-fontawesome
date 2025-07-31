@@ -17,7 +17,7 @@
         InputArray, InputArrayLabel,
         InputColor, InputColorLabel,
         Image,
-        ListItem,
+        List, ListItem, ListItemHeader,
         MaxHeightContent,
         SoundReader,
         TableBody, TableHeader, TableFooter
@@ -25,9 +25,6 @@
     } from "../lib/src/main";
 
     /*
-    import List from "./list/List";
-    import ListItem from "./list/ListItem";
-    import ListItemHeader from "./list/ListItemHeader";
 
     import {
         InvalidFeedBack,
@@ -88,6 +85,21 @@
         "link"
     ];
 
+    const TABS: string[] = [
+        "Alert",
+        "Badge",
+        "Button",
+        "Card",
+        "Icon",
+        "Image",
+        "List",
+        "MaxHeightContent",
+        "SoundReader",
+        "CheckBox",
+        "InputArray",
+        "InputColor"
+    ];
+
 // component
 
 class App extends React.Component<{}, iState> {
@@ -118,24 +130,24 @@ class App extends React.Component<{}, iState> {
 
         switch (this.state.index) {
 
-            case 0: // Alert
+            case TABS.findIndex((value: string): boolean => { return "Alert" === value; }):
 
                 return <CardBody>
 
-                    { VARIANTS.map((variant: tVariant): JSX.Element => {
-                        return <Alert variant={ variant }>variant { variant }</Alert>;
+                    { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+                        return <Alert key={ index } variant={ variant }>variant { variant }</Alert>;
                     }) }
 
                     <Alert variant="success" onClose={ () => { alert("close Alert"); } }>Alert success with close button</Alert>
 
                 </CardBody>;
 
-            case 1: // Badge
+            case TABS.findIndex((value: string): boolean => { return "Badge" === value; }):
 
                 return <CardBody>
 
-                    { VARIANTS.map((variant: tVariant): JSX.Element => {
-                        return <Badge variant={ variant }>variant { variant }</Badge>;
+                    { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+                        return <Badge key={ index } variant={ variant }>variant { variant }</Badge>;
                     }) }
 
                     <br /><br />
@@ -146,7 +158,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 2: // Button
+            case TABS.findIndex((value: string): boolean => { return "Button" === value; }):
 
                 return <CardBody>
 
@@ -171,8 +183,8 @@ class App extends React.Component<{}, iState> {
 
                     <br /><br />
 
-                    { VARIANTS.map((variant: tVariant): JSX.Element => {
-                        return <Button variant={ variant }>variant { variant }</Button>;
+                    { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+                        return <Button key={ index } variant={ variant }>variant { variant }</Button>;
                     }) }
 
                     <br /><br />
@@ -193,7 +205,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 3: // Card
+            case TABS.findIndex((value: string): boolean => { return "Card" === value; }):
 
                 return <CardBody>
 
@@ -217,17 +229,17 @@ class App extends React.Component<{}, iState> {
 
                         <CardBody>
 
-                            { 0 === this.state.indexCard ? VARIANTS.map((variant: tVariant): JSX.Element => {
+                            { 0 === this.state.indexCard ? VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
 
-                                return <Card variant={ variant }>
+                                return <Card key={ index } variant={ variant }>
                                     <CardBody>variant { variant }</CardBody>
                                 </Card>;
 
                             }) : undefined }
 
-                            { 1 === this.state.indexCard ? VARIANTS.map((variant: tVariant): JSX.Element => {
+                            { 1 === this.state.indexCard ? VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
 
-                                return <Card variant={ variant }>
+                                return <Card key={ index } variant={ variant }>
                                     <CardHeader>CardHeader</CardHeader>
                                     <CardBody>variant { variant }</CardBody>
                                     <CardFooter>CardFooter</CardFooter>
@@ -247,15 +259,17 @@ class App extends React.Component<{}, iState> {
 
                                     <CardList>
 
-                                        { VARIANTS.map((variant: tVariant): JSX.Element => {
-                                            return <ListItem variant={ variant }>variant { variant }</ListItem>;
+                                        { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+                                            return <ListItem key={ index } variant={ variant }>variant { variant }</ListItem>;
                                         }) }
 
                                     </CardList>
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardList>
 
@@ -305,7 +319,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable bordered>
 
@@ -324,7 +340,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable borderless>
 
@@ -343,7 +361,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable hover>
 
@@ -366,7 +386,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable responsive>
 
@@ -380,7 +402,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable small>
 
@@ -399,7 +423,9 @@ class App extends React.Component<{}, iState> {
 
                                 </Card>
 
-                                <Card className="mt-3">
+                                <br />
+
+                                <Card>
 
                                     <CardTable striped>
 
@@ -430,7 +456,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 4: // Icon
+            case TABS.findIndex((value: string): boolean => { return "Icon" === value; }):
 
                 return <CardBody>
 
@@ -522,13 +548,13 @@ class App extends React.Component<{}, iState> {
 
                     <br /><br />
 
-                    { VARIANTS.map((variant: tVariant): JSX.Element => {
-                        return <Icon variant={ variant } type="circle" title={ "variant" + variant } />
+                    { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+                        return <Icon key={ index } variant={ variant } type="circle" title={ "variant" + variant } />;
                     }) }
 
                 </CardBody>;
 
-            case 5: // Image
+            case TABS.findIndex((value: string): boolean => { return "Image" === value; }):
 
                 return <CardBody>
 
@@ -573,7 +599,55 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 6: // MaxHeightContent
+            case TABS.findIndex((value: string): boolean => { return "List" === value; }):
+
+                return <CardBody>
+
+                    <List>
+                        <ListItem>classic</ListItem>
+                        <ListItem>classic</ListItem>
+                        <ListItem>classic</ListItem>
+                    </List>
+
+                    <br />
+
+                    <List horizontal>
+                        <ListItem>horizontal</ListItem>
+                        <ListItem>horizontal</ListItem>
+                        <ListItem>horizontal</ListItem>
+                    </List>
+
+                    <br />
+
+                    <List flush>
+                        <ListItem>flush</ListItem>
+                        <ListItem>flush</ListItem>
+                        <ListItem>flush</ListItem>
+                    </List>
+
+                    <br />
+
+                    <List>
+                        <ListItemHeader>ListItemHeader</ListItemHeader>
+                        <ListItem>ListItem</ListItem>
+                        <ListItem active>active</ListItem>
+                        <ListItem>ListItem</ListItem>
+                    </List>
+
+                    <br /><br />
+
+                    { VARIANTS.map((variant: tVariant, index: number): JSX.Element => {
+
+                        return <List key={ index } variant={ variant }>
+                            <ListItem>{ variant } 1</ListItem>
+                            <ListItem>{ variant } 2</ListItem>
+                        </List>;
+
+                    }) }
+
+                </CardBody>;
+
+            case TABS.findIndex((value: string): boolean => { return "MaxHeightContent" === value; }):
 
                 return <CardBody>
 
@@ -611,16 +685,19 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 7: // SoundReader
+            case TABS.findIndex((value: string): boolean => { return "SoundReader" === value; }):
 
                 return <CardBody>
 
                     <SoundReader src="./test.mp3" autoplay title="autoplay" />
-                    <SoundReader src="./test.mp3" loop title="loop" className="mt-3" />
+
+                    <br />
+
+                    <SoundReader src="./test.mp3" loop title="loop" />
 
                 </CardBody>;
 
-            case 8: // CheckBox
+            case TABS.findIndex((value: string): boolean => { return "CheckBox" === value; }):
 
                 return <CardBody>
 
@@ -630,7 +707,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 9: // InputArray
+            case TABS.findIndex((value: string): boolean => { return "InputArray" === value; }):
 
                 return <CardBody>
 
@@ -639,7 +716,7 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case 10: // InputColor
+            case TABS.findIndex((value: string): boolean => { return "InputColor" === value; }):
 
                 return <CardBody>
 
@@ -658,10 +735,7 @@ class App extends React.Component<{}, iState> {
 
 		return <Card>
 
-            <CardHeaderNav items={[
-                "Alert", "Badge", "Button", "Card", "Icon", "Image", "MaxHeightContent", "SoundReader",
-                "CheckBox", "InputArray", "InputColor"
-            ]}
+            <CardHeaderNav items={ TABS }
 
                 selectedIndex={ this.state.index }
 
