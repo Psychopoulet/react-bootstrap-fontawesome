@@ -15,13 +15,64 @@
         Card, CardHeaderNav, CardBody,
         CheckBox, CheckBoxLabel, CheckBoxPrettierLabel,
         InputArray, InputArrayLabel,
-        InputColor, InputColorLabel
+        InputColor, InputColorLabel,
+        Image,
+        MaxHeightContent,
+        SoundReader
     } from "../lib/src/main";
+
+    /*
+    import CardHeader from "./card/CardHeader";
+    import CardBody from "./card/CardBody";
+    import CardImage from "./card/CardImage";
+    import CardList from "./card/CardList";
+    import CardTable from "./card/CardTable";
+    import CardFooter from "./card/CardFooter";
+
+    import List from "./list/List";
+    import ListItem from "./list/ListItem";
+    import ListItemHeader from "./list/ListItemHeader";
+
+    import {
+        InvalidFeedBack,
+        InvalidFeedBackRequired, InvalidFeedBackFloat, InvalidFeedBackInteger,
+        InvalidFeedBackMin, InvalidFeedBackMax,
+        InvalidFeedBackMinLength, InvalidFeedBackMaxLength
+    } from "./fields/FieldFeedBacks";
+
+    import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
+    import { InputInteger, InputIntegerLabel } from "./fields/InputInteger";
+    import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
+    import InputLabel from "./fields/InputLabel";
+    import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
+    import { InputText, InputTextLabel } from "./fields/InputText";
+    import { InputFile, InputFileLabel } from "./fields/InputFile";
+    import { Range, RangeLabel } from "./fields/Range";
+    import { Select, SelectLabel } from "./fields/Select";
+    import { SelectInteger, SelectIntegerLabel } from "./fields/SelectInteger";
+    import { TextArea, TextAreaLabel } from "./fields/TextArea";
+
+    import Modal from "./modal/Modal";
+    import ModalBody from "./modal/ModalBody";
+    import ModalImage from "./modal/ModalImage";
+    import ModalList from "./modal/ModalList";
+    import ModalTable from "./modal/ModalTable";
+    import ModalFooter from "./modal/ModalFooter";
+
+    import NavTabs from "./nav/NavTabs";
+    import NavItem from "./nav/NavItem";
+
+    import Table from "./table/Table";
+    import TableHeader from "./table/TableHeader";
+    import TableBody from "./table/TableBody";
+    import TableFooter from "./table/TableFooter";
+    */
 
 // types & interfaces
 
     interface iState {
         "index": number;
+        "color": string;
     }
 
 // component
@@ -41,7 +92,8 @@ class App extends React.Component<{}, iState> {
         // states
 
         this.state = {
-            "index": 0
+            "index": 0,
+            "color": "#ffffff"
         };
 
     }
@@ -249,9 +301,97 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            // case 4: Image
-            // case 5: MaxHeightContent
-            // case 6: SoundReader
+            case 4:
+
+                return <CardBody>
+
+                    <Image src="./test.png" alt="Alternative text" height={ 100 } width={ 100 } />
+
+                    <br /><br />
+
+                    on click <br />
+
+                    <Image src="./test.png" alt="on click" height={ 100 } width={ 100 }
+                        onClick={
+                            (e: React.MouseEvent<HTMLImageElement>) => {
+                                alert("click Image");
+                            }
+                        }
+                    />
+
+                    <br /><br />
+
+                    border color : { this.state.color } <br />
+
+                    <Image src="./test.png" alt="on mouse enter/leave" height={ 100 } width={ 100 } style={ { "border": "1px solid " + this.state.color } }
+                        onMouseEnter={
+                            (e: React.MouseEvent<HTMLImageElement>) => {
+
+                                this.setState({
+                                    "color": "#000000"
+                                });
+
+                            }
+                        }
+                        onMouseLeave={
+                            (e: React.MouseEvent<HTMLImageElement>) => {
+
+                                this.setState({
+                                    "color": "#ffffff"
+                                });
+
+                            }
+                        }
+                    />
+
+                </CardBody>;
+
+            case 5:
+
+                return <CardBody>
+
+                    strict height <br />
+
+                    <Card>
+
+                        <MaxHeightContent heightPX={ 25 }>
+
+                            <CardBody>
+
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aspernatur dolores ipsa eaque quaerat pariatur impedit voluptatem, necessitatibus consequatur? Totam perspiciatis unde voluptatem, laborum vero dolores aut aliquid numquam excepturi?
+
+                            </CardBody>
+
+                        </MaxHeightContent>
+
+                    </Card>
+
+                    max height <br />
+
+                    <Card>
+
+                        <MaxHeightContent maxHeightPX={ 100 }>
+
+                            <CardBody>
+
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aspernatur dolores ipsa eaque quaerat pariatur impedit voluptatem, necessitatibus consequatur? Totam perspiciatis unde voluptatem, laborum vero dolores aut aliquid numquam excepturi?
+
+                            </CardBody>
+
+                        </MaxHeightContent>
+
+                    </Card>
+
+                </CardBody>;
+
+            case 6:
+
+                return <CardBody>
+
+                    <SoundReader src="./test.mp3" autoplay title="autoplay" />
+                    <SoundReader src="./test.mp3" loop title="loop" className="mt-3" />
+
+                </CardBody>;
 
             case 7:
 
@@ -317,54 +457,3 @@ class App extends React.Component<{}, iState> {
 };
 
 createRoot(document.getElementById("TestApp") as HTMLElement).render(<App />);
-
-    /*
-    import Image from "./Image";
-    import MaxHeightContent from "./MaxHeightContent";
-    import SoundReader from "./SoundReader";
-
-    import CardHeader from "./card/CardHeader";
-    import CardBody from "./card/CardBody";
-    import CardImage from "./card/CardImage";
-    import CardList from "./card/CardList";
-    import CardTable from "./card/CardTable";
-    import CardFooter from "./card/CardFooter";
-
-    import List from "./list/List";
-    import ListItem from "./list/ListItem";
-    import ListItemHeader from "./list/ListItemHeader";
-
-    import {
-        InvalidFeedBack,
-        InvalidFeedBackRequired, InvalidFeedBackFloat, InvalidFeedBackInteger,
-        InvalidFeedBackMin, InvalidFeedBackMax,
-        InvalidFeedBackMinLength, InvalidFeedBackMaxLength
-    } from "./fields/FieldFeedBacks";
-
-    import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
-    import { InputInteger, InputIntegerLabel } from "./fields/InputInteger";
-    import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
-    import InputLabel from "./fields/InputLabel";
-    import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
-    import { InputText, InputTextLabel } from "./fields/InputText";
-    import { InputFile, InputFileLabel } from "./fields/InputFile";
-    import { Range, RangeLabel } from "./fields/Range";
-    import { Select, SelectLabel } from "./fields/Select";
-    import { SelectInteger, SelectIntegerLabel } from "./fields/SelectInteger";
-    import { TextArea, TextAreaLabel } from "./fields/TextArea";
-
-    import Modal from "./modal/Modal";
-    import ModalBody from "./modal/ModalBody";
-    import ModalImage from "./modal/ModalImage";
-    import ModalList from "./modal/ModalList";
-    import ModalTable from "./modal/ModalTable";
-    import ModalFooter from "./modal/ModalFooter";
-
-    import NavTabs from "./nav/NavTabs";
-    import NavItem from "./nav/NavItem";
-
-    import Table from "./table/Table";
-    import TableHeader from "./table/TableHeader";
-    import TableBody from "./table/TableBody";
-    import TableFooter from "./table/TableFooter";
-    */

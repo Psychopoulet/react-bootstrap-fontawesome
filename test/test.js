@@ -481,7 +481,7 @@ class SoundReader extends (react__WEBPACK_IMPORTED_MODULE_0___default().Componen
         }
     }
     render() {
-        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_card_Card__WEBPACK_IMPORTED_MODULE_1__["default"], null,
+        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_card_Card__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_card_CardHeader__WEBPACK_IMPORTED_MODULE_2__["default"], null, this._renderTitle()),
             this._renderBody());
     }
@@ -30472,7 +30472,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
         super(props);
         // states
         this.state = {
-            "index": 0
+            "index": 0,
+            "color": "#ffffff"
         };
     }
     // render
@@ -30635,9 +30636,47 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "light", type: "circle" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "dark", type: "circle" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { variant: "link", type: "circle" }));
-            // case 4: Image
-            // case 5: MaxHeightContent
-            // case 6: SoundReader
+            case 4:
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Image, { src: "./test.png", alt: "Alternative text", height: 100, width: 100 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    "on click ",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Image, { src: "./test.png", alt: "on click", height: 100, width: 100, onClick: (e) => {
+                            alert("click Image");
+                        } }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    "border color : ",
+                    this.state.color,
+                    " ",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Image, { src: "./test.png", alt: "on mouse enter/leave", height: 100, width: 100, style: { "border": "1px solid " + this.state.color }, onMouseEnter: (e) => {
+                            this.setState({
+                                "color": "#000000"
+                            });
+                        }, onMouseLeave: (e) => {
+                            this.setState({
+                                "color": "#ffffff"
+                            });
+                        } }));
+            case 5:
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    "strict height ",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.MaxHeightContent, { heightPX: 25 },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null, "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aspernatur dolores ipsa eaque quaerat pariatur impedit voluptatem, necessitatibus consequatur? Totam perspiciatis unde voluptatem, laborum vero dolores aut aliquid numquam excepturi?"))),
+                    "max height ",
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Card, null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.MaxHeightContent, { maxHeightPX: 100 },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null, "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aspernatur dolores ipsa eaque quaerat pariatur impedit voluptatem, necessitatibus consequatur? Totam perspiciatis unde voluptatem, laborum vero dolores aut aliquid numquam excepturi?"))));
+            case 6:
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SoundReader, { src: "./test.mp3", autoplay: true, title: "autoplay" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SoundReader, { src: "./test.mp3", loop: true, title: "loop", className: "mt-3" }));
             case 7:
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
