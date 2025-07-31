@@ -18,7 +18,7 @@
     export interface iPropsList extends iPropsNode {
         "variant"?: tVariant;
         "flush"?: boolean;
-        "horizontal"?: tSize;
+        "horizontal"?: tSize | boolean;
     }
 
 // component
@@ -43,6 +43,10 @@ export default class List extends React.PureComponent<iPropsList> {
 
             switch (this.props.horizontal) {
 
+                case true:
+                    className += " list-group-horizontal";
+                break;
+
                 case "sm":
                     className += " list-group-horizontal-sm";
                 break;
@@ -57,10 +61,6 @@ export default class List extends React.PureComponent<iPropsList> {
 
                 case "xl":
                     className += " list-group-horizontal-xl";
-                break;
-
-                default:
-                    className += " list-group-horizontal";
                 break;
 
             }
