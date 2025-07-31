@@ -124,7 +124,7 @@ export default class SoundReader extends React.Component<iProps, iStates> {
 
     public render (): React.JSX.Element {
 
-        return <Card>
+        return <Card id={ this.props.id } className={ this.props.className } style={ this.props.style }>
 
             <CardHeader>
                 { this._renderTitle() }
