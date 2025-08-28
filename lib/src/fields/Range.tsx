@@ -20,7 +20,7 @@
 // Props && States
 
     export interface iPropsRange extends iPropsInput {
-        "value"?: number;
+        "value": number;
         "unit"?: string;
         "min"?: number;
         "max"?: number;

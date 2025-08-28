@@ -30484,6 +30484,7 @@ const TABS = [
     "Card",
     "Icon",
     "Image",
+    "Input",
     "List",
     "MaxHeightContent",
     "SoundReader",
@@ -30789,6 +30790,29 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                 "color": "#ffffff"
                             });
                         } }));
+            case TABS.findIndex((value) => { return "Input" === value; }):
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputLabel, { for: "InputLabel", label: "InputLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFloat, { value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFloatLabel, { label: "InputFloatLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputInteger, { value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIntegerLabel, { label: "InputIntegerLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIPV4, null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIPV4Label, { label: "InputIPV4Label" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputReadOnly, null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputReadOnlyLabel, { label: "InputReadOnlyLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputText, null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputTextLabel, { label: "InputTextLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFile, null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFileLabel, { label: "InputFileLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Range, { value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.RangeLabel, { label: "RangeLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Select, { value: "option 1" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectLabel, { label: "SelectLabel", value: "option 1" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectInteger, { value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectIntegerLabel, { label: "SelectIntegerLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TextArea, null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.TextAreaLabel, { label: "TextAreaLabel" }));
             case TABS.findIndex((value) => { return "List" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.List, null,

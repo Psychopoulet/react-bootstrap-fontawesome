@@ -17,6 +17,17 @@
         InputArray, InputArrayLabel,
         InputColor, InputColorLabel,
         Image,
+        InputFloat, InputFloatLabel,
+        InputInteger, InputIntegerLabel,
+        InputIPV4, InputIPV4Label,
+        InputLabel,
+        InputReadOnly, InputReadOnlyLabel,
+        InputText, InputTextLabel,
+        InputFile, InputFileLabel,
+        Range, RangeLabel,
+        Select, SelectLabel,
+        SelectInteger, SelectIntegerLabel,
+        TextArea, TextAreaLabel,
         List, ListItem, ListItemHeader,
         MaxHeightContent,
         SoundReader,
@@ -25,25 +36,12 @@
     } from "../lib/src/main";
 
     /*
-
     import {
         InvalidFeedBack,
         InvalidFeedBackRequired, InvalidFeedBackFloat, InvalidFeedBackInteger,
         InvalidFeedBackMin, InvalidFeedBackMax,
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./fields/FieldFeedBacks";
-
-    import { InputFloat, InputFloatLabel } from "./fields/InputFloat";
-    import { InputInteger, InputIntegerLabel } from "./fields/InputInteger";
-    import { InputIPV4, InputIPV4Label } from "./fields/InputIPV4";
-    import InputLabel from "./fields/InputLabel";
-    import { InputReadOnly, InputReadOnlyLabel } from "./fields/InputReadOnly";
-    import { InputText, InputTextLabel } from "./fields/InputText";
-    import { InputFile, InputFileLabel } from "./fields/InputFile";
-    import { Range, RangeLabel } from "./fields/Range";
-    import { Select, SelectLabel } from "./fields/Select";
-    import { SelectInteger, SelectIntegerLabel } from "./fields/SelectInteger";
-    import { TextArea, TextAreaLabel } from "./fields/TextArea";
 
     import Modal from "./modal/Modal";
     import ModalBody from "./modal/ModalBody";
@@ -92,6 +90,7 @@
         "Card",
         "Icon",
         "Image",
+        "Input",
         "List",
         "MaxHeightContent",
         "SoundReader",
@@ -596,6 +595,44 @@ class App extends React.Component<{}, iState> {
                             }
                         }
                     />
+
+                </CardBody>;
+
+            case TABS.findIndex((value: string): boolean => { return "Input" === value; }):
+
+                return <CardBody>
+
+                    <InputLabel for="InputLabel" label="InputLabel" />
+
+                    <InputFloat value={ 0 } />
+                    <InputFloatLabel label="InputFloatLabel" value={ 0 } />
+
+                    <InputInteger value={ 0 } />
+                    <InputIntegerLabel label="InputIntegerLabel" value={ 0 } />
+
+                    <InputIPV4 />
+                    <InputIPV4Label label="InputIPV4Label" />
+
+                    <InputReadOnly />
+                    <InputReadOnlyLabel label="InputReadOnlyLabel" />
+
+                    <InputText />
+                    <InputTextLabel label="InputTextLabel" />
+
+                    <InputFile />
+                    <InputFileLabel label="InputFileLabel" />
+
+                    <Range value={ 0 } />
+                    <RangeLabel label="RangeLabel" value={ 0 } />
+
+                    <Select value="option 1" />
+                    <SelectLabel label="SelectLabel" value="option 1" />
+
+                    <SelectInteger value={ 0 } />
+                    <SelectIntegerLabel label="SelectIntegerLabel" value={ 0 } />
+
+                    <TextArea />
+                    <TextAreaLabel label="TextAreaLabel" />
 
                 </CardBody>;
 
