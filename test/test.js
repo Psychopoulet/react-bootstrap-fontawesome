@@ -362,7 +362,7 @@ class Image extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";
         }
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { id: this.props.id, src: this.props.src, alt: this.props.alt, className: this.props.className, style: style, height: this.props.height, width: this.props.width, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { id: this.props.id, src: this.props.src, alt: this.props.alt, className: this.props.className, style: style, height: this.props.height, width: this.props.width, crossOrigin: this.props.crossOrigin, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
 }
 // name

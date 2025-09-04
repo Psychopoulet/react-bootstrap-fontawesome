@@ -5,6 +5,7 @@ export interface iPropsImage extends iPropsNode {
     "alt"?: string;
     "height"?: number;
     "width"?: number;
+    "crossOrigin"?: "anonymous" | "use-credentials" | "";
     "onClick"?: (e: React.MouseEvent<HTMLImageElement>) => void;
     "onMouseEnter"?: (e: React.MouseEvent<HTMLImageElement>) => void;
     "onMouseLeave"?: (e: React.MouseEvent<HTMLImageElement>) => void;

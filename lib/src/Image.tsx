@@ -17,6 +17,7 @@
         "alt"?: string;
         "height"?: number;
         "width"?: number;
+        "crossOrigin"?: "anonymous" | "use-credentials" | "";
         "onClick"?: (e: React.MouseEvent<HTMLImageElement>) => void;
         "onMouseEnter"?: (e: React.MouseEvent<HTMLImageElement>) => void;
         "onMouseLeave"?: (e: React.MouseEvent<HTMLImageElement>) => void;
@@ -42,6 +43,7 @@ export default class Image extends React.PureComponent<iPropsImage> {
 
         return <img id={ this.props.id } src={ this.props.src } alt={ this.props.alt }
             className={ this.props.className } style={ style } height={ this.props.height } width={ this.props.width }
+            crossOrigin={ this.props.crossOrigin }
             onClick={ this.props.onClick } onMouseEnter={ this.props.onMouseEnter } onMouseLeave={ this.props.onMouseLeave }
         />;
 
