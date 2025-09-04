@@ -1,7 +1,7 @@
 {
 
   "name": "react-bootstrap-fontawesome",
-  "version": "0.5.16",
+  "version": "0.5.17",
   "description": "A TS framework for React, Bootstrap & FontAwesome",
 
   "typings": "./lib/dist/main.d.ts",
@@ -25,7 +25,7 @@
 
   "files": [
     "/bin",
-    "/lib",
+    "/lib/dist",
     "/public"
   ],
   "engines": {
