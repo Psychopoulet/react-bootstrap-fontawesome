@@ -12,6 +12,9 @@
 
     export type tIcon =
 
+        // arrow
+        | "up" | "down" | "right" | "left"
+
         // brands
         | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "react" | "windows"
 
@@ -55,6 +58,12 @@
 // consts
 
     const ICONS = {
+
+        // arrow
+        "up": "fa fa-arrow-up",
+        "down": "fa fa-arrow-down",
+        "right": "fa fa-arrow-right",
+        "left": "fa fa-arrow-left",
 
         // brands
         "amazon": "fab fa-amazon",

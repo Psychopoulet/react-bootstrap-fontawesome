@@ -459,6 +459,13 @@ class App extends React.Component<{}, iState> {
 
                 return <CardBody>
 
+                    <Icon title="up" type="up" />
+                    <Icon title="down" type="down" />
+                    <Icon title="right" type="right" />
+                    <Icon title="left" type="left" />
+
+                    <br /><br />
+
                     <Icon title="amazon" type="amazon" />
                     <Icon title="android" type="android" />
                     <Icon title="angular" type="angular" />

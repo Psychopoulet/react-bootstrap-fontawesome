@@ -225,6 +225,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // consts
 const ICONS = {
+    // arrow
+    "up": "fa fa-arrow-up",
+    "down": "fa fa-arrow-down",
+    "right": "fa fa-arrow-right",
+    "left": "fa fa-arrow-left",
     // brands
     "amazon": "fab fa-amazon",
     "android": "fab fa-android",
@@ -30684,6 +30689,12 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "striped")))))) : undefined)));
             case TABS.findIndex((value) => { return "Icon" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "up", type: "up" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "down", type: "down" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "right", type: "right" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "left", type: "left" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "amazon", type: "amazon" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "android", type: "android" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_lib_src_main__WEBPACK_IMPORTED_MODULE_2__.Icon, { title: "angular", type: "angular" }),
