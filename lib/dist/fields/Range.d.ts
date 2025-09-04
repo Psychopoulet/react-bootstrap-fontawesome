@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { iPropsInput } from "../types";
 export interface iPropsRange extends iPropsInput {
-    "value"?: number;
+    "value": number;
     "unit"?: string;
     "min"?: number;
     "max"?: number;
