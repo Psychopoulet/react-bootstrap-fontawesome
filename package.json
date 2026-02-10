@@ -12,7 +12,7 @@
 
     "prepare": "npx husky || true",
 
-    "clean": "npx rimraf ./dist/lib",
+    "clean": "npx rimraf ./lib/dist",
     "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
     "build-test": "npx webpack --config \"./webpack.config-test.js\"",
 
@@ -59,6 +59,7 @@
   "author": "Sébastien VIDAL",
   "contributors": [],
   "license": "ISC",
+
   "homepage": "https://github.com/Psychopoulet/react-bootstrap-fontawesome#readme",
   "repository": {
     "type": "git",
