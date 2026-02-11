@@ -2,38 +2,51 @@
 
   "name": "react-bootstrap-fontawesome",
   "version": "0.5.18",
-  "description": "A TS framework for React, Bootstrap & FontAwesome",
+  "description": "A TS framework for React, Bootstrap & FontAwesome.",
 
+  "type": "module",
   "typings": "./lib/dist/main.d.ts",
-  "module": "./lib/dist/main.js",
   "main": "./lib/dist/main.js",
+
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./lib/dist/main.d.ts",
+        "default": "./lib/dist/main.js"
+      }
+    }
+  },
 
   "scripts": {
 
     "prepare": "npx husky || true",
 
-    "clean": "npx rimraf ./lib/dist",
-    "build": "npm run-script clean && npx tsc --project \"./tsconfig.json\"",
-    "build-test": "npx webpack --config \"./webpack.config-test.js\"",
+    "lint-back": "npx eslint --config .eslintrc-back.js --ext .ts,.cts,.mts ./lib/src/**/*",
+    "lint-tests": "npx eslint --config .eslintrc-tests.js --ext .js,.cjs,.mjs ./test/**/*",
+    "lint": "npm run lint-back && npm run lint-tests",
 
-    "lint": "npx eslint --config .eslintrc-src.cjs --ext .ts,.cts,.mts,.tsx,.ctsx,.mtsx ./lib/src/**/*",
-    "check-requires": "npx used-deps-analyzer \"./package.json\" \"./lib/src\" --no-dev --overkill \"fs-extra\" \"node-promfs\"",
+    "clean-back": "npx rimraf ./lib/dist",
+    "clean": "npm run clean-back",
+
+    "build-back": "npm run clean-back && npx tsc --project ./tsconfig.json",
+    "build": "npm run build-back",
+    "build-tests": "npx webpack --config \"./webpack.config-test.js\"",
+
+    "check-requires": "npx used-deps-analyzer ./package.json ./lib/src --no-dev",
     "check-updates": "npx check-version-modules",
-    "tests": "npm run-script lint && npm run check-requires && npm run-script check-updates && npm run build && npm run build-test"
+    "unit-tests": "npm run build && npm run build-tests && npx nyc --reporter=html --reporter=text mocha",
+
+    "tests": "npm run lint && npm run check-requires && npm run check-updates && npm run unit-tests"
 
   },
 
-  "bin": {},
   "files": [
-    "/bin",
-    "/lib/dist",
-    "/public"
+    "/lib/dist"
   ],
   "engines": {
     "node": ">=22.22.0"
   },
 
-  "dependencies": {},
   "devDependencies": {
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
@@ -48,7 +61,6 @@
     "webpack": "5.103.0",
     "webpack-cli": "6.0.1"
   },
-  "optionalDependencies": {},
 
   "keywords": [
     "typescript",
@@ -56,8 +68,15 @@
     "bootstrap",
     "typescript"
   ],
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run unit-tests"
+    }
+  },
+
   "author": "Sébastien VIDAL",
-  "contributors": [],
   "license": "ISC",
 
   "homepage": "https://github.com/Psychopoulet/react-bootstrap-fontawesome#readme",
