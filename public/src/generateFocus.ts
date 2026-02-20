@@ -7,19 +7,26 @@
 
     export interface iGenerateFocusCallback {
         "setFocus": () => void;
-        "ref": React.RefObject<HTMLInputElement>;
+        "ref": React.RefObject<HTMLElement | null>;
     }
 
 // component
 
 export default function generateFocus (): iGenerateFocusCallback {
 
-    const ref: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>() as React.RefObject<HTMLInputElement>;
+    const ref: React.RefObject<HTMLElement | null> = React.createRef();
 
-    const setFocus = (): void => {
-        ref.current && ref.current.focus();
+    function setFocus (): void {
+
+        if (ref.current) {
+            ref.current.focus();
+        }
+
+    }
+
+    return {
+        setFocus,
+        ref
     };
-
-    return { setFocus, ref };
 
 }
