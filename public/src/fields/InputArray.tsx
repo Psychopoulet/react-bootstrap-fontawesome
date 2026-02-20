@@ -50,7 +50,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
     // private
 
-        private _focus: iGenerateFocusCallback;
+        private _focus: iGenerateFocusCallback<HTMLInputElement>;
 
     // constructor
 

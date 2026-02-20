@@ -32531,9 +32531,11 @@ __webpack_require__.r(__webpack_exports__);
 // component
 function generateFocus() {
     const ref = react__WEBPACK_IMPORTED_MODULE_0__.createRef();
-    const setFocus = () => {
-        ref.current && ref.current.focus();
-    };
+    function setFocus() {
+        if (ref.current && "function" === typeof ref.current.focus) {
+            ref.current.focus();
+        }
+    }
     return { setFocus, ref };
 }
 

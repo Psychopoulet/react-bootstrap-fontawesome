@@ -1,6 +1,6 @@
 import * as React from "react";
-export interface iGenerateFocusCallback {
+export interface iGenerateFocusCallback<T extends HTMLElement = HTMLElement> {
     "setFocus": () => void;
-    "ref": React.RefObject<HTMLInputElement>;
+    "ref": React.RefObject<T>;
 }
-export default function generateFocus(): iGenerateFocusCallback;
+export default function generateFocus<T extends HTMLElement = HTMLElement>(): iGenerateFocusCallback<T>;
