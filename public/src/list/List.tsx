@@ -1,0 +1,83 @@
+// deps
+
+    // externals
+    import * as React from "react";
+
+    // locals
+    import { ListContext } from "./ListContext";
+
+// types & interfaces
+
+    // locals
+    import type { iPropsNode, tSize, tVariant } from "../types";
+
+// Props && States
+
+    export interface iPropsList extends iPropsNode {
+        "variant"?: tVariant;
+        "flush"?: boolean;
+        "horizontal"?: tSize | boolean;
+    }
+
+// component
+
+export default class List extends React.PureComponent<iPropsList> {
+
+    // name
+
+    public static displayName: string = "List";
+
+    // render
+
+    public render (): React.JSX.Element {
+
+        let className: string = "list-group";
+
+        if (Boolean(this.props.flush)) {
+            className += " list-group-flush";
+        }
+
+        if (this.props.horizontal) {
+
+            switch (this.props.horizontal) {
+
+                case true:
+                    className += " list-group-horizontal";
+                break;
+
+                case "sm":
+                    className += " list-group-horizontal-sm";
+                break;
+
+                case "md":
+                    className += " list-group-horizontal-md";
+                break;
+
+                case "lg":
+                    className += " list-group-horizontal-lg";
+                break;
+
+                case "xl":
+                    className += " list-group-horizontal-xl";
+                break;
+
+            }
+
+            className += " list-group-horizontal";
+        }
+
+        if (this.props.className) {
+            className += " " + this.props.className;
+        }
+
+        return <ListContext.Provider value={ this.props.variant }>
+
+            <div id={ this.props.id } role="tablist" className={ className } style={ this.props.style }>
+                { this.props.children }
+            </div>
+
+        </ListContext.Provider>;
+
+    }
+
+}

@@ -33,7 +33,7 @@
         SoundReader,
         TableBody, TableHeader, TableFooter
 
-    } from "../lib/src/main";
+    } from "../public/src/main";
 
     /*
     import {
@@ -61,7 +61,7 @@
 
 // types & interfaces
 
-    import type { tVariant } from "../lib/src/types";
+    import type { tVariant } from "../public/src/types";
 
     interface iState {
         "index": number;
