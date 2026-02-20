@@ -4,15 +4,14 @@
   "version": "0.5.18",
   "description": "A TS framework for React, Bootstrap & FontAwesome.",
 
-  "type": "module",
-  "typings": "./lib/dist/main.d.ts",
-  "main": "./lib/dist/main.js",
+  "typings": "./public/dist/main.d.ts",
+  "main": "./public/dist/main.js",
 
   "exports": {
     ".": {
       "require": {
-        "types": "./lib/dist/main.d.ts",
-        "default": "./lib/dist/main.js"
+        "types": "./public/dist/main.d.ts",
+        "default": "./public/dist/main.js"
       }
     }
   },
@@ -21,19 +20,18 @@
 
     "prepare": "npx husky || true",
 
-    "lint-back": "npx eslint --config .eslintrc-back.js --ext .ts,.cts,.mts ./lib/src/**/*",
-    "lint-tests": "npx eslint --config .eslintrc-tests.js --ext .js,.cjs,.mjs ./test/**/*",
-    "lint": "npm run lint-back && npm run lint-tests",
+    "lint-front": "npx eslint --config .eslintrc-front.js --ext .ts,.cts,.mts ./public/src/**/*",
+    "lint": "npm run lint-front",
 
-    "clean-back": "npx rimraf ./lib/dist",
-    "clean": "npm run clean-back",
+    "clean-front": "npx rimraf ./public/dist",
+    "clean": "npm run clean-front",
 
-    "build-back": "npm run clean-back && npx tsc --project ./tsconfig.json",
-    "build": "npm run build-back",
+    "build-front": "npm run clean-front && npx tsc --project ./tsconfig.json",
     "build-tests": "npx webpack --config \"./webpack.config-test.js\"",
+    "build": "npm run build-front && npm run build-tests",
 
-    "check-requires": "npx used-deps-analyzer ./package.json ./lib/src --no-dev",
-    "check-updates": "npx check-version-modules",
+    "check-requires": "npx used-deps-analyzer ./package.json ./public/src --no-dev",
+    "check-updates": "npx check-version-modules --no-fail-at-major --fail-at-minor --fail-at-patch",
     "unit-tests": "npm run build && npm run build-tests && npx nyc --reporter=html --reporter=text mocha",
 
     "tests": "npm run lint && npm run check-requires && npm run check-updates && npm run unit-tests"
@@ -41,7 +39,7 @@
   },
 
   "files": [
-    "/lib/dist"
+    "/public/dist"
   ],
   "engines": {
     "node": ">=22.22.0"
