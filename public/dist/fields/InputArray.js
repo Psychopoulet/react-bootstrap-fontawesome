@@ -15,6 +15,10 @@ import Button from "../Button";
 import { InvalidFeedBackRequired } from "./FieldFeedBacks";
 // component
 export class InputArray extends React.PureComponent {
+    // name
+    static displayName = "InputArray";
+    // private
+    _focus;
     // constructor
     constructor(props) {
         super(props);
@@ -72,9 +76,9 @@ export class InputArray extends React.PureComponent {
             }));
     }
 }
-// name
-InputArray.displayName = "InputArray";
 export class InputArrayLabel extends React.PureComponent {
+    // name
+    static displayName = "iPropsInputArrayLabel";
     // render
     render() {
         const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
@@ -102,5 +106,3 @@ export class InputArrayLabel extends React.PureComponent {
                 : undefined);
     }
 }
-// name
-InputArrayLabel.displayName = "iPropsInputArrayLabel";

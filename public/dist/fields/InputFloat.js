@@ -6,6 +6,8 @@ import { InvalidFeedBackFloat, InvalidFeedBackMin, InvalidFeedBackMax } from "./
 import InputLabel from "./InputLabel";
 // component
 export class InputFloat extends React.PureComponent {
+    // name
+    static displayName = "InputFloat";
     // events
     _handleChange(e) {
         if ("" === e.target.value.trim()) {
@@ -40,9 +42,9 @@ export class InputFloat extends React.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ? this.props.step : 0.1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputFloat.displayName = "InputFloat";
 export class InputFloatLabel extends React.PureComponent {
+    // name
+    static displayName = "InputFloatLabel";
     // render
     render() {
         // props values
@@ -63,5 +65,3 @@ export class InputFloatLabel extends React.PureComponent {
             isNumber && !maxValid ? React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-InputFloatLabel.displayName = "InputFloatLabel";

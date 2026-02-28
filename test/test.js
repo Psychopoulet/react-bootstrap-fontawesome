@@ -30351,7 +30351,7 @@ if (false) // removed by dead control flow
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Alert)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30360,6 +30360,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Alert extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Alert";
     // render
     render() {
         let className = "alert";
@@ -30377,9 +30379,6 @@ class Alert extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             "function" === typeof this.props.onClose ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", className: "btn-close", "data-dismiss": "alert", "aria-label": "Close", onClick: this.props.onClose }) : undefined);
     }
 }
-// name
-Alert.displayName = "Alert";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Alert);
 
 
 /***/ },
@@ -30392,7 +30391,7 @@ Alert.displayName = "Alert";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Badge)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30404,6 +30403,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Badge extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Badge";
     // render
     render() {
         let className = "badge";
@@ -30424,9 +30425,6 @@ class Badge extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             this.props.children);
     }
 }
-// name
-Badge.displayName = "Badge";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Badge);
 
 
 /***/ },
@@ -30439,7 +30437,7 @@ Badge.displayName = "Badge";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Button)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30451,6 +30449,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Button";
     // events
     _handleClick(e) {
         if ("function" === typeof this.props.onClick) {
@@ -30492,9 +30492,6 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             this.props.children);
     }
 }
-// name
-Button.displayName = "Button";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Button);
 
 
 /***/ },
@@ -30507,7 +30504,7 @@ Button.displayName = "Button";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ButtonGroup)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30519,6 +30516,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ButtonGroup extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ButtonGroup";
     // constructor
     constructor(props) {
         super(props);
@@ -30537,9 +30536,6 @@ class ButtonGroup extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }));
     }
 }
-// name
-ButtonGroup.displayName = "ButtonGroup";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonGroup);
 
 
 /***/ },
@@ -30552,7 +30548,7 @@ ButtonGroup.displayName = "ButtonGroup";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Icon)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30632,6 +30628,8 @@ const ICONS = {
 };
 // component
 class Icon extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Icon";
     // render
     render() {
         const isChild = "boolean" === typeof this.props.child && this.props.child;
@@ -30667,9 +30665,6 @@ class Icon extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style });
     }
 }
-// name
-Icon.displayName = "Icon";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Icon);
 
 
 /***/ },
@@ -30682,7 +30677,7 @@ Icon.displayName = "Icon";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Image)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30691,18 +30686,17 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Image extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Image";
     // render
     render() {
-        const style = this.props.style ? Object.assign({}, this.props.style) : {};
+        const style = this.props.style ? { ...this.props.style } : {};
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { id: this.props.id, src: this.props.src, alt: this.props.alt, className: this.props.className, style: style, height: this.props.height, width: this.props.width, crossOrigin: this.props.crossOrigin, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
 }
-// name
-Image.displayName = "Image";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Image);
 
 
 /***/ },
@@ -30715,7 +30709,7 @@ Image.displayName = "Image";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ MaxHeightContent)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30724,6 +30718,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class MaxHeightContent extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "MaxHeightContent";
     // render
     render() {
         const style = {
@@ -30738,9 +30734,6 @@ class MaxHeightContent extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent 
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: this.props.className, style: style }, this.props.children);
     }
 }
-// name
-MaxHeightContent.displayName = "MaxHeightContent";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MaxHeightContent);
 
 
 /***/ },
@@ -30753,7 +30746,7 @@ MaxHeightContent.displayName = "MaxHeightContent";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ SoundReader)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30769,6 +30762,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class SoundReader extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+    // name
+    static displayName = "SoundReader";
     // constructor
     constructor(props) {
         super(props);
@@ -30824,9 +30819,6 @@ class SoundReader extends (react__WEBPACK_IMPORTED_MODULE_0___default().Componen
             this._renderBody());
     }
 }
-// name
-SoundReader.displayName = "SoundReader";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SoundReader);
 
 
 /***/ },
@@ -30839,7 +30831,7 @@ SoundReader.displayName = "SoundReader";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Card)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30867,6 +30859,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Card extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Card";
     // render
     render() {
         let className = "card";
@@ -30888,9 +30882,6 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         })));
     }
 }
-// name
-Card.displayName = "Card";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);
 
 
 /***/ },
@@ -30903,7 +30894,7 @@ Card.displayName = "Card";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardBody)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30915,6 +30906,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardBody";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
@@ -30932,9 +30925,6 @@ class CardBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         });
     }
 }
-// name
-CardBody.displayName = "CardBody";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardBody);
 
 
 /***/ },
@@ -30970,7 +30960,7 @@ CardContext.displayName = "CardContext";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardFooter)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -30982,6 +30972,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardFooter";
+    // statics
+    // public
+    static contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
@@ -30991,12 +30986,6 @@ class CardFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         });
     }
 }
-// name
-CardFooter.displayName = "CardFooter";
-// statics
-// public
-CardFooter.contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardFooter);
 
 
 /***/ },
@@ -31009,7 +30998,7 @@ CardFooter.contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardHeader)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31021,6 +31010,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardHeader";
+    // statics
+    // public
+    static contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
@@ -31038,12 +31032,6 @@ class CardHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         });
     }
 }
-// name
-CardHeader.displayName = "CardHeader";
-// statics
-// public
-CardHeader.contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardHeader);
 
 
 /***/ },
@@ -31056,7 +31044,7 @@ CardHeader.contextType = _CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardHeaderNav)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31068,6 +31056,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardHeaderNav extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardHeaderNav";
     // render
     render() {
         let className = "card-header";
@@ -31078,9 +31068,6 @@ class CardHeaderNav extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_nav_NavTabs__WEBPACK_IMPORTED_MODULE_1__["default"], { items: this.props.items, selectedIndex: this.props.selectedIndex, justified: this.props.justified, pills: this.props.pills, className: "card-header-tabs", onSelect: this.props.onSelect }, this.props.children));
     }
 }
-// name
-CardHeaderNav.displayName = "CardHeaderNav";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardHeaderNav);
 
 
 /***/ },
@@ -31093,7 +31080,7 @@ CardHeaderNav.displayName = "CardHeaderNav";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardImage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31105,6 +31092,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardImage";
     // render
     render() {
         let className = this.props.position ? "card-img-" + this.props.position : "card-img-top";
@@ -31112,9 +31101,6 @@ class CardImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, src: this.props.src, alt: this.props.alt, className: className, style: this.props.style, height: this.props.height, width: this.props.width, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
 }
-// name
-CardImage.displayName = "CardImage";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardImage);
 
 
 /***/ },
@@ -31127,7 +31113,7 @@ CardImage.displayName = "CardImage";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardList)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31141,6 +31127,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardList extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardList";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
@@ -31148,9 +31136,6 @@ class CardList extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         });
     }
 }
-// name
-CardList.displayName = "CardList";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardList);
 
 
 /***/ },
@@ -31163,7 +31148,7 @@ CardList.displayName = "CardList";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ CardTable)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31175,14 +31160,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CardTable extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CardTable";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_table_Table__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, className: "m-0" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, variant: this.props.variant, bordered: this.props.bordered, borderless: this.props.borderless, striped: this.props.striped, hover: this.props.hover, small: this.props.small }, this.props.children);
     }
 }
-// name
-CardTable.displayName = "CardTable";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardTable);
 
 
 /***/ },
@@ -31206,6 +31190,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class CheckBox extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CheckBox";
     // events
     _handleToogle(e) {
         const value = e.target.checked;
@@ -31226,9 +31212,9 @@ class CheckBox extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle.bind(this) });
     }
 }
-// name
-CheckBox.displayName = "CheckBox";
 class CheckBoxLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CheckBoxLabel";
     // render
     render() {
         // props values
@@ -31244,9 +31230,9 @@ class CheckBoxLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                     this.props.label)));
     }
 }
-// name
-CheckBoxLabel.displayName = "CheckBoxLabel";
 class CheckBoxPrettierLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "CheckBoxPrettierLabel";
     // render
     render() {
         // props values
@@ -31261,8 +31247,6 @@ class CheckBoxPrettierLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureCompo
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "input-group-text" }, this.props.label));
     }
 }
-// name
-CheckBoxPrettierLabel.displayName = "CheckBoxPrettierLabel";
 
 
 /***/ },
@@ -31291,69 +31275,69 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InvalidFeedBack extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBack";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style }, this.props.alert);
     }
 }
-// name
-InvalidFeedBack.displayName = "InvalidFeedBack";
 class InvalidFeedBackRequired extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackRequired";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content required" });
     }
 }
-// name
-InvalidFeedBackRequired.displayName = "InvalidFeedBackRequired";
 class InvalidFeedBackFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackFloat";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an float" });
     }
 }
-// name
-InvalidFeedBackFloat.displayName = "InvalidFeedBackFloat";
 class InvalidFeedBackInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackInteger";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an integer" });
     }
 }
-// name
-InvalidFeedBackInteger.displayName = "InvalidFeedBackInteger";
 class InvalidFeedBackMin extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackMin";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
     }
 }
-// name
-InvalidFeedBackMin.displayName = "InvalidFeedBackMin";
 class InvalidFeedBackMax extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackMax";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
     }
 }
-// name
-InvalidFeedBackMax.displayName = "InvalidFeedBackMax";
 class InvalidFeedBackMinLength extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackMinLength";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
     }
 }
-// name
-InvalidFeedBackMinLength.displayName = "InvalidFeedBackMinLength";
 class InvalidFeedBackMaxLength extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InvalidFeedBackMaxLength";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
     }
 }
-// name
-InvalidFeedBackMaxLength.displayName = "InvalidFeedBackMaxLength";
 
 
 /***/ },
@@ -31399,6 +31383,10 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputArray";
+    // private
+    _focus;
     // constructor
     constructor(props) {
         super(props);
@@ -31456,9 +31444,9 @@ class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             }));
     }
 }
-// name
-InputArray.displayName = "InputArray";
 class InputArrayLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "iPropsInputArrayLabel";
     // render
     render() {
         const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
@@ -31486,8 +31474,6 @@ class InputArrayLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 : undefined);
     }
 }
-// name
-InputArrayLabel.displayName = "iPropsInputArrayLabel";
 
 
 /***/ },
@@ -31517,6 +31503,12 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputColor";
+    // statics
+    static PATTERN = "^#[0-9a-f]{6}$";
+    static MIN = 7;
+    static MAX = 7;
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -31539,7 +31531,7 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const maxLengthValid = InputColor.MAX === value.length;
         const patternValid = new RegExp(InputColor.PATTERN).test(value);
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
-        const style = this.props.style ? Object.assign(Object.assign({}, this.props.style), { "height": "2.4rem" }) : { "height": "2.4rem" };
+        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
@@ -31555,13 +31547,9 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                     } })));
     }
 }
-// name
-InputColor.displayName = "InputColor";
-// statics
-InputColor.PATTERN = "^#[0-9a-f]{6}$";
-InputColor.MIN = 7;
-InputColor.MAX = 7;
 class InputColorLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputColorLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -31600,8 +31588,6 @@ class InputColorLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-InputColorLabel.displayName = "InputColorLabel";
 
 
 /***/ },
@@ -31627,6 +31613,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputFile extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputFile";
     // events
     _handleChange(e) {
         if (!e.target.files || !e.target.files.length) {
@@ -31656,9 +31644,9 @@ class InputFile extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange.bind(this) });
     }
 }
-// name
-InputFile.displayName = "InputFile";
 class InputFileLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputFileLabel";
     // render
     render() {
         // props values
@@ -31671,8 +31659,6 @@ class InputFileLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputFile, { id: this.props.id, name: this.props.name, required: required, disabled: disabled, label: this.props.label, onChange: this.props.onChange, onChangeError: this.props.onChangeError }));
     }
 }
-// name
-InputFileLabel.displayName = "InputFileLabel";
 
 
 /***/ },
@@ -31700,6 +31686,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputFloat";
     // events
     _handleChange(e) {
         if ("" === e.target.value.trim()) {
@@ -31734,9 +31722,9 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ? this.props.step : 0.1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputFloat.displayName = "InputFloat";
 class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputFloatLabel";
     // render
     render() {
         // props values
@@ -31757,8 +31745,6 @@ class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             isNumber && !maxValid ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-InputFloatLabel.displayName = "InputFloatLabel";
 
 
 /***/ },
@@ -31784,6 +31770,12 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputIPV4 extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputIPV4";
+    // statics
+    static PATTERN = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$";
+    static MIN = 7;
+    static MAX = 15;
     // render
     render() {
         // props values
@@ -31793,13 +31785,9 @@ class InputIPV4 extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputIPV4.displayName = "InputIPV4";
-// statics
-InputIPV4.PATTERN = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$";
-InputIPV4.MIN = 7;
-InputIPV4.MAX = 15;
 class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputIPV4Label";
     // render
     render() {
         // props values
@@ -31809,8 +31797,6 @@ class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputIPV4Label.displayName = "InputIPV4Label";
 
 
 /***/ },
@@ -31838,6 +31824,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputInteger";
     // events
     _handleChange(e) {
         if ("" === e.target.value.trim()) {
@@ -31873,9 +31861,9 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ? this.props.step : 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputInteger.displayName = "InputInteger";
 class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputIntegerLabel";
     // render
     render() {
         // props values
@@ -31897,8 +31885,6 @@ class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent
             integerValid && !maxValid ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-InputIntegerLabel.displayName = "InputIntegerLabel";
 
 
 /***/ },
@@ -31911,7 +31897,7 @@ InputIntegerLabel.displayName = "InputIntegerLabel";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ InputLabel)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -31920,6 +31906,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputLabel";
     // render
     render() {
         let className = "";
@@ -31940,9 +31928,6 @@ class InputLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 : undefined);
     }
 }
-// name
-InputLabel.displayName = "InputLabel";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputLabel);
 
 
 /***/ },
@@ -31970,6 +31955,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputReadOnly extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputReadOnly";
     // render
     render() {
         // props values
@@ -31985,9 +31972,9 @@ class InputReadOnly extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value });
     }
 }
-// name
-InputReadOnly.displayName = "InputReadOnly";
 class InputReadOnlyLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputReadOnlyLabel";
     // render
     _renderError(requiredValid) {
         if (!requiredValid) {
@@ -32012,8 +31999,6 @@ class InputReadOnlyLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponen
             this._renderError(requiredValid));
     }
 }
-// name
-InputReadOnlyLabel.displayName = "InputReadOnlyLabel";
 
 
 /***/ },
@@ -32041,6 +32026,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputText";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -32078,9 +32065,9 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputText.displayName = "InputText";
 class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "InputTextLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -32127,8 +32114,6 @@ class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-InputTextLabel.displayName = "InputTextLabel";
 
 
 /***/ },
@@ -32156,6 +32141,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Range";
     // constructor
     constructor(props) {
         super(props);
@@ -32197,7 +32184,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
-        const style = this.props.style ? Object.assign(Object.assign({}, this.props.style), { "height": "2.4rem" }) : { "height": "2.4rem" };
+        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + (className ? " " + className : "")
                 + (disabled ? " disabled" : "")
@@ -32212,9 +32199,9 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 this.props.unit));
     }
 }
-// name
-Range.displayName = "Range";
 class RangeLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "RangeLabel";
     // render
     render() {
         // props values
@@ -32236,8 +32223,6 @@ class RangeLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             integerValid && !maxValid ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-RangeLabel.displayName = "RangeLabel";
 
 
 /***/ },
@@ -32265,6 +32250,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Select";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -32289,9 +32276,9 @@ class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
     }
 }
-// name
-Select.displayName = "Select";
 class SelectLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "SelectLabel";
     // render
     render() {
         // props values
@@ -32307,8 +32294,6 @@ class SelectLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             !requiredValid ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackRequired, null) : undefined);
     }
 }
-// name
-SelectLabel.displayName = "SelectLabel";
 
 
 /***/ },
@@ -32336,6 +32321,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class SelectInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "SelectInteger";
     // events
     _handleChange(e) {
         if ("" === e.target.value.trim()) {
@@ -32370,9 +32357,9 @@ class SelectInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
     }
 }
-// name
-SelectInteger.displayName = "SelectInteger";
 class SelectIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "SelectIntegerLabel";
     // render
     render() {
         // props values
@@ -32392,8 +32379,6 @@ class SelectIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponen
             requiredValid && !integerValid ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackInteger, null) : undefined);
     }
 }
-// name
-SelectIntegerLabel.displayName = "SelectIntegerLabel";
 
 
 /***/ },
@@ -32421,6 +32406,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class TextArea extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "TextArea";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -32458,9 +32445,9 @@ class TextArea extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-TextArea.displayName = "TextArea";
 class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "iPropsTextAreaLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -32507,8 +32494,6 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-TextAreaLabel.displayName = "iPropsTextAreaLabel";
 
 
 /***/ },
@@ -32550,7 +32535,7 @@ function generateFocus() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ List)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -32562,6 +32547,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class List extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "List";
     // render
     render() {
         let className = "list-group";
@@ -32595,9 +32582,6 @@ class List extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style }, this.props.children));
     }
 }
-// name
-List.displayName = "List";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (List);
 
 
 /***/ },
@@ -32633,7 +32617,7 @@ ListContext.displayName = "ListContext";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ListItem)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -32645,6 +32629,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ListItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ListItem";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ListContext__WEBPACK_IMPORTED_MODULE_1__.ListContext.Consumer, null, (variant) => {
@@ -32675,9 +32661,6 @@ class ListItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         });
     }
 }
-// name
-ListItem.displayName = "ListItem";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListItem);
 
 
 /***/ },
@@ -32690,7 +32673,7 @@ ListItem.displayName = "ListItem";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ListItemHeader)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -32699,6 +32682,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ListItemHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ListItemHeader";
     // render
     render() {
         let className = "list-group-item-heading";
@@ -32708,9 +32693,6 @@ class ListItemHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
-// name
-ListItemHeader.displayName = "ListItemHeader";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListItemHeader);
 
 
 /***/ },
@@ -32902,7 +32884,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Modal)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -32928,6 +32910,10 @@ __webpack_require__.r(__webpack_exports__);
 const ZINDEX_MODAL = 1050;
 // component
 class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+    // name
+    static displayName = "Modal";
+    // statics
+    static OPENED_MODALS_COUNT = 0;
     // constructor
     constructor(props) {
         super(props);
@@ -33020,11 +33006,6 @@ class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
     }
 }
-// name
-Modal.displayName = "Modal";
-// statics
-Modal.OPENED_MODALS_COUNT = 0;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Modal);
 
 
 /***/ },
@@ -33037,7 +33018,7 @@ Modal.OPENED_MODALS_COUNT = 0;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ModalBody)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33046,6 +33027,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ModalBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ModalBody";
     // render
     render() {
         let className = "modal-body";
@@ -33055,9 +33038,6 @@ class ModalBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
-// name
-ModalBody.displayName = "ModalBody";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalBody);
 
 
 /***/ },
@@ -33070,7 +33050,7 @@ ModalBody.displayName = "ModalBody";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ModalFooter)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33079,6 +33059,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ModalFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ModalFooter";
     // render
     render() {
         let className = "modal-footer";
@@ -33088,9 +33070,6 @@ class ModalFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
-// name
-ModalFooter.displayName = "ModalFooter";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalFooter);
 
 
 /***/ },
@@ -33103,7 +33082,7 @@ ModalFooter.displayName = "ModalFooter";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ModalImage)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33115,6 +33094,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ModalImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ModalImage";
     // render
     render() {
         let className = this.props.position ? "card-img-" + this.props.position : "card-img-top";
@@ -33122,9 +33103,6 @@ class ModalImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, src: this.props.src, alt: this.props.alt, className: className, style: this.props.style, height: this.props.height, width: this.props.width, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
 }
-// name
-ModalImage.displayName = "ModalImage";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalImage);
 
 
 /***/ },
@@ -33137,7 +33115,7 @@ ModalImage.displayName = "ModalImage";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ModalList)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33151,15 +33129,14 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ModalList extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ModalList";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ModalBody__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, className: "p-0" + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_2__["default"], { flush: true }, this.props.children));
     }
 }
-// name
-ModalList.displayName = "ModalList";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalList);
 
 
 /***/ },
@@ -33172,7 +33149,7 @@ ModalList.displayName = "ModalList";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ ModalTable)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33184,14 +33161,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class ModalTable extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "ModalTable";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_table_Table__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, className: "m-0" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, variant: this.props.variant, bordered: this.props.bordered, borderless: this.props.borderless, striped: this.props.striped, hover: this.props.hover, small: this.props.small }, this.props.children);
     }
 }
-// name
-ModalTable.displayName = "ModalTable";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalTable);
 
 
 /***/ },
@@ -33204,7 +33180,7 @@ ModalTable.displayName = "ModalTable";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ NavItem)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33213,6 +33189,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class NavItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "NavItem";
     // events
     _handleClick(e) {
         if ("function" === typeof this.props.onClick) {
@@ -33243,9 +33221,6 @@ class NavItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick.bind(this) }, this.props.children));
     }
 }
-// name
-NavItem.displayName = "NavItem";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavItem);
 
 
 /***/ },
@@ -33258,7 +33233,7 @@ NavItem.displayName = "NavItem";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ NavTabs)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33270,6 +33245,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+    // name
+    static displayName = "NavTabs";
     // constructor
     constructor(props) {
         super(props);
@@ -33283,7 +33260,10 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
             return null;
         }
         else {
-            return Object.assign(Object.assign({}, nextState), { "selectedIndex": nextProps.selectedIndex });
+            return {
+                ...nextState,
+                "selectedIndex": nextProps.selectedIndex
+            };
         }
     }
     // events
@@ -33338,9 +33318,6 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
             }));
     }
 }
-// name
-NavTabs.displayName = "NavTabs";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavTabs);
 
 
 /***/ },
@@ -33353,7 +33330,7 @@ NavTabs.displayName = "NavTabs";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ Table)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33369,6 +33346,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class Table extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "Table";
     // render
     render() {
         let className = "table";
@@ -33403,9 +33382,6 @@ class Table extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }));
     }
 }
-// name
-Table.displayName = "Table";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
 
 
 /***/ },
@@ -33418,7 +33394,7 @@ Table.displayName = "Table";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ TableBody)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33427,14 +33403,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class TableBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "TableBody";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", { id: this.props.id, className: this.props.className, style: this.props.style }, this.props.children);
     }
 }
-// name
-TableBody.displayName = "TableBody";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableBody);
 
 
 /***/ },
@@ -33447,7 +33422,7 @@ TableBody.displayName = "TableBody";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ TableFooter)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33456,14 +33431,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class TableFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "TableFooter";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("tfoot", { id: this.props.id, className: this.props.className, style: this.props.style }, this.props.children);
     }
 }
-// name
-TableFooter.displayName = "TableFooter";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableFooter);
 
 
 /***/ },
@@ -33476,7 +33450,7 @@ TableFooter.displayName = "TableFooter";
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (/* binding */ TableHeader)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -33485,14 +33459,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // component
 class TableHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+    // name
+    static displayName = "TableHeader";
     // render
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", { id: this.props.id, className: this.props.className, style: this.props.style }, this.props.children);
     }
 }
-// name
-TableHeader.displayName = "TableHeader";
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableHeader);
 
 
 /***/ }
@@ -33630,6 +33603,8 @@ const TABS = [
 ];
 // component
 class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+    // name
+    static displayName = "App";
     // constructor
     constructor(props) {
         super(props);
@@ -34031,8 +34006,6 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
             this._renderNav());
     }
 }
-// name
-App.displayName = "App";
 ;
 (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById("TestApp")).render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(App, null));
 

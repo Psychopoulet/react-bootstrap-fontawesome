@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class ListItemHeader extends React.PureComponent {
+export default class ListItemHeader extends React.PureComponent {
+    // name
+    static displayName = "ListItemHeader";
     // render
     render() {
         let className = "list-group-item-heading";
@@ -12,6 +14,3 @@ class ListItemHeader extends React.PureComponent {
         return React.createElement("h4", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
-// name
-ListItemHeader.displayName = "ListItemHeader";
-export default ListItemHeader;

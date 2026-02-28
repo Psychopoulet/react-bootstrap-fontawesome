@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import NavItem from "./NavItem";
 // component
-class NavTabs extends React.Component {
+export default class NavTabs extends React.Component {
+    // name
+    static displayName = "NavTabs";
     // constructor
     constructor(props) {
         super(props);
@@ -18,7 +20,10 @@ class NavTabs extends React.Component {
             return null;
         }
         else {
-            return Object.assign(Object.assign({}, nextState), { "selectedIndex": nextProps.selectedIndex });
+            return {
+                ...nextState,
+                "selectedIndex": nextProps.selectedIndex
+            };
         }
     }
     // events
@@ -73,6 +78,3 @@ class NavTabs extends React.Component {
             }));
     }
 }
-// name
-NavTabs.displayName = "NavTabs";
-export default NavTabs;

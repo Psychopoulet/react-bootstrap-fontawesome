@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import Button from "./Button";
 // component
-class ButtonGroup extends React.PureComponent {
+export default class ButtonGroup extends React.PureComponent {
+    // name
+    static displayName = "ButtonGroup";
     // constructor
     constructor(props) {
         super(props);
@@ -23,6 +25,3 @@ class ButtonGroup extends React.PureComponent {
         }));
     }
 }
-// name
-ButtonGroup.displayName = "ButtonGroup";
-export default ButtonGroup;

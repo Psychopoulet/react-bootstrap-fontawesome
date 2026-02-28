@@ -73,7 +73,9 @@ const ICONS = {
     "wifi": "fas fa-wifi"
 };
 // component
-class Icon extends React.PureComponent {
+export default class Icon extends React.PureComponent {
+    // name
+    static displayName = "Icon";
     // render
     render() {
         const isChild = "boolean" === typeof this.props.child && this.props.child;
@@ -109,6 +111,3 @@ class Icon extends React.PureComponent {
         return React.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style });
     }
 }
-// name
-Icon.displayName = "Icon";
-export default Icon;

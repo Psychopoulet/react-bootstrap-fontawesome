@@ -12,7 +12,9 @@ import CardList from "./CardList";
 import CardTable from "./CardTable";
 import CardFooter from "./CardFooter";
 // component
-class Card extends React.PureComponent {
+export default class Card extends React.PureComponent {
+    // name
+    static displayName = "Card";
     // render
     render() {
         let className = "card";
@@ -34,6 +36,3 @@ class Card extends React.PureComponent {
         })));
     }
 }
-// name
-Card.displayName = "Card";
-export default Card;

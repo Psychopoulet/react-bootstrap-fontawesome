@@ -7,6 +7,12 @@ import { InvalidFeedBack, InvalidFeedBackRequired, InvalidFeedBackMinLength, Inv
 import InputLabel from "./InputLabel";
 // component
 export class InputColor extends React.PureComponent {
+    // name
+    static displayName = "InputColor";
+    // statics
+    static PATTERN = "^#[0-9a-f]{6}$";
+    static MIN = 7;
+    static MAX = 7;
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -29,7 +35,7 @@ export class InputColor extends React.PureComponent {
         const maxLengthValid = InputColor.MAX === value.length;
         const patternValid = new RegExp(InputColor.PATTERN).test(value);
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
-        const style = this.props.style ? Object.assign(Object.assign({}, this.props.style), { "height": "2.4rem" }) : { "height": "2.4rem" };
+        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
@@ -45,13 +51,9 @@ export class InputColor extends React.PureComponent {
                     } })));
     }
 }
-// name
-InputColor.displayName = "InputColor";
-// statics
-InputColor.PATTERN = "^#[0-9a-f]{6}$";
-InputColor.MIN = 7;
-InputColor.MAX = 7;
 export class InputColorLabel extends React.PureComponent {
+    // name
+    static displayName = "InputColorLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -90,5 +92,3 @@ export class InputColorLabel extends React.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-InputColorLabel.displayName = "InputColorLabel";

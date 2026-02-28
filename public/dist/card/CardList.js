@@ -5,7 +5,9 @@ import * as React from "react";
 import { CardContext } from "./CardContext";
 import List from "../list/List";
 // component
-class CardList extends React.PureComponent {
+export default class CardList extends React.PureComponent {
+    // name
+    static displayName = "CardList";
     // render
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
@@ -13,6 +15,3 @@ class CardList extends React.PureComponent {
         });
     }
 }
-// name
-CardList.displayName = "CardList";
-export default CardList;

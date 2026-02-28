@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import Icon from "./Icon";
 // component
-class Badge extends React.PureComponent {
+export default class Badge extends React.PureComponent {
+    // name
+    static displayName = "Badge";
     // render
     render() {
         let className = "badge";
@@ -25,6 +27,3 @@ class Badge extends React.PureComponent {
             this.props.children);
     }
 }
-// name
-Badge.displayName = "Badge";
-export default Badge;

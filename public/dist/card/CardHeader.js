@@ -4,7 +4,12 @@ import * as React from "react";
 // locals
 import { CardContext } from "./CardContext";
 // component
-class CardHeader extends React.PureComponent {
+export default class CardHeader extends React.PureComponent {
+    // name
+    static displayName = "CardHeader";
+    // statics
+    // public
+    static contextType = CardContext;
     // render
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
@@ -22,9 +27,3 @@ class CardHeader extends React.PureComponent {
         });
     }
 }
-// name
-CardHeader.displayName = "CardHeader";
-// statics
-// public
-CardHeader.contextType = CardContext;
-export default CardHeader;

@@ -6,6 +6,8 @@ import { InvalidFeedBack, InvalidFeedBackRequired, InvalidFeedBackMinLength, Inv
 import InputLabel from "./InputLabel";
 // component
 export class InputText extends React.PureComponent {
+    // name
+    static displayName = "InputText";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -43,9 +45,9 @@ export class InputText extends React.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputText.displayName = "InputText";
 export class InputTextLabel extends React.PureComponent {
+    // name
+    static displayName = "InputTextLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -92,5 +94,3 @@ export class InputTextLabel extends React.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-InputTextLabel.displayName = "InputTextLabel";

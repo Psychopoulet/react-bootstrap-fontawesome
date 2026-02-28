@@ -4,7 +4,12 @@ import * as React from "react";
 // locals
 import { CardContext } from "./CardContext";
 // component
-class CardFooter extends React.PureComponent {
+export default class CardFooter extends React.PureComponent {
+    // name
+    static displayName = "CardFooter";
+    // statics
+    // public
+    static contextType = CardContext;
     // render
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
@@ -14,9 +19,3 @@ class CardFooter extends React.PureComponent {
         });
     }
 }
-// name
-CardFooter.displayName = "CardFooter";
-// statics
-// public
-CardFooter.contextType = CardContext;
-export default CardFooter;

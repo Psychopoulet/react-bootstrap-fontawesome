@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import Icon from "./Icon";
 // component
-class Button extends React.PureComponent {
+export default class Button extends React.PureComponent {
+    // name
+    static displayName = "Button";
     // events
     _handleClick(e) {
         if ("function" === typeof this.props.onClick) {
@@ -46,6 +48,3 @@ class Button extends React.PureComponent {
             this.props.children);
     }
 }
-// name
-Button.displayName = "Button";
-export default Button;

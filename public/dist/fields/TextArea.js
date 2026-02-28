@@ -6,6 +6,8 @@ import { InvalidFeedBack, InvalidFeedBackRequired, InvalidFeedBackMinLength, Inv
 import InputLabel from "./InputLabel";
 // component
 export class TextArea extends React.PureComponent {
+    // name
+    static displayName = "TextArea";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -43,9 +45,9 @@ export class TextArea extends React.PureComponent {
                 + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-TextArea.displayName = "TextArea";
 export class TextAreaLabel extends React.PureComponent {
+    // name
+    static displayName = "iPropsTextAreaLabel";
     // render
     _renderError(requiredValid, minLengthValid, maxLengthValid, patternValid) {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -92,5 +94,3 @@ export class TextAreaLabel extends React.PureComponent {
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
-// name
-TextAreaLabel.displayName = "iPropsTextAreaLabel";

@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import { CardContext } from "./CardContext";
 // component
-class CardBody extends React.PureComponent {
+export default class CardBody extends React.PureComponent {
+    // name
+    static displayName = "CardBody";
     // render
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
@@ -22,6 +24,3 @@ class CardBody extends React.PureComponent {
         });
     }
 }
-// name
-CardBody.displayName = "CardBody";
-export default CardBody;

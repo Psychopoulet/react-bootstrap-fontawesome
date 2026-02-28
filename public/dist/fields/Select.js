@@ -6,6 +6,8 @@ import { InvalidFeedBackRequired } from "./FieldFeedBacks";
 import InputLabel from "./InputLabel";
 // component
 export class Select extends React.PureComponent {
+    // name
+    static displayName = "Select";
     // events
     _handleChange(e) {
         const value = e.target.value;
@@ -30,9 +32,9 @@ export class Select extends React.PureComponent {
                 + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
     }
 }
-// name
-Select.displayName = "Select";
 export class SelectLabel extends React.PureComponent {
+    // name
+    static displayName = "SelectLabel";
     // render
     render() {
         // props values
@@ -48,5 +50,3 @@ export class SelectLabel extends React.PureComponent {
             !requiredValid ? React.createElement(InvalidFeedBackRequired, null) : undefined);
     }
 }
-// name
-SelectLabel.displayName = "SelectLabel";

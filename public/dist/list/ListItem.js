@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import { ListContext } from "./ListContext";
 // component
-class ListItem extends React.PureComponent {
+export default class ListItem extends React.PureComponent {
+    // name
+    static displayName = "ListItem";
     // render
     render() {
         return React.createElement(ListContext.Consumer, null, (variant) => {
@@ -35,6 +37,3 @@ class ListItem extends React.PureComponent {
         });
     }
 }
-// name
-ListItem.displayName = "ListItem";
-export default ListItem;
