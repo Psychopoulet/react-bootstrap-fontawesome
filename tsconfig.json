@@ -27,7 +27,8 @@
 
   },
   "include": [
-    "./public/src/main.ts"
+    "./public/src/main.ts",
+    "./public/src/css.d.ts"
   ],
   "exclude": [
     "node_modules"
