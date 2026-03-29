@@ -5,6 +5,12 @@ import * as React from "react";
 import { InputText, InputTextLabel } from "./InputText";
 // component
 export class InputIPV4 extends React.PureComponent {
+    // name
+    static displayName = "InputIPV4";
+    // statics
+    static PATTERN = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$";
+    static MIN = 7;
+    static MAX = 15;
     // render
     render() {
         // props values
@@ -14,13 +20,9 @@ export class InputIPV4 extends React.PureComponent {
         return React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputIPV4.displayName = "InputIPV4";
-// statics
-InputIPV4.PATTERN = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$";
-InputIPV4.MIN = 7;
-InputIPV4.MAX = 15;
 export class InputIPV4Label extends React.PureComponent {
+    // name
+    static displayName = "InputIPV4Label";
     // render
     render() {
         // props values
@@ -30,5 +32,3 @@ export class InputIPV4Label extends React.PureComponent {
         return React.createElement(InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputIPV4Label.displayName = "InputIPV4Label";

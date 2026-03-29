@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class NavItem extends React.PureComponent {
+export default class NavItem extends React.PureComponent {
+    // name
+    static displayName = "NavItem";
     // events
     _handleClick(e) {
         if ("function" === typeof this.props.onClick) {
@@ -33,6 +35,3 @@ class NavItem extends React.PureComponent {
         return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? React.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : React.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick.bind(this) }, this.props.children));
     }
 }
-// name
-NavItem.displayName = "NavItem";
-export default NavItem;

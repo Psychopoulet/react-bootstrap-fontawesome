@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class MaxHeightContent extends React.PureComponent {
+export default class MaxHeightContent extends React.PureComponent {
+    // name
+    static displayName = "MaxHeightContent";
     // render
     render() {
         const style = {
@@ -17,6 +19,3 @@ class MaxHeightContent extends React.PureComponent {
         return React.createElement("div", { className: this.props.className, style: style }, this.props.children);
     }
 }
-// name
-MaxHeightContent.displayName = "MaxHeightContent";
-export default MaxHeightContent;

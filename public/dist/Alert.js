@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class Alert extends React.PureComponent {
+export default class Alert extends React.PureComponent {
+    // name
+    static displayName = "Alert";
     // render
     render() {
         let className = "alert";
@@ -20,6 +22,3 @@ class Alert extends React.PureComponent {
             "function" === typeof this.props.onClose ? React.createElement("button", { type: "button", className: "btn-close", "data-dismiss": "alert", "aria-label": "Close", onClick: this.props.onClose }) : undefined);
     }
 }
-// name
-Alert.displayName = "Alert";
-export default Alert;

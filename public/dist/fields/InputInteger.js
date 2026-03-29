@@ -6,6 +6,8 @@ import { InvalidFeedBackInteger, InvalidFeedBackMin, InvalidFeedBackMax } from "
 import InputLabel from "./InputLabel";
 // component
 export class InputInteger extends React.PureComponent {
+    // name
+    static displayName = "InputInteger";
     // events
     _handleChange(e) {
         if ("" === e.target.value.trim()) {
@@ -41,9 +43,9 @@ export class InputInteger extends React.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ? this.props.step : 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
-// name
-InputInteger.displayName = "InputInteger";
 export class InputIntegerLabel extends React.PureComponent {
+    // name
+    static displayName = "InputIntegerLabel";
     // render
     render() {
         // props values
@@ -65,5 +67,3 @@ export class InputIntegerLabel extends React.PureComponent {
             integerValid && !maxValid ? React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-InputIntegerLabel.displayName = "InputIntegerLabel";

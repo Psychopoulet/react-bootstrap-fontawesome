@@ -6,7 +6,9 @@ import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
 // component
-class Table extends React.PureComponent {
+export default class Table extends React.PureComponent {
+    // name
+    static displayName = "Table";
     // render
     render() {
         let className = "table";
@@ -41,6 +43,3 @@ class Table extends React.PureComponent {
         }));
     }
 }
-// name
-Table.displayName = "Table";
-export default Table;

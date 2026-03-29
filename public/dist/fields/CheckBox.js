@@ -3,6 +3,8 @@
 import * as React from "react";
 // component
 export class CheckBox extends React.PureComponent {
+    // name
+    static displayName = "CheckBox";
     // events
     _handleToogle(e) {
         const value = e.target.checked;
@@ -23,9 +25,9 @@ export class CheckBox extends React.PureComponent {
                 + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle.bind(this) });
     }
 }
-// name
-CheckBox.displayName = "CheckBox";
 export class CheckBoxLabel extends React.PureComponent {
+    // name
+    static displayName = "CheckBoxLabel";
     // render
     render() {
         // props values
@@ -41,9 +43,9 @@ export class CheckBoxLabel extends React.PureComponent {
                     this.props.label)));
     }
 }
-// name
-CheckBoxLabel.displayName = "CheckBoxLabel";
 export class CheckBoxPrettierLabel extends React.PureComponent {
+    // name
+    static displayName = "CheckBoxPrettierLabel";
     // render
     render() {
         // props values
@@ -58,5 +60,3 @@ export class CheckBoxPrettierLabel extends React.PureComponent {
             React.createElement("span", { className: "input-group-text" }, this.props.label));
     }
 }
-// name
-CheckBoxPrettierLabel.displayName = "CheckBoxPrettierLabel";

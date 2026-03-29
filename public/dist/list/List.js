@@ -4,7 +4,9 @@ import * as React from "react";
 // locals
 import { ListContext } from "./ListContext";
 // component
-class List extends React.PureComponent {
+export default class List extends React.PureComponent {
+    // name
+    static displayName = "List";
     // render
     render() {
         let className = "list-group";
@@ -38,6 +40,3 @@ class List extends React.PureComponent {
             React.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style }, this.props.children));
     }
 }
-// name
-List.displayName = "List";
-export default List;

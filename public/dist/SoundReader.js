@@ -6,7 +6,9 @@ import Card from "./card/Card";
 import CardHeader from "./card/CardHeader";
 import CardBody from "./card/CardBody";
 // component
-class SoundReader extends React.Component {
+export default class SoundReader extends React.Component {
+    // name
+    static displayName = "SoundReader";
     // constructor
     constructor(props) {
         super(props);
@@ -62,6 +64,3 @@ class SoundReader extends React.Component {
             this._renderBody());
     }
 }
-// name
-SoundReader.displayName = "SoundReader";
-export default SoundReader;

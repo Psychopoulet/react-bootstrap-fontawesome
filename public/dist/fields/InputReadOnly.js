@@ -6,6 +6,8 @@ import { InvalidFeedBackRequired } from "./FieldFeedBacks";
 import InputLabel from "./InputLabel";
 // component
 export class InputReadOnly extends React.PureComponent {
+    // name
+    static displayName = "InputReadOnly";
     // render
     render() {
         // props values
@@ -21,9 +23,9 @@ export class InputReadOnly extends React.PureComponent {
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value });
     }
 }
-// name
-InputReadOnly.displayName = "InputReadOnly";
 export class InputReadOnlyLabel extends React.PureComponent {
+    // name
+    static displayName = "InputReadOnlyLabel";
     // render
     _renderError(requiredValid) {
         if (!requiredValid) {
@@ -48,5 +50,3 @@ export class InputReadOnlyLabel extends React.PureComponent {
             this._renderError(requiredValid));
     }
 }
-// name
-InputReadOnlyLabel.displayName = "InputReadOnlyLabel";

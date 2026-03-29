@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class InputLabel extends React.PureComponent {
+export default class InputLabel extends React.PureComponent {
+    // name
+    static displayName = "InputLabel";
     // render
     render() {
         let className = "";
@@ -23,6 +25,3 @@ class InputLabel extends React.PureComponent {
                 : undefined);
     }
 }
-// name
-InputLabel.displayName = "InputLabel";
-export default InputLabel;

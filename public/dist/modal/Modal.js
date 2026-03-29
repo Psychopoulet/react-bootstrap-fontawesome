@@ -12,7 +12,11 @@ import ModalFooter from "./ModalFooter";
 // consts
 const ZINDEX_MODAL = 1050;
 // component
-class Modal extends React.Component {
+export default class Modal extends React.Component {
+    // name
+    static displayName = "Modal";
+    // statics
+    static OPENED_MODALS_COUNT = 0;
     // constructor
     constructor(props) {
         super(props);
@@ -105,8 +109,3 @@ class Modal extends React.Component {
         }
     }
 }
-// name
-Modal.displayName = "Modal";
-// statics
-Modal.OPENED_MODALS_COUNT = 0;
-export default Modal;

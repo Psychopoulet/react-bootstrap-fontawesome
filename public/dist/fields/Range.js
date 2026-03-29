@@ -6,6 +6,8 @@ import { InvalidFeedBackInteger, InvalidFeedBackMin, InvalidFeedBackMax } from "
 import InputLabel from "./InputLabel";
 // component
 export class Range extends React.PureComponent {
+    // name
+    static displayName = "Range";
     // constructor
     constructor(props) {
         super(props);
@@ -47,7 +49,7 @@ export class Range extends React.PureComponent {
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
-        const style = this.props.style ? Object.assign(Object.assign({}, this.props.style), { "height": "2.4rem" }) : { "height": "2.4rem" };
+        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + (className ? " " + className : "")
                 + (disabled ? " disabled" : "")
@@ -62,9 +64,9 @@ export class Range extends React.PureComponent {
                 this.props.unit));
     }
 }
-// name
-Range.displayName = "Range";
 export class RangeLabel extends React.PureComponent {
+    // name
+    static displayName = "RangeLabel";
     // render
     render() {
         // props values
@@ -86,5 +88,3 @@ export class RangeLabel extends React.PureComponent {
             integerValid && !maxValid ? React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
     }
 }
-// name
-RangeLabel.displayName = "RangeLabel";

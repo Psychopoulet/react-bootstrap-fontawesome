@@ -2,7 +2,9 @@
 // externals
 import * as React from "react";
 // component
-class ModalFooter extends React.PureComponent {
+export default class ModalFooter extends React.PureComponent {
+    // name
+    static displayName = "ModalFooter";
     // render
     render() {
         let className = "modal-footer";
@@ -12,6 +14,3 @@ class ModalFooter extends React.PureComponent {
         return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
-// name
-ModalFooter.displayName = "ModalFooter";
-export default ModalFooter;

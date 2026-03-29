@@ -5,6 +5,8 @@ import * as React from "react";
 import InputLabel from "./InputLabel";
 // component
 export class InputFile extends React.PureComponent {
+    // name
+    static displayName = "InputFile";
     // events
     _handleChange(e) {
         if (!e.target.files || !e.target.files.length) {
@@ -34,9 +36,9 @@ export class InputFile extends React.PureComponent {
                 + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange.bind(this) });
     }
 }
-// name
-InputFile.displayName = "InputFile";
 export class InputFileLabel extends React.PureComponent {
+    // name
+    static displayName = "InputFileLabel";
     // render
     render() {
         // props values
@@ -49,5 +51,3 @@ export class InputFileLabel extends React.PureComponent {
             React.createElement(InputFile, { id: this.props.id, name: this.props.name, required: required, disabled: disabled, label: this.props.label, onChange: this.props.onChange, onChangeError: this.props.onChangeError }));
     }
 }
-// name
-InputFileLabel.displayName = "InputFileLabel";
