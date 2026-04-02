@@ -40,11 +40,11 @@ export default class Card extends React.PureComponent<iPropsCard> {
 
         let className: string = "card";
 
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " border-" + this.props.variant;
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

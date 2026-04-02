@@ -66,8 +66,8 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
     public render (): React.JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -86,7 +86,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
@@ -133,7 +133,7 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }
@@ -150,8 +150,8 @@ export class SelectIntegerLabel extends React.PureComponent<iPropsSelectLabel> {
                 { this.props.children }
             </SelectInteger>
 
-            { !requiredValid ? <InvalidFeedBackRequired /> : undefined }
-            { requiredValid && !integerValid ? <InvalidFeedBackInteger /> : undefined }
+            { !requiredValid && <InvalidFeedBackRequired /> }
+            { requiredValid && !integerValid && <InvalidFeedBackInteger /> }
 
         </div>;
 

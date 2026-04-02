@@ -50,7 +50,7 @@ export default class Badge extends React.PureComponent<iPropsBadge> {
         }
 
         return <span id={ this.props.id } title={ this.props.title } className={ className } style={ this.props.style }>
-            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : undefined }
+            { this.props.icon && <Icon type={ this.props.icon } child></Icon> }
             { this.props.children }
         </span>;
 

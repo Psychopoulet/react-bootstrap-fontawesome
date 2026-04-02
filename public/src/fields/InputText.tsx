@@ -82,7 +82,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
         }
 
@@ -95,7 +95,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
@@ -164,7 +164,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
         let maxLengthValid: boolean = true;
         let patternValid: boolean = true;
 
-        if ("" !== value || !!this.props.emptyValidation) {
+        if ("" !== value || Boolean(this.props.emptyValidation)) {
 
             requiredValid = required ? "" !== value : true;
 
@@ -174,7 +174,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
 
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
         }
 
@@ -183,7 +183,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

@@ -25,7 +25,7 @@ export default class ModalImage extends React.PureComponent<iPropsTableImage> {
     public render (): React.JSX.Element {
 
         let className: string = this.props.position ? "card-img-" + this.props.position : "card-img-top";
-        className += this.props.className ? " " + this.props.className : "";
+        className += "string" === typeof this.props.className ? " " + this.props.className : "";
 
         return <Image id={ this.props.id } src={ this.props.src } alt={ this.props.alt }
             className={ className } style={ this.props.style } height={ this.props.height } width={ this.props.width }

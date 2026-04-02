@@ -51,7 +51,7 @@ export default class CardHeader extends React.PureComponent<iPropsCardHeader> {
                         className += " border-" + variant + " text-" + variant;
                     }
 
-                    if (this.props.className) {
+                    if ("string" === typeof this.props.className) {
                         className += " " + this.props.className;
                     }
 

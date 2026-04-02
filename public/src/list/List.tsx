@@ -61,12 +61,16 @@ export default class List extends React.PureComponent<iPropsList> {
                     className += " list-group-horizontal-xl";
                 break;
 
+                default:
+                    // nothing to do here
+                break;
+
             }
 
             className += " list-group-horizontal";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

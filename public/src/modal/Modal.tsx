@@ -152,11 +152,15 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
                     className += " modal-xl";
                 break;
 
+                default:
+                    // nothing to do here
+                break;
+
             }
 
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 
@@ -169,19 +173,16 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
                 {
 
-                    this.props.title || "function" === typeof this.props.onClose
+                    "string" === typeof this.props.title || "function" === typeof this.props.onClose
                         ? <div className={
                             "modal-header"
                             + (this.props.variant ? " border-" + this.props.variant : "")
                         }>
 
-                            { this.props.title ? <h5 className="modal-title">{ this.props.title }</h5> : undefined }
+                            { "string" === typeof this.props.title && <h5 className="modal-title">{ this.props.title }</h5> }
 
-                            {
-                                "function" === typeof this.props.onClose
-                                    ? <button type="button" className="btn-close" title="close" data-bs-dismiss="modal" aria-label="Close" onClick={ this.props.onClose }></button>
-                                    : undefined
-                            }
+                            { "function" === typeof this.props.onClose
+                                && <button type="button" className="btn-close" title="close" data-bs-dismiss="modal" aria-label="Close" onClick={ this.props.onClose }></button> }
 
                         </div>
                         : undefined

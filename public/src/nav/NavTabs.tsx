@@ -119,7 +119,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
             className += " nav-justified";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

@@ -53,8 +53,8 @@ export class Select extends React.PureComponent<iPropsSelect> {
     public render (): React.JSX.Element {
 
         // props values
-        const disabled: boolean = !!this.props.disabled;
-        const required: boolean = !!this.props.required;
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
         // controls
 
@@ -67,7 +67,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!requiredValid ? " is-invalid" : "")
             }
@@ -103,12 +103,12 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
 
         // controls
 
-        const requiredValid: boolean = required ? "" !== this.props.value : true ;
+        const requiredValid: boolean = required ? "" !== this.props.value : true;
 
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }
@@ -125,7 +125,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
                 { this.props.children }
             </Select>
 
-            { !requiredValid ? <InvalidFeedBackRequired /> : undefined }
+            { !requiredValid && <InvalidFeedBackRequired /> }
 
         </div>;
 

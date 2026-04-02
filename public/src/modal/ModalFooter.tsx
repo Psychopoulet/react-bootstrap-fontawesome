@@ -22,7 +22,7 @@ export default class ModalFooter extends React.PureComponent<iPropsNode> {
 
         let className: string = "modal-footer";
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

@@ -83,7 +83,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
         }
 
@@ -94,7 +94,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             } rows={ this.props.rows } style={ this.props.style }
@@ -171,7 +171,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
 
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
 
         }
 
@@ -180,7 +180,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

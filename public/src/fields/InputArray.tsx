@@ -50,7 +50,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
     // private
 
-        private _focus: iGenerateFocusCallback<HTMLInputElement>;
+        private readonly _focus: iGenerateFocusCallback<HTMLInputElement>;
 
     // constructor
 
@@ -197,17 +197,14 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
         // render
         return <Card id={ this.props.id } className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <CardHeader>
 
                 { this.props.label }
 
-                { required
-                    ? <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small>
-                    : undefined
-                }
+                { required && <small className="fa fa-asterisk text-danger" style={{ "fontSize": "60%" }} aria-hidden="true"></small> }
 
             </CardHeader>
 
@@ -226,10 +223,7 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
 
             </CardBody>
 
-            { !requiredValid
-                ? <CardFooter><InvalidFeedBackRequired /></CardFooter>
-                : undefined
-            }
+            { !requiredValid && <CardFooter><InvalidFeedBackRequired /></CardFooter> }
 
         </Card>;
 

@@ -56,7 +56,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
         return <input id={ this.props.id } role="checkbox" type="checkbox"
 
             className={
-                (this.props.className ? this.props.className : "")
+                ("string" === typeof this.props.className ? this.props.className : "")
                 + (disabled ? " disabled" : "")
             }
             style={ this.props.style }
@@ -90,7 +90,7 @@ export class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
             + (disabled ? " text-muted" : "")
         } style={ this.props.style }>
 
@@ -134,7 +134,7 @@ export class CheckBoxPrettierLabel extends React.PureComponent<iPropsCheckBoxLab
         // render
         return <label className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] + " input-group" : "mb-3 input-group")
-            + (this.props.className ? " input-group " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " input-group " + this.props.className : "")
             + (disabled ? " text-muted" : "")
         } style={ this.props.style }>
 

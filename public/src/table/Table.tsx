@@ -67,7 +67,7 @@ export default class Table extends React.PureComponent<iPropsTable> {
             className += " table-sm";
         }
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 
