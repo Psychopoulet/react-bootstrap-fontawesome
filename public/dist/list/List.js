@@ -30,10 +30,13 @@ export default class List extends React.PureComponent {
                 case "xl":
                     className += " list-group-horizontal-xl";
                     break;
+                default:
+                    // nothing to do here
+                    break;
             }
             className += " list-group-horizontal";
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return React.createElement(ListContext.Provider, { value: this.props.variant },

@@ -9,6 +9,6 @@ export default class CardTable extends React.PureComponent {
     static displayName = "CardTable";
     // render
     render() {
-        return React.createElement(Table, { id: this.props.id, className: "m-0" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, variant: this.props.variant, bordered: this.props.bordered, borderless: this.props.borderless, striped: this.props.striped, hover: this.props.hover, small: this.props.small }, this.props.children);
+        return React.createElement(Table, { id: this.props.id, className: "m-0" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, variant: this.props.variant, bordered: this.props.bordered, borderless: this.props.borderless, striped: this.props.striped, hover: this.props.hover, small: this.props.small }, this.props.children);
     }
 }

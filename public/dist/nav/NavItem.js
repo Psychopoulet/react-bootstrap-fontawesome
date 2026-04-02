@@ -19,7 +19,7 @@ export default class NavItem extends React.PureComponent {
     render() {
         const disabled = Boolean(this.props.disabled);
         let className = "nav-item";
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         let linkClassName = "nav-link";

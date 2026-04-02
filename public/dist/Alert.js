@@ -19,6 +19,6 @@ export default class Alert extends React.PureComponent {
         }
         return React.createElement("div", { id: this.props.id, className: className, role: "alert", style: this.props.style },
             this.props.children,
-            "function" === typeof this.props.onClose ? React.createElement("button", { type: "button", className: "btn-close", "data-dismiss": "alert", "aria-label": "Close", onClick: this.props.onClose }) : undefined);
+            "function" === typeof this.props.onClose && React.createElement("button", { type: "button", className: "btn-close", "data-dismiss": "alert", "aria-label": "Close", onClick: this.props.onClose }));
     }
 }

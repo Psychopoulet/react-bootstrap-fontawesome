@@ -40,7 +40,7 @@ export class InputInteger extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
                 + (this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ? this.props.step : 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
 }
 export class InputIntegerLabel extends React.PureComponent {
@@ -62,8 +62,8 @@ export class InputIntegerLabel extends React.PureComponent {
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
             React.createElement(InputInteger, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
-            !integerValid ? React.createElement(InvalidFeedBackInteger, null) : undefined,
-            integerValid && !minValid ? React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }) : undefined,
-            integerValid && !maxValid ? React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }) : undefined);
+            !integerValid && React.createElement(InvalidFeedBackInteger, null),
+            integerValid && !minValid && React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
+            integerValid && !maxValid && React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
     }
 }

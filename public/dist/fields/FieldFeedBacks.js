@@ -7,7 +7,7 @@ export class InvalidFeedBack extends React.PureComponent {
     static displayName = "InvalidFeedBack";
     // render
     render() {
-        return React.createElement("small", { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style }, this.props.alert);
+        return React.createElement("small", { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style }, this.props.alert);
     }
 }
 export class InvalidFeedBackRequired extends React.PureComponent {
@@ -15,7 +15,7 @@ export class InvalidFeedBackRequired extends React.PureComponent {
     static displayName = "InvalidFeedBackRequired";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content required" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content required" });
     }
 }
 export class InvalidFeedBackFloat extends React.PureComponent {
@@ -23,7 +23,7 @@ export class InvalidFeedBackFloat extends React.PureComponent {
     static displayName = "InvalidFeedBackFloat";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an float" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an float" });
     }
 }
 export class InvalidFeedBackInteger extends React.PureComponent {
@@ -31,7 +31,7 @@ export class InvalidFeedBackInteger extends React.PureComponent {
     static displayName = "InvalidFeedBackInteger";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an integer" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be an integer" });
     }
 }
 export class InvalidFeedBackMin extends React.PureComponent {
@@ -39,7 +39,7 @@ export class InvalidFeedBackMin extends React.PureComponent {
     static displayName = "InvalidFeedBackMin";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
     }
 }
 export class InvalidFeedBackMax extends React.PureComponent {
@@ -47,7 +47,7 @@ export class InvalidFeedBackMax extends React.PureComponent {
     static displayName = "InvalidFeedBackMax";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
     }
 }
 export class InvalidFeedBackMinLength extends React.PureComponent {
@@ -55,7 +55,7 @@ export class InvalidFeedBackMinLength extends React.PureComponent {
     static displayName = "InvalidFeedBackMinLength";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be higher than / equal to : " + this.props.min + " (current : " + this.props.current + ")" });
     }
 }
 export class InvalidFeedBackMaxLength extends React.PureComponent {
@@ -63,6 +63,6 @@ export class InvalidFeedBackMaxLength extends React.PureComponent {
     static displayName = "InvalidFeedBackMaxLength";
     // render
     render() {
-        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
+        return React.createElement(InvalidFeedBack, { id: this.props.id, className: "form-text text-danger" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, alert: "Content length must be lower than / equal to : " + this.props.max + " (current : " + this.props.current + ")" });
     }
 }

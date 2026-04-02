@@ -18,10 +18,10 @@ export default class Card extends React.PureComponent {
     // render
     render() {
         let className = "card";
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " border-" + this.props.variant;
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return React.createElement(CardContext.Provider, { value: this.props.variant }, "function" === typeof this.props.onSubmit ? React.createElement("form", { id: this.props.id, className: className, style: this.props.style, onSubmit: this.props.onSubmit }, this.props.children) : React.createElement("div", { id: this.props.id, className: className }, React.Children.toArray(this.props.children).filter((child) => {

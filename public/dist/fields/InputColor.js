@@ -43,7 +43,7 @@ export class InputColor extends React.PureComponent {
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
         // render
-        return React.createElement("div", { className: "input-group" + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
+        return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             this._render(),
             React.createElement("span", { className: "input-group-text" },
                 React.createElement(Icon, { type: "circle", child: true, style: {
@@ -86,7 +86,7 @@ export class InputColorLabel extends React.PureComponent {
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
+                + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
             React.createElement(InputColor, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: value, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));

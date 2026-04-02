@@ -73,21 +73,23 @@ export default class Modal extends React.Component {
                 case "xl":
                     className += " modal-xl";
                     break;
+                default:
+                    // nothing to do here
+                    break;
             }
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return React.createElement("div", { className: className, style: this.props.style },
             React.createElement("div", { className: "modal-content"
                     + (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "") },
-                this.props.title || "function" === typeof this.props.onClose
+                "string" === typeof this.props.title || "function" === typeof this.props.onClose
                     ? React.createElement("div", { className: "modal-header"
                             + (this.props.variant ? " border-" + this.props.variant : "") },
-                        this.props.title ? React.createElement("h5", { className: "modal-title" }, this.props.title) : undefined,
+                        "string" === typeof this.props.title && React.createElement("h5", { className: "modal-title" }, this.props.title),
                         "function" === typeof this.props.onClose
-                            ? React.createElement("button", { type: "button", className: "btn-close", title: "close", "data-bs-dismiss": "modal", "aria-label": "Close", onClick: this.props.onClose })
-                            : undefined)
+                            && React.createElement("button", { type: "button", className: "btn-close", title: "close", "data-bs-dismiss": "modal", "aria-label": "Close", onClick: this.props.onClose }))
                     : undefined,
                 React.Children.toArray(this.props.children).filter((child) => {
                     return MaxHeightContent === child.type

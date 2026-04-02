@@ -11,7 +11,7 @@ export default class CardList extends React.PureComponent {
     // render
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
-            return React.createElement(List, { id: this.props.id, variant: this.props.variant || variant, className: "m-0" + (this.props.className ? " " + this.props.className : ""), style: this.props.style, flush: true }, this.props.children);
+            return React.createElement(List, { id: this.props.id, variant: this.props.variant ?? variant, className: "m-0" + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style, flush: true }, this.props.children);
         });
     }
 }

@@ -21,7 +21,7 @@ export class CheckBox extends React.PureComponent {
         const disabled = Boolean(this.props.disabled);
         const checked = Boolean(this.props.checked);
         // render
-        return React.createElement("input", { id: this.props.id, role: "checkbox", type: "checkbox", className: (this.props.className ? this.props.className : "")
+        return React.createElement("input", { id: this.props.id, role: "checkbox", type: "checkbox", className: ("string" === typeof this.props.className ? this.props.className : "")
                 + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle.bind(this) });
     }
 }
@@ -35,7 +35,7 @@ export class CheckBoxLabel extends React.PureComponent {
         const checked = Boolean(this.props.checked);
         // render
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " text-muted" : ""), style: this.props.style },
             React.createElement("div", { className: "form-check" },
                 React.createElement("label", { className: "form-check-label", "aria-label": this.props.label },
@@ -53,7 +53,7 @@ export class CheckBoxPrettierLabel extends React.PureComponent {
         const checked = Boolean(this.props.checked);
         // render
         return React.createElement("label", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] + " input-group" : "mb-3 input-group")
-                + (this.props.className ? " input-group " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " input-group " + this.props.className : "")
                 + (disabled ? " text-muted" : ""), style: this.props.style },
             React.createElement("span", { className: "input-group-text", "aria-label": this.props.label },
                 React.createElement(CheckBox, { id: this.props.id, className: "form-check-input", disabled: disabled, label: this.props.label, checked: checked, onToogle: this.props.onToogle })),

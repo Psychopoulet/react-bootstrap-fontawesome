@@ -10,7 +10,7 @@ export interface iPropsInputArrayLabel extends iPropsInputArray {
 }
 export declare class InputArray extends React.PureComponent<iPropsInputArray> {
     static displayName: string;
-    private _focus;
+    private readonly _focus;
     constructor(props: iPropsInputArray);
     private _handleAddLine;
     render(): React.JSX.Element;

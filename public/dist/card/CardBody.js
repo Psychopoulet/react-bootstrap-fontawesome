@@ -17,7 +17,7 @@ export default class CardBody extends React.PureComponent {
             if (variant) {
                 className += " text-" + variant;
             }
-            if (this.props.className) {
+            if ("string" === typeof this.props.className) {
                 className += " " + this.props.className;
             }
             return "function" === typeof this.props.onSubmit ? React.createElement("form", { action: "#", id: this.props.id, className: className, style: this.props.style, onSubmit: this.props.onSubmit, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave }, this.props.children) : React.createElement("div", { id: this.props.id, className: className, style: this.props.style, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave }, this.props.children);

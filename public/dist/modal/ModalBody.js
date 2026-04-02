@@ -8,7 +8,7 @@ export default class ModalBody extends React.PureComponent {
     // render
     render() {
         let className = "modal-body";
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);

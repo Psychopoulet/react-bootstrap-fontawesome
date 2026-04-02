@@ -35,12 +35,12 @@ export class TextArea extends React.PureComponent {
                 ? (!required && 0 === value.length) || value.length >= this.props.minLength
                 : true;
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
         return React.createElement("textarea", { id: this.props.id, name: this.props.name, className: "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
     }
@@ -83,12 +83,12 @@ export class TextAreaLabel extends React.PureComponent {
                 ? (!required && 0 === value.length) || value.length >= this.props.minLength
                 : true;
             maxLengthValid = "number" === typeof this.props.maxLength ? value.length <= this.props.maxLength : true;
-            patternValid = this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
+            patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
+                + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
             React.createElement(TextArea, { id: this.props.id, name: this.props.name, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));

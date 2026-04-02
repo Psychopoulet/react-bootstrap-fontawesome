@@ -23,7 +23,7 @@ export default class Badge extends React.PureComponent {
             className += " " + this.props.className;
         }
         return React.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style },
-            this.props.icon ? React.createElement(Icon, { type: this.props.icon, child: true }) : undefined,
+            this.props.icon && React.createElement(Icon, { type: this.props.icon, child: true }),
             this.props.children);
     }
 }

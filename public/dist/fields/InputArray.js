@@ -92,17 +92,13 @@ export class InputArrayLabel extends React.PureComponent {
         }
         // render
         return React.createElement(Card, { id: this.props.id, className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
+                + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(CardHeader, null,
                 this.props.label,
-                required
-                    ? React.createElement("small", { className: "fa fa-asterisk text-danger", style: { "fontSize": "60%" }, "aria-hidden": "true" })
-                    : undefined),
+                required && React.createElement("small", { className: "fa fa-asterisk text-danger", style: { "fontSize": "60%" }, "aria-hidden": "true" })),
             React.createElement(CardBody, null,
                 React.createElement(InputArray, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange })),
-            !requiredValid
-                ? React.createElement(CardFooter, null,
-                    React.createElement(InvalidFeedBackRequired, null))
-                : undefined);
+            !requiredValid && React.createElement(CardFooter, null,
+                React.createElement(InvalidFeedBackRequired, null)));
     }
 }

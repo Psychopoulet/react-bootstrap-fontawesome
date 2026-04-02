@@ -20,7 +20,7 @@ export default class CardHeader extends React.PureComponent {
             if (variant) {
                 className += " border-" + variant + " text-" + variant;
             }
-            if (this.props.className) {
+            if ("string" === typeof this.props.className) {
                 className += " " + this.props.className;
             }
             return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);

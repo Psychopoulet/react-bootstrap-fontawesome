@@ -42,9 +42,9 @@ export default class Button extends React.PureComponent {
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
-        return React.createElement("button", { id: this.props.id, role: "button", type: this.props.type ? this.props.type : "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick.bind(this) },
-            this.props.icon ? React.createElement(Icon, { type: this.props.icon, child: true }) : undefined,
-            this.props.icon && "undefined" !== typeof this.props.children ? React.createElement(React.Fragment, null, "\u00A0") : undefined,
+        return React.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick.bind(this) },
+            this.props.icon && React.createElement(Icon, { type: this.props.icon, child: true }),
+            this.props.icon && "undefined" !== typeof this.props.children && React.createElement(React.Fragment, null, "\u00A0"),
             this.props.children);
     }
 }

@@ -33,7 +33,7 @@ export default class Table extends React.PureComponent {
         if (Boolean(this.props.small)) {
             className += " table-sm";
         }
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
         return React.createElement("table", { id: this.props.id, className: className, style: this.props.style }, React.Children.toArray(this.props.children).filter((child) => {

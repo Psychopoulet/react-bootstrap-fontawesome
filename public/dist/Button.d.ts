@@ -2,7 +2,7 @@ import * as React from "react";
 import { type tIcon } from "./Icon";
 import type { iPropsNode, tVariant } from "./types";
 export interface iPropsButton extends iPropsNode {
-    "type"?: "button" | "submit" | "reset";
+    "type"?: HTMLButtonElement["type"];
     "variant"?: tVariant;
     "outline"?: boolean;
     "disabled"?: boolean;
