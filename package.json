@@ -33,8 +33,9 @@
     "check-requires": "npx used-deps-analyzer ./package.json ./public/src --no-dev",
     "check-updates": "npx check-version-modules --no-fail-at-major --fail-at-minor --fail-at-patch",
     "unit-tests": "echo 'not unit tests here'",
+    "unit-tests-local": "echo 'not unit tests here'",
 
-    "tests": "npm run lint && npm run check-requires && npm run check-updates && npm run unit-tests"
+    "tests": "npm run lint && npm run check-requires && npm run check-updates && npm run build && npm run unit-tests-local"
 
   },
 
@@ -74,7 +75,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "npm run unit-tests"
+      "pre-push": "npm run build && npm run unit-tests-local"
     }
   },
 
