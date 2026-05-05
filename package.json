@@ -9,10 +9,19 @@
 
   "exports": {
     ".": {
+      "import": {
+        "types": "./public/dist/main.d.ts",
+        "default": "./public/dist/main.js"
+      },
+      "module": {
+        "types": "./public/dist/main.d.ts",
+        "default": "./public/dist/main.js"
+      },
       "require": {
         "types": "./public/dist/main.d.ts",
         "default": "./public/dist/main.js"
-      }
+      },
+      "default": "./public/dist/main.js"
     }
   },
 
