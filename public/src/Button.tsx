@@ -14,7 +14,7 @@
 // Props && States
 
     export interface iPropsButton extends iPropsNode {
-        "type"?: "button" | "submit" | "reset";
+        "type"?: HTMLButtonElement["type"];
         "variant"?: tVariant;
         "outline"?: boolean;
         "disabled"?: boolean;
@@ -84,14 +84,14 @@ export default class Button extends React.PureComponent<iPropsButton> {
         }
 
         return <button id={ this.props.id }
-            role="button" type={ this.props.type ? this.props.type : "button" }
+            role="button" type={ this.props.type ?? "button" }
             className={ className } style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
             title={ this.props.title } aria-label={ this.props.title }
             onClick={ this._handleClick.bind(this) }
         >
-            { this.props.icon ? <Icon type={ this.props.icon } child></Icon> : undefined }
-            { this.props.icon && "undefined" !== typeof this.props.children ? <>&nbsp;</> : undefined }
+            { this.props.icon && <Icon type={ this.props.icon } child></Icon> }
+            { this.props.icon && "undefined" !== typeof this.props.children && <>&nbsp;</> }
             { this.props.children }
         </button>;
 

@@ -27,16 +27,34 @@ module.exports = {
         "test": /\.tsx?$/,
         "exclude": [ /node_modules/ ],
         "use": [
-            {
-                "loader": "ts-loader"
+          {
+            "loader": "ts-loader",
+            "options": {
+              "configFile": join(__dirname, "tsconfig.test.json")
             }
+          }
+        ]
+      },
+      {
+        "test": /\.css$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "css-loader",
+            "options": {
+              "modules": {
+                "namedExport": false,
+                "exportLocalsConvention": "camel-case"
+              }
+            }
+          }
         ]
       }
     ]
   },
 
   "resolve": {
-    "extensions": [ ".tsx", ".ts", ".js" ],
+    "extensions": [ ".tsx", ".ts", ".js", ".css" ],
   }
 
 };

@@ -50,7 +50,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
         let className: string = "nav-item";
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

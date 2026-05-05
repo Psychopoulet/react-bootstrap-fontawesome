@@ -18,7 +18,7 @@ export default class CardTable extends React.PureComponent<iPropsTable> {
 
     public render (): React.JSX.Element {
 
-        return <Table id={ this.props.id } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
+        return <Table id={ this.props.id } className={ "m-0" + ("string" === typeof this.props.className ? " " + this.props.className : "") } style={ this.props.style }
             variant={ this.props.variant }
             bordered={ this.props.bordered }
             borderless={ this.props.borderless }

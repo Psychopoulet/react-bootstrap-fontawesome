@@ -37,11 +37,11 @@ export default class MaxHeightContent extends React.PureComponent<iPropsMaxHeigh
             "overflow": "auto"
         };
 
-        if (this.props.heightPX) {
+        if ("number" === typeof this.props.heightPX) {
             style.height = this.props.heightPX + "px";
         }
 
-        if (this.props.maxHeightPX) {
+        if ("number" === typeof this.props.maxHeightPX) {
             style.maxHeight = this.props.maxHeightPX + "px";
         }
 

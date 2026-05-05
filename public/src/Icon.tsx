@@ -8,10 +8,7 @@
     // locals
     import type { iPropsNode, tVariant, tSize } from "./types";
 
-    export type tIcon =
-
-        // arrow
-        | "up" | "down" | "right" | "left"
+    export type tIcon = "up" | "down" | "right" | "left" // arrow
 
         // brands
         | "amazon" | "angular" | "android" | "apple" | "google" | "linux" | "react" | "windows"

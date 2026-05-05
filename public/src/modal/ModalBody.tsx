@@ -22,7 +22,7 @@ export default class ModalBody extends React.PureComponent<iPropsNode> {
 
         let className: string = "modal-body";
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

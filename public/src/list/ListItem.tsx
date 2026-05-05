@@ -47,7 +47,7 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
                         className += " d-flex justify-content-between align-items-center";
                     }
 
-                    if (this.props.variant) {
+                    if ("string" === typeof this.props.variant) {
                         className += " list-group-item-" + this.props.variant;
                     }
                     else if (variant) {
@@ -66,7 +66,7 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
                         className += " list-group-item-action";
                     }
 
-                    if (this.props.className) {
+                    if ("string" === typeof this.props.className) {
                         className += " " + this.props.className;
                     }
 

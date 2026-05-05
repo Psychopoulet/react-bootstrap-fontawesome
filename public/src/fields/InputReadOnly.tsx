@@ -54,7 +54,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             } style={ this.props.style }
@@ -104,7 +104,7 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

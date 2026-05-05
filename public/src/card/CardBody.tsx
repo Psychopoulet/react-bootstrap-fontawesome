@@ -48,7 +48,7 @@ export default class CardBody extends React.PureComponent<iPropsCardBody> {
                         className += " text-" + variant;
                     }
 
-                    if (this.props.className) {
+                    if ("string" === typeof this.props.className) {
                         className += " " + this.props.className;
                     }
 

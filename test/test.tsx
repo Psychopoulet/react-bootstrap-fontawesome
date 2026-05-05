@@ -125,7 +125,7 @@ class App extends React.Component<{}, iState> {
 
 	// render
 
-    private _renderNav (): React.JSX.Element | undefined {
+    private _renderNav (): JSX.Element | undefined {
 
         switch (this.state.index) {
 
@@ -775,7 +775,7 @@ class App extends React.Component<{}, iState> {
 
     }
 
-	public render (): React.JSX.Element {
+	public render (): JSX.Element {
 
 		return <Card>
 

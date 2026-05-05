@@ -73,7 +73,7 @@ export default class SoundReader extends React.Component<iProps, iStates> {
 
     private _renderTitle (): string {
 
-        if (this.props.title && 0 < this.props.title.length) {
+        if ("string" === typeof this.props.title && 0 < this.props.title.length) {
             return this.props.title;
         }
         else if (0 < this.state.src.length) {

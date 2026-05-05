@@ -30,7 +30,7 @@ export default class CardList extends React.PureComponent<iPropsList> {
 
                 (variant: tVariant): React.JSX.Element => {
 
-                    return <List id={ this.props.id } variant={ this.props.variant || variant } className={ "m-0" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }
+                    return <List id={ this.props.id } variant={ this.props.variant ?? variant } className={ "m-0" + ("string" === typeof this.props.className ? " " + this.props.className : "") } style={ this.props.style }
                         flush={ true }
                     >
                         { this.props.children }

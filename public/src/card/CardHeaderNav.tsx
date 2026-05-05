@@ -20,7 +20,7 @@ export default class CardHeaderNav extends React.PureComponent<iPropsNavTabs> {
 
         let className: string = "card-header";
 
-        if (this.props.className) {
+        if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
 

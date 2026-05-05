@@ -101,7 +101,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.props.value }
-            min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 0.1 }
+            min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 0.1 }
             onChange={ this._handleChange.bind(this) }
 
             onKeyDown={ this.props.onKeyDown }
@@ -159,9 +159,9 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
             />
 
-            { !isNumber ? <InvalidFeedBackFloat /> : undefined }
-            { isNumber && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> : undefined }
-            { isNumber && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> : undefined }
+            { !isNumber && <InvalidFeedBackFloat /> }
+            { isNumber && !minValid && <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> }
+            { isNumber && !maxValid && <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> }
 
         </div>;
 

@@ -114,7 +114,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
 
         // render
-        return <div className={ "input-group" + (this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
+        return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") } style={ this.props.style }>
 
             { this._render() }
 
@@ -184,7 +184,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

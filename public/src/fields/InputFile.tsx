@@ -47,7 +47,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
             const value: File = e.target.files[0];
 
-            if (this.props.maxSize && value.size > this.props.maxSize) {
+            if ("number" === typeof this.props.maxSize && value.size > this.props.maxSize) {
 
                 if ("function" === typeof this.props.onChangeError) {
                     this.props.onChangeError(e, new Error("Incorrect file size"));
@@ -74,7 +74,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
             }
             style={ this.props.style }
@@ -107,7 +107,7 @@ export class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

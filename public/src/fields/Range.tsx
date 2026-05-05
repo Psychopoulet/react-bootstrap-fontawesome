@@ -32,7 +32,7 @@
         "margin-bottom"?: number; // to be able to remove the default one
     }
 
-    interface iStateRange{
+    interface iStateRange {
         "value": number;
     }
 
@@ -120,7 +120,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
             className={
                 "form-control form-range"
-                + (className ? " " + className : "")
+                + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
@@ -132,7 +132,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.state.value }
-            min={ this.props.min } max={ this.props.max } step={ this.props.step ? this.props.step : 1 }
+            min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 1 }
             onChange={ this._handleChange.bind(this) }
             onMouseUp={ this._handleMouseUp.bind(this) }
 
@@ -145,7 +145,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
     public render (): React.JSX.Element {
 
         // render
-        return !this.props.unit ? this._render(this.props.className) : <div className={ "input-group" + (this.props.className ? " " + this.props.className : "") }>
+        return "string" !== typeof this.props.unit ? this._render(this.props.className) : <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 
             { this._render() }
 
@@ -184,7 +184,7 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }
@@ -207,9 +207,9 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
 
             />
 
-            { !integerValid ? <InvalidFeedBackInteger /> : undefined }
-            { integerValid && !minValid ? <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value } /> : undefined }
-            { integerValid && !maxValid ? <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value } /> : undefined }
+            { !integerValid && <InvalidFeedBackInteger /> }
+            { integerValid && !minValid && <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value } /> }
+            { integerValid && !maxValid && <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value } /> }
 
         </div>;
 
