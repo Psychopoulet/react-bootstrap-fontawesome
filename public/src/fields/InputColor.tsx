@@ -103,6 +103,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
             minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
             onChange={ this._handleChange }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
@@ -202,6 +203,7 @@ export class InputColorLabel extends React.PureComponent<iPropsInputColorLabel> 
                 value={ value }
                 onChange={ this.props.onChange }
 
+                onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
             />

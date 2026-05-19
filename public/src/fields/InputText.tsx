@@ -112,6 +112,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
             onChange={ this._handleChange }
 
             onKeyDown={ this.props.onKeyDown }
+            onBlur={ this.props.onBlur }
 
         />;
 

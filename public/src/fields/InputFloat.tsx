@@ -104,6 +104,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
             min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 0.1 }
             onChange={ this._handleChange }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
@@ -155,6 +156,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
                 min={ this.props.min } max={ this.props.max } step={ this.props.step }
                 onChange={ this.props.onChange }
 
+                onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
             />

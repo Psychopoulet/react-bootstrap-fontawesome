@@ -136,6 +136,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
             onChange={ this._handleChange }
             onMouseUp={ this._handleMouseUp }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
@@ -203,6 +204,7 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
                 min={ this.props.min } max={ this.props.max }
                 onChange={ this.props.onChange }
 
+                onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
             />

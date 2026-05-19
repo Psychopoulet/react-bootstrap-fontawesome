@@ -39,7 +39,7 @@ export class InputFloat extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
                 + (this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
 }
 export class InputFloatLabel extends React.PureComponent {
@@ -59,7 +59,7 @@ export class InputFloatLabel extends React.PureComponent {
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            React.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            React.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             !isNumber && React.createElement(InvalidFeedBackFloat, null),
             isNumber && !minValid && React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             isNumber && !maxValid && React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));

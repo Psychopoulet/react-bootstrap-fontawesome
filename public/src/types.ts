@@ -24,6 +24,7 @@ export interface iPropsNode {
             "emptyValidation"?: boolean;
             "_ref"?: React.RefObject<HTMLInputElement>;
             "onKeyDown"?: (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+            "onBlur"?: (e: React.FocusEvent<HTMLInputElement>) => void;
         }
 
 export type tVariant = null | undefined | "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "light" | "dark" | "link";

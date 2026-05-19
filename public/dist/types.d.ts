@@ -16,6 +16,7 @@ export interface iPropsInput extends iPropsField {
     "emptyValidation"?: boolean;
     "_ref"?: React.RefObject<HTMLInputElement>;
     "onKeyDown"?: (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    "onBlur"?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 export type tVariant = null | undefined | "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "light" | "dark" | "link";
 export type tSize = null | undefined | "sm" | "md" | "lg" | "xl";

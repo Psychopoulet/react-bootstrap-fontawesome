@@ -61,6 +61,7 @@ export class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
             minLength={ minLength } maxLength={ InputIPV4.MAX }
             onChange={ this.props.onChange }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
@@ -99,6 +100,7 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
             minLength={ minLength } maxLength={ InputIPV4.MAX }
             onChange={ this.props.onChange }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
