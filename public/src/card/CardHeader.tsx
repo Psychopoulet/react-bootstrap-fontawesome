@@ -43,7 +43,7 @@ export default class CardHeader extends React.PureComponent<iPropsCardHeader> {
 
                     let className: string = "card-header";
 
-                    if (Boolean(this.props.justify)) {
+                    if ("boolean" === typeof this.props.justify && this.props.justify) {
                         className += " d-flex justify-content-between align-items-center";
                     }
 

@@ -60,11 +60,11 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
             linkClassName += " disabled";
         }
 
-        if (Boolean(this.props.active)) {
+        if ("boolean" === typeof this.props.active && this.props.active) {
             linkClassName += " active";
         }
 
-        if (Boolean(this.props.justify)) {
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
             linkClassName += " d-flex justify-content-between";
         }
 

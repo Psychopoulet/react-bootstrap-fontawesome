@@ -108,14 +108,14 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
         let className: string = "nav";
 
-        if (Boolean(this.props.pills)) {
+        if ("boolean" === typeof this.props.pills && this.props.pills) {
             className += " nav-pills";
         }
         else {
             className += " nav-tabs";
         }
 
-        if (Boolean(this.props.justified)) {
+        if ("boolean" === typeof this.props.justified && this.props.justified) {
             className += " nav-justified";
         }
 

@@ -190,7 +190,7 @@ export class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> 
 
         let requiredValid: boolean = true;
 
-        if (Boolean(this.props.emptyValidation)) {
+        if ("boolean" === typeof this.props.emptyValidation && this.props.emptyValidation) {
             requiredValid = required ? 0 < values.length : true;
         }
 
