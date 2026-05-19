@@ -14,7 +14,7 @@ export class InputColor extends React.PureComponent {
     static MIN = 7;
     static MAX = 7;
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -22,7 +22,7 @@ export class InputColor extends React.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
-    }
+    };
     // render
     _render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -38,7 +38,7 @@ export class InputColor extends React.PureComponent {
         const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange, onKeyDown: this.props.onKeyDown });
     }
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";

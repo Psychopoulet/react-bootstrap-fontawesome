@@ -25,7 +25,7 @@ export class InputArray extends React.PureComponent {
         this._focus = generateFocus();
     }
     // events
-    _handleAddLine(e) {
+    _handleAddLine = (e) => {
         const oldValues = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
         const newValues = [
             ...oldValues,
@@ -37,7 +37,7 @@ export class InputArray extends React.PureComponent {
         setTimeout(() => {
             this._focus.setFocus();
         }, 200);
-    }
+    };
     // render
     render() {
         const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
@@ -46,7 +46,7 @@ export class InputArray extends React.PureComponent {
         // render
         return React.createElement(List, { id: this.props.id, className: this.props.className, style: this.props.style },
             React.createElement(ListItemHeader, { className: 0 < values.length ? undefined : "m-0" },
-                React.createElement(Button, { title: "New line", icon: "plus", variant: "success", block: true, onClick: this._handleAddLine.bind(this) }, "New line")),
+                React.createElement(Button, { title: "New line", icon: "plus", variant: "success", block: true, onClick: this._handleAddLine }, "New line")),
             values.map((line, key) => {
                 const _handleChangeLine = (e, newValue) => {
                     e.preventDefault();
@@ -71,8 +71,8 @@ export class InputArray extends React.PureComponent {
                     }
                 };
                 return React.createElement(ListItem, { justify: true, key: key },
-                    React.createElement(InputText, { _ref: key === values.length - 1 ? this._focus.ref : undefined, disabled: disabled, value: line, onChange: _handleChangeLine.bind(this) }),
-                    React.createElement(Button, { title: "Delete item n°" + key, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: _handleDeleteLine.bind(this) }));
+                    React.createElement(InputText, { _ref: key === values.length - 1 ? this._focus.ref : undefined, disabled: disabled, value: line, onChange: _handleChangeLine }),
+                    React.createElement(Button, { title: "Delete item n°" + key, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: _handleDeleteLine }));
             }));
     }
 }
@@ -87,7 +87,7 @@ export class InputArrayLabel extends React.PureComponent {
         const required = Boolean(this.props.required);
         // controls
         let requiredValid = true;
-        if (Boolean(this.props.emptyValidation)) {
+        if ("boolean" === typeof this.props.emptyValidation && this.props.emptyValidation) {
             requiredValid = required ? 0 < values.length : true;
         }
         // render

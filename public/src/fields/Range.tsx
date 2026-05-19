@@ -58,7 +58,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     }
 
-    public UNSAFE_componentWillReceiveProps (nextProps: iPropsRange): void {
+    public componentDidUpdate (nextProps: iPropsRange): void {
 
         if (nextProps.value !== this.state.value) {
 
@@ -72,7 +72,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const value: number = "" === e.target.value.trim() ? 0 : parseInt(e.target.value, 10);
 
@@ -84,15 +84,15 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
             "value": value
         });
 
-    }
+    };
 
-    protected _handleMouseUp (e: React.MouseEvent<HTMLInputElement>): void {
+    protected readonly _handleMouseUp: (e: React.MouseEvent<HTMLInputElement>) => void = (e: React.MouseEvent<HTMLInputElement>): void => {
 
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
 
-    }
+    };
 
     // render
 
@@ -133,8 +133,8 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
             value={ this.state.value }
             min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 1 }
-            onChange={ this._handleChange.bind(this) }
-            onMouseUp={ this._handleMouseUp.bind(this) }
+            onChange={ this._handleChange }
+            onMouseUp={ this._handleMouseUp }
 
             onKeyDown={ this.props.onKeyDown }
 

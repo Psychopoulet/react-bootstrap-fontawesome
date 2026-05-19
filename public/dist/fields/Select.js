@@ -9,7 +9,7 @@ export class Select extends React.PureComponent {
     // name
     static displayName = "Select";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -17,7 +17,7 @@ export class Select extends React.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, this.props.value);
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -29,7 +29,7 @@ export class Select extends React.PureComponent {
         return React.createElement("select", { id: this.props.id, name: this.props.name, required: required, "aria-required": required, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
+                + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange }, this.props.children);
     }
 }
 export class SelectLabel extends React.PureComponent {

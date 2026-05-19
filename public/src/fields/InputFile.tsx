@@ -34,7 +34,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         if (!e.target.files || !e.target.files.length) {
 
@@ -60,7 +60,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
         }
 
-    }
+    };
 
     // render
 
@@ -82,7 +82,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
             title={ this.props.label } aria-label={ this.props.label }
 
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
         />;
 

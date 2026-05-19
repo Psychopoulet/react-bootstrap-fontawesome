@@ -9,7 +9,7 @@ export class InputInteger extends React.PureComponent {
     // name
     static displayName = "InputInteger";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if ("" === e.target.value.trim()) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, 0, "undefined" !== typeof this.props.value ? this.props.value : 0);
@@ -24,7 +24,7 @@ export class InputInteger extends React.PureComponent {
                 this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : 0);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -40,7 +40,7 @@ export class InputInteger extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
                 + (this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onKeyDown: this.props.onKeyDown });
     }
 }
 export class InputIntegerLabel extends React.PureComponent {

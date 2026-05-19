@@ -34,7 +34,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void = (e: React.ChangeEvent<HTMLSelectElement>): void => {
 
         const value: string = e.target.value;
 
@@ -46,7 +46,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
             this.props.onChange(e, value, this.props.value);
         }
 
-    }
+    };
 
     // render
 
@@ -77,7 +77,7 @@ export class Select extends React.PureComponent<iPropsSelect> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.props.value }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
         >
             { this.props.children }

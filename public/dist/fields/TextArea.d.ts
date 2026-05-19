@@ -14,7 +14,7 @@ export interface iPropsTextAreaLabel extends iPropsTextArea {
 }
 export declare class TextArea extends React.PureComponent<iPropsTextArea> {
     static displayName: string;
-    protected _handleChange(e: React.ChangeEvent<HTMLTextAreaElement>): void;
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
     render(): React.JSX.Element;
 }
 export declare class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {

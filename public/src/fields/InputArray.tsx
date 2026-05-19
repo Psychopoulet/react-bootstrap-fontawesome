@@ -64,7 +64,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
     // events
 
-    private _handleAddLine (e: React.MouseEvent<HTMLButtonElement>): void {
+    private readonly _handleAddLine: (e: React.MouseEvent<HTMLButtonElement>) => void = (e: React.MouseEvent<HTMLButtonElement>): void => {
 
         const oldValues: string[] = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
 
@@ -81,7 +81,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
             this._focus.setFocus();
         }, 200);
 
-    }
+    };
 
     // render
 
@@ -99,7 +99,7 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
 
                 <Button title="New line"
                     icon="plus" variant="success" block
-                    onClick={ this._handleAddLine.bind(this) }
+                    onClick={ this._handleAddLine }
                 >
                     New line
                 </Button>
@@ -151,13 +151,13 @@ export class InputArray extends React.PureComponent<iPropsInputArray> {
                     <InputText
                         _ref={ key === values.length - 1 ? this._focus.ref : undefined }
                         disabled={ disabled }
-                        value={ line } onChange={ _handleChangeLine.bind(this) }
+                        value={ line } onChange={ _handleChangeLine }
                     />
 
                     <Button title={ "Delete item n°" + key } className="ms-3"
                         icon="trash" variant="danger"
                         disabled={ disabled }
-                        onClick={ _handleDeleteLine.bind(this) }
+                        onClick={ _handleDeleteLine }
                     />
 
                 </ListItem>;

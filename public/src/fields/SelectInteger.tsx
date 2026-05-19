@@ -36,7 +36,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLSelectElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void = (e: React.ChangeEvent<HTMLSelectElement>): void => {
 
         if ("" === e.target.value.trim()) {
 
@@ -59,7 +59,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
 
         }
 
-    }
+    };
 
     // render
 
@@ -96,7 +96,7 @@ export class SelectInteger extends React.PureComponent<iPropsSelect> {
             title={ this.props.label } aria-label={ this.props.label }
 
             value={ this.props.value }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
         >
             { this.props.children }

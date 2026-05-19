@@ -8,7 +8,7 @@ export default class InputLabel extends React.PureComponent {
     // render
     render() {
         let className = "";
-        if (Boolean(this.props.disabled)) {
+        if ("boolean" === typeof this.props.disabled && this.props.disabled) {
             className += "text-muted";
         }
         else if ("boolean" === typeof this.props.valid && !this.props.valid) {

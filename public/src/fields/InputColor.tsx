@@ -45,7 +45,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const value: string = e.target.value;
 
@@ -57,7 +57,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
 
-    }
+    };
 
     // render
 
@@ -101,7 +101,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
             pattern={ InputColor.PATTERN }
             value={ this.props.value }
             minLength={ InputColor.MIN } maxLength={ InputColor.MAX }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
             onKeyDown={ this.props.onKeyDown }
 

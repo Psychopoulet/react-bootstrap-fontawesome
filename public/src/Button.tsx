@@ -35,7 +35,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     // events
 
-    protected _handleClick (e: React.MouseEvent<HTMLButtonElement>): void {
+    protected readonly _handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void = (e: React.MouseEvent<HTMLButtonElement>): void => {
 
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e);
@@ -47,7 +47,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
         }
 
-    }
+    };
 
     // render
 
@@ -88,7 +88,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
             className={ className } style={ this.props.style }
             disabled={ disabled } aria-disabled={ disabled }
             title={ this.props.title } aria-label={ this.props.title }
-            onClick={ this._handleClick.bind(this) }
+            onClick={ this._handleClick }
         >
             { this.props.icon && <Icon type={ this.props.icon } child></Icon> }
             { this.props.icon && "undefined" !== typeof this.props.children && <>&nbsp;</> }

@@ -30,7 +30,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
 
     // events
 
-    protected _handleToogle (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleToogle: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const value: boolean = e.target.checked;
 
@@ -42,7 +42,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
             this.props.onToogle(e, value, Boolean(this.props.checked));
         }
 
-    }
+    };
 
     // render
 
@@ -65,7 +65,7 @@ export class CheckBox extends React.PureComponent<iPropsCheckBox> {
             title={ this.props.label } aria-label={ this.props.label }
 
             checked={ checked } aria-checked={ checked }
-            onChange={ this._handleToogle.bind(this) }
+            onChange={ this._handleToogle }
 
         />;
 

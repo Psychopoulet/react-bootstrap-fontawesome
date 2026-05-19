@@ -11,7 +11,7 @@ export default class CardBody extends React.PureComponent {
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
             let className = "card-body";
-            if (Boolean(this.props.lead)) {
+            if ("boolean" === typeof this.props.lead && this.props.lead) {
                 className += " lead text-center";
             }
             if (variant) {

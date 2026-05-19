@@ -6,7 +6,7 @@ export default class NavItem extends React.PureComponent {
     // name
     static displayName = "NavItem";
     // events
-    _handleClick(e) {
+    _handleClick = (e) => {
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e, this.props.index);
         }
@@ -14,7 +14,7 @@ export default class NavItem extends React.PureComponent {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         const disabled = Boolean(this.props.disabled);
@@ -26,12 +26,12 @@ export default class NavItem extends React.PureComponent {
         if (disabled) {
             linkClassName += " disabled";
         }
-        if (Boolean(this.props.active)) {
+        if ("boolean" === typeof this.props.active && this.props.active) {
             linkClassName += " active";
         }
-        if (Boolean(this.props.justify)) {
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
             linkClassName += " d-flex justify-content-between";
         }
-        return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? React.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : React.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick.bind(this) }, this.props.children));
+        return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? React.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : React.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick }, this.props.children));
     }
 }

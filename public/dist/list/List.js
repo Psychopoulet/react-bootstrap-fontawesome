@@ -10,7 +10,7 @@ export default class List extends React.PureComponent {
     // render
     render() {
         let className = "list-group";
-        if (Boolean(this.props.flush)) {
+        if ("boolean" === typeof this.props.flush && this.props.flush) {
             className += " list-group-flush";
         }
         if (this.props.horizontal) {

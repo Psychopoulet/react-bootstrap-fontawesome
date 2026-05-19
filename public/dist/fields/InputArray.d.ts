@@ -12,7 +12,7 @@ export declare class InputArray extends React.PureComponent<iPropsInputArray> {
     static displayName: string;
     private readonly _focus;
     constructor(props: iPropsInputArray);
-    private _handleAddLine;
+    private readonly _handleAddLine;
     render(): React.JSX.Element;
 }
 export declare class InputArrayLabel extends React.PureComponent<iPropsInputArrayLabel> {

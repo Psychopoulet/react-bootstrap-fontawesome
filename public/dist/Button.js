@@ -8,7 +8,7 @@ export default class Button extends React.PureComponent {
     // name
     static displayName = "Button";
     // events
-    _handleClick(e) {
+    _handleClick = (e) => {
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e);
         }
@@ -16,7 +16,7 @@ export default class Button extends React.PureComponent {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         const disabled = Boolean(this.props.disabled);
@@ -42,7 +42,7 @@ export default class Button extends React.PureComponent {
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
-        return React.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick.bind(this) },
+        return React.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick },
             this.props.icon && React.createElement(Icon, { type: this.props.icon, child: true }),
             this.props.icon && "undefined" !== typeof this.props.children && React.createElement(React.Fragment, null, "\u00A0"),
             this.props.children);
