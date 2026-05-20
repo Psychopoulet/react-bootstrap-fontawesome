@@ -57,7 +57,7 @@
 
   "dependencies": {},
   "devDependencies": {
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
     "check-version-modules": "2.4.0",
     "colors": "1.4.0",
@@ -70,7 +70,7 @@
     "style-loader": "4.0.0",
     "ts-loader": "9.5.7",
     "used-deps-analyzer": "0.3.0",
-    "webpack": "5.106.2",
+    "webpack": "5.107.0",
     "webpack-cli": "7.0.2"
   },
 
