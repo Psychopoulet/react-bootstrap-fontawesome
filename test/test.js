@@ -31492,11 +31492,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _card_CardHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../card/CardHeader */ "./public/src/card/CardHeader.tsx");
 /* harmony import */ var _card_CardBody__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../card/CardBody */ "./public/src/card/CardBody.tsx");
 /* harmony import */ var _card_CardFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../card/CardFooter */ "./public/src/card/CardFooter.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
-/* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
-/* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
-/* harmony import */ var _list_ListItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../list/ListItem */ "./public/src/list/ListItem.tsx");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
+/* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
+/* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
+/* harmony import */ var _utils_InputArrayV2Line__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/InputArrayV2Line */ "./public/src/fields/utils/InputArrayV2Line.tsx");
 /* harmony import */ var _FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FieldFeedBacks */ "./public/src/fields/FieldFeedBacks.tsx");
 // deps
 // externals
@@ -31528,74 +31528,19 @@ function _valuesEqual(a, b) {
     }
     return true;
 }
-// line component (memoized)
-class InputArrayV2Line extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
-    // name
-    static displayName = "InputArrayV2Line";
-    // constructor
-    constructor(props) {
-        super(props);
-        this.state = {
-            "value": props.value
-        };
-    }
-    // lifecycle
-    componentDidUpdate(prevProps) {
-        if (prevProps.value !== this.props.value) {
-            this.setState({
-                "value": this.props.value
-            });
-        }
-    }
-    // events
-    _handleChange = (e, newValue) => {
-        this.setState({
-            "value": newValue
-        });
-    };
-    _handleBlur = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (this.props.value !== this.state.value) {
-            this.props.onLineChange(e, this.props.index, this.state.value, this.props.value);
-        }
-    };
-    _handleKeyDown = (e) => {
-        if ("Enter" === e.key) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (this.props.value !== this.state.value) {
-                this.props.onLineChange(e, this.props.index, this.state.value, this.props.value);
-            }
-        }
-    };
-    _handleDelete = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        this.props.onLineDelete(e, this.props.index, this.props.value);
-    };
-    // render
-    render() {
-        const { index, disabled, inputRef } = this.props;
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_9__["default"], { justify: true, key: index },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_6__.InputText, { _ref: inputRef, disabled: disabled, value: this.state.value, onChange: this._handleChange, onBlur: this._handleBlur, onKeyDown: this._handleKeyDown }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: this._handleDelete }));
-    }
-}
 // component
 class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // name
     static displayName = "InputArrayV2";
     // private
     _focus;
-    _addingLineIndex = null;
     // constructor
     constructor(props) {
         super(props);
         this._focus = (0,_generateFocus__WEBPACK_IMPORTED_MODULE_1__["default"])();
-        this._addingLineIndex = null;
         this.state = {
-            "values": _normalizeValues(props.value)
+            "values": _normalizeValues(props.value),
+            "newLine": ""
         };
     }
     // lifecycle
@@ -31609,33 +31554,48 @@ class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
     }
     // events
-    _handleAddLine = (e) => {
-        this._addingLineIndex = this.state.values.length;
+    _handleChangeNewLine = (e, newValue) => {
+        e.preventDefault();
+        e.stopPropagation();
         this.setState({
-            "values": [
-                ...this.state.values,
-                ""
-            ]
+            "newLine": newValue
         });
+    };
+    _handleAddLineWithEnter = (e) => {
+        if ("Enter" === e.key) {
+            this._handleAddLine(e);
+        }
+    };
+    _handleAddLine = (e) => {
+        const index = this.state.values.length;
+        const newValue = this.state.newLine;
+        const oldValues = [...this.state.values];
+        const newValues = [...oldValues, newValue];
+        this.setState({
+            "values": newValues,
+            "newLine": ""
+        });
+        if ("function" === typeof this.props.onAddLine) {
+            this.props.onAddLine(e, index, newValue);
+        }
+        if ("function" === typeof this.props.onChange) {
+            this.props.onChange(e, newValues, oldValues);
+        }
         setTimeout(() => {
             this._focus.setFocus();
         }, 200);
     };
-    _handleLineChange = (e, index, newValue, oldValue) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if ("undefined" !== typeof this.state.values[index] && newValue !== this.state.values[index]) {
-            if ("number" === typeof this._addingLineIndex && index === this._addingLineIndex) {
-                this._addingLineIndex = null;
-                console.log("InputArrayV2", "onAddLine", index, newValue);
-                if ("function" === typeof this.props.onAddLine) {
-                    this.props.onAddLine(e, index, newValue);
-                }
-            }
+    _handleLineChange = (e, index, newValue) => {
+        if ("undefined" === typeof this.state.values[index]) {
+            return;
+        }
+        if (newValue !== this.state.values[index]) {
             const newValues = [...this.state.values];
             const oldValues = [...this.state.values];
             newValues[index] = newValue;
-            console.log("InputArrayV2", "onChange", newValues, oldValues);
+            this.setState({
+                "values": newValues
+            });
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, newValues, oldValues);
             }
@@ -31651,6 +31611,9 @@ class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
         const lines = [...this.state.values];
         lines.splice(index, 1);
+        this.setState({
+            "values": lines
+        });
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, lines, [...this.state.values]);
         }
@@ -31658,12 +31621,12 @@ class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // render
     render() {
         const disabled = "boolean" === typeof this.props.disabled && this.props.disabled;
-        const lastIndex = this.state.values.length - 1;
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_7__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__["default"], { className: 0 < this.state.values.length ? undefined : "m-0" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "New line", icon: "plus", variant: "success", block: true, disabled: disabled, onClick: this._handleAddLine }, "New line")),
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_6__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__["default"], { className: 0 < this.state.values.length ? undefined : "m-0", justify: true },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_8__.InputText, { _ref: this._focus.ref, disabled: disabled, value: this.state.newLine, onChange: this._handleChangeNewLine, onKeyDown: this._handleAddLineWithEnter }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], { icon: "plus", variant: "success", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
             this.state.values.map((line, index) => {
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArrayV2Line, { key: index, index: index, value: line, disabled: disabled, inputRef: index === lastIndex ? this._focus.ref : undefined, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_InputArrayV2Line__WEBPACK_IMPORTED_MODULE_10__["default"], { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
             }));
     }
 }
@@ -32712,6 +32675,78 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
 
 /***/ },
 
+/***/ "./public/src/fields/utils/InputArrayV2Line.tsx"
+/*!******************************************************!*\
+  !*** ./public/src/fields/utils/InputArrayV2Line.tsx ***!
+  \******************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ InputArrayV2Line)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../InputText */ "./public/src/fields/InputText.tsx");
+/* harmony import */ var _list_ListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../list/ListItem */ "./public/src/list/ListItem.tsx");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Button */ "./public/src/Button.tsx");
+// deps
+// externals
+
+// locals
+
+
+
+// component
+class InputArrayV2Line extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+    // name
+    static displayName = "InputArrayV2Line";
+    // constructor
+    constructor(props) {
+        super(props);
+        this.state = {
+            "value": props.value
+        };
+    }
+    // lifecycle
+    componentDidUpdate(prevProps) {
+        if (prevProps.value !== this.props.value) {
+            this.setState({
+                "value": this.props.value
+            });
+        }
+    }
+    // events
+    _handleChange = (e, newValue) => {
+        this.setState({
+            "value": newValue
+        });
+    };
+    _handleBlur = (e) => {
+        if (this.props.value !== this.state.value) {
+            this.props.onLineChange(e, this.props.index, this.state.value, this.props.value, "blur");
+        }
+    };
+    _handleKeyDown = (e) => {
+        if ("Enter" === e.key && this.props.value !== this.state.value) {
+            this.props.onLineChange(e, this.props.index, this.state.value, this.props.value, "enter");
+        }
+    };
+    _handleDelete = (e) => {
+        this.props.onLineDelete(e, this.props.index, this.props.value);
+    };
+    // render
+    render() {
+        const { index, disabled, inputRef } = this.props;
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_2__["default"], { justify: true, key: index },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { _ref: inputRef, disabled: disabled, value: this.state.value, onChange: this._handleChange, onBlur: this._handleBlur, onKeyDown: this._handleKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: this._handleDelete }));
+    }
+}
+
+
+/***/ },
+
 /***/ "./public/src/generateFocus.ts"
 /*!*************************************!*\
   !*** ./public/src/generateFocus.ts ***!
@@ -32906,6 +32941,9 @@ class ListItemHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         let className = "list-group-item-heading";
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
+        }
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
+            className += " d-flex justify-content-between align-items-center";
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
@@ -34207,23 +34245,31 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxLabel, { label: "CheckBoxLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxLabel to " + String(value)); }, "margin-bottom": 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxPrettierLabel, { label: "CheckBoxPrettierLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } }));
-            case TABS.findIndex((value) => { return "InputArray" === value; }):
+            case TABS.findIndex((value) => { return "InputArray" === value; }): {
+                let values = ["line 1", "line 2"];
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArray to " + JSON.stringify(value)); } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } }));
-            case TABS.findIndex((value) => { return "InputArrayV2" === value; }):
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: values, onChange: (e, value) => {
+                            alert("change InputArray to " + JSON.stringify(value));
+                        } }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: values, onChange: (e, value) => {
+                            alert("change InputArrayLabel to " + JSON.stringify(value));
+                        } }));
+            }
+            case TABS.findIndex((value) => { return "InputArrayV2" === value; }): {
+                let values = ["line 1", "line 2"];
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: ["line 1", "line 2"], onChange: (e, value) => {
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: values, onChange: (e, value) => {
                             alert("change InputArrayV2 to " + JSON.stringify(value));
                         } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2Label, { label: "InputArrayV2Label", value: ["line 1", "line 2"], onChange: (e, value) => {
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2Label, { label: "InputArrayV2Label", value: values, onChange: (e, value) => {
                             alert("change InputArrayV2Label to " + JSON.stringify(value));
                         } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: ["line 1", "line 2"], onDeleteLine: (e, key, value) => {
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: values, onDeleteLine: (e, key, value) => {
                             alert("delete \"" + value + "\" at key " + key);
                         }, onAddLine: (e, index, newValue) => {
                             alert("add \"" + newValue + "\" at key " + index);
                         } }));
+            }
             case TABS.findIndex((value) => { return "InputColor" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),
