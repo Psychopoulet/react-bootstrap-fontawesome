@@ -15,6 +15,7 @@
     import List from "../list/List";
     import ListItemHeader from "../list/ListItemHeader";
 
+    import { InputText } from "./InputText";
     import Button from "../Button";
 
     import InputArrayV2Line from "./utils/InputArrayV2Line";
@@ -32,7 +33,7 @@
     export interface iPropsInputArrayV2 extends iPropsInput {
         "value"?: string[];
         "onChange"?: (e: React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>, newValue: string[], oldValue: string[]) => void;
-        "onAddLine"?: (e: React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, index: number, newValue: string) => void;
+        "onAddLine"?: (e: React.MouseEvent<HTMLButtonElement>, index: number, newValue: string) => void;
         "onDeleteLine"?: (e: React.MouseEvent<HTMLButtonElement>, index: number, value: string) => void;
     }
 
@@ -42,6 +43,7 @@
     }
 
     export interface iStateInputArrayV2 {
+        "newLine": string;
         "values": string[];
     }
 
@@ -82,7 +84,6 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
     // private
 
         private readonly _focus: iGenerateFocusCallback<HTMLInputElement>;
-        protected _addingLineIndex: number | null = null;
 
     // constructor
 
@@ -91,10 +92,10 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
         super(props);
 
         this._focus = generateFocus();
-        this._addingLineIndex = null;
 
         this.state = {
-            "values": _normalizeValues(props.value)
+            "values": _normalizeValues(props.value),
+            "newLine": ""
         };
 
     }
@@ -108,8 +109,6 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
 
         if (!_valuesEqual(prevPropValues, nextPropValues)) {
 
-            console.log("InputArrayV2", "componentDidUpdate", prevProps.value, this.props.value);
-
             this.setState({
                 "values": nextPropValues
             });
@@ -120,16 +119,40 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
 
     // events
 
-    private readonly _handleAddLine = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    private readonly _handleChangeNewLine = (e: React.ChangeEvent<HTMLInputElement>, newValue: string): void => {
 
-        this._addingLineIndex = this.state.values.length;
+        e.preventDefault();
+        e.stopPropagation();
 
         this.setState({
-            "values": [
-                ...this.state.values,
-                ""
-            ]
+            "newLine": newValue
         });
+
+    };
+
+    private readonly _handleAddLine = (e: React.MouseEvent<HTMLButtonElement>): void => {
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const index: number = this.state.values.length;
+        const newValue: string = this.state.newLine;
+
+        const oldValues: string[] = [ ...this.state.values ];
+        const newValues: string[] = [ ...oldValues, newValue ];
+
+        this.setState({
+            "values": newValues,
+            "newLine": ""
+        });
+
+        if ("function" === typeof this.props.onAddLine) {
+            this.props.onAddLine(e, index, newValue);
+        }
+
+        if ("function" === typeof this.props.onChange) {
+            this.props.onChange(e, newValues, oldValues);
+        }
 
         setTimeout((): void => {
             this._focus.setFocus();
@@ -137,26 +160,13 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
 
     };
 
-    private readonly _handleLineChange = (e: React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, index: number, newValue: string, oldValue: string): void => {
+    private readonly _handleLineChange = (e: React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, index: number, newValue: string): void => {
 
-        e.preventDefault();
-        e.stopPropagation();
+        if ("undefined" === typeof this.state.values[index]) {
+            return;
+        }
 
-        console.log("InputArrayV2", "_handleLineChange", index, newValue, oldValue);
-
-        if ("undefined" !== typeof this.state.values[index] && newValue !== this.state.values[index]) {
-
-            if ("number" === typeof this._addingLineIndex && index === this._addingLineIndex) {
-
-                this._addingLineIndex = null;
-
-                console.log("InputArrayV2", "onAddLine", index, newValue);
-
-                if ("function" === typeof this.props.onAddLine) {
-                    this.props.onAddLine(e, index, newValue);
-                }
-
-            }
+        if (newValue !== this.state.values[index]) {
 
             const newValues: string[] = [ ...this.state.values ];
             const oldValues: string[] = [ ...this.state.values ];
@@ -166,8 +176,6 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
             this.setState({
                 "values": newValues
             });
-
-            console.log("InputArrayV2", "onChange", newValues, oldValues);
 
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, newValues, oldValues);
@@ -208,37 +216,38 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
     public render (): React.JSX.Element {
 
         const disabled: boolean = "boolean" === typeof this.props.disabled && this.props.disabled;
-        const lastIndex: number = this.state.values.length - 1;
 
         return <List id={ this.props.id } className={ this.props.className } style={ this.props.style }>
 
-            <ListItemHeader className={ 0 < this.state.values.length ? undefined : "m-0" }>
+                <ListItemHeader className={ 0 < this.state.values.length ? undefined : "m-0" } justify>
 
-                <Button title="New line"
-                    icon="plus" variant="success" block
-                    disabled={ disabled }
-                    onClick={ this._handleAddLine }
-                >
-                    New line
-                </Button>
+                    <InputText _ref={ this._focus.ref }
+                        disabled={ disabled }
+                        value={ this.state.newLine }
+                        onChange={ this._handleChangeNewLine }
+                    />
 
-            </ListItemHeader>
+                    <Button icon="plus" variant="success" className="ms-3"
+                        disabled={ disabled }
+                        onClick={ this._handleAddLine }
+                    />
 
-            { this.state.values.map((line: string, index: number): React.JSX.Element => {
+                </ListItemHeader>
 
-                return <InputArrayV2Line
-                    key={ index }
-                    index={ index }
-                    value={ line }
-                    disabled={ disabled }
-                    inputRef={ index === lastIndex ? this._focus.ref : undefined }
-                    onLineChange={ this._handleLineChange }
-                    onLineDelete={ this._handleLineDelete }
-                />;
+                { this.state.values.map((line: string, index: number): React.JSX.Element => {
 
-            }) }
+                    return <InputArrayV2Line
+                        key={ index }
+                        index={ index }
+                        value={ line }
+                        disabled={ disabled }
+                        onLineChange={ this._handleLineChange }
+                        onLineDelete={ this._handleLineDelete }
+                    />;
 
-        </List>;
+                }) }
+
+            </List>;
 
     }
 
