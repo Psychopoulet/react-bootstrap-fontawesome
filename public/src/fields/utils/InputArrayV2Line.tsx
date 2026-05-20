@@ -88,12 +88,8 @@ export default class InputArrayV2Line extends React.Component<iPropsInputArrayV2
 
     private readonly _handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
 
-        if ("Enter" === e.key) {
-
-            if (this.props.value !== this.state.value) {
-                this.props.onLineChange(e as React.KeyboardEvent<HTMLInputElement>, this.props.index, this.state.value, this.props.value, "enter");
-            }
-
+        if ("Enter" === e.key && this.props.value !== this.state.value) {
+            this.props.onLineChange(e as React.KeyboardEvent<HTMLInputElement>, this.props.index, this.state.value, this.props.value, "enter");
         }
 
     };
