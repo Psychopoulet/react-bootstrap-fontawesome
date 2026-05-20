@@ -163,6 +163,10 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
 
                 newValues[index] = newValue;
 
+            this.setState({
+                "values": newValues
+            });
+
             console.log("InputArrayV2", "onChange", newValues, oldValues);
 
             if ("function" === typeof this.props.onChange) {
@@ -188,6 +192,10 @@ export class InputArrayV2 extends React.Component<iPropsInputArrayV2, iStateInpu
         const lines: string[] = [ ...this.state.values ];
 
             lines.splice(index, 1);
+
+        this.setState({
+            "values": lines
+        });
 
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, lines, [ ...this.state.values ]);

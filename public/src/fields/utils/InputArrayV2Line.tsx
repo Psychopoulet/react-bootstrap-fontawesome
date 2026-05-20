@@ -95,8 +95,11 @@ export default class InputArrayV2Line extends React.Component<iPropsInputArrayV2
         e.stopPropagation();
 
         if (this.props.value !== this.state.value) {
+
             console.log("InputArrayV2", "InputArrayV2Line", "_handleBlur", this.props.value, this.state.value);
+
             this.props.onLineChange(e, this.props.index, this.state.value, this.props.value);
+
         }
 
     };
@@ -108,13 +111,11 @@ export default class InputArrayV2Line extends React.Component<iPropsInputArrayV2
             e.preventDefault();
             e.stopPropagation();
 
-            if (this.props.value !== this.state.value) {
-                console.log("InputArrayV2", "InputArrayV2Line", "_handleKeyDown", this.props.value, this.state.value);
-                this.props.onLineChange(e as React.KeyboardEvent<HTMLInputElement>, this.props.index, this.state.value, this.props.value);
-            }
+            console.log("InputArrayV2", "InputArrayV2Line", "_handleBlur", this.props.value, this.state.value);
+
+            this.props.onLineChange(e as React.KeyboardEvent<HTMLInputElement>, this.props.index, this.state.value, this.props.value);
 
         }
-
     };
 
     private readonly _handleDelete = (e: React.MouseEvent<HTMLButtonElement>): void => {
