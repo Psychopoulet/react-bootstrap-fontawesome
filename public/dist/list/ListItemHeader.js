@@ -11,6 +11,9 @@ export default class ListItemHeader extends React.PureComponent {
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
+            className += " d-flex justify-content-between align-items-center";
+        }
         return React.createElement("h4", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
 }
