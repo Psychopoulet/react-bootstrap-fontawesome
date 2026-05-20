@@ -16,7 +16,7 @@
 
 // Props && States
 
-    interface iPropsInputArrayV2Line extends iPropsInput {
+    interface iPropsInputArrayLine extends iPropsInput {
         "index": number;
         "value": string;
         "disabled": boolean;
@@ -25,26 +25,26 @@
         "onLineDelete": (e: React.MouseEvent<HTMLButtonElement>, index: number, newValue: string) => void;
     }
 
-    export interface iPropsInputArrayV2Label extends iPropsInputArrayV2Line {
+    export interface iPropsInputArrayLabel extends iPropsInputArrayLine {
         "label": string;
         "margin-bottom"?: number; // to be able to remove the default one
     }
 
-    interface iStateInputArrayV2Line {
+    interface iStateInputArrayLine {
         "value": string;
     }
 
 // component
 
-export default class InputArrayV2Line extends React.Component<iPropsInputArrayV2Line, iStateInputArrayV2Line> {
+export default class InputArrayLine extends React.Component<iPropsInputArrayLine, iStateInputArrayLine> {
 
     // name
 
-        public static displayName: string = "InputArrayV2Line";
+        public static displayName: string = "InputArrayLine";
 
     // constructor
 
-    public constructor (props: iPropsInputArrayV2Line) {
+    public constructor (props: iPropsInputArrayLine) {
 
         super(props);
 
@@ -56,7 +56,7 @@ export default class InputArrayV2Line extends React.Component<iPropsInputArrayV2
 
     // lifecycle
 
-    public componentDidUpdate (prevProps: iPropsInputArrayV2Line): void {
+    public componentDidUpdate (prevProps: iPropsInputArrayLine): void {
 
         if (prevProps.value !== this.props.value) {
 

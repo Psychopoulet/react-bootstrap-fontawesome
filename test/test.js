@@ -31360,143 +31360,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _card_CardHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../card/CardHeader */ "./public/src/card/CardHeader.tsx");
 /* harmony import */ var _card_CardBody__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../card/CardBody */ "./public/src/card/CardBody.tsx");
 /* harmony import */ var _card_CardFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../card/CardFooter */ "./public/src/card/CardFooter.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
-/* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
-/* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
-/* harmony import */ var _list_ListItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../list/ListItem */ "./public/src/list/ListItem.tsx");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
-/* harmony import */ var _FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FieldFeedBacks */ "./public/src/fields/FieldFeedBacks.tsx");
-// deps
-// externals
-
-// locals
-
-
-
-
-
-
-
-
-
-
-
-// component
-class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
-    // name
-    static displayName = "InputArray";
-    // private
-    _focus;
-    // constructor
-    constructor(props) {
-        super(props);
-        this._focus = (0,_generateFocus__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    }
-    // events
-    _handleAddLine = (e) => {
-        const oldValues = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        const newValues = [
-            ...oldValues,
-            ""
-        ];
-        if ("function" === typeof this.props.onChange) {
-            this.props.onChange(e, newValues, oldValues);
-        }
-        setTimeout(() => {
-            this._focus.setFocus();
-        }, 200);
-    };
-    // render
-    render() {
-        const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        // props values
-        const disabled = Boolean(this.props.disabled);
-        // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_7__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__["default"], { className: 0 < values.length ? undefined : "m-0" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "New line", icon: "plus", variant: "success", block: true, onClick: this._handleAddLine }, "New line")),
-            values.map((line, key) => {
-                const _handleChangeLine = (e, newValue) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (undefined !== typeof values[key] && newValue !== values[key]) {
-                        const lines = [...values];
-                        lines[key] = newValue;
-                        if ("function" === typeof this.props.onChange) {
-                            this.props.onChange(e, lines, values);
-                        }
-                    }
-                };
-                const _handleDeleteLine = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (undefined !== typeof values[key]) {
-                        const lines = [...values];
-                        lines.splice(key, 1);
-                        if ("function" === typeof this.props.onChange) {
-                            this.props.onChange(e, lines, values);
-                        }
-                    }
-                };
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_9__["default"], { justify: true, key: key },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_6__.InputText, { _ref: key === values.length - 1 ? this._focus.ref : undefined, disabled: disabled, value: line, onChange: _handleChangeLine }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "Delete item n°" + key, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: _handleDeleteLine }));
-            }));
-    }
-}
-class InputArrayLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
-    // name
-    static displayName = "iPropsInputArrayLabel";
-    // render
-    render() {
-        const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        // props values
-        const disabled = Boolean(this.props.disabled);
-        const required = Boolean(this.props.required);
-        // controls
-        let requiredValid = true;
-        if ("boolean" === typeof this.props.emptyValidation && this.props.emptyValidation) {
-            requiredValid = required ? 0 < values.length : true;
-        }
-        // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_Card__WEBPACK_IMPORTED_MODULE_2__["default"], { id: this.props.id, className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null,
-                this.props.label,
-                required && react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", { className: "fa fa-asterisk text-danger", style: { "fontSize": "60%" }, "aria-hidden": "true" })),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardBody__WEBPACK_IMPORTED_MODULE_4__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArray, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange })),
-            !requiredValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardFooter__WEBPACK_IMPORTED_MODULE_5__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__.InvalidFeedBackRequired, null)));
-    }
-}
-
-
-/***/ },
-
-/***/ "./public/src/fields/InputArrayV2.tsx"
-/*!********************************************!*\
-  !*** ./public/src/fields/InputArrayV2.tsx ***!
-  \********************************************/
-(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   InputArrayV2: () => (/* binding */ InputArrayV2),
-/* harmony export */   InputArrayV2Label: () => (/* binding */ InputArrayV2Label)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _generateFocus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../generateFocus */ "./public/src/generateFocus.ts");
-/* harmony import */ var _card_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../card/Card */ "./public/src/card/Card.tsx");
-/* harmony import */ var _card_CardHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../card/CardHeader */ "./public/src/card/CardHeader.tsx");
-/* harmony import */ var _card_CardBody__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../card/CardBody */ "./public/src/card/CardBody.tsx");
-/* harmony import */ var _card_CardFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../card/CardFooter */ "./public/src/card/CardFooter.tsx");
 /* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
 /* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
 /* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
-/* harmony import */ var _utils_InputArrayV2Line__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/InputArrayV2Line */ "./public/src/fields/utils/InputArrayV2Line.tsx");
+/* harmony import */ var _utils_InputArrayLine__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/InputArrayLine */ "./public/src/fields/utils/InputArrayLine.tsx");
 /* harmony import */ var _FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FieldFeedBacks */ "./public/src/fields/FieldFeedBacks.tsx");
 // deps
 // externals
@@ -31529,9 +31397,9 @@ function _valuesEqual(a, b) {
     return true;
 }
 // component
-class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // name
-    static displayName = "InputArrayV2";
+    static displayName = "InputArray";
     // private
     _focus;
     // constructor
@@ -31626,13 +31494,13 @@ class InputArrayV2 extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_8__.InputText, { _ref: this._focus.ref, disabled: disabled, value: this.state.newLine, onChange: this._handleChangeNewLine, onKeyDown: this._handleAddLineWithEnter }),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], { icon: "plus", variant: "success", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
             this.state.values.map((line, index) => {
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_InputArrayV2Line__WEBPACK_IMPORTED_MODULE_10__["default"], { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_InputArrayLine__WEBPACK_IMPORTED_MODULE_10__["default"], { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
             }));
     }
 }
-class InputArrayV2Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+class InputArrayLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
-    static displayName = "InputArrayV2Label";
+    static displayName = "InputArrayLabel";
     // render
     render() {
         const values = _normalizeValues(this.props.value);
@@ -31648,7 +31516,7 @@ class InputArrayV2Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent
                 this.props.label,
                 required && react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", { className: "fa fa-asterisk text-danger", style: { "fontSize": "60%" }, "aria-hidden": "true" })),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardBody__WEBPACK_IMPORTED_MODULE_4__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArrayV2, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange, onAddLine: this.props.onAddLine, onDeleteLine: this.props.onDeleteLine })),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArray, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange, onAddLine: this.props.onAddLine, onDeleteLine: this.props.onDeleteLine })),
             !requiredValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardFooter__WEBPACK_IMPORTED_MODULE_5__["default"], null,
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__.InvalidFeedBackRequired, null)));
     }
@@ -32675,15 +32543,15 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
 
 /***/ },
 
-/***/ "./public/src/fields/utils/InputArrayV2Line.tsx"
-/*!******************************************************!*\
-  !*** ./public/src/fields/utils/InputArrayV2Line.tsx ***!
-  \******************************************************/
+/***/ "./public/src/fields/utils/InputArrayLine.tsx"
+/*!****************************************************!*\
+  !*** ./public/src/fields/utils/InputArrayLine.tsx ***!
+  \****************************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ InputArrayV2Line)
+/* harmony export */   "default": () => (/* binding */ InputArrayLine)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -32698,9 +32566,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // component
-class InputArrayV2Line extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+class InputArrayLine extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // name
-    static displayName = "InputArrayV2Line";
+    static displayName = "InputArrayLine";
     // constructor
     constructor(props) {
         super(props);
@@ -33824,14 +33692,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _public_src_main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/src/main */ "./public/src/main.ts");
-/* harmony import */ var _public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../public/src/fields/InputArrayV2 */ "./public/src/fields/InputArrayV2.tsx");
 
 // deps
 // externals
 
 
 // locals
-
 
 // consts
 const VARIANTS = [
@@ -33858,7 +33724,6 @@ const TABS = [
     "SoundReader",
     "CheckBox",
     "InputArray",
-    "InputArrayV2",
     "InputColor"
 ];
 // component
@@ -34253,18 +34118,8 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                         } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: values, onChange: (e, value) => {
                             alert("change InputArrayLabel to " + JSON.stringify(value));
-                        } }));
-            }
-            case TABS.findIndex((value) => { return "InputArrayV2" === value; }): {
-                let values = ["line 1", "line 2"];
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: values, onChange: (e, value) => {
-                            alert("change InputArrayV2 to " + JSON.stringify(value));
                         } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2Label, { label: "InputArrayV2Label", value: values, onChange: (e, value) => {
-                            alert("change InputArrayV2Label to " + JSON.stringify(value));
-                        } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_fields_InputArrayV2__WEBPACK_IMPORTED_MODULE_3__.InputArrayV2, { value: values, onDeleteLine: (e, key, value) => {
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: values, onDeleteLine: (e, key, value) => {
                             alert("delete \"" + value + "\" at key " + key);
                         }, onAddLine: (e, index, newValue) => {
                             alert("add \"" + newValue + "\" at key " + index);
