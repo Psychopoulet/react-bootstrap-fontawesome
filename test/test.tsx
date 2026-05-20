@@ -35,6 +35,8 @@
 
     } from "../public/src/main";
 
+    import { InputArrayV2, InputArrayV2Label } from "../public/src/fields/InputArrayV2";
+
     /*
     import {
         InvalidFeedBack,
@@ -96,6 +98,7 @@
         "SoundReader",
         "CheckBox",
         "InputArray",
+        "InputArrayV2",
         "InputColor"
     ];
 
@@ -757,6 +760,33 @@ class App extends React.Component<{}, iState> {
 
                     <InputArray value={ [ "line 1", "line 2" ] } onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>, value: string[]) => { alert("change InputArray to " + JSON.stringify(value)); } } />
                     <InputArrayLabel label="InputArrayLabel" value={ [ "line 1", "line 2" ] } onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>, value: string[]) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } } />
+
+                </CardBody>;
+
+            case TABS.findIndex((value: string): boolean => { return "InputArrayV2" === value; }):
+
+                return <CardBody>
+
+                    <InputArrayV2 value={ [ "line 1", "line 2" ] }
+                        onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, value: string[]) => {
+                            alert("change InputArrayV2 to " + JSON.stringify(value));
+                        } }
+                    />
+
+                    <InputArrayV2Label label="InputArrayV2Label" value={ [ "line 1", "line 2" ] }
+                        onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, value: string[]) => {
+                            alert("change InputArrayV2Label to " + JSON.stringify(value));
+                        } }
+                    />
+
+                    <InputArrayV2 value={ [ "line 1", "line 2" ] }
+                        onDeleteLine={ (e: React.MouseEvent<HTMLButtonElement>, key: number, value: string) => {
+                            alert("delete \"" + value + "\" at key " + key);
+                        } }
+                        onAddLine={ (e: React.ChangeEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, index: number, newValue: string) => {
+                            alert("add \"" + newValue + "\" at key " + index);
+                        } }
+                    />
 
                 </CardBody>;
 
