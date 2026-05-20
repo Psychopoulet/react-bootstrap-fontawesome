@@ -9,7 +9,7 @@ export class SelectInteger extends React.PureComponent {
     // name
     static displayName = "SelectInteger";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if ("" === e.target.value.trim()) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, 0, this.props.value);
@@ -24,7 +24,7 @@ export class SelectInteger extends React.PureComponent {
                 this.props.onChange(e, value, this.props.value);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -39,7 +39,7 @@ export class SelectInteger extends React.PureComponent {
         return React.createElement("select", { id: this.props.id, name: this.props.name, required: required, "aria-required": required, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange }, this.props.children);
     }
 }
 export class SelectIntegerLabel extends React.PureComponent {

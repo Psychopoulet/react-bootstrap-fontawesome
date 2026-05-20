@@ -42,7 +42,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLTextAreaElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
 
         const value: string = e.target.value;
 
@@ -54,7 +54,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
 
-    }
+    };
 
     // render
 
@@ -106,7 +106,7 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
 
             value={ this.props.value }
             minLength={ this.props.minLength } maxLength={ this.props.maxLength }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
             onKeyDown={ this.props.onKeyDown }
 

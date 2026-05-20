@@ -27,7 +27,7 @@ export default class NavTabs extends React.Component {
         }
     }
     // events
-    _handleSelect(e, newIndex) {
+    _handleSelect = (e, newIndex) => {
         let newSecuredIndex;
         if (this.props.items) {
             if (newIndex >= this.props.items.length) {
@@ -53,17 +53,17 @@ export default class NavTabs extends React.Component {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         let className = "nav";
-        if (Boolean(this.props.pills)) {
+        if ("boolean" === typeof this.props.pills && this.props.pills) {
             className += " nav-pills";
         }
         else {
             className += " nav-tabs";
         }
-        if (Boolean(this.props.justified)) {
+        if ("boolean" === typeof this.props.justified && this.props.justified) {
             className += " nav-justified";
         }
         if ("string" === typeof this.props.className) {
@@ -71,7 +71,7 @@ export default class NavTabs extends React.Component {
         }
         return React.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style },
             this.props.items ? this.props.items.map((title, key) => {
-                return React.createElement(NavItem, { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect.bind(this) }, title);
+                return React.createElement(NavItem, { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             React.Children.toArray(this.props.children).filter((child) => {
                 return NavItem === child.type;

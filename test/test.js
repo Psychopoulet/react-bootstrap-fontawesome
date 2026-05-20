@@ -27940,11 +27940,11 @@
     };
     (function () {
       var isomorphicReactPackageVersion = React.version;
-      if ("19.2.5" !== isomorphicReactPackageVersion)
+      if ("19.2.6" !== isomorphicReactPackageVersion)
         throw Error(
           'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' +
             (isomorphicReactPackageVersion +
-              "\n  - react-dom:  19.2.5\nLearn more: https://react.dev/warnings/version-mismatch")
+              "\n  - react-dom:  19.2.6\nLearn more: https://react.dev/warnings/version-mismatch")
         );
     })();
     ("function" === typeof Map &&
@@ -27981,10 +27981,10 @@
       !(function () {
         var internals = {
           bundleType: 1,
-          version: "19.2.5",
+          version: "19.2.6",
           rendererPackageName: "react-dom",
           currentDispatcherRef: ReactSharedInternals,
-          reconcilerVersion: "19.2.5"
+          reconcilerVersion: "19.2.6"
         };
         internals.overrideHookState = overrideHookState;
         internals.overrideHookStateDeletePath = overrideHookStateDeletePath;
@@ -28122,7 +28122,7 @@
       listenToAllSupportedEvents(container);
       return new ReactDOMHydrationRoot(initialChildren);
     };
-    exports.version = "19.2.5";
+    exports.version = "19.2.6";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -28556,7 +28556,7 @@
     exports.useFormStatus = function () {
       return resolveDispatcher().useHostTransitionStatus();
     };
-    exports.version = "19.2.5";
+    exports.version = "19.2.6";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -29927,7 +29927,7 @@ if (false) // removed by dead control flow
     exports.useTransition = function () {
       return resolveDispatcher().useTransition();
     };
-    exports.version = "19.2.5";
+    exports.version = "19.2.6";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -30452,7 +30452,7 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "Button";
     // events
-    _handleClick(e) {
+    _handleClick = (e) => {
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e);
         }
@@ -30460,7 +30460,7 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         const disabled = Boolean(this.props.disabled);
@@ -30486,7 +30486,7 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
         }
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick.bind(this) },
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick },
             this.props.icon && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }),
             this.props.icon && "undefined" !== typeof this.props.children && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, "\u00A0"),
             this.props.children);
@@ -30912,7 +30912,7 @@ class CardBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
             let className = "card-body";
-            if (Boolean(this.props.lead)) {
+            if ("boolean" === typeof this.props.lead && this.props.lead) {
                 className += " lead text-center";
             }
             if (variant) {
@@ -31019,7 +31019,7 @@ class CardHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
             let className = "card-header";
-            if (Boolean(this.props.justify)) {
+            if ("boolean" === typeof this.props.justify && this.props.justify) {
                 className += " d-flex justify-content-between align-items-center";
             }
             if (variant) {
@@ -31193,7 +31193,7 @@ class CheckBox extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "CheckBox";
     // events
-    _handleToogle(e) {
+    _handleToogle = (e) => {
         const value = e.target.checked;
         if (value === this.props.checked) {
             return;
@@ -31201,7 +31201,7 @@ class CheckBox extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onToogle) {
             this.props.onToogle(e, value, Boolean(this.props.checked));
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -31209,7 +31209,7 @@ class CheckBox extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const checked = Boolean(this.props.checked);
         // render
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, role: "checkbox", type: "checkbox", className: ("string" === typeof this.props.className ? this.props.className : "")
-                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle.bind(this) });
+                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle });
     }
 }
 class CheckBoxLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31360,11 +31360,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _card_CardHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../card/CardHeader */ "./public/src/card/CardHeader.tsx");
 /* harmony import */ var _card_CardBody__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../card/CardBody */ "./public/src/card/CardBody.tsx");
 /* harmony import */ var _card_CardFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../card/CardFooter */ "./public/src/card/CardFooter.tsx");
-/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
-/* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
-/* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
-/* harmony import */ var _list_ListItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../list/ListItem */ "./public/src/list/ListItem.tsx");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
+/* harmony import */ var _list_List__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../list/List */ "./public/src/list/List.tsx");
+/* harmony import */ var _list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../list/ListItemHeader */ "./public/src/list/ListItemHeader.tsx");
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./InputText */ "./public/src/fields/InputText.tsx");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button */ "./public/src/Button.tsx");
+/* harmony import */ var _utils_InputArrayLine__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/InputArrayLine */ "./public/src/fields/utils/InputArrayLine.tsx");
 /* harmony import */ var _FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FieldFeedBacks */ "./public/src/fields/FieldFeedBacks.tsx");
 // deps
 // externals
@@ -31381,8 +31381,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// private
+function _normalizeValues(value) {
+    return "object" === typeof value && value instanceof Array ? [...value] : [];
+}
+function _valuesEqual(a, b) {
+    if (a.length !== b.length) {
+        return false;
+    }
+    for (let i = 0; i < a.length; ++i) {
+        if (a[i] !== b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 // component
-class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
+class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // name
     static displayName = "InputArray";
     // private
@@ -31391,81 +31406,117 @@ class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     constructor(props) {
         super(props);
         this._focus = (0,_generateFocus__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        this.state = {
+            "values": _normalizeValues(props.value),
+            "newLine": ""
+        };
+    }
+    // lifecycle
+    componentDidUpdate(prevProps) {
+        const prevPropValues = _normalizeValues(prevProps.value);
+        const nextPropValues = _normalizeValues(this.props.value);
+        if (!_valuesEqual(prevPropValues, nextPropValues)) {
+            this.setState({
+                "values": nextPropValues
+            });
+        }
     }
     // events
-    _handleAddLine(e) {
-        const oldValues = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        const newValues = [
-            ...oldValues,
-            ""
-        ];
+    _handleChangeNewLine = (e, newValue) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.setState({
+            "newLine": newValue
+        });
+    };
+    _handleAddLineWithEnter = (e) => {
+        if ("Enter" === e.key) {
+            this._handleAddLine(e);
+        }
+    };
+    _handleAddLine = (e) => {
+        const index = this.state.values.length;
+        const newValue = this.state.newLine;
+        const oldValues = [...this.state.values];
+        const newValues = [...oldValues, newValue];
+        this.setState({
+            "values": newValues,
+            "newLine": ""
+        });
+        if ("function" === typeof this.props.onAddLine) {
+            this.props.onAddLine(e, index, newValue);
+        }
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, newValues, oldValues);
         }
         setTimeout(() => {
             this._focus.setFocus();
         }, 200);
-    }
+    };
+    _handleLineChange = (e, index, newValue) => {
+        if ("undefined" === typeof this.state.values[index]) {
+            return;
+        }
+        if (newValue !== this.state.values[index]) {
+            const newValues = [...this.state.values];
+            const oldValues = [...this.state.values];
+            newValues[index] = newValue;
+            this.setState({
+                "values": newValues
+            });
+            if ("function" === typeof this.props.onChange) {
+                this.props.onChange(e, newValues, oldValues);
+            }
+        }
+    };
+    _handleLineDelete = (e, index) => {
+        if ("undefined" === typeof this.state.values[index]) {
+            return;
+        }
+        const deletedValue = this.state.values[index];
+        if ("function" === typeof this.props.onDeleteLine) {
+            this.props.onDeleteLine(e, index, deletedValue);
+        }
+        const lines = [...this.state.values];
+        lines.splice(index, 1);
+        this.setState({
+            "values": lines
+        });
+        if ("function" === typeof this.props.onChange) {
+            this.props.onChange(e, lines, [...this.state.values]);
+        }
+    };
     // render
     render() {
-        const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        // props values
-        const disabled = Boolean(this.props.disabled);
-        // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_7__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_8__["default"], { className: 0 < values.length ? undefined : "m-0" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "New line", icon: "plus", variant: "success", block: true, onClick: this._handleAddLine.bind(this) }, "New line")),
-            values.map((line, key) => {
-                const _handleChangeLine = (e, newValue) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (undefined !== typeof values[key] && newValue !== values[key]) {
-                        const lines = [...values];
-                        lines[key] = newValue;
-                        if ("function" === typeof this.props.onChange) {
-                            this.props.onChange(e, lines, values);
-                        }
-                    }
-                };
-                const _handleDeleteLine = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (undefined !== typeof values[key]) {
-                        const lines = [...values];
-                        lines.splice(key, 1);
-                        if ("function" === typeof this.props.onChange) {
-                            this.props.onChange(e, lines, values);
-                        }
-                    }
-                };
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_9__["default"], { justify: true, key: key },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_6__.InputText, { _ref: key === values.length - 1 ? this._focus.ref : undefined, disabled: disabled, value: line, onChange: _handleChangeLine.bind(this) }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_10__["default"], { title: "Delete item n°" + key, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: _handleDeleteLine.bind(this) }));
+        const disabled = "boolean" === typeof this.props.disabled && this.props.disabled;
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_6__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__["default"], { className: 0 < this.state.values.length ? undefined : "m-0", justify: true },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_8__.InputText, { _ref: this._focus.ref, disabled: disabled, value: this.state.newLine, onChange: this._handleChangeNewLine, onKeyDown: this._handleAddLineWithEnter }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], { icon: "plus", variant: "success", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
+            this.state.values.map((line, index) => {
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_InputArrayLine__WEBPACK_IMPORTED_MODULE_10__["default"], { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
             }));
     }
 }
 class InputArrayLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
-    static displayName = "iPropsInputArrayLabel";
+    static displayName = "InputArrayLabel";
     // render
     render() {
-        const values = "object" === typeof this.props.value && this.props.value instanceof Array ? this.props.value : [];
-        // props values
+        const values = _normalizeValues(this.props.value);
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
-        // controls
         let requiredValid = true;
-        if (Boolean(this.props.emptyValidation)) {
+        if ("boolean" === typeof this.props.emptyValidation && this.props.emptyValidation) {
             requiredValid = required ? 0 < values.length : true;
         }
-        // render
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_Card__WEBPACK_IMPORTED_MODULE_2__["default"], { id: this.props.id, className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardHeader__WEBPACK_IMPORTED_MODULE_3__["default"], null,
                 this.props.label,
                 required && react__WEBPACK_IMPORTED_MODULE_0__.createElement("small", { className: "fa fa-asterisk text-danger", style: { "fontSize": "60%" }, "aria-hidden": "true" })),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardBody__WEBPACK_IMPORTED_MODULE_4__["default"], null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArray, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange })),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputArray, { required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, onChange: this.props.onChange, onAddLine: this.props.onAddLine, onDeleteLine: this.props.onDeleteLine })),
             !requiredValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_card_CardFooter__WEBPACK_IMPORTED_MODULE_5__["default"], null,
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_11__.InvalidFeedBackRequired, null)));
     }
@@ -31506,7 +31557,7 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     static MIN = 7;
     static MAX = 7;
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -31514,7 +31565,7 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
-    }
+    };
     // render
     _render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -31530,7 +31581,7 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -31580,7 +31631,7 @@ class InputColorLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_3__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputColor, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: value, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputColor, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: value, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
@@ -31612,7 +31663,7 @@ class InputFile extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "InputFile";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if (!e.target.files || !e.target.files.length) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, null);
@@ -31629,7 +31680,7 @@ class InputFile extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 this.props.onChange(e, value);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -31637,7 +31688,7 @@ class InputFile extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         // render
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "file", className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange.bind(this) });
+                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange });
     }
 }
 class InputFileLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31685,7 +31736,7 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "InputFloat";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if ("" === e.target.value.trim()) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, 0, "undefined" !== typeof this.props.value ? this.props.value : 0);
@@ -31700,7 +31751,7 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : 0);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -31715,7 +31766,7 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
                 + (this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
 }
 class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31735,7 +31786,7 @@ class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             !isNumber && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackFloat, null),
             isNumber && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             isNumber && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -31778,7 +31829,7 @@ class InputIPV4 extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
 }
 class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31790,7 +31841,7 @@ class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown });
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
 }
 
@@ -31823,7 +31874,7 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "InputInteger";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if ("" === e.target.value.trim()) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, 0, "undefined" !== typeof this.props.value ? this.props.value : 0);
@@ -31838,7 +31889,7 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : 0);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -31854,7 +31905,7 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
                 + (this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
 }
 class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31875,7 +31926,7 @@ class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputInteger, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputInteger, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             !integerValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackInteger, null),
             integerValid && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             integerValid && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -31907,7 +31958,7 @@ class InputLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "";
-        if (Boolean(this.props.disabled)) {
+        if ("boolean" === typeof this.props.disabled && this.props.disabled) {
             className += "text-muted";
         }
         else if ("boolean" === typeof this.props.valid && !this.props.valid) {
@@ -32023,7 +32074,7 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "InputText";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -32031,7 +32082,7 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
-    }
+    };
     // render
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -32056,7 +32107,7 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
     }
 }
 class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32145,7 +32196,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
     }
-    UNSAFE_componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         if (nextProps.value !== this.state.value) {
             this.setState({
                 "value": nextProps.value
@@ -32153,7 +32204,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     }
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = "" === e.target.value.trim() ? 0 : parseInt(e.target.value, 10);
         if (value === this.props.value) {
             return;
@@ -32161,12 +32212,12 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         this.setState({
             "value": value
         });
-    }
-    _handleMouseUp(e) {
+    };
+    _handleMouseUp = (e) => {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
-    }
+    };
     // render
     _render(className) {
         // props values
@@ -32182,7 +32233,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange.bind(this), onMouseUp: this._handleMouseUp.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // render
@@ -32211,7 +32262,7 @@ class RangeLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             !integerValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackInteger, null),
             integerValid && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             integerValid && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -32247,7 +32298,7 @@ class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "Select";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -32255,7 +32306,7 @@ class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, this.props.value);
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -32267,7 +32318,7 @@ class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", { id: this.props.id, name: this.props.name, required: required, "aria-required": required, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
+                + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange }, this.props.children);
     }
 }
 class SelectLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32318,7 +32369,7 @@ class SelectInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "SelectInteger";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if ("" === e.target.value.trim()) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, 0, this.props.value);
@@ -32333,7 +32384,7 @@ class SelectInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
                 this.props.onChange(e, value, this.props.value);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -32348,7 +32399,7 @@ class SelectInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", { id: this.props.id, name: this.props.name, required: required, "aria-required": required, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange.bind(this) }, this.props.children);
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange }, this.props.children);
     }
 }
 class SelectIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32403,7 +32454,7 @@ class TextArea extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "TextArea";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -32411,7 +32462,7 @@ class TextArea extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
-    }
+    };
     // render
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -32436,7 +32487,7 @@ class TextArea extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", { id: this.props.id, name: this.props.name, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown });
     }
 }
 class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32486,6 +32537,78 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(TextArea, { id: this.props.id, name: this.props.name, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
+    }
+}
+
+
+/***/ },
+
+/***/ "./public/src/fields/utils/InputArrayLine.tsx"
+/*!****************************************************!*\
+  !*** ./public/src/fields/utils/InputArrayLine.tsx ***!
+  \****************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ InputArrayLine)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _InputText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../InputText */ "./public/src/fields/InputText.tsx");
+/* harmony import */ var _list_ListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../list/ListItem */ "./public/src/list/ListItem.tsx");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Button */ "./public/src/Button.tsx");
+// deps
+// externals
+
+// locals
+
+
+
+// component
+class InputArrayLine extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
+    // name
+    static displayName = "InputArrayLine";
+    // constructor
+    constructor(props) {
+        super(props);
+        this.state = {
+            "value": props.value
+        };
+    }
+    // lifecycle
+    componentDidUpdate(prevProps) {
+        if (prevProps.value !== this.props.value) {
+            this.setState({
+                "value": this.props.value
+            });
+        }
+    }
+    // events
+    _handleChange = (e, newValue) => {
+        this.setState({
+            "value": newValue
+        });
+    };
+    _handleBlur = (e) => {
+        if (this.props.value !== this.state.value) {
+            this.props.onLineChange(e, this.props.index, this.state.value, this.props.value, "blur");
+        }
+    };
+    _handleKeyDown = (e) => {
+        if ("Enter" === e.key && this.props.value !== this.state.value) {
+            this.props.onLineChange(e, this.props.index, this.state.value, this.props.value, "enter");
+        }
+    };
+    _handleDelete = (e) => {
+        this.props.onLineDelete(e, this.props.index, this.props.value);
+    };
+    // render
+    render() {
+        const { index, disabled, inputRef } = this.props;
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_2__["default"], { justify: true, key: index },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { _ref: inputRef, disabled: disabled, value: this.state.value, onChange: this._handleChange, onBlur: this._handleBlur, onKeyDown: this._handleKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: this._handleDelete }));
     }
 }
 
@@ -32546,7 +32669,7 @@ class List extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "list-group";
-        if (Boolean(this.props.flush)) {
+        if ("boolean" === typeof this.props.flush && this.props.flush) {
             className += " list-group-flush";
         }
         if (this.props.horizontal) {
@@ -32633,7 +32756,7 @@ class ListItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ListContext__WEBPACK_IMPORTED_MODULE_1__.ListContext.Consumer, null, (variant) => {
             const disabled = Boolean(this.props.disabled);
             let className = "list-group-item";
-            if (Boolean(this.props.justify)) {
+            if ("boolean" === typeof this.props.justify && this.props.justify) {
                 className += " d-flex justify-content-between align-items-center";
             }
             if ("string" === typeof this.props.variant) {
@@ -32645,7 +32768,7 @@ class ListItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             if (disabled) {
                 className += " disabled";
             }
-            if (Boolean(this.props.active)) {
+            if ("boolean" === typeof this.props.active && this.props.active) {
                 className += " active";
             }
             if ("function" === typeof this.props.onClick) {
@@ -32686,6 +32809,9 @@ class ListItemHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         let className = "list-group-item-heading";
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
+        }
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
+            className += " d-flex justify-content-between align-items-center";
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
     }
@@ -32947,10 +33073,10 @@ class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // render
     _renderContent() {
         let className = "modal-dialog";
-        if (Boolean(this.props.centered)) {
+        if ("boolean" === typeof this.props.centered && this.props.centered) {
             className += " modal-dialog-centered";
         }
-        if (Boolean(this.props.scrollable)) {
+        if ("boolean" === typeof this.props.scrollable && this.props.scrollable) {
             className += " modal-dialog-scrollable";
         }
         if (this.props.size) {
@@ -33191,7 +33317,7 @@ class NavItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "NavItem";
     // events
-    _handleClick(e) {
+    _handleClick = (e) => {
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e, this.props.index);
         }
@@ -33199,7 +33325,7 @@ class NavItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         const disabled = Boolean(this.props.disabled);
@@ -33211,13 +33337,13 @@ class NavItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if (disabled) {
             linkClassName += " disabled";
         }
-        if (Boolean(this.props.active)) {
+        if ("boolean" === typeof this.props.active && this.props.active) {
             linkClassName += " active";
         }
-        if (Boolean(this.props.justify)) {
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
             linkClassName += " d-flex justify-content-between";
         }
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick.bind(this) }, this.props.children));
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick }, this.props.children));
     }
 }
 
@@ -33266,7 +33392,7 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
     }
     // events
-    _handleSelect(e, newIndex) {
+    _handleSelect = (e, newIndex) => {
         let newSecuredIndex;
         if (this.props.items) {
             if (newIndex >= this.props.items.length) {
@@ -33292,17 +33418,17 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
             e.preventDefault();
             e.stopPropagation();
         }
-    }
+    };
     // render
     render() {
         let className = "nav";
-        if (Boolean(this.props.pills)) {
+        if ("boolean" === typeof this.props.pills && this.props.pills) {
             className += " nav-pills";
         }
         else {
             className += " nav-tabs";
         }
-        if (Boolean(this.props.justified)) {
+        if ("boolean" === typeof this.props.justified && this.props.justified) {
             className += " nav-justified";
         }
         if ("string" === typeof this.props.className) {
@@ -33310,7 +33436,7 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style },
             this.props.items ? this.props.items.map((title, key) => {
-                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_NavItem__WEBPACK_IMPORTED_MODULE_1__["default"], { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect.bind(this) }, title);
+                return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_NavItem__WEBPACK_IMPORTED_MODULE_1__["default"], { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(this.props.children).filter((child) => {
                 return _NavItem__WEBPACK_IMPORTED_MODULE_1__["default"] === child.type;
@@ -33353,22 +33479,22 @@ class Table extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         if (this.props.variant) {
             className += " table-" + this.props.variant;
         }
-        if (Boolean(this.props.responsive)) {
+        if ("boolean" === typeof this.props.responsive && this.props.responsive) {
             className += " table-responsive";
         }
-        if (Boolean(this.props.bordered)) {
+        if ("boolean" === typeof this.props.bordered && this.props.bordered) {
             className += " table-bordered";
         }
-        else if (Boolean(this.props.borderless)) {
+        else if ("boolean" === typeof this.props.borderless && this.props.borderless) {
             className += " table-borderless";
         }
-        if (Boolean(this.props.striped)) {
+        if ("boolean" === typeof this.props.striped && this.props.striped) {
             className += " table-striped";
         }
-        if (Boolean(this.props.hover)) {
+        if ("boolean" === typeof this.props.hover && this.props.hover) {
             className += " table-hover";
         }
-        if (Boolean(this.props.small)) {
+        if ("boolean" === typeof this.props.small && this.props.small) {
             className += " table-sm";
         }
         if ("string" === typeof this.props.className) {
@@ -33984,10 +34110,21 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBox, { checked: true, onToogle: (e, value) => { alert("toogle CheckBox to " + String(value)); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxLabel, { label: "CheckBoxLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxLabel to " + String(value)); }, "margin-bottom": 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CheckBoxPrettierLabel, { label: "CheckBoxPrettierLabel", checked: true, onToogle: (e, value) => { alert("toogle CheckBoxPrettierLabel to " + String(value)); } }));
-            case TABS.findIndex((value) => { return "InputArray" === value; }):
+            case TABS.findIndex((value) => { return "InputArray" === value; }): {
+                let values = ["line 1", "line 2"];
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArray to " + JSON.stringify(value)); } }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: ["line 1", "line 2"], onChange: (e, value) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } }));
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: values, onChange: (e, value) => {
+                            alert("change InputArray to " + JSON.stringify(value));
+                        } }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArrayLabel, { label: "InputArrayLabel", value: values, onChange: (e, value) => {
+                            alert("change InputArrayLabel to " + JSON.stringify(value));
+                        } }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputArray, { value: values, onDeleteLine: (e, key, value) => {
+                            alert("delete \"" + value + "\" at key " + key);
+                        }, onAddLine: (e, index, newValue) => {
+                            alert("add \"" + newValue + "\" at key " + index);
+                        } }));
+            }
             case TABS.findIndex((value) => { return "InputColor" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),

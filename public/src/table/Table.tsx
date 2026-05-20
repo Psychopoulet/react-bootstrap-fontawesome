@@ -44,26 +44,26 @@ export default class Table extends React.PureComponent<iPropsTable> {
             className += " table-" + this.props.variant;
         }
 
-        if (Boolean(this.props.responsive)) {
+        if ("boolean" === typeof this.props.responsive && this.props.responsive) {
             className += " table-responsive";
         }
 
-        if (Boolean(this.props.bordered)) {
+        if ("boolean" === typeof this.props.bordered && this.props.bordered) {
             className += " table-bordered";
         }
-        else if (Boolean(this.props.borderless)) {
+        else if ("boolean" === typeof this.props.borderless && this.props.borderless) {
             className += " table-borderless";
         }
 
-        if (Boolean(this.props.striped)) {
+        if ("boolean" === typeof this.props.striped && this.props.striped) {
             className += " table-striped";
         }
 
-        if (Boolean(this.props.hover)) {
+        if ("boolean" === typeof this.props.hover && this.props.hover) {
             className += " table-hover";
         }
 
-        if (Boolean(this.props.small)) {
+        if ("boolean" === typeof this.props.small && this.props.small) {
             className += " table-sm";
         }
 

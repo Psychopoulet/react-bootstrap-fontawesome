@@ -65,7 +65,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     // events
 
-    protected _handleSelect (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void {
+    protected readonly _handleSelect: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void = (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void => {
 
         let newSecuredIndex: number;
 
@@ -100,7 +100,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
         }
 
-    }
+    };
 
     // render
 
@@ -108,14 +108,14 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
         let className: string = "nav";
 
-        if (Boolean(this.props.pills)) {
+        if ("boolean" === typeof this.props.pills && this.props.pills) {
             className += " nav-pills";
         }
         else {
             className += " nav-tabs";
         }
 
-        if (Boolean(this.props.justified)) {
+        if ("boolean" === typeof this.props.justified && this.props.justified) {
             className += " nav-justified";
         }
 
@@ -131,7 +131,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
                     return <NavItem key={ key } index={ key }
                         active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
-                        onClick={ this._handleSelect.bind(this) }
+                        onClick={ this._handleSelect }
                     >
                         { title }
                     </NavItem>;

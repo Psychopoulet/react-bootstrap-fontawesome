@@ -14,7 +14,7 @@ export default class CardHeader extends React.PureComponent {
     render() {
         return React.createElement(CardContext.Consumer, null, (variant) => {
             let className = "card-header";
-            if (Boolean(this.props.justify)) {
+            if ("boolean" === typeof this.props.justify && this.props.justify) {
                 className += " d-flex justify-content-between align-items-center";
             }
             if (variant) {

@@ -751,14 +751,36 @@ class App extends React.Component<{}, iState> {
 
                 </CardBody>;
 
-            case TABS.findIndex((value: string): boolean => { return "InputArray" === value; }):
+            case TABS.findIndex((value: string): boolean => { return "InputArray" === value; }): {
+
+                let values: string[] = [ "line 1", "line 2" ];
 
                 return <CardBody>
 
-                    <InputArray value={ [ "line 1", "line 2" ] } onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>, value: string[]) => { alert("change InputArray to " + JSON.stringify(value)); } } />
-                    <InputArrayLabel label="InputArrayLabel" value={ [ "line 1", "line 2" ] } onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>, value: string[]) => { alert("change InputArrayLabel to " + JSON.stringify(value)); } } />
+                    <InputArray value={ values }
+                        onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, value: string[]) => {
+                            alert("change InputArray to " + JSON.stringify(value));
+                        } }
+                    />
+
+                    <InputArrayLabel label="InputArrayLabel" value={ values }
+                        onChange={ (e: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>, value: string[]) => {
+                            alert("change InputArrayLabel to " + JSON.stringify(value));
+                        } }
+                    />
+
+                    <InputArray value={ values }
+                        onDeleteLine={ (e: React.MouseEvent<HTMLButtonElement>, key: number, value: string) => {
+                            alert("delete \"" + value + "\" at key " + key);
+                        } }
+                        onAddLine={ (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>, index: number, newValue: string) => {
+                            alert("add \"" + newValue + "\" at key " + index);
+                        } }
+                    />
 
                 </CardBody>;
+
+            }
 
             case TABS.findIndex((value: string): boolean => { return "InputColor" === value; }):
 

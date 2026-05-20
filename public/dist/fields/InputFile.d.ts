@@ -11,7 +11,7 @@ export interface iPropsInputFileLabel extends iPropsInputFile {
 }
 export declare class InputFile extends React.PureComponent<iPropsInputFile> {
     static displayName: string;
-    protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     render(): React.JSX.Element;
 }
 export declare class InputFileLabel extends React.PureComponent<iPropsInputFileLabel> {

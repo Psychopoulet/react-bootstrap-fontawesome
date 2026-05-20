@@ -10,7 +10,7 @@ interface iPropsCheckBoxLabel extends iPropsCheckBox {
 }
 export declare class CheckBox extends React.PureComponent<iPropsCheckBox> {
     static displayName: string;
-    protected _handleToogle(e: React.ChangeEvent<HTMLInputElement>): void;
+    protected readonly _handleToogle: (e: React.ChangeEvent<HTMLInputElement>) => void;
     render(): React.JSX.Element;
 }
 export declare class CheckBoxLabel extends React.PureComponent<iPropsCheckBoxLabel> {

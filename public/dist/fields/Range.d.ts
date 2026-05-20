@@ -19,9 +19,9 @@ interface iStateRange {
 export declare class Range extends React.PureComponent<iPropsRange, iStateRange> {
     static displayName: string;
     constructor(props: iPropsRange);
-    UNSAFE_componentWillReceiveProps(nextProps: iPropsRange): void;
-    protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
-    protected _handleMouseUp(e: React.MouseEvent<HTMLInputElement>): void;
+    componentDidUpdate(nextProps: iPropsRange): void;
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    protected readonly _handleMouseUp: (e: React.MouseEvent<HTMLInputElement>) => void;
     private _render;
     render(): React.JSX.Element;
 }

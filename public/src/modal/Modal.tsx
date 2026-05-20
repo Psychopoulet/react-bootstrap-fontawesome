@@ -124,11 +124,11 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
         let className: string = "modal-dialog";
 
-        if (Boolean(this.props.centered)) {
+        if ("boolean" === typeof this.props.centered && this.props.centered) {
             className += " modal-dialog-centered";
         }
 
-        if (Boolean(this.props.scrollable)) {
+        if ("boolean" === typeof this.props.scrollable && this.props.scrollable) {
             className += " modal-dialog-scrollable";
         }
 

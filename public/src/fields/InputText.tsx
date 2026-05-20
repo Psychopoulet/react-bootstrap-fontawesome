@@ -41,7 +41,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         const value: string = e.target.value;
 
@@ -53,7 +53,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
 
-    }
+    };
 
     // render
 
@@ -109,9 +109,10 @@ export class InputText extends React.PureComponent<iPropsInputText> {
             pattern={ this.props.pattern }
             value={ this.props.value }
             minLength={ this.props.minLength } maxLength={ this.props.maxLength }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
             onKeyDown={ this.props.onKeyDown }
+            onBlur={ this.props.onBlur }
 
         />;
 

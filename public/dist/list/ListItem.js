@@ -12,7 +12,7 @@ export default class ListItem extends React.PureComponent {
         return React.createElement(ListContext.Consumer, null, (variant) => {
             const disabled = Boolean(this.props.disabled);
             let className = "list-group-item";
-            if (Boolean(this.props.justify)) {
+            if ("boolean" === typeof this.props.justify && this.props.justify) {
                 className += " d-flex justify-content-between align-items-center";
             }
             if ("string" === typeof this.props.variant) {
@@ -24,7 +24,7 @@ export default class ListItem extends React.PureComponent {
             if (disabled) {
                 className += " disabled";
             }
-            if (Boolean(this.props.active)) {
+            if ("boolean" === typeof this.props.active && this.props.active) {
                 className += " active";
             }
             if ("function" === typeof this.props.onClick) {

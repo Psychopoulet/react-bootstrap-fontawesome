@@ -40,7 +40,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     // events
 
-    protected _handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
         if ("" === e.target.value.trim()) {
 
@@ -63,7 +63,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
         }
 
-    }
+    };
 
     // render
 
@@ -102,8 +102,9 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
             value={ this.props.value }
             min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 0.1 }
-            onChange={ this._handleChange.bind(this) }
+            onChange={ this._handleChange }
 
+            onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
         />;
@@ -155,6 +156,7 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
                 min={ this.props.min } max={ this.props.max } step={ this.props.step }
                 onChange={ this.props.onChange }
 
+                onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
             />

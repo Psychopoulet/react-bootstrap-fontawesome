@@ -28,7 +28,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
     // events
 
-    protected _handleClick (e: React.MouseEvent<HTMLAnchorElement>): void {
+    protected readonly _handleClick: (e: React.MouseEvent<HTMLAnchorElement>) => void = (e: React.MouseEvent<HTMLAnchorElement>): void => {
 
         if ("function" === typeof this.props.onClick) {
             this.props.onClick(e, this.props.index);
@@ -40,7 +40,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
         }
 
-    }
+    };
 
     // render
 
@@ -60,11 +60,11 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
             linkClassName += " disabled";
         }
 
-        if (Boolean(this.props.active)) {
+        if ("boolean" === typeof this.props.active && this.props.active) {
             linkClassName += " active";
         }
 
-        if (Boolean(this.props.justify)) {
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
             linkClassName += " d-flex justify-content-between";
         }
 
@@ -74,7 +74,7 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
                 disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
                     { this.props.children }
-                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this._handleClick.bind(this) }>
+                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this._handleClick }>
                     { this.props.children }
                 </a>
 

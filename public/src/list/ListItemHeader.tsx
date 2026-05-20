@@ -8,9 +8,15 @@
     // locals
     import type { iPropsNode } from "../types";
 
+// Props && States
+
+    interface iPropsListItemHeader extends iPropsNode {
+        "justify"?: boolean;
+    }
+
 // component
 
-export default class ListItemHeader extends React.PureComponent<iPropsNode> {
+export default class ListItemHeader extends React.PureComponent<iPropsListItemHeader> {
 
     // name
 
@@ -24,6 +30,10 @@ export default class ListItemHeader extends React.PureComponent<iPropsNode> {
 
         if ("string" === typeof this.props.className) {
             className += " " + this.props.className;
+        }
+
+        if ("boolean" === typeof this.props.justify && this.props.justify) {
+            className += " d-flex justify-content-between align-items-center";
         }
 
         return <h4 id={ this.props.id } className={ className } style={ this.props.style } >

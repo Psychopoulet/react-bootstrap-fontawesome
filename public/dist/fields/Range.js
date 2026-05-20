@@ -16,7 +16,7 @@ export class Range extends React.PureComponent {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
     }
-    UNSAFE_componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         if (nextProps.value !== this.state.value) {
             this.setState({
                 "value": nextProps.value
@@ -24,7 +24,7 @@ export class Range extends React.PureComponent {
         }
     }
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = "" === e.target.value.trim() ? 0 : parseInt(e.target.value, 10);
         if (value === this.props.value) {
             return;
@@ -32,12 +32,12 @@ export class Range extends React.PureComponent {
         this.setState({
             "value": value
         });
-    }
-    _handleMouseUp(e) {
+    };
+    _handleMouseUp = (e) => {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
-    }
+    };
     // render
     _render(className) {
         // props values
@@ -53,7 +53,7 @@ export class Range extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange.bind(this), onMouseUp: this._handleMouseUp.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // render
@@ -82,7 +82,7 @@ export class RangeLabel extends React.PureComponent {
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            React.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            React.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
             !integerValid && React.createElement(InvalidFeedBackInteger, null),
             integerValid && !minValid && React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             integerValid && !maxValid && React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));

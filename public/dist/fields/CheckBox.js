@@ -6,7 +6,7 @@ export class CheckBox extends React.PureComponent {
     // name
     static displayName = "CheckBox";
     // events
-    _handleToogle(e) {
+    _handleToogle = (e) => {
         const value = e.target.checked;
         if (value === this.props.checked) {
             return;
@@ -14,7 +14,7 @@ export class CheckBox extends React.PureComponent {
         if ("function" === typeof this.props.onToogle) {
             this.props.onToogle(e, value, Boolean(this.props.checked));
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -22,7 +22,7 @@ export class CheckBox extends React.PureComponent {
         const checked = Boolean(this.props.checked);
         // render
         return React.createElement("input", { id: this.props.id, role: "checkbox", type: "checkbox", className: ("string" === typeof this.props.className ? this.props.className : "")
-                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle.bind(this) });
+                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, checked: checked, "aria-checked": checked, onChange: this._handleToogle });
     }
 }
 export class CheckBoxLabel extends React.PureComponent {

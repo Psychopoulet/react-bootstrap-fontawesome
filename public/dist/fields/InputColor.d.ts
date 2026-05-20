@@ -13,7 +13,7 @@ export declare class InputColor extends React.PureComponent<iPropsInputColor> {
     static PATTERN: string;
     static MIN: number;
     static MAX: number;
-    protected _handleChange(e: React.ChangeEvent<HTMLInputElement>): void;
+    protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     private _render;
     render(): React.JSX.Element;
 }

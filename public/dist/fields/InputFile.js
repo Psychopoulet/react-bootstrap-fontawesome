@@ -8,7 +8,7 @@ export class InputFile extends React.PureComponent {
     // name
     static displayName = "InputFile";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         if (!e.target.files || !e.target.files.length) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, null);
@@ -25,7 +25,7 @@ export class InputFile extends React.PureComponent {
                 this.props.onChange(e, value);
             }
         }
-    }
+    };
     // render
     render() {
         // props values
@@ -33,7 +33,7 @@ export class InputFile extends React.PureComponent {
         // render
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "file", className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange.bind(this) });
+                + (disabled ? " disabled" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, onChange: this._handleChange });
     }
 }
 export class InputFileLabel extends React.PureComponent {

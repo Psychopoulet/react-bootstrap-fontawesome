@@ -9,7 +9,7 @@ export class InputText extends React.PureComponent {
     // name
     static displayName = "InputText";
     // events
-    _handleChange(e) {
+    _handleChange = (e) => {
         const value = e.target.value;
         if (value === this.props.value) {
             return;
@@ -17,7 +17,7 @@ export class InputText extends React.PureComponent {
         if ("function" === typeof this.props.onChange) {
             this.props.onChange(e, value, "undefined" !== typeof this.props.value ? this.props.value : "");
         }
-    }
+    };
     // render
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
@@ -42,7 +42,7 @@ export class InputText extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange.bind(this), onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
     }
 }
 export class InputTextLabel extends React.PureComponent {
