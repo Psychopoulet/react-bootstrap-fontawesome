@@ -1,7 +1,7 @@
 {
 
   "name": "react-bootstrap-fontawesome",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A TS framework for React, Bootstrap & FontAwesome.",
 
   "typings": "./public/dist/main.d.ts",
@@ -27,8 +27,6 @@
 
   "scripts": {
 
-    "prepare": "npx husky || true",
-
     "lint-front": "npx eslint --config .eslintrc-front.js --ext .ts,.tsx,.cts,.mts ./public/src/**/*",
     "lint": "npm run lint-front",
 
@@ -39,12 +37,13 @@
     "build-tests": "npx webpack --config \"./webpack.config-test.js\"",
     "build": "npm run build-front && npm run build-tests",
 
+    "check-node-engine": "npx check-node-engine",
     "check-requires": "npx used-deps-analyzer ./package.json ./public/src --no-dev",
     "check-updates": "npx check-version-modules --no-fail-at-major --fail-at-minor --fail-at-patch",
     "unit-tests": "echo 'not unit tests here'",
     "unit-tests-local": "echo 'not unit tests here'",
 
-    "tests": "npm run lint && npm run check-requires && npm run check-updates && npm run build && npm run unit-tests-local"
+    "tests": "npm run lint && npm run check-node-engine && npm run check-requires && npm run check-updates && npm run build && npm run unit-tests-local"
 
   },
 
@@ -52,14 +51,15 @@
     "/public/dist"
   ],
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=22.22.3"
   },
 
   "dependencies": {},
   "devDependencies": {
     "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
-    "check-version-modules": "2.4.0",
+    "check-node-engine": "1.0.0",
+    "check-version-modules": "2.5.0",
     "colors": "1.4.0",
     "css-loader": "7.1.4",
     "eslint-plugin-personnallinter": "git+ssh://git@github.com/Psychopoulet/eslint-plugin-personnallinter",
@@ -70,7 +70,7 @@
     "style-loader": "4.0.0",
     "ts-loader": "9.5.7",
     "used-deps-analyzer": "0.3.0",
-    "webpack": "5.107.0",
+    "webpack": "5.107.2",
     "webpack-cli": "7.0.2"
   },
 
