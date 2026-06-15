@@ -44,6 +44,7 @@ export class InputText extends React.PureComponent {
             patternValid = "string" === typeof this.props.pattern ? new RegExp(this.props.pattern).test(value) : true;
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
+        // render
         if (this.props.children) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),

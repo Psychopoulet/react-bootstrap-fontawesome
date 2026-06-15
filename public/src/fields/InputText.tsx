@@ -87,6 +87,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         />;
 
     }
+
     public render (): React.JSX.Element {
 
         const value: string = "string" === typeof this.props.value ? this.props.value : "";
@@ -117,6 +118,8 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         }
 
         const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
+
+        // render
 
         if (this.props.children) {
 
