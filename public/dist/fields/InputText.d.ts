@@ -14,6 +14,7 @@ export interface iPropsInputTextLabel extends iPropsInputText {
 export declare class InputText extends React.PureComponent<iPropsInputText> {
     static displayName: string;
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    private _renderInput;
     render(): React.JSX.Element;
 }
 export declare class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
