@@ -48,6 +48,6 @@ export default class InputArrayLine extends React.Component {
         const { index, disabled, inputRef } = this.props;
         return React.createElement(ListItem, { justify: true, key: index },
             React.createElement(InputText, { _ref: inputRef, disabled: disabled, value: this.state.value, onChange: this._handleChange, onBlur: this._handleBlur, onKeyDown: this._handleKeyDown }),
-            React.createElement(Button, { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: this._handleDelete }));
+            React.createElement(Button, { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", size: "sm", disabled: disabled, onClick: this._handleDelete }));
     }
 }

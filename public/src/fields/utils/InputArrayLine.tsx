@@ -118,7 +118,7 @@ export default class InputArrayLine extends React.Component<iPropsInputArrayLine
             />
 
             <Button title={ "Delete item n°" + index } className="ms-3"
-                icon="trash" variant="danger"
+                icon="trash" variant="danger" size="sm"
                 disabled={ disabled }
                 onClick={ this._handleDelete }
             />

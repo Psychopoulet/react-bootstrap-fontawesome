@@ -67,7 +67,7 @@
 
     // locals
 
-    export type { iPropsNode, iPropsField, tVariant, tSize } from "./types";
+    export type { iPropsNode, iPropsField, iPropsInput, tVariant, tSize } from "./types";
 
     export type { iGenerateFocusCallback } from "./generateFocus";
 

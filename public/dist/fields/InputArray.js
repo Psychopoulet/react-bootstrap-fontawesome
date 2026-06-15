@@ -124,7 +124,7 @@ export class InputArray extends React.Component {
         return React.createElement(List, { id: this.props.id, className: this.props.className, style: this.props.style },
             React.createElement(ListItemHeader, { className: 0 < this.state.values.length ? undefined : "m-0", justify: true },
                 React.createElement(InputText, { _ref: this._focus.ref, disabled: disabled, value: this.state.newLine, onChange: this._handleChangeNewLine, onKeyDown: this._handleAddLineWithEnter }),
-                React.createElement(Button, { icon: "plus", variant: "success", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
+                React.createElement(Button, { icon: "plus", variant: "success", size: "sm", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
             this.state.values.map((line, index) => {
                 return React.createElement(InputArrayLine, { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
             }));
