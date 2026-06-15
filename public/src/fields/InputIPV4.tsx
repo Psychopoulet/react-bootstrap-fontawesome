@@ -64,7 +64,9 @@ export class InputIPV4 extends React.PureComponent<iPropsInputIPV4> {
             onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
-        />;
+        >
+            { this.props.children }
+        </InputText>;
 
     }
 
@@ -103,7 +105,9 @@ export class InputIPV4Label extends React.PureComponent<iPropsInputIPV4Label> {
             onBlur={ this.props.onBlur }
             onKeyDown={ this.props.onKeyDown }
 
-        />;
+        >
+            { this.props.children }
+        </InputTextLabel>;
 
     }
 

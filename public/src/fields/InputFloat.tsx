@@ -67,22 +67,8 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
     // render
 
-    public render (): React.JSX.Element {
+    private _renderInput (disabled: boolean, required: boolean, valid: boolean, className?: string): React.JSX.Element {
 
-        // props values
-        const disabled: boolean = Boolean(this.props.disabled);
-        const required: boolean = Boolean(this.props.required);
-
-        // controls
-
-        const isNumber: boolean = "number" === typeof this.props.value;
-
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
-
-        const valid: boolean = isNumber && minValid && maxValid;
-
-        // render
         return <input id={ this.props.id } name={ this.props.name } type="number"
 
             ref={ this.props._ref }
@@ -108,6 +94,39 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
             onKeyDown={ this.props.onKeyDown }
 
         />;
+
+    }
+
+    public render (): React.JSX.Element {
+
+        // props values
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
+
+        // controls
+
+        const isNumber: boolean = "number" === typeof this.props.value;
+
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+
+        const valid: boolean = isNumber && minValid && maxValid;
+
+        // render
+
+        if (this.props.children) {
+
+            return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
+
+                { this._renderInput(disabled, required, valid) }
+
+                { this.props.children }
+
+            </div>;
+
+        }
+
+        return this._renderInput(disabled, required, valid, this.props.className);
 
     }
 
@@ -159,7 +178,9 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
                 onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
-            />
+            >
+                { this.props.children }
+            </InputFloat>
 
             { !isNumber && <InvalidFeedBackFloat /> }
             { isNumber && !minValid && <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> }

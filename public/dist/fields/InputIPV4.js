@@ -17,7 +17,7 @@ export class InputIPV4 extends React.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        return React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children);
     }
 }
 export class InputIPV4Label extends React.PureComponent {
@@ -29,6 +29,6 @@ export class InputIPV4Label extends React.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return React.createElement(InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        return React.createElement(InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children);
     }
 }

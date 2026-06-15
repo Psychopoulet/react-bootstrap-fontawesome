@@ -19,6 +19,12 @@ export class InputText extends React.PureComponent {
         }
     };
     // render
+    _renderInput(disabled, required, valid, className) {
+        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
+                + ("string" === typeof className ? " " + className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
+    }
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
         // props values
@@ -39,10 +45,12 @@ export class InputText extends React.PureComponent {
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
-        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
-                + ("string" === typeof this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
+        if (this.props.children) {
+            return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 export class InputTextLabel extends React.PureComponent {
@@ -90,7 +98,7 @@ export class InputTextLabel extends React.PureComponent {
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }

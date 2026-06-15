@@ -14,6 +14,7 @@ interface iPropsInputIntegerLabel extends iPropsInputNumber {
 export declare class InputInteger extends React.PureComponent<iPropsInputNumber> {
     static displayName: string;
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    private _renderInput;
     render(): React.JSX.Element;
 }
 export declare class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLabel> {

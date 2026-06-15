@@ -31492,7 +31492,7 @@ class InputArray extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_List__WEBPACK_IMPORTED_MODULE_6__["default"], { id: this.props.id, className: this.props.className, style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItemHeader__WEBPACK_IMPORTED_MODULE_7__["default"], { className: 0 < this.state.values.length ? undefined : "m-0", justify: true },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_8__.InputText, { _ref: this._focus.ref, disabled: disabled, value: this.state.newLine, onChange: this._handleChangeNewLine, onKeyDown: this._handleAddLineWithEnter }),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], { icon: "plus", variant: "success", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], { icon: "plus", variant: "success", size: "sm", className: "ms-3", disabled: disabled, onClick: this._handleAddLine })),
             this.state.values.map((line, index) => {
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_InputArrayLine__WEBPACK_IMPORTED_MODULE_10__["default"], { key: index, index: index, value: line, disabled: disabled, onLineChange: this._handleLineChange, onLineDelete: this._handleLineDelete });
             }));
@@ -31753,6 +31753,12 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     };
     // render
+    _renderInput(disabled, required, valid, className) {
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+    }
     render() {
         // props values
         const disabled = Boolean(this.props.disabled);
@@ -31763,10 +31769,12 @@ class InputFloat extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = isNumber && minValid && maxValid;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
-                + (this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        if (this.props.children) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31786,7 +31794,7 @@ class InputFloatLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children),
             !isNumber && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackFloat, null),
             isNumber && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             isNumber && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -31829,7 +31837,7 @@ class InputIPV4 extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children);
     }
 }
 class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31841,7 +31849,7 @@ class InputIPV4Label extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const required = Boolean(this.props.required);
         const minLength = required ? InputIPV4.MIN : undefined;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputTextLabel, { id: this.props.id, name: this.props.name, _ref: this.props._ref, className: this.props.className, style: this.props.style, "margin-bottom": this.props["margin-bottom"], disabled: this.props.disabled, required: required, placeholder: this.props.placeholder, label: this.props.label, pattern: InputIPV4.PATTERN, value: this.props.value, minLength: minLength, maxLength: InputIPV4.MAX, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children);
     }
 }
 
@@ -31891,6 +31899,12 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     };
     // render
+    _renderInput(disabled, required, valid, className) {
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
+                + (this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+    }
     render() {
         // props values
         const disabled = Boolean(this.props.disabled);
@@ -31902,10 +31916,12 @@ class InputInteger extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
-                + (this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+        if (this.props.children) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -31926,7 +31942,7 @@ class InputIntegerLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputInteger, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputInteger, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children),
             !integerValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackInteger, null),
             integerValid && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             integerValid && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -32003,6 +32019,12 @@ class InputReadOnly extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "InputReadOnly";
     // render
+    _renderInput(disabled, required, valid, className) {
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", readOnly: true, required: required, "aria-required": required, className: "form-control"
+                + ("string" === typeof this.props.className ? " " + this.props.className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value });
+    }
     render() {
         // props values
         const disabled = Boolean(this.props.disabled);
@@ -32011,10 +32033,12 @@ class InputReadOnly extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const requiredValid = required ? "" !== this.props.value : true;
         const valid = requiredValid;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", readOnly: true, required: required, "aria-required": required, className: "form-control"
-                + ("string" === typeof this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value });
+        if (this.props.children) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 class InputReadOnlyLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32040,7 +32064,7 @@ class InputReadOnlyLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponen
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputReadOnly, { id: this.props.id, required: required, disabled: disabled, label: this.props.label, value: this.props.value }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputReadOnly, { id: this.props.id, required: required, disabled: disabled, label: this.props.label, value: this.props.value }, this.props.children),
             this._renderError(requiredValid));
     }
 }
@@ -32084,6 +32108,12 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     };
     // render
+    _renderInput(disabled, required, valid, className) {
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
+                + ("string" === typeof className ? " " + className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
+    }
     render() {
         const value = "string" === typeof this.props.value ? this.props.value : "";
         // props values
@@ -32104,10 +32134,12 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
-                + ("string" === typeof this.props.className ? " " + this.props.className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
+        if (this.props.children) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32155,7 +32187,7 @@ class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
@@ -32608,7 +32640,7 @@ class InputArrayLine extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         const { index, disabled, inputRef } = this.props;
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_list_ListItem__WEBPACK_IMPORTED_MODULE_2__["default"], { justify: true, key: index },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputText__WEBPACK_IMPORTED_MODULE_1__.InputText, { _ref: inputRef, disabled: disabled, value: this.state.value, onChange: this._handleChange, onBlur: this._handleBlur, onKeyDown: this._handleKeyDown }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", disabled: disabled, onClick: this._handleDelete }));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], { title: "Delete item n°" + index, className: "ms-3", icon: "trash", variant: "danger", size: "sm", disabled: disabled, onClick: this._handleDelete }));
     }
 }
 
@@ -34037,14 +34069,24 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputLabel, { for: "InputLabel", label: "InputLabel" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFloat, { value: 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFloatLabel, { label: "InputFloatLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFloatLabel, { label: "InputFloatLabel with children", value: 0 },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputInteger, { value: 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIntegerLabel, { label: "InputIntegerLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIntegerLabel, { label: "InputIntegerLabel with children", value: 0 },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIPV4, null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIPV4Label, { label: "InputIPV4Label" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputIPV4Label, { label: "InputIPV4Label with children" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputReadOnly, null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputReadOnlyLabel, { label: "InputReadOnlyLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputReadOnlyLabel, { label: "InputReadOnlyLabel with children" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputText, null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputTextLabel, { label: "InputTextLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputTextLabel, { label: "InputTextLabel with children" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFile, null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFileLabel, { label: "InputFileLabel" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Range, { value: 0 }),

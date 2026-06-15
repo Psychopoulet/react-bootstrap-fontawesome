@@ -233,7 +233,7 @@ export class InputArray extends React.Component<iPropsInputArray, iStateInputArr
                     onKeyDown={ this._handleAddLineWithEnter }
                 />
 
-                <Button icon="plus" variant="success" className="ms-3"
+                <Button icon="plus" variant="success" size="sm" className="ms-3"
                     disabled={ disabled }
                     onClick={ this._handleAddLine }
                 />

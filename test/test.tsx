@@ -613,18 +613,33 @@ class App extends React.Component<{}, iState> {
 
                     <InputFloat value={ 0 } />
                     <InputFloatLabel label="InputFloatLabel" value={ 0 } />
+                    <InputFloatLabel label="InputFloatLabel with children" value={ 0 }>
+                        <Button icon="plus" outline size="sm" />
+                    </InputFloatLabel>
 
                     <InputInteger value={ 0 } />
                     <InputIntegerLabel label="InputIntegerLabel" value={ 0 } />
+                    <InputIntegerLabel label="InputIntegerLabel with children" value={ 0 }>
+                        <Button icon="plus" outline size="sm" />
+                    </InputIntegerLabel>
 
                     <InputIPV4 />
                     <InputIPV4Label label="InputIPV4Label" />
+                    <InputIPV4Label label="InputIPV4Label with children">
+                        <Button icon="plus" outline size="sm" />
+                    </InputIPV4Label>
 
                     <InputReadOnly />
                     <InputReadOnlyLabel label="InputReadOnlyLabel" />
+                    <InputReadOnlyLabel label="InputReadOnlyLabel with children">
+                        <Button icon="plus" outline size="sm" />
+                    </InputReadOnlyLabel>
 
                     <InputText />
                     <InputTextLabel label="InputTextLabel" />
+                    <InputTextLabel label="InputTextLabel with children">
+                        <Button icon="plus" outline size="sm" />
+                    </InputTextLabel>
 
                     <InputFile />
                     <InputFileLabel label="InputFileLabel" />

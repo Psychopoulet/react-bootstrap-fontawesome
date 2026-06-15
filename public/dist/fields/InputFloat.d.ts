@@ -14,6 +14,7 @@ interface iPropsInputFloatLabel extends iPropsInputNumber {
 export declare class InputFloat extends React.PureComponent<iPropsInputNumber> {
     static displayName: string;
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    private _renderInput;
     render(): React.JSX.Element;
 }
 export declare class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> {

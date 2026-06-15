@@ -45,7 +45,7 @@ import Table from "./table/Table";
 import TableHeader from "./table/TableHeader";
 import TableBody from "./table/TableBody";
 import TableFooter from "./table/TableFooter";
-export type { iPropsNode, iPropsField, tVariant, tSize } from "./types";
+export type { iPropsNode, iPropsField, iPropsInput, tVariant, tSize } from "./types";
 export type { iGenerateFocusCallback } from "./generateFocus";
 export type { iPropsAlert } from "./Alert";
 export type { iPropsBadge } from "./Badge";

@@ -35,19 +35,8 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
     // render
 
-    public render (): React.JSX.Element {
+    private _renderInput (disabled: boolean, required: boolean, valid: boolean, className?: string): React.JSX.Element {
 
-        // props values
-        const disabled: boolean = Boolean(this.props.disabled);
-        const required: boolean = Boolean(this.props.required);
-
-        // controls
-
-        const requiredValid: boolean = required ? "" !== this.props.value : true;
-
-        const valid: boolean = requiredValid;
-
-        // render
         return <input id={ this.props.id } name={ this.props.name } type="text" readOnly
 
             required={ required } aria-required={ required }
@@ -65,6 +54,36 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
             value={ this.props.value }
 
         />;
+
+    }
+
+    public render (): React.JSX.Element {
+
+        // props values
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
+
+        // controls
+
+        const requiredValid: boolean = required ? "" !== this.props.value : true;
+
+        const valid: boolean = requiredValid;
+
+        // render
+
+        if (this.props.children) {
+
+            return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
+
+                { this._renderInput(disabled, required, valid) }
+
+                { this.props.children }
+
+            </div>;
+
+        }
+
+        return this._renderInput(disabled, required, valid, this.props.className);
 
     }
 
@@ -115,7 +134,9 @@ export class InputReadOnlyLabel extends React.PureComponent<iPropsInputReadOnlyL
                 required={ required } disabled={ disabled }
                 label={ this.props.label }
                 value={ this.props.value }
-            />
+            >
+                { this.props.children }
+            </InputReadOnly>
 
             { this._renderError(requiredValid) }
 
