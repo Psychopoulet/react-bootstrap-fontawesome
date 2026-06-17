@@ -32220,6 +32220,8 @@ __webpack_require__.r(__webpack_exports__);
 class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "Range";
+    // private
+    _value = 0;
     // constructor
     constructor(props) {
         super(props);
@@ -32227,6 +32229,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         this.state = {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
+        this._value = "number" === typeof this.props.value ? this.props.value : 0;
     }
     componentDidUpdate(nextProps) {
         if (nextProps.value !== this.state.value) {
@@ -32243,11 +32246,13 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
         this.setState({
             "value": value
+        }, () => {
+            this._value = value;
         });
     };
     _handleMouseUp = (e) => {
         if ("function" === typeof this.props.onChange) {
-            this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
+            this.props.onChange(e, this._value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
     };
     // render
@@ -32265,7 +32270,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this._value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // render
