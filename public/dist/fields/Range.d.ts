@@ -18,6 +18,7 @@ interface iStateRange {
 }
 export declare class Range extends React.PureComponent<iPropsRange, iStateRange> {
     static displayName: string;
+    private _value;
     constructor(props: iPropsRange);
     componentDidUpdate(nextProps: iPropsRange): void;
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

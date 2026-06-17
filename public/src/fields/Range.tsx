@@ -44,6 +44,10 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     public static displayName: string = "Range";
 
+    // private
+
+    private _value: number = 0;
+
     // constructor
 
     public constructor (props: iPropsRange) {
@@ -55,6 +59,8 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
         this.state = {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
+
+        this._value = "number" === typeof this.props.value ? this.props.value : 0;
 
     }
 
@@ -82,6 +88,8 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
         this.setState({
             "value": value
+        }, () => {
+            this._value = value;
         });
 
     };
@@ -89,7 +97,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
     protected readonly _handleMouseUp: (e: React.MouseEvent<HTMLInputElement>) => void = (e: React.MouseEvent<HTMLInputElement>): void => {
 
         if ("function" === typeof this.props.onChange) {
-            this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
+            this.props.onChange(e, this._value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
 
     };
@@ -131,7 +139,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
             placeholder={ this.props.placeholder }
             title={ this.props.label } aria-label={ this.props.label }
 
-            value={ this.state.value }
+            value={ this._value }
             min={ this.props.min } max={ this.props.max } step={ this.props.step ?? 1 }
             onChange={ this._handleChange }
             onMouseUp={ this._handleMouseUp }
