@@ -19,11 +19,11 @@
 
     export interface iPropsRange extends iPropsInput {
         "value": number;
-        "unit"?: string;
         "min"?: number;
         "max"?: number;
         "step"?: number;
         "onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
+        "orientation"?: "horizontal" | "vertical";
     }
 
     interface iPropsRangeLabel extends iPropsRange {
@@ -104,23 +104,20 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     // render
 
-    private _render (className?: string): React.JSX.Element {
+    private _renderInput (disabled: boolean, required: boolean, valid: boolean, className?: string): React.JSX.Element {
 
-        // props values
-        const disabled: boolean = Boolean(this.props.disabled);
-        const required: boolean = Boolean(this.props.required);
+        const style: React.CSSProperties = {};
 
-        // controls
-
-        const isNumber: boolean = "number" === typeof this.props.value;
-        const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
-
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
-
-        const valid: boolean = integerValid && minValid && maxValid;
-
-        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
+        if ("vertical" === this.props.orientation) {
+            style.height = "2.4rem";
+            style.writingMode = "vertical-lr";
+            style.direction = "rtl";
+            style.width = "16px";
+            style.verticalAlign = "bottom";
+        }
+        else {
+            style.height = "2.4rem";
+        }
 
         return <input id={ this.props.id } name={ this.props.name } type="range"
 
@@ -132,7 +129,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
-            style={ style }
+            style={ this.props.style ? { ...style, ...this.props.style } : style }
             disabled={ disabled } aria-disabled={ disabled }
             required={ required } aria-required={ required }
 
@@ -153,14 +150,33 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
     public render (): React.JSX.Element {
 
-        // render
-        return "string" !== typeof this.props.unit ? this._render(this.props.className) : <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
+        // props values
+        const disabled: boolean = Boolean(this.props.disabled);
+        const required: boolean = Boolean(this.props.required);
 
-            { this._render() }
+        // controls
 
-            <span className="input-group-text">{ this.props.value }{ this.props.unit }</span>
+        const isNumber: boolean = "number" === typeof this.props.value;
+        const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
-        </div>;
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+
+        const valid: boolean = integerValid && minValid && maxValid;
+
+        if (this.props.children) {
+
+            return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
+
+                { this._renderInput(disabled, required, valid) }
+
+                { this.props.children }
+
+            </div>;
+
+        }
+
+        return this._renderInput(disabled, required, valid, this.props.className);
 
     }
 
@@ -215,7 +231,9 @@ export class RangeLabel extends React.PureComponent<iPropsRangeLabel> {
                 onBlur={ this.props.onBlur }
                 onKeyDown={ this.props.onKeyDown }
 
-            />
+            >
+                { this.props.children }
+            </Range>
 
             { !integerValid && <InvalidFeedBackInteger /> }
             { integerValid && !minValid && <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value } /> }

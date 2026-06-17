@@ -2,11 +2,11 @@ import * as React from "react";
 import type { iPropsInput } from "../types";
 export interface iPropsRange extends iPropsInput {
     "value": number;
-    "unit"?: string;
     "min"?: number;
     "max"?: number;
     "step"?: number;
     "onChange"?: (e: React.MouseEvent<HTMLInputElement>, newValue: number, oldValue: number) => void;
+    "orientation"?: "horizontal" | "vertical";
 }
 interface iPropsRangeLabel extends iPropsRange {
     "label": string;
@@ -23,7 +23,7 @@ export declare class Range extends React.PureComponent<iPropsRange, iStateRange>
     componentDidUpdate(nextProps: iPropsRange): void;
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     protected readonly _handleMouseUp: (e: React.MouseEvent<HTMLInputElement>) => void;
-    private _render;
+    private _renderInput;
     render(): React.JSX.Element;
 }
 export declare class RangeLabel extends React.PureComponent<iPropsRangeLabel> {

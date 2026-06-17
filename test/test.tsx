@@ -645,7 +645,11 @@ class App extends React.Component<{}, iState> {
                     <InputFileLabel label="InputFileLabel" />
 
                     <Range value={ 0 } />
+                    <Range value={ 0 } orientation="vertical" style={ { "height": "20em" } } />
                     <RangeLabel label="RangeLabel" value={ 0 } />
+                    <RangeLabel label="RangeLabel with children" value={ 0 }>
+                        <Button icon="plus" outline size="sm" />
+                    </RangeLabel>
 
                     <Select value="option 1" />
                     <SelectLabel label="SelectLabel" value="option 1" />

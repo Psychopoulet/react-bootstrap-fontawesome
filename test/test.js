@@ -32256,7 +32256,24 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     };
     // render
-    _render(className) {
+    _renderInput(disabled, required, valid, className) {
+        const style = {};
+        if ("vertical" === this.props.orientation) {
+            style.height = "2.4rem";
+            style.writingMode = "vertical-lr";
+            style.direction = "rtl";
+            style.width = "16px";
+            style.verticalAlign = "bottom";
+        }
+        else {
+            style.height = "2.4rem";
+        }
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
+                + ("string" === typeof className ? " " + className : "")
+                + (disabled ? " disabled" : "")
+                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this._value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+    }
+    render() {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
@@ -32266,19 +32283,12 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
-        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
-                + ("string" === typeof className ? " " + className : "")
-                + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this._value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
-    }
-    render() {
-        // render
-        return "string" !== typeof this.props.unit ? this._render(this.props.className) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
-            this._render(),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "input-group-text" },
-                this.props.value,
-                this.props.unit));
+        if (this.props.children) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
+                this._renderInput(disabled, required, valid),
+                this.props.children);
+        }
+        return this._renderInput(disabled, required, valid, this.props.className);
     }
 }
 class RangeLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
@@ -32299,7 +32309,7 @@ class RangeLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Range, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children),
             !integerValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackInteger, null),
             integerValid && !minValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
             integerValid && !maxValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
@@ -34095,7 +34105,10 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFile, null),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputFileLabel, { label: "InputFileLabel" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Range, { value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Range, { value: 0, orientation: "vertical", style: { "height": "20em" } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.RangeLabel, { label: "RangeLabel", value: 0 }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.RangeLabel, { label: "RangeLabel with children", value: 0 },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { icon: "plus", outline: true, size: "sm" })),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Select, { value: "option 1" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectLabel, { label: "SelectLabel", value: "option 1" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectInteger, { value: 0 }),
