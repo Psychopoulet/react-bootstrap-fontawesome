@@ -27940,11 +27940,11 @@
     };
     (function () {
       var isomorphicReactPackageVersion = React.version;
-      if ("19.2.6" !== isomorphicReactPackageVersion)
+      if ("19.2.7" !== isomorphicReactPackageVersion)
         throw Error(
           'Incompatible React versions: The "react" and "react-dom" packages must have the exact same version. Instead got:\n  - react:      ' +
             (isomorphicReactPackageVersion +
-              "\n  - react-dom:  19.2.6\nLearn more: https://react.dev/warnings/version-mismatch")
+              "\n  - react-dom:  19.2.7\nLearn more: https://react.dev/warnings/version-mismatch")
         );
     })();
     ("function" === typeof Map &&
@@ -27981,10 +27981,10 @@
       !(function () {
         var internals = {
           bundleType: 1,
-          version: "19.2.6",
+          version: "19.2.7",
           rendererPackageName: "react-dom",
           currentDispatcherRef: ReactSharedInternals,
-          reconcilerVersion: "19.2.6"
+          reconcilerVersion: "19.2.7"
         };
         internals.overrideHookState = overrideHookState;
         internals.overrideHookStateDeletePath = overrideHookStateDeletePath;
@@ -28122,7 +28122,7 @@
       listenToAllSupportedEvents(container);
       return new ReactDOMHydrationRoot(initialChildren);
     };
-    exports.version = "19.2.6";
+    exports.version = "19.2.7";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -28556,7 +28556,7 @@
     exports.useFormStatus = function () {
       return resolveDispatcher().useHostTransitionStatus();
     };
-    exports.version = "19.2.6";
+    exports.version = "19.2.7";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -29927,7 +29927,7 @@ if (false) // removed by dead control flow
     exports.useTransition = function () {
       return resolveDispatcher().useTransition();
     };
-    exports.version = "19.2.6";
+    exports.version = "19.2.7";
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ &&
       "function" ===
         typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop &&
@@ -32220,8 +32220,6 @@ __webpack_require__.r(__webpack_exports__);
 class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // name
     static displayName = "Range";
-    // private
-    _value = 0;
     // constructor
     constructor(props) {
         super(props);
@@ -32229,12 +32227,11 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         this.state = {
             "value": "number" === typeof this.props.value ? this.props.value : 0
         };
-        this._value = "number" === typeof this.props.value ? this.props.value : 0;
     }
-    componentDidUpdate(nextProps) {
-        if (nextProps.value !== this.state.value) {
+    componentDidUpdate(prevProps) {
+        if (this.props.value !== prevProps.value) {
             this.setState({
-                "value": nextProps.value
+                "value": this.props.value
             });
         }
     }
@@ -32246,13 +32243,11 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
         this.setState({
             "value": value
-        }, () => {
-            this._value = value;
         });
     };
     _handleMouseUp = (e) => {
         if ("function" === typeof this.props.onChange) {
-            this.props.onChange(e, this._value, "undefined" !== typeof this.props.value ? this.props.value : 0);
+            this.props.onChange(e, this.state.value, "undefined" !== typeof this.props.value ? this.props.value : 0);
         }
     };
     // render
@@ -32271,7 +32266,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this._value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // props values
