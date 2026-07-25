@@ -63,15 +63,15 @@
     "colors": "1.4.0",
     "css-loader": "7.1.4",
     "eslint-plugin-personnallinter": "git+ssh://git@github.com/Psychopoulet/eslint-plugin-personnallinter",
-    "globals": "17.6.0",
+    "globals": "17.7.0",
     "husky": "9.1.7",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "style-loader": "4.0.0",
-    "ts-loader": "9.6.1",
+    "ts-loader": "9.6.2",
     "used-deps-analyzer": "0.4.0",
-    "webpack": "5.107.2",
-    "webpack-cli": "7.0.3"
+    "webpack": "5.109.0",
+    "webpack-cli": "7.2.1"
   },
 
   "keywords": [
