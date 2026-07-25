@@ -43,7 +43,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
             className={
                 "form-control"
-                + ("string" === typeof this.props.className ? " " + this.props.className : "")
+                + (className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             } style={ this.props.style }
