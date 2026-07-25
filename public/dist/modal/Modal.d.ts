@@ -9,7 +9,7 @@ interface iPropsModal extends iPropsNode {
     "size"?: tSize;
     "variant"?: tVariant;
     "onClose"?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    "onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
+    "onSubmit"?: (e: React.SubmitEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
 }
 interface iStatesModal {
     "appParent": HTMLElement;
