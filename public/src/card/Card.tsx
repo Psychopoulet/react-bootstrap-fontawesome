@@ -23,7 +23,7 @@
 
     interface iPropsCard extends iPropsNode {
         "variant"?: tVariant;
-        "onSubmit"?: (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
+        "onSubmit"?: (e: React.SubmitEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => void;
     }
 
 // component

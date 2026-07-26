@@ -75,7 +75,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + (className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
