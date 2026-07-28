@@ -60,7 +60,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     private _renderInput (disabled: boolean, required: boolean, valid: boolean, className?: string): React.JSX.Element {
 
-        return <input id={ this.props.id } name={ this.props.name } type={ "string" === typeof this.props.value ? this.props.value : "text" }
+        return <input id={ this.props.id } name={ this.props.name } type={ "string" === typeof this.props.type ? this.props.type : "text" }
 
             ref={ this.props._ref }
 
@@ -212,6 +212,8 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
             />
 
             <InputText id={ this.props.id } name={ this.props.name }
+
+                type={ this.props.type }
 
                 _ref={ this.props._ref }
 

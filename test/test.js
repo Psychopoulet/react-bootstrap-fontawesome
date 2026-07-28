@@ -32109,7 +32109,7 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     };
     // render
     _renderInput(disabled, required, valid, className) {
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.value ? this.props.value : "text", ref: this.props._ref, className: "form-control"
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.type ? this.props.type : "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
@@ -32187,7 +32187,7 @@ class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(InputText, { id: this.props.id, name: this.props.name, type: this.props.type, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
@@ -34122,7 +34122,9 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectInteger, { value: 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.SelectIntegerLabel, { label: "SelectIntegerLabel", value: 0 }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.TextArea, null),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.TextAreaLabel, { label: "TextAreaLabel" }));
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.TextAreaLabel, { label: "TextAreaLabel" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputText, { type: "password" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputTextLabel, { type: "password", label: "password" }));
             case TABS.findIndex((value) => { return "List" === value; }):
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.List, null,
