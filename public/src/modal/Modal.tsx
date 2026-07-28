@@ -66,23 +66,15 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
         super(props);
 
+        Modal.OPENED_MODALS_COUNT += 2;
+
         // states
 
         this.state = {
             "appParent": document.getElementById(props.appId) as HTMLElement,
             "backDrop": document.createElement("div"),
-            "displayId": 0
-        };
-
-    }
-
-    public componentWillMount (): void {
-
-        Modal.OPENED_MODALS_COUNT += 2;
-
-        this.setState({
             "displayId": Modal.OPENED_MODALS_COUNT
-        });
+        };
 
     }
 

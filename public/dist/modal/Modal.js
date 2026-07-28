@@ -20,18 +20,13 @@ export default class Modal extends React.Component {
     // constructor
     constructor(props) {
         super(props);
+        Modal.OPENED_MODALS_COUNT += 2;
         // states
         this.state = {
             "appParent": document.getElementById(props.appId),
             "backDrop": document.createElement("div"),
-            "displayId": 0
-        };
-    }
-    componentWillMount() {
-        Modal.OPENED_MODALS_COUNT += 2;
-        this.setState({
             "displayId": Modal.OPENED_MODALS_COUNT
-        });
+        };
     }
     componentDidMount() {
         // parent
