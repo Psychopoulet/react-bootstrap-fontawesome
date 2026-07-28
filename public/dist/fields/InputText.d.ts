@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { iPropsInput } from "../types";
 export interface iPropsInputText extends iPropsInput {
+    "type"?: React.HTMLInputTypeAttribute;
     "value"?: string;
     "pattern"?: string;
     "minLength"?: number;

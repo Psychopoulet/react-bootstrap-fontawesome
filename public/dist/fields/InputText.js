@@ -20,7 +20,7 @@ export class InputText extends React.PureComponent {
     };
     // render
     _renderInput(disabled, required, valid, className) {
-        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
+        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.value ? this.props.value : "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });

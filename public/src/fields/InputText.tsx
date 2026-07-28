@@ -19,6 +19,7 @@
 // Props && States
 
     export interface iPropsInputText extends iPropsInput {
+        "type"?: React.HTMLInputTypeAttribute;
         "value"?: string;
         "pattern"?: string;
         "minLength"?: number;
@@ -59,7 +60,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
     private _renderInput (disabled: boolean, required: boolean, valid: boolean, className?: string): React.JSX.Element {
 
-        return <input id={ this.props.id } name={ this.props.name } type="text"
+        return <input id={ this.props.id } name={ this.props.name } type={ "string" === typeof this.props.value ? this.props.value : "text" }
 
             ref={ this.props._ref }
 
