@@ -32109,7 +32109,7 @@ class InputText extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     };
     // render
     _renderInput(disabled, required, valid, className) {
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "text", ref: this.props._ref, className: "form-control"
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.value ? this.props.value : "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
@@ -33082,18 +33082,13 @@ class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // constructor
     constructor(props) {
         super(props);
+        Modal.OPENED_MODALS_COUNT += 2;
         // states
         this.state = {
             "appParent": document.getElementById(props.appId),
             "backDrop": document.createElement("div"),
-            "displayId": 0
-        };
-    }
-    componentWillMount() {
-        Modal.OPENED_MODALS_COUNT += 2;
-        this.setState({
             "displayId": Modal.OPENED_MODALS_COUNT
-        });
+        };
     }
     componentDidMount() {
         // parent
@@ -33781,7 +33776,8 @@ const TABS = [
     "SoundReader",
     "CheckBox",
     "InputArray",
-    "InputColor"
+    "InputColor",
+    "Modal"
 ];
 // component
 class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
@@ -33794,7 +33790,9 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
         this.state = {
             "index": 0,
             "indexCard": 0,
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "modals": [],
+            "modalKey": 0
         };
     }
     // render
@@ -34199,6 +34197,36 @@ class App extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
                 return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColor, { value: "test", onChange: (e, value) => { alert("change InputColor to " + value); } }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.InputColorLabel, { label: "InputColorLabel", value: "test", onChange: (e, value) => { alert("change InputColorLabel to " + value); } }));
+            case TABS.findIndex((value) => { return "Modal" === value; }): {
+                const _onOpen = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.setState({
+                        "modals": [...this.state.modals, this.state.modalKey],
+                        "modalKey": this.state.modalKey + 1
+                    });
+                };
+                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.CardBody, null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { onClick: _onOpen }, "Open modal"),
+                    this.state.modals.map((key) => {
+                        const _onClose = (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            this.setState({
+                                "modals": this.state.modals.filter((modalKey) => {
+                                    return modalKey !== key;
+                                })
+                            });
+                        };
+                        return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Modal, { key: key, appId: "TestApp", title: "Modal n°" + key, onClose: _onClose },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.ModalBody, null,
+                                "This is modal body n\u00B0",
+                                key),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.ModalFooter, null,
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { onClick: _onOpen }, "Open another modal"),
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_public_src_main__WEBPACK_IMPORTED_MODULE_2__.Button, { variant: "secondary", onClick: _onClose }, "Close")));
+                    }));
+            }
         }
         return undefined;
     }
