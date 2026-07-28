@@ -20,7 +20,7 @@ export class InputText extends React.PureComponent {
     };
     // render
     _renderInput(disabled, required, valid, className) {
-        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.value ? this.props.value : "text", ref: this.props._ref, className: "form-control"
+        return React.createElement("input", { id: this.props.id, name: this.props.name, type: "string" === typeof this.props.type ? this.props.type : "text", ref: this.props._ref, className: "form-control"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown, onBlur: this.props.onBlur });
@@ -98,7 +98,7 @@ export class InputTextLabel extends React.PureComponent {
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            React.createElement(InputText, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
+            React.createElement(InputText, { id: this.props.id, name: this.props.name, type: this.props.type, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }, this.props.children),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
