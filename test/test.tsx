@@ -663,6 +663,9 @@ class App extends React.Component<{}, iState> {
                     <TextArea />
                     <TextAreaLabel label="TextAreaLabel" />
 
+                    <InputText type="password" />
+                    <InputTextLabel type="password" label="password" />
+
                 </CardBody>;
 
             case TABS.findIndex((value: string): boolean => { return "List" === value; }):
