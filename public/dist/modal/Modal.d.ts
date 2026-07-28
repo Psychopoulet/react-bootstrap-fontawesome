@@ -20,7 +20,6 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
     static displayName: string;
     static OPENED_MODALS_COUNT: number;
     constructor(props: iPropsModal);
-    componentWillMount(): void;
     componentDidMount(): void;
     componentWillUnmount(): void;
     private _renderContent;

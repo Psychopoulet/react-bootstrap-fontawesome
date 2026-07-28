@@ -24,6 +24,7 @@
         InputReadOnly, InputReadOnlyLabel,
         InputText, InputTextLabel,
         InputFile, InputFileLabel,
+        Modal, ModalBody, ModalFooter,
         Range, RangeLabel,
         Select, SelectLabel,
         SelectInteger, SelectIntegerLabel,
@@ -43,12 +44,9 @@
         InvalidFeedBackMinLength, InvalidFeedBackMaxLength
     } from "./fields/FieldFeedBacks";
 
-    import Modal from "./modal/Modal";
-    import ModalBody from "./modal/ModalBody";
     import ModalImage from "./modal/ModalImage";
     import ModalList from "./modal/ModalList";
     import ModalTable from "./modal/ModalTable";
-    import ModalFooter from "./modal/ModalFooter";
 
     import NavTabs from "./nav/NavTabs";
     import NavItem from "./nav/NavItem";
@@ -67,6 +65,8 @@
         "index": number;
         "indexCard": number;
         "color": string;
+        "modals": number[];
+        "modalKey": number;
     }
 
 // consts
@@ -96,7 +96,8 @@
         "SoundReader",
         "CheckBox",
         "InputArray",
-        "InputColor"
+        "InputColor",
+        "Modal"
     ];
 
 // component
@@ -118,7 +119,9 @@ class App extends React.Component<{}, iState> {
         this.state = {
             "index": 0,
             "indexCard": 0,
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "modals": [],
+            "modalKey": 0
         };
 
     }
@@ -809,6 +812,60 @@ class App extends React.Component<{}, iState> {
                     <InputColorLabel label="InputColorLabel" value="test" onChange={ (e: React.ChangeEvent<HTMLInputElement>, value: string) => { alert("change InputColorLabel to " + value); } } />
 
                 </CardBody>;
+
+            case TABS.findIndex((value: string): boolean => { return "Modal" === value; }): {
+
+                const _onOpen = (e: React.MouseEvent<HTMLButtonElement>): void => {
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    this.setState({
+                        "modals": [ ...this.state.modals, this.state.modalKey ],
+                        "modalKey": this.state.modalKey + 1
+                    });
+
+                };
+
+                return <CardBody>
+
+                    <Button onClick={ _onOpen }>Open modal</Button>
+
+                    { this.state.modals.map((key: number): JSX.Element => {
+
+                        const _onClose = (e: React.MouseEvent<HTMLButtonElement>): void => {
+
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            this.setState({
+                                "modals": this.state.modals.filter((modalKey: number): boolean => {
+                                    return modalKey !== key;
+                                })
+                            });
+
+                        };
+
+                        return <Modal key={ key } appId="TestApp" title={ "Modal n°" + key }
+                            onClose={ _onClose }
+                        >
+
+                            <ModalBody>This is modal body n°{ key }</ModalBody>
+
+                            <ModalFooter>
+
+                                <Button onClick={ _onOpen }>Open another modal</Button>
+                                <Button variant="secondary" onClick={ _onClose }>Close</Button>
+
+                            </ModalFooter>
+
+                        </Modal>;
+
+                    }) }
+
+                </CardBody>;
+
+            }
 
         }
 
