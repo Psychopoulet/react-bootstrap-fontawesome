@@ -63,7 +63,7 @@ jobs:
 
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    needs: require-dev-source
+    needs: require-develop-source
 
     steps:
 
