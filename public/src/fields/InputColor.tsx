@@ -84,7 +84,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
         return <input id={ this.props.id } name={ this.props.name } type="color"
 
-            ref={ this.props._ref }
+            ref={ this.props._ref as React.Ref<HTMLInputElement> | undefined }
 
             className={
                 "form-control"

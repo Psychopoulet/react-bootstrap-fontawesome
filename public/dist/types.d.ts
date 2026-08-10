@@ -14,7 +14,7 @@ export interface iPropsField extends iPropsNode {
 export interface iPropsInput extends iPropsField {
     "placeholder"?: string;
     "emptyValidation"?: boolean;
-    "_ref"?: React.RefObject<HTMLInputElement>;
+    "_ref"?: React.RefObject<HTMLInputElement | HTMLTextAreaElement>;
     "onKeyDown"?: (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     "onBlur"?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }

@@ -92,6 +92,8 @@ export class TextArea extends React.PureComponent<iPropsTextArea> {
         // render
         return <textarea id={ this.props.id } name={ this.props.name }
 
+            ref={ this.props._ref as React.Ref<HTMLTextAreaElement> | undefined }
+
             className={
                 "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
