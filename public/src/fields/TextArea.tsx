@@ -191,6 +191,8 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
 
             <TextArea id={ this.props.id } name={ this.props.name }
 
+                _ref={ this.props._ref }
+
                 required={ required } disabled={ disabled }
 
                 placeholder={ this.props.placeholder } label={ this.props.label }

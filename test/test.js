@@ -32577,7 +32577,7 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(TextArea, { id: this.props.id, name: this.props.name, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(TextArea, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, pattern: this.props.pattern, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this.props.onChange, onKeyDown: this.props.onKeyDown }),
             this._renderError(requiredValid, minLengthValid, maxLengthValid, patternValid));
     }
 }
