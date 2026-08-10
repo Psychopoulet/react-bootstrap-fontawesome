@@ -113,7 +113,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
 
         return <input id={ this.props.id } name={ this.props.name } type="range"
 
-            ref={ this.props._ref }
+            ref={ this.props._ref as React.Ref<HTMLInputElement> | undefined }
 
             className={
                 "form-control form-range"

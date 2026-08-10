@@ -71,7 +71,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
         return <input id={ this.props.id } name={ this.props.name } type="number"
 
-            ref={ this.props._ref }
+            ref={ this.props._ref as React.Ref<HTMLInputElement> | undefined }
 
             className={
                 "form-control"

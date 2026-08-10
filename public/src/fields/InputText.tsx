@@ -62,7 +62,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
         return <input id={ this.props.id } name={ this.props.name } type={ "string" === typeof this.props.type ? this.props.type : "text" }
 
-            ref={ this.props._ref }
+            ref={ this.props._ref as React.Ref<HTMLInputElement> | undefined }
 
             className={
                 "form-control"

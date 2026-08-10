@@ -39,7 +39,7 @@ export class TextArea extends React.PureComponent {
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
-        return React.createElement("textarea", { id: this.props.id, name: this.props.name, className: "form-control"
+        return React.createElement("textarea", { id: this.props.id, name: this.props.name, ref: this.props._ref, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), rows: this.props.rows, style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, minLength: this.props.minLength, maxLength: this.props.maxLength, onChange: this._handleChange, onKeyDown: this.props.onKeyDown });
