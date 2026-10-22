@@ -5,6 +5,7 @@
     "module": "esnext",
 
     "outDir": "./public/dist",
+    "rootDir": "./public/src",
 
     "declaration": true,
     "declarationDir": "./public/dist",
