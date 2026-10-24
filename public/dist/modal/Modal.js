@@ -87,12 +87,13 @@ export default class Modal extends React.Component {
                             && React.createElement("button", { type: "button", className: "btn-close", title: "close", "data-bs-dismiss": "modal", "aria-label": "Close", onClick: this.props.onClose }))
                     : undefined,
                 React.Children.toArray(this.props.children).filter((child) => {
-                    return MaxHeightContent === child.type
-                        || ModalBody === child.type
-                        || ModalImage === child.type
-                        || ModalList === child.type
-                        || ModalTable === child.type
-                        || ModalFooter === child.type;
+                    return React.isValidElement(child)
+                        && (MaxHeightContent === child.type
+                            || ModalBody === child.type
+                            || ModalImage === child.type
+                            || ModalList === child.type
+                            || ModalTable === child.type
+                            || ModalFooter === child.type);
                 })));
     }
     render() {

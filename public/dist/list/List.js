@@ -13,7 +13,7 @@ export default class List extends React.PureComponent {
         if ("boolean" === typeof this.props.flush && this.props.flush) {
             className += " list-group-flush";
         }
-        if (this.props.horizontal) {
+        if (true === this.props.horizontal || "string" === typeof this.props.horizontal) {
             switch (this.props.horizontal) {
                 case true:
                     className += " list-group-horizontal";

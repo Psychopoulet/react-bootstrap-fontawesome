@@ -25,14 +25,15 @@ export default class Card extends React.PureComponent {
             className += " " + this.props.className;
         }
         return React.createElement(CardContext.Provider, { value: this.props.variant }, "function" === typeof this.props.onSubmit ? React.createElement("form", { id: this.props.id, className: className, style: this.props.style, onSubmit: this.props.onSubmit }, this.props.children) : React.createElement("div", { id: this.props.id, className: className }, React.Children.toArray(this.props.children).filter((child) => {
-            return MaxHeightContent === child.type
-                || CardHeader === child.type
-                || CardHeaderNav === child.type
-                || CardBody === child.type
-                || CardList === child.type
-                || CardTable === child.type
-                || CardImage === child.type
-                || CardFooter === child.type;
+            return React.isValidElement(child)
+                && (MaxHeightContent === child.type
+                    || CardHeader === child.type
+                    || CardHeaderNav === child.type
+                    || CardBody === child.type
+                    || CardList === child.type
+                    || CardTable === child.type
+                    || CardImage === child.type
+                    || CardFooter === child.type);
         })));
     }
 }

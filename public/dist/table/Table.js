@@ -37,9 +37,10 @@ export default class Table extends React.PureComponent {
             className += " " + this.props.className;
         }
         return React.createElement("table", { id: this.props.id, className: className, style: this.props.style }, React.Children.toArray(this.props.children).filter((child) => {
-            return TableHeader === child.type
-                || TableBody === child.type
-                || TableFooter === child.type;
+            return React.isValidElement(child)
+                && (TableHeader === child.type
+                    || TableBody === child.type
+                    || TableFooter === child.type);
         }));
     }
 }

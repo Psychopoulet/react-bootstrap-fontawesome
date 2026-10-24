@@ -28,7 +28,7 @@ export class InputFloat extends React.PureComponent {
     // render
     _renderInput(disabled, required, valid, className) {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "number", ref: this.props._ref, className: "form-control"
-                + (className ? " " + className : "")
+                + ("string" === typeof className && "" !== className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 0.1, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
@@ -36,13 +36,14 @@ export class InputFloat extends React.PureComponent {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
+        const hasChildren = Boolean(this.props.children);
         // controls
         const isNumber = "number" === typeof this.props.value;
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = isNumber && minValid && maxValid;
         // render
-        if (this.props.children) {
+        if (hasChildren) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),
                 this.props.children);
@@ -65,11 +66,11 @@ export class InputFloatLabel extends React.PureComponent {
         const valid = isNumber && minValid && maxValid;
         // render
         return React.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-                + (this.props.className ? " " + this.props.className : ""), style: this.props.style },
+                + ("string" === typeof this.props.className && "" !== this.props.className ? " " + this.props.className : ""), style: this.props.style },
             React.createElement(InputLabel, { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required, valid: valid }),
             React.createElement(InputFloat, { id: this.props.id, name: this.props.name, _ref: this.props._ref, required: required, disabled: disabled, placeholder: this.props.placeholder, label: this.props.label, value: this.props.value, min: this.props.min, max: this.props.max, step: this.props.step, onChange: this.props.onChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown }, this.props.children),
             !isNumber && React.createElement(InvalidFeedBackFloat, null),
-            isNumber && !minValid && React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
-            isNumber && !maxValid && React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
+            isNumber && !minValid && "number" === typeof this.props.min && React.createElement(InvalidFeedBackMin, { min: this.props.min, current: this.props.value }),
+            isNumber && !maxValid && "number" === typeof this.props.max && React.createElement(InvalidFeedBackMax, { max: this.props.max, current: this.props.value }));
     }
 }

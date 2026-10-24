@@ -28,7 +28,7 @@ export default class NavTabs extends React.Component {
     }
     // events
     _handleSelect = (e, newIndex) => {
-        let newSecuredIndex;
+        let newSecuredIndex = newIndex;
         if (this.props.items) {
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
@@ -36,12 +36,6 @@ export default class NavTabs extends React.Component {
             else if (0 > newIndex) {
                 newSecuredIndex = 0;
             }
-            else {
-                newSecuredIndex = newIndex;
-            }
-        }
-        else {
-            newSecuredIndex = newIndex;
         }
         this.setState({
             "selectedIndex": newSecuredIndex
@@ -49,7 +43,7 @@ export default class NavTabs extends React.Component {
         if ("function" === typeof this.props.onSelect) {
             this.props.onSelect(e, newSecuredIndex);
         }
-        else if (e) {
+        else {
             e.preventDefault();
             e.stopPropagation();
         }
@@ -74,7 +68,7 @@ export default class NavTabs extends React.Component {
                 return React.createElement(NavItem, { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             React.Children.toArray(this.props.children).filter((child) => {
-                return NavItem === child.type;
+                return React.isValidElement(child) && NavItem === child.type;
             }));
     }
 }

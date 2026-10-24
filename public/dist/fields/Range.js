@@ -60,13 +60,14 @@ export class Range extends React.PureComponent {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
+        const hasChildren = Boolean(this.props.children);
         // controls
         const isNumber = "number" === typeof this.props.value;
         const integerValid = isNumber && Number.isInteger(this.props.value);
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
-        if (this.props.children) {
+        if (hasChildren) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),
                 this.props.children);
