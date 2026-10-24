@@ -10,7 +10,7 @@
     "declaration": true,
     "declarationDir": "./public/dist",
 
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowJs": true,
 
     "alwaysStrict": true,
