@@ -182,14 +182,15 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
                 }
 
                     {
-                        React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                        React.Children.toArray(this.props.children).filter((child): boolean => {
 
-                            return MaxHeightContent === child.type
+                            return React.isValidElement(child)
+                                && (MaxHeightContent === child.type
                                 || ModalBody === child.type
                                 || ModalImage === child.type
                                 || ModalList === child.type
                                 || ModalTable === child.type
-                                || ModalFooter === child.type;
+                                || ModalFooter === child.type);
 
                         })
                     }

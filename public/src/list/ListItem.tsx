@@ -72,13 +72,12 @@ export default class ListItem extends React.PureComponent<iPropsListItem> {
 
                     return "function" === typeof this.props.onClick && !disabled ? <a href="#" id={ this.props.id }
                         className={ className } style={ this.props.style }
-                        aria-disabled={ disabled ? "true" : undefined }
+                        aria-disabled={ "true" }
                         onClick={ this.props.onClick }
                     >
                         { this.props.children }
                     </a> : <div id={ this.props.id }
                         className={ className } style={ this.props.style }
-                        aria-disabled={ disabled ? "true" : undefined }
                     >
                         { this.props.children }
                     </div>;

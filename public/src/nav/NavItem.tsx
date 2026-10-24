@@ -72,9 +72,9 @@ export default class NavItem extends React.PureComponent<iPropsNavItem> {
 
             {
 
-                disabled ? <span className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined }>
+                disabled ? <span className={ linkClassName } role="presentation" aria-disabled="true" tabIndex={ -1 }>
                     { this.props.children }
-                </span> : <a href="#" className={ linkClassName } role="presentation" aria-disabled={ disabled ? "true" : undefined } tabIndex={ disabled ? -1 : undefined } onClick={ this._handleClick }>
+                </span> : <a href="#" className={ linkClassName } role="presentation" onClick={ this._handleClick }>
                     { this.props.children }
                 </a>
 

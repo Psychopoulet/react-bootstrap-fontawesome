@@ -74,11 +74,12 @@ export default class Table extends React.PureComponent<iPropsTable> {
         return <table id={ this.props.id } className={ className } style={ this.props.style }>
 
             {
-                React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                React.Children.toArray(this.props.children).filter((child): boolean => {
 
-                    return TableHeader === child.type
+                    return React.isValidElement(child)
+                        && (TableHeader === child.type
                         || TableBody === child.type
-                        || TableFooter === child.type;
+                        || TableFooter === child.type);
 
                 })
             }
