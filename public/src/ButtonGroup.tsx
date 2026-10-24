@@ -54,8 +54,8 @@ export default class ButtonGroup extends React.PureComponent<iPropsButtonGroup> 
         >
 
             {
-                React.Children.toArray(this.props.children).filter((child: any): boolean => {
-                    return Button === child.type;
+                React.Children.toArray(this.props.children).filter((child): boolean => {
+                    return React.isValidElement(child) && Button === child.type;
                 })
             }
 

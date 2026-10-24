@@ -36,7 +36,9 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
 
     protected readonly _handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void = (e: React.ChangeEvent<HTMLInputElement>): void => {
 
-        if (!e.target.files || !e.target.files.length) {
+        const files: FileList | null = e.target.files;
+
+        if (null === files || 0 === files.length) {
 
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, null);
@@ -45,7 +47,7 @@ export class InputFile extends React.PureComponent<iPropsInputFile> {
         }
         else {
 
-            const value: File = e.target.files[0];
+            const value: File = files[0];
 
             if ("number" === typeof this.props.maxSize && value.size > this.props.maxSize) {
 

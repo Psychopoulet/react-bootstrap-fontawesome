@@ -96,6 +96,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
         const required: boolean = Boolean(this.props.required);
+        const hasChildren: boolean = Boolean(this.props.children);
 
         // controls
 
@@ -122,7 +123,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
         // render
 
-        if (this.props.children) {
+        if (hasChildren) {
 
             return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 

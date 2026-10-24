@@ -75,7 +75,7 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
 
             className={
                 "form-control"
-                + (this.props.className ? " " + this.props.className : "")
+                + ("string" === typeof className && "" !== className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
@@ -102,20 +102,21 @@ export class InputInteger extends React.PureComponent<iPropsInputNumber> {
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
         const required: boolean = Boolean(this.props.required);
+        const hasChildren: boolean = Boolean(this.props.children);
 
         // controls
 
         const isNumber: boolean = "number" === typeof this.props.value;
         const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
         const valid: boolean = integerValid && minValid && maxValid;
 
         // render
 
-        if (this.props.children) {
+        if (hasChildren) {
 
             return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 
@@ -152,15 +153,15 @@ export class InputIntegerLabel extends React.PureComponent<iPropsInputIntegerLab
         const isNumber: boolean = "number" === typeof this.props.value;
         const integerValid: boolean = isNumber && Number.isInteger(this.props.value);
 
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
         const valid: boolean = integerValid && minValid && maxValid;
 
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className && "" !== this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }

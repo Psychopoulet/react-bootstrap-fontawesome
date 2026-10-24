@@ -75,7 +75,7 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
 
             className={
                 "form-control"
-                + (className ? " " + className : "")
+                + ("string" === typeof className && "" !== className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
@@ -102,19 +102,20 @@ export class InputFloat extends React.PureComponent<iPropsInputNumber> {
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
         const required: boolean = Boolean(this.props.required);
+        const hasChildren: boolean = Boolean(this.props.children);
 
         // controls
 
         const isNumber: boolean = "number" === typeof this.props.value;
 
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
         const valid: boolean = isNumber && minValid && maxValid;
 
         // render
 
-        if (this.props.children) {
+        if (hasChildren) {
 
             return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 
@@ -150,15 +151,15 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
 
         const isNumber: boolean = "number" === typeof this.props.value;
 
-        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value as number >= this.props.min : true;
-        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value as number <= this.props.max : true;
+        const minValid: boolean = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
+        const maxValid: boolean = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
 
         const valid: boolean = isNumber && minValid && maxValid;
 
         // render
         return <div className={
             ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
-            + (this.props.className ? " " + this.props.className : "")
+            + ("string" === typeof this.props.className && "" !== this.props.className ? " " + this.props.className : "")
         } style={ this.props.style }>
 
             <InputLabel for={ String(this.props.id) } label={ this.props.label }
@@ -183,8 +184,8 @@ export class InputFloatLabel extends React.PureComponent<iPropsInputFloatLabel> 
             </InputFloat>
 
             { !isNumber && <InvalidFeedBackFloat /> }
-            { isNumber && !minValid && <InvalidFeedBackMin min={ this.props.min as number } current={ this.props.value as number } /> }
-            { isNumber && !maxValid && <InvalidFeedBackMax max={ this.props.max as number } current={ this.props.value as number } /> }
+            { isNumber && !minValid && "number" === typeof this.props.min && <InvalidFeedBackMin min={ this.props.min } current={ this.props.value } /> }
+            { isNumber && !maxValid && "number" === typeof this.props.max && <InvalidFeedBackMax max={ this.props.max } current={ this.props.value } /> }
 
         </div>;
 
