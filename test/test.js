@@ -35573,7 +35573,7 @@ class Select extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         // controls
         const requiredValid = required ? "" !== this.props.value : true;
         // render
-        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", { id: this.props.id, name: this.props.name, required: required, "aria-required": required, className: "form-control"
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", { id: this.props.id, name: this.props.name, ref: this.props._ref, required: required, "aria-required": required, className: "form-control"
                 + ("string" === typeof this.props.className ? " " + this.props.className : "")
                 + (disabled ? " disabled" : "")
                 + (!requiredValid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value, onChange: this._handleChange }, this.props.children);
@@ -35593,7 +35593,7 @@ class SelectLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: ("undefined" !== typeof this.props["margin-bottom"] ? "mb-" + this.props["margin-bottom"] : "mb-3")
                 + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_InputLabel__WEBPACK_IMPORTED_MODULE_2__["default"], { for: String(this.props.id), label: this.props.label, disabled: disabled, required: required }),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Select, { id: this.props.id, required: required, disabled: disabled, label: this.props.label, value: this.props.value, onChange: this.props.onChange }, this.props.children),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(Select, { id: this.props.id, required: required, disabled: disabled, label: this.props.label, value: this.props.value, onChange: this.props.onChange, _ref: this.props._ref }, this.props.children),
             !requiredValid && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackRequired, null));
     }
 }
