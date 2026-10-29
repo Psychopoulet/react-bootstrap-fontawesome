@@ -7,7 +7,7 @@ export default class Image extends React.PureComponent {
     static displayName = "Image";
     // render
     render() {
-        const style = this.props.style ? { ...this.props.style } : {};
+        const style = "object" === typeof this.props.style ? { ...this.props.style } : {};
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";
         }

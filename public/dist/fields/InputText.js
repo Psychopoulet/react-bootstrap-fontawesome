@@ -30,6 +30,7 @@ export class InputText extends React.PureComponent {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
+        const hasChildren = Boolean(this.props.children);
         // controls
         let requiredValid = true;
         let minLengthValid = true;
@@ -45,7 +46,7 @@ export class InputText extends React.PureComponent {
         }
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
         // render
-        if (this.props.children) {
+        if (hasChildren) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),
                 this.props.children);
@@ -69,7 +70,7 @@ export class InputTextLabel extends React.PureComponent {
             return React.createElement(InvalidFeedBackMaxLength, { max: this.props.maxLength, current: value.length });
         }
         else if (!patternValid) {
-            return React.createElement(InvalidFeedBack, { alert: "The value does not respect the pattern (" + this.props.pattern + ")" });
+            return React.createElement(InvalidFeedBack, { alert: "The value does not respect the pattern (" + String(this.props.pattern) + ")" });
         }
         else {
             return undefined;

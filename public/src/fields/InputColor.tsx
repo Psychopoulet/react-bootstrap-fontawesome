@@ -80,7 +80,7 @@ export class InputColor extends React.PureComponent<iPropsInputColor> {
 
         const valid: boolean = requiredValid && minLengthValid && maxLengthValid && patternValid;
 
-        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
+        const style = "object" === typeof this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
 
         return <input id={ this.props.id } name={ this.props.name } type="color"
 

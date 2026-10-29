@@ -47,7 +47,7 @@ export default class CardHeader extends React.PureComponent<iPropsCardHeader> {
                         className += " d-flex justify-content-between align-items-center";
                     }
 
-                    if (variant) {
+                    if ("string" === typeof variant) {
                         className += " border-" + variant + " text-" + variant;
                     }
 

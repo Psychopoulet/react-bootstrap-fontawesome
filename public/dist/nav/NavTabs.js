@@ -28,20 +28,14 @@ export default class NavTabs extends React.Component {
     }
     // events
     _handleSelect = (e, newIndex) => {
-        let newSecuredIndex;
-        if (this.props.items) {
+        let newSecuredIndex = newIndex;
+        if (Array.isArray(this.props.items)) {
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
             }
             else if (0 > newIndex) {
                 newSecuredIndex = 0;
             }
-            else {
-                newSecuredIndex = newIndex;
-            }
-        }
-        else {
-            newSecuredIndex = newIndex;
         }
         this.setState({
             "selectedIndex": newSecuredIndex
@@ -49,7 +43,7 @@ export default class NavTabs extends React.Component {
         if ("function" === typeof this.props.onSelect) {
             this.props.onSelect(e, newSecuredIndex);
         }
-        else if (e) {
+        else {
             e.preventDefault();
             e.stopPropagation();
         }
@@ -70,11 +64,11 @@ export default class NavTabs extends React.Component {
             className += " " + this.props.className;
         }
         return React.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style },
-            this.props.items ? this.props.items.map((title, key) => {
+            Array.isArray(this.props.items) && 0 < this.props.items.length ? this.props.items.map((title, key) => {
                 return React.createElement(NavItem, { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             React.Children.toArray(this.props.children).filter((child) => {
-                return NavItem === child.type;
+                return React.isValidElement(child) && NavItem === child.type;
             }));
     }
 }

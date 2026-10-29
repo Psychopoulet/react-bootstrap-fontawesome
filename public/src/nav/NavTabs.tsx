@@ -67,9 +67,9 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
     protected readonly _handleSelect: (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number) => void = (e: React.MouseEvent<HTMLAnchorElement>, newIndex: number): void => {
 
-        let newSecuredIndex: number;
+        let newSecuredIndex: number = newIndex;
 
-        if (this.props.items) {
+        if (Array.isArray(this.props.items)) {
 
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
@@ -77,13 +77,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
             else if (0 > newIndex) {
                 newSecuredIndex = 0;
             }
-            else {
-                newSecuredIndex = newIndex;
-            }
 
-        }
-        else {
-            newSecuredIndex = newIndex;
         }
 
         this.setState({
@@ -93,7 +87,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
         if ("function" === typeof this.props.onSelect) {
             this.props.onSelect(e, newSecuredIndex);
         }
-        else if (e) {
+        else {
 
             e.preventDefault();
             e.stopPropagation();
@@ -127,7 +121,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
             {
 
-                this.props.items ? this.props.items.map((title: string, key: number): React.JSX.Element => {
+                Array.isArray(this.props.items) && 0 < this.props.items.length ? this.props.items.map((title: string, key: number): React.JSX.Element => {
 
                     return <NavItem key={ key } index={ key }
                         active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }
@@ -141,8 +135,8 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
             }
 
             {
-                React.Children.toArray(this.props.children).filter((child: any): boolean => {
-                    return NavItem === child.type;
+                React.Children.toArray(this.props.children).filter((child): boolean => {
+                    return React.isValidElement(child) && NavItem === child.type;
                 })
             }
 

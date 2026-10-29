@@ -11,7 +11,7 @@ export class InputReadOnly extends React.PureComponent {
     // render
     _renderInput(disabled, required, valid, className) {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "text", readOnly: true, required: required, "aria-required": required, className: "form-control"
-                + (className ? " " + className : "")
+                + ("string" === typeof className && "" !== className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.label, "aria-label": this.props.label, value: this.props.value });
     }
@@ -19,11 +19,12 @@ export class InputReadOnly extends React.PureComponent {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
+        const hasChildren = Boolean(this.props.children);
         // controls
         const requiredValid = required ? "" !== this.props.value : true;
         const valid = requiredValid;
         // render
-        if (this.props.children) {
+        if (hasChildren) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),
                 this.props.children);

@@ -21,7 +21,7 @@ export default class ButtonGroup extends React.PureComponent {
             className += " col-12";
         }
         return React.createElement("div", { id: this.props.id, role: "button group", "aria-label": this.props.label, className: className, style: this.props.style }, React.Children.toArray(this.props.children).filter((child) => {
-            return Button === child.type;
+            return React.isValidElement(child) && Button === child.type;
         }));
     }
 }

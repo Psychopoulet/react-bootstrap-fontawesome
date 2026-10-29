@@ -43,7 +43,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
             className={
                 "form-control"
-                + (className ? " " + className : "")
+                + ("string" === typeof className && "" !== className ? " " + className : "")
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             } style={ this.props.style }
@@ -62,6 +62,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
         const required: boolean = Boolean(this.props.required);
+        const hasChildren: boolean = Boolean(this.props.children);
 
         // controls
 
@@ -71,7 +72,7 @@ export class InputReadOnly extends React.PureComponent<iPropsReadOnly> {
 
         // render
 
-        if (this.props.children) {
+        if (hasChildren) {
 
             return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 

@@ -18,7 +18,7 @@ export default class ListItem extends React.PureComponent {
             if ("string" === typeof this.props.variant) {
                 className += " list-group-item-" + this.props.variant;
             }
-            else if (variant) {
+            else if ("string" === typeof variant) {
                 className += " text-" + variant;
             }
             if (disabled) {
@@ -33,7 +33,7 @@ export default class ListItem extends React.PureComponent {
             if ("string" === typeof this.props.className) {
                 className += " " + this.props.className;
             }
-            return "function" === typeof this.props.onClick && !disabled ? React.createElement("a", { href: "#", id: this.props.id, className: className, style: this.props.style, "aria-disabled": disabled ? "true" : undefined, onClick: this.props.onClick }, this.props.children) : React.createElement("div", { id: this.props.id, className: className, style: this.props.style, "aria-disabled": disabled ? "true" : undefined }, this.props.children);
+            return "function" === typeof this.props.onClick && !disabled ? React.createElement("a", { href: "#", id: this.props.id, className: className, style: this.props.style, "aria-disabled": "true", onClick: this.props.onClick }, this.props.children) : React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, this.props.children);
         });
     }
 }

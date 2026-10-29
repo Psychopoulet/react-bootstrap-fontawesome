@@ -54,19 +54,20 @@ export class Range extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: "object" === typeof this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // props values
         const disabled = Boolean(this.props.disabled);
         const required = Boolean(this.props.required);
+        const hasChildren = Boolean(this.props.children);
         // controls
         const isNumber = "number" === typeof this.props.value;
         const integerValid = isNumber && Number.isInteger(this.props.value);
         const minValid = "number" === typeof this.props.min && isNumber ? this.props.value >= this.props.min : true;
         const maxValid = "number" === typeof this.props.max && isNumber ? this.props.value <= this.props.max : true;
         const valid = integerValid && minValid && maxValid;
-        if (this.props.children) {
+        if (hasChildren) {
             return React.createElement("div", { className: "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") },
                 this._renderInput(disabled, required, valid),
                 this.props.children);

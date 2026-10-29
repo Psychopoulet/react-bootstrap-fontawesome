@@ -44,7 +44,7 @@ export default class CardBody extends React.PureComponent<iPropsCardBody> {
                         className += " lead text-center";
                     }
 
-                    if (variant) {
+                    if ("string" === typeof variant) {
                         className += " text-" + variant;
                     }
 

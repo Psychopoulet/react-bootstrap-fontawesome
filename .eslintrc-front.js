@@ -10,5 +10,8 @@ module.exports = defineConfig({
     "plugins": {
         personnallinter
     },
-    "extends": [ personnallinter.configs["react"] ]
+    "extends": [ personnallinter.configs["react"] ],
+    "rules": {
+        "@typescript-eslint/no-unnecessary-condition": "off"
+    }
 });

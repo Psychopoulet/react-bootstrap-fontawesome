@@ -32,6 +32,6 @@ export default class NavItem extends React.PureComponent {
         if ("boolean" === typeof this.props.justify && this.props.justify) {
             linkClassName += " d-flex justify-content-between";
         }
-        return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? React.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined }, this.props.children) : React.createElement("a", { href: "#", className: linkClassName, role: "presentation", "aria-disabled": disabled ? "true" : undefined, tabIndex: disabled ? -1 : undefined, onClick: this._handleClick }, this.props.children));
+        return React.createElement("div", { id: this.props.id, className: className, style: this.props.style }, disabled ? React.createElement("span", { className: linkClassName, role: "presentation", "aria-disabled": "true", tabIndex: -1 }, this.props.children) : React.createElement("a", { href: "#", className: linkClassName, role: "presentation", onClick: this._handleClick }, this.props.children));
     }
 }

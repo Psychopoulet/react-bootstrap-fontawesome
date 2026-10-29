@@ -37,7 +37,7 @@ export default class CardFooter extends React.PureComponent<iPropsNode> {
 
                     return <div id={ this.props.id } className={
                         "card-footer"
-                        + (variant ? " border-" + variant + " text-" + variant : "")
+                        + ("string" === typeof variant ? " border-" + variant + " text-" + variant : "")
                         + ("string" === typeof this.props.className ? " " + this.props.className : "")
                     } style={ this.props.style }>
                         { this.props.children }

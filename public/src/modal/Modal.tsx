@@ -124,7 +124,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
             className += " modal-dialog-scrollable";
         }
 
-        if (this.props.size) {
+        if ("string" === typeof this.props.size) {
 
             switch (this.props.size) {
 
@@ -160,7 +160,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
 
             <div className={
                 "modal-content"
-                + (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "")
+                + ("string" === typeof this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "")
             }>
 
                 {
@@ -168,7 +168,7 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
                     "string" === typeof this.props.title || "function" === typeof this.props.onClose
                         ? <div className={
                             "modal-header"
-                            + (this.props.variant ? " border-" + this.props.variant : "")
+                            + ("string" === typeof this.props.variant ? " border-" + this.props.variant : "")
                         }>
 
                             { "string" === typeof this.props.title && <h5 className="modal-title">{ this.props.title }</h5> }
@@ -182,14 +182,15 @@ export default class Modal extends React.Component<iPropsModal, iStatesModal> {
                 }
 
                     {
-                        React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                        React.Children.toArray(this.props.children).filter((child): boolean => {
 
-                            return MaxHeightContent === child.type
+                            return React.isValidElement(child)
+                                && (MaxHeightContent === child.type
                                 || ModalBody === child.type
                                 || ModalImage === child.type
                                 || ModalList === child.type
                                 || ModalTable === child.type
-                                || ModalFooter === child.type;
+                                || ModalFooter === child.type);
 
                         })
                     }

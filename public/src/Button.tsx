@@ -51,6 +51,19 @@ export default class Button extends React.PureComponent<iPropsButton> {
 
     // render
 
+    private _renderIcon (): React.JSX.Element | undefined {
+
+        if ("undefined" === typeof this.props.icon) {
+            return undefined;
+        }
+
+        return <>
+            <Icon type={ this.props.icon } child></Icon>
+            { "undefined" !== typeof this.props.children && <>&nbsp;</> }
+        </>;
+
+    }
+
     public render (): React.JSX.Element {
 
         const disabled: boolean = Boolean(this.props.disabled);
@@ -90,8 +103,7 @@ export default class Button extends React.PureComponent<iPropsButton> {
             title={ this.props.title } aria-label={ this.props.title }
             onClick={ this._handleClick }
         >
-            { this.props.icon && <Icon type={ this.props.icon } child></Icon> }
-            { this.props.icon && "undefined" !== typeof this.props.children && <>&nbsp;</> }
+            { this._renderIcon() }
             { this.props.children }
         </button>;
 

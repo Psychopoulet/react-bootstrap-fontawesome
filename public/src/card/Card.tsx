@@ -57,16 +57,17 @@ export default class Card extends React.PureComponent<iPropsCard> {
                 </form> : <div id={ this.props.id } className={ className }>
 
                     {
-                        React.Children.toArray(this.props.children).filter((child: any): boolean => {
+                        React.Children.toArray(this.props.children).filter((child): boolean => {
 
-                            return MaxHeightContent === child.type
+                            return React.isValidElement(child)
+                                && (MaxHeightContent === child.type
                                 || CardHeader === child.type
                                 || CardHeaderNav === child.type
                                 || CardBody === child.type
                                 || CardList === child.type
                                 || CardTable === child.type
                                 || CardImage === child.type
-                                || CardFooter === child.type;
+                                || CardFooter === child.type);
 
                         })
                     }

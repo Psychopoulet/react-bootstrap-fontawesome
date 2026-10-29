@@ -18,6 +18,14 @@ export default class Button extends React.PureComponent {
         }
     };
     // render
+    _renderIcon() {
+        if ("undefined" === typeof this.props.icon) {
+            return undefined;
+        }
+        return React.createElement(React.Fragment, null,
+            React.createElement(Icon, { type: this.props.icon, child: true }),
+            "undefined" !== typeof this.props.children && React.createElement(React.Fragment, null, "\u00A0"));
+    }
     render() {
         const disabled = Boolean(this.props.disabled);
         let className = "btn";
@@ -43,8 +51,7 @@ export default class Button extends React.PureComponent {
             className += " " + this.props.className;
         }
         return React.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick },
-            this.props.icon && React.createElement(Icon, { type: this.props.icon, child: true }),
-            this.props.icon && "undefined" !== typeof this.props.children && React.createElement(React.Fragment, null, "\u00A0"),
+            this._renderIcon(),
             this.props.children);
     }
 }

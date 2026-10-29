@@ -9,13 +9,14 @@ export class InputFile extends React.PureComponent {
     static displayName = "InputFile";
     // events
     _handleChange = (e) => {
-        if (!e.target.files || !e.target.files.length) {
+        const files = e.target.files;
+        if (null === files || 0 === files.length) {
             if ("function" === typeof this.props.onChange) {
                 this.props.onChange(e, null);
             }
         }
         else {
-            const value = e.target.files[0];
+            const value = files[0];
             if ("number" === typeof this.props.maxSize && value.size > this.props.maxSize) {
                 if ("function" === typeof this.props.onChangeError) {
                     this.props.onChangeError(e, new Error("Incorrect file size"));

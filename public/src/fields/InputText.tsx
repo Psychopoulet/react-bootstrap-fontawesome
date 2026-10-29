@@ -96,6 +96,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
         // props values
         const disabled: boolean = Boolean(this.props.disabled);
         const required: boolean = Boolean(this.props.required);
+        const hasChildren: boolean = Boolean(this.props.children);
 
         // controls
 
@@ -122,7 +123,7 @@ export class InputText extends React.PureComponent<iPropsInputText> {
 
         // render
 
-        if (this.props.children) {
+        if (hasChildren) {
 
             return <div className={ "input-group" + ("string" === typeof this.props.className ? " " + this.props.className : "") }>
 
@@ -162,7 +163,7 @@ export class InputTextLabel extends React.PureComponent<iPropsInputTextLabel> {
             return <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } />;
         }
         else if (!patternValid) {
-            return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
+            return <InvalidFeedBack alert={ "The value does not respect the pattern (" + String(this.props.pattern) + ")" } />;
         }
         else {
             return undefined;

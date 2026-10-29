@@ -37,7 +37,7 @@ export default class List extends React.PureComponent<iPropsList> {
             className += " list-group-flush";
         }
 
-        if (this.props.horizontal) {
+        if (true === this.props.horizontal || "string" === typeof this.props.horizontal) {
 
             switch (this.props.horizontal) {
 
@@ -68,6 +68,7 @@ export default class List extends React.PureComponent<iPropsList> {
             }
 
             className += " list-group-horizontal";
+
         }
 
         if ("string" === typeof this.props.className) {
