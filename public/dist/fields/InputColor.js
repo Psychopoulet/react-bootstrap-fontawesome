@@ -35,7 +35,7 @@ export class InputColor extends React.PureComponent {
         const maxLengthValid = InputColor.MAX === value.length;
         const patternValid = new RegExp(InputColor.PATTERN).test(value);
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
-        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
+        const style = "object" === typeof this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });

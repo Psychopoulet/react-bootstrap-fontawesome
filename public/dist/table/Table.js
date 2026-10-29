@@ -12,7 +12,7 @@ export default class Table extends React.PureComponent {
     // render
     render() {
         let className = "table";
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " table-" + this.props.variant;
         }
         if ("boolean" === typeof this.props.responsive && this.props.responsive) {

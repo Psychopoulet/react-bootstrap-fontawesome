@@ -5,7 +5,7 @@ import * as React from "react";
 export default function generateFocus() {
     const ref = React.createRef();
     function setFocus() {
-        if (ref.current && "function" === typeof ref.current.focus) {
+        if ("object" === typeof ref.current && "function" === typeof ref.current.focus) {
             ref.current.focus();
         }
     }

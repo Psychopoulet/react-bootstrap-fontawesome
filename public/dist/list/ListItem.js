@@ -18,7 +18,7 @@ export default class ListItem extends React.PureComponent {
             if ("string" === typeof this.props.variant) {
                 className += " list-group-item-" + this.props.variant;
             }
-            else if (variant) {
+            else if ("string" === typeof variant) {
                 className += " text-" + variant;
             }
             if (disabled) {

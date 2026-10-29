@@ -70,7 +70,7 @@ export class InputTextLabel extends React.PureComponent {
             return React.createElement(InvalidFeedBackMaxLength, { max: this.props.maxLength, current: value.length });
         }
         else if (!patternValid) {
-            return React.createElement(InvalidFeedBack, { alert: "The value does not respect the pattern (" + this.props.pattern + ")" });
+            return React.createElement(InvalidFeedBack, { alert: "The value does not respect the pattern (" + String(this.props.pattern) + ")" });
         }
         else {
             return undefined;

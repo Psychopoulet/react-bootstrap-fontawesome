@@ -33630,7 +33630,7 @@ class Badge extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: this.props.id, title: this.props.title, className: className, style: this.props.style },
-            this.props.icon && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }),
+            "undefined" !== typeof this.props.icon && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }),
             this.props.children);
     }
 }
@@ -33671,6 +33671,14 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         }
     };
     // render
+    _renderIcon() {
+        if ("undefined" === typeof this.props.icon) {
+            return undefined;
+        }
+        return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }),
+            "undefined" !== typeof this.props.children && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, "\u00A0"));
+    }
     render() {
         const disabled = Boolean(this.props.disabled);
         let className = "btn";
@@ -33696,8 +33704,7 @@ class Button extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { id: this.props.id, role: "button", type: this.props.type ?? "button", className: className, style: this.props.style, disabled: disabled, "aria-disabled": disabled, title: this.props.title, "aria-label": this.props.title, onClick: this._handleClick },
-            this.props.icon && react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Icon__WEBPACK_IMPORTED_MODULE_1__["default"], { type: this.props.icon, child: true }),
-            this.props.icon && "undefined" !== typeof this.props.children && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, "\u00A0"),
+            this._renderIcon(),
             this.props.children);
     }
 }
@@ -33849,7 +33856,7 @@ class Icon extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         else if (!isChild) {
             className += " text-body";
         }
-        if (this.props.size) {
+        if ("string" === typeof this.props.size) {
             switch (this.props.size) {
                 case "sm":
                     className += " fs-6";
@@ -33899,7 +33906,7 @@ class Image extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     static displayName = "Image";
     // render
     render() {
-        const style = this.props.style ? { ...this.props.style } : {};
+        const style = "object" === typeof this.props.style ? { ...this.props.style } : {};
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";
         }
@@ -34125,7 +34132,7 @@ class CardBody extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             if ("boolean" === typeof this.props.lead && this.props.lead) {
                 className += " lead text-center";
             }
-            if (variant) {
+            if ("string" === typeof variant) {
                 className += " text-" + variant;
             }
             if ("string" === typeof this.props.className) {
@@ -34191,7 +34198,7 @@ class CardFooter extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     render() {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_CardContext__WEBPACK_IMPORTED_MODULE_1__.CardContext.Consumer, null, (variant) => {
             return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, className: "card-footer"
-                    + (variant ? " border-" + variant + " text-" + variant : "")
+                    + ("string" === typeof variant ? " border-" + variant + " text-" + variant : "")
                     + ("string" === typeof this.props.className ? " " + this.props.className : ""), style: this.props.style }, this.props.children);
         });
     }
@@ -34232,7 +34239,7 @@ class CardHeader extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             if ("boolean" === typeof this.props.justify && this.props.justify) {
                 className += " d-flex justify-content-between align-items-center";
             }
-            if (variant) {
+            if ("string" === typeof variant) {
                 className += " border-" + variant + " text-" + variant;
             }
             if ("string" === typeof this.props.className) {
@@ -34306,7 +34313,7 @@ class CardImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     static displayName = "CardImage";
     // render
     render() {
-        let className = this.props.position ? "card-img-" + this.props.position : "card-img-top";
+        let className = "string" === typeof this.props.position ? "card-img-" + this.props.position : "card-img-top";
         className += "string" === typeof this.props.className ? " " + this.props.className : "";
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, src: this.props.src, alt: this.props.alt, className: className, style: this.props.style, height: this.props.height, width: this.props.width, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
@@ -34788,7 +34795,7 @@ class InputColor extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         const maxLengthValid = InputColor.MAX === value.length;
         const patternValid = new RegExp(InputColor.PATTERN).test(value);
         const valid = requiredValid && minLengthValid && maxLengthValid && patternValid;
-        const style = this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
+        const style = "object" === typeof this.props.style ? { ...this.props.style, "height": "2.4rem" } : { "height": "2.4rem" };
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "color", ref: this.props._ref, className: "form-control"
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : ""), style: style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, pattern: InputColor.PATTERN, value: this.props.value, minLength: InputColor.MIN, maxLength: InputColor.MAX, onChange: this._handleChange, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
@@ -35373,7 +35380,7 @@ class InputTextLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMaxLength, { max: this.props.maxLength, current: value.length });
         }
         else if (!patternValid) {
-            return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBack, { alert: "The value does not respect the pattern (" + this.props.pattern + ")" });
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBack, { alert: "The value does not respect the pattern (" + String(this.props.pattern) + ")" });
         }
         else {
             return undefined;
@@ -35481,7 +35488,7 @@ class Range extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: "object" === typeof this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // props values
@@ -35764,7 +35771,7 @@ class TextAreaLabel extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBackMaxLength, { max: this.props.maxLength, current: value.length });
         }
         else if (!patternValid) {
-            return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBack, { alert: "The value does not respect the pattern (" + this.props.pattern + ")" });
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FieldFeedBacks__WEBPACK_IMPORTED_MODULE_1__.InvalidFeedBack, { alert: "The value does not respect the pattern (" + String(this.props.pattern) + ")" });
         }
         else {
             return undefined;
@@ -35892,7 +35899,7 @@ __webpack_require__.r(__webpack_exports__);
 function generateFocus() {
     const ref = react__WEBPACK_IMPORTED_MODULE_0__.createRef();
     function setFocus() {
-        if (ref.current && "function" === typeof ref.current.focus) {
+        if ("object" === typeof ref.current && "function" === typeof ref.current.focus) {
             ref.current.focus();
         }
     }
@@ -36020,7 +36027,7 @@ class ListItem extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
             if ("string" === typeof this.props.variant) {
                 className += " list-group-item-" + this.props.variant;
             }
-            else if (variant) {
+            else if ("string" === typeof variant) {
                 className += " text-" + variant;
             }
             if (disabled) {
@@ -36332,7 +36339,7 @@ class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         if ("boolean" === typeof this.props.scrollable && this.props.scrollable) {
             className += " modal-dialog-scrollable";
         }
-        if (this.props.size) {
+        if ("string" === typeof this.props.size) {
             switch (this.props.size) {
                 case "sm":
                     className += " modal-sm";
@@ -36356,10 +36363,10 @@ class Modal extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: className, style: this.props.style },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "modal-content"
-                    + (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "") },
+                    + ("string" === typeof this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "") },
                 "string" === typeof this.props.title || "function" === typeof this.props.onClose
                     ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "modal-header"
-                            + (this.props.variant ? " border-" + this.props.variant : "") },
+                            + ("string" === typeof this.props.variant ? " border-" + this.props.variant : "") },
                         "string" === typeof this.props.title && react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", { className: "modal-title" }, this.props.title),
                         "function" === typeof this.props.onClose
                             && react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", className: "btn-close", title: "close", "data-bs-dismiss": "modal", "aria-label": "Close", onClick: this.props.onClose }))
@@ -36477,7 +36484,7 @@ class ModalImage extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     static displayName = "ModalImage";
     // render
     render() {
-        let className = this.props.position ? "card-img-" + this.props.position : "card-img-top";
+        let className = "string" === typeof this.props.position ? "card-img-" + this.props.position : "card-img-top";
         className += "string" === typeof this.props.className ? " " + this.props.className : "";
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image__WEBPACK_IMPORTED_MODULE_1__["default"], { id: this.props.id, src: this.props.src, alt: this.props.alt, className: className, style: this.props.style, height: this.props.height, width: this.props.width, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave });
     }
@@ -36648,7 +36655,7 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     // events
     _handleSelect = (e, newIndex) => {
         let newSecuredIndex = newIndex;
-        if (this.props.items) {
+        if (Array.isArray(this.props.items)) {
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
             }
@@ -36683,7 +36690,7 @@ class NavTabs extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
             className += " " + this.props.className;
         }
         return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style },
-            this.props.items ? this.props.items.map((title, key) => {
+            Array.isArray(this.props.items) && 0 < this.props.items.length ? this.props.items.map((title, key) => {
                 return react__WEBPACK_IMPORTED_MODULE_0__.createElement(_NavItem__WEBPACK_IMPORTED_MODULE_1__["default"], { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(this.props.children).filter((child) => {
@@ -36724,7 +36731,7 @@ class Table extends react__WEBPACK_IMPORTED_MODULE_0__.PureComponent {
     // render
     render() {
         let className = "table";
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " table-" + this.props.variant;
         }
         if ("boolean" === typeof this.props.responsive && this.props.responsive) {

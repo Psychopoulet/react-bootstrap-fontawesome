@@ -29,7 +29,7 @@ export default class NavTabs extends React.Component {
     // events
     _handleSelect = (e, newIndex) => {
         let newSecuredIndex = newIndex;
-        if (this.props.items) {
+        if (Array.isArray(this.props.items)) {
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
             }
@@ -64,7 +64,7 @@ export default class NavTabs extends React.Component {
             className += " " + this.props.className;
         }
         return React.createElement("div", { id: this.props.id, role: "tablist", className: className, style: this.props.style },
-            this.props.items ? this.props.items.map((title, key) => {
+            Array.isArray(this.props.items) && 0 < this.props.items.length ? this.props.items.map((title, key) => {
                 return React.createElement(NavItem, { key: key, index: key, active: this.state.selectedIndex === key, disabled: this.state.selectedIndex === key, onClick: this._handleSelect }, title);
             }) : undefined,
             React.Children.toArray(this.props.children).filter((child) => {

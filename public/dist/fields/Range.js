@@ -54,7 +54,7 @@ export class Range extends React.PureComponent {
         return React.createElement("input", { id: this.props.id, name: this.props.name, type: "range", ref: this.props._ref, className: "form-control form-range"
                 + ("string" === typeof className ? " " + className : "")
                 + (disabled ? " disabled" : "")
-                + (!valid ? " is-invalid" : ""), style: this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
+                + (!valid ? " is-invalid" : ""), style: "object" === typeof this.props.style ? { ...style, ...this.props.style } : style, disabled: disabled, "aria-disabled": disabled, required: required, "aria-required": required, placeholder: this.props.placeholder, title: this.props.label, "aria-label": this.props.label, value: this.state.value, min: this.props.min, max: this.props.max, step: this.props.step ?? 1, onChange: this._handleChange, onMouseUp: this._handleMouseUp, onBlur: this.props.onBlur, onKeyDown: this.props.onKeyDown });
     }
     render() {
         // props values

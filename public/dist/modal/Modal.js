@@ -54,7 +54,7 @@ export default class Modal extends React.Component {
         if ("boolean" === typeof this.props.scrollable && this.props.scrollable) {
             className += " modal-dialog-scrollable";
         }
-        if (this.props.size) {
+        if ("string" === typeof this.props.size) {
             switch (this.props.size) {
                 case "sm":
                     className += " modal-sm";
@@ -78,10 +78,10 @@ export default class Modal extends React.Component {
         }
         return React.createElement("div", { className: className, style: this.props.style },
             React.createElement("div", { className: "modal-content"
-                    + (this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "") },
+                    + ("string" === typeof this.props.variant ? " border-" + this.props.variant + " text-" + this.props.variant : "") },
                 "string" === typeof this.props.title || "function" === typeof this.props.onClose
                     ? React.createElement("div", { className: "modal-header"
-                            + (this.props.variant ? " border-" + this.props.variant : "") },
+                            + ("string" === typeof this.props.variant ? " border-" + this.props.variant : "") },
                         "string" === typeof this.props.title && React.createElement("h5", { className: "modal-title" }, this.props.title),
                         "function" === typeof this.props.onClose
                             && React.createElement("button", { type: "button", className: "btn-close", title: "close", "data-bs-dismiss": "modal", "aria-label": "Close", onClick: this.props.onClose }))

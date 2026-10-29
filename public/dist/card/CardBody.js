@@ -14,7 +14,7 @@ export default class CardBody extends React.PureComponent {
             if ("boolean" === typeof this.props.lead && this.props.lead) {
                 className += " lead text-center";
             }
-            if (variant) {
+            if ("string" === typeof variant) {
                 className += " text-" + variant;
             }
             if ("string" === typeof this.props.className) {
