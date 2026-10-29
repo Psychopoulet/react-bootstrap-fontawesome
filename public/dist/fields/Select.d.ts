@@ -2,6 +2,7 @@ import * as React from "react";
 import type { iPropsField } from "../types";
 interface iPropsSelect extends iPropsField {
     "value": string;
+    "_ref"?: React.RefObject<HTMLSelectElement>;
     "onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: string, oldValue: string) => void;
 }
 interface iPropsSelectLabel extends iPropsSelect {

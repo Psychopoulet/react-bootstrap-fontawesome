@@ -16,6 +16,7 @@
 
     interface iPropsSelect extends iPropsField {
         "value": string;
+        "_ref"?: React.RefObject<HTMLSelectElement>;
         "onChange"?: (e: React.ChangeEvent<HTMLSelectElement>, newValue: string, oldValue: string) => void;
     }
 
@@ -62,6 +63,8 @@ export class Select extends React.PureComponent<iPropsSelect> {
 
         // render
         return <select id={ this.props.id } name={ this.props.name }
+
+            ref={ this.props._ref }
 
             required={ required } aria-required={ required }
 
@@ -120,6 +123,7 @@ export class SelectLabel extends React.PureComponent<iPropsSelectLabel> {
                 disabled={ disabled }
                 label={ this.props.label } value={ this.props.value }
                 onChange={ this.props.onChange }
+                _ref={ this.props._ref }
 
             >
                 { this.props.children }
