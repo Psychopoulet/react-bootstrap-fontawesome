@@ -18,7 +18,7 @@ export default function generateFocus<T extends HTMLElement> (): iGenerateFocusC
 
     function setFocus (): void {
 
-        if (ref.current && "function" === typeof ref.current.focus) {
+        if ("object" === typeof ref.current && "function" === typeof ref.current.focus) {
             ref.current.focus();
         }
 

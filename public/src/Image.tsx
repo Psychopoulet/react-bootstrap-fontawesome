@@ -33,7 +33,7 @@ export default class Image extends React.PureComponent<iPropsImage> {
 
     public render (): React.JSX.Element {
 
-        const style: Record<string, string> = this.props.style ? { ...this.props.style } : {};
+        const style: Record<string, string> = "object" === typeof this.props.style ? { ...this.props.style } : {};
 
         if ("function" === typeof this.props.onClick) {
             style.cursor = "pointer";

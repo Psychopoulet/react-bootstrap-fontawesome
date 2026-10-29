@@ -40,7 +40,7 @@ export default class Table extends React.PureComponent<iPropsTable> {
 
         let className: string = "table";
 
-        if (this.props.variant) {
+        if ("string" === typeof this.props.variant) {
             className += " table-" + this.props.variant;
         }
 

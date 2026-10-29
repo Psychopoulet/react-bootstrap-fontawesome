@@ -121,7 +121,7 @@ export class Range extends React.PureComponent<iPropsRange, iStateRange> {
                 + (disabled ? " disabled" : "")
                 + (!valid ? " is-invalid" : "")
             }
-            style={ this.props.style ? { ...style, ...this.props.style } : style }
+            style={ "object" === typeof this.props.style ? { ...style, ...this.props.style } : style }
             disabled={ disabled } aria-disabled={ disabled }
             required={ required } aria-required={ required }
 

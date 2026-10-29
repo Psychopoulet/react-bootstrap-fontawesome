@@ -140,7 +140,7 @@ export class TextAreaLabel extends React.PureComponent<iPropsTextAreaLabel> {
             return <InvalidFeedBackMaxLength max={ this.props.maxLength as number } current={ value.length } />;
         }
         else if (!patternValid) {
-            return <InvalidFeedBack alert={ "The value does not respect the pattern (" + this.props.pattern + ")" } />;
+            return <InvalidFeedBack alert={ "The value does not respect the pattern (" + String(this.props.pattern) + ")" } />;
         }
         else {
             return undefined;

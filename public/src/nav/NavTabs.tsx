@@ -69,7 +69,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
         let newSecuredIndex: number = newIndex;
 
-        if (this.props.items) {
+        if (Array.isArray(this.props.items)) {
 
             if (newIndex >= this.props.items.length) {
                 newSecuredIndex = this.props.items.length - 1;
@@ -121,7 +121,7 @@ export default class NavTabs extends React.Component<iPropsNavTabs, iStatesNavTa
 
             {
 
-                this.props.items ? this.props.items.map((title: string, key: number): React.JSX.Element => {
+                Array.isArray(this.props.items) && 0 < this.props.items.length ? this.props.items.map((title: string, key: number): React.JSX.Element => {
 
                     return <NavItem key={ key } index={ key }
                         active={ this.state.selectedIndex === key } disabled={ this.state.selectedIndex === key }

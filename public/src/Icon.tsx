@@ -156,7 +156,7 @@ export default class Icon extends React.PureComponent<iPropsIcon> {
             className += " text-body";
         }
 
-        if (this.props.size) {
+        if ("string" === typeof this.props.size) {
 
             switch (this.props.size) {
 
