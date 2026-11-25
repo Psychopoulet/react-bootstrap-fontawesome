@@ -54,19 +54,19 @@
     "/public/dist"
   ],
   "engines": {
-    "node": ">=24.22.2"
+    "node": ">=24.22.3"
   },
 
   "dependencies": {},
   "devDependencies": {
-    "@types/react": "19.3.0",
+    "@types/react": "19.3.2",
     "@types/react-dom": "19.3.0",
     "check-node-engine": "1.2.1",
     "check-version-modules": "2.5.2",
     "colors": "1.4.0",
     "css-loader": "7.1.5",
     "eslint-plugin-personnallinter": "git+ssh://git@github.com/Psychopoulet/eslint-plugin-personnallinter",
-    "globals": "17.13.0",
+    "globals": "17.14.0",
     "husky": "9.1.7",
     "react": "19.3.1",
     "react-dom": "19.3.1",
@@ -74,8 +74,11 @@
     "ts-loader": "9.6.2",
     "typescript": "6.0.3",
     "used-deps-analyzer": "0.4.1",
-    "webpack": "5.112.2",
-    "webpack-cli": "7.2.3"
+    "webpack": "5.113.0",
+    "webpack-cli": "7.3.1"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
   },
 
   "keywords": [
